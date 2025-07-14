@@ -1,0 +1,134 @@
+  .footer {
+    /* position: fixed; */
+    color: white;
+    left: 0px;
+    /* bottom: 0px; */
+    width: 100%;
+    background: url('../../../../assets/WEBSITE\ FOOTER\ IMAGES/footer-bg.png');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1px 10px;
+
+  }
+
+  .text-color {
+    color: aliceblue;
+  }
+
+  .social-links {
+    display: flex;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+
+  .grid img {
+    width: 100%;
+  }
+
+  .social-links {
+    img {
+      width: 25px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+  }
+
+  .footer-bottom {
+    position: relative;
+    padding: 28px 0px;
+    background: #0d0e12;
+}
+
+.auto-container {
+  position: static;
+  max-width: 1200px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+
+.bottom-inner{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
+}
+
+.text-center{
+  text-align: center !important;
+}
+
+.footer-bottom .copyright p, .footer-bottom .copyright p a {
+  font-size: 15px;
+  line-height: 26px;
+  color: #aeb1b8;
+}
+
+#scrollToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.arrow-icon {
+  font-size: 30px;
+  color: #fff;
+}
+
+#scrollToTop {
+  display: inline-block;
+  background: linear-gradient(
+  180deg,
+ #f45683 0%,
+ #f55f7b 17.8%,
+ #fda543 78.3%,
+ #ffb636 100%
+);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, opacity .5s, visibility .5s;
+  /* opacity: 0 !important;
+  visibility: hidden !important; */
+  z-index: 1000;
+}
+
+
+#scrollToTop {
+  display: inline-block;
+  background: linear-gradient(
+    180deg,
+    #f45683 0%,
+    #f55f7b 17.8%,
+    #fda543 78.3%,
+    #ffb636 100%
+  );
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+#scrollToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.arrow-icon {
+  font-size: 30px;
+  color: #fff;
+}

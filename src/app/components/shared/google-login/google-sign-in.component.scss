@@ -1,0 +1,72 @@
+/*
+// Define colors
+$white: #ffffff;
+$secondary-dark: #4a4a4a;  // Example dark secondary color
+$secondary-light: #cccccc; // Example light secondary color
+
+// Define other variables
+$font-weight-500: 500;
+$border-radius: 8px; // Example border-radius
+
+#googleBtn {
+  background-color: $white;
+  color: $secondary-dark;
+  border: 2px solid $secondary-light;
+  font-weight: $font-weight-500;
+  width: 100%;
+  border-radius: $border-radius;
+  transition: ease-in-out all .3s;
+
+  &:hover {
+    border-color: $secondary-dark;
+    color: $secondary-dark;
+  }
+}
+
+.google-sign-image{
+width:15%;
+}
+*/
+.googleBtn {
+  background-color: #4185f4;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px !important;
+  padding: 1px 2px 0px 1px;
+  line-height: 2.5 !important;
+  text-transform: none;
+}
+
+.googleBtn img {
+  margin: 0;
+  background-color: #fff;
+  height: 42px;
+  float: left;
+}
+.headerModal {
+  background: linear-gradient(
+      180deg,
+      #f45683 0.00%,
+      #f55f7b 17.82%,
+      #fda543 78.32%,
+      #ffb636 100.00%) !important;
+}
+.ng-select.countryPicker .ng-select-container,
+.ng-select.countryPicker ::ng-deep .ng-select-container {
+  border: none !important;
+}
+
+/* Remove the blue border when the search input is focused */
+.ng-select.countryPicker ::ng-deep .ng-select-container .ng-select-search {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.form-group label {
+  color: #808080 !important;
+}
+input {
+  color: #808080 !important;
+
+}

@@ -1,0 +1,47 @@
+/* Styling for equal-width cells and padding */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 5px; /* Space between cells */
+}
+
+th, td {
+  text-align: center;
+  padding: 15px;
+  width: 100px;
+  height: 60px;
+}
+
+td {
+  background-color: lightgrey;
+}
+
+/* Custom color for highlighted cells */
+.highlight {
+  background-color: #00d2ff; /* Matching the blue color in the image */
+}
+
+/* Custom styling for the edit column */
+.edit-icon {
+  text-align: center;
+  width: 50px;
+}
+
+/* Pencil icon */
+.edit-icon .fa-pencil-alt {
+  color: #000;
+  cursor: pointer;
+}
+
+/* Ensures table fits and scrolls nicely on smaller screens */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Adjust table rows for responsiveness */
+@media (max-width: 768px) {
+  th, td {
+    width: 80px;
+    padding: 10px;
+  }
+}

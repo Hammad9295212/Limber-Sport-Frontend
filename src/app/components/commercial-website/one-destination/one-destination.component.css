@@ -1,0 +1,199 @@
+/* .bg-container{
+width: 100%;
+background-color: grey;
+background-size: cover;
+color: #fff;
+}
+
+.gap{
+  background: #d1cdd8;
+  width: 19.5rem;
+    height: 12.5rem;
+    border-radius: 16px;
+    font-size: xx-large;
+}
+.block-gap{
+    gap: 1% 1%;
+}
+.text-style{
+  font-weight: 900;
+  color: #0c5060 !important;
+  font-size: xxx-large;
+}
+.text-para{
+  font-weight: 400;
+  color: #0c5060 !important;
+  font-size: x-large;
+} */
+.feature-section .anim-icon .anim-icon-3 {
+  top: 80px;
+  right: 180px;
+  width: 102px;
+  height: 96px;
+}
+
+.auto-container {
+  position: static;
+  max-width: 1200px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+.sec-title.centred {
+  text-align: center !important;
+}
+.sec-title p {
+  position: relative;
+  display: block;
+  font-size: 17px;
+  line-height: 28px;
+  color: #808080;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.sec-title h2 {
+  color: #0c5060 !important;
+  position: relative;
+  display: block;
+  line-height: 60px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+.feature-block-one .inner-box .lower-content {
+  position: relative;
+  display: block;
+  padding: 60px 15px 25px 15px;
+}
+
+.feature-block-one .inner-box .lower-content .icon-box {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  background: #fff;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 40px;
+  box-shadow: 0px 15px 20px 0px rgba(0, 0, 0, 0.06);
+}
+
+.feature-block-one .inner-box .lower-content .icon-box {
+  color: #ff7c5b;
+}
+.feature-block-one .inner-box .lower-content h4 {
+  display: block;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #0c5060;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  transition-delay: .1s;
+  transition-timing-function: ease-in-out;
+  transition-duration: .7s;
+  transition-property: all;
+}
+
+
+
+.sec-title {
+  position: relative;
+  display: block;
+  margin-bottom: 50px;
+}
+
+.anim-icon .icon {
+  position: absolute;
+  background-repeat: no-repeat;
+}
+.feature-section {
+  position: relative;
+}
+
+.bg-color-1 {
+  background: #f5f6f6;
+}
+.sec-pad {
+  padding: 144px 0px 150px 0px;
+}
+.centred {
+  text-align: center;
+}
+
+.it-is-easy {
+  margin: 0;
+}
+basketball-108622-1920-icon {
+  position: absolute;
+  width: calc(100% + 60px);
+  top: 0;
+  right: -60px;
+  left: 0;
+  border-radius: var(--br-8xs) var(--br-8xs) 0 0;
+  max-width: 100%;
+  overflow: hidden;
+  height: 231px;
+  object-fit: cover;
+}
+.group-child29 {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 var(--br-8xs) var(--br-8xs);
+  background-color: var(--color-white);
+  height: 135px;
+}
+.group-child30 {
+  position: absolute;
+  top: calc(50% - 23px);
+  left: calc(50% - 40px);
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+}
+.playersgames {
+  position: absolute;
+  top: calc(50% + 75px);
+  left: calc(50% - 73px);
+  line-height: 24px;
+}
+.basketball-108622-1920-parent {
+  position: absolute;
+  top: 1088px;
+  left: 355px;
+  width: 270px;
+  height: 306px;
+  color: var(--color-darkslategray-100);
+}
+.website-home-child30 {
+  position: absolute;
+  top: 1241px;
+  left: 461.88px;
+  width: 56.2px;
+  height: 35.5px;
+}
+.website-home-child31 {
+  position: absolute;
+  top: 1239.44px;
+  left: 767.43px;
+  width: 43.1px;
+  height: 37.1px;
+}
+.path-13382-icon,
+.website-home-child32 {
+  position: absolute;
+  top: 1236.05px;
+  left: 1068.63px;
+  width: 38.7px;
+  height: 43.8px;
+}

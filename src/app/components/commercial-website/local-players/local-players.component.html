@@ -1,0 +1,236 @@
+<!-- <div class="container mt-5">
+    <div class="row text-center">
+        <h4 class="text-para">IT IS EASY TO PLAY SPORT WHEREVER YOU ARE AND WHENEVER YOU WANT</h4>
+        <h1 class="text-style">LOCAL PLAYERS & TEAMS FOR A GAME</h1>
+    </div>
+    <div class="row justify-center">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="assets/local-player/player1.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <div>
+                            <span>
+                                <i class="fa fa-star checked"></i> 5.0 Superb
+                            </span>
+                        </div>
+                        <h4 class="card-title">Avi Lazarus</h4>
+                        <h5 class="">Glasgow</h5>
+                        <p class="card-text">Looking to connect with fellow footballers wanting a quick weekend match.
+                            Nothing too serious, just a bit of fun and a decent workout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="assets/local-player/player2.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <div>
+                            <span>
+                                <i class="fa fa-star checked"></i> 9.7 Superb
+                            </span>
+                        </div>
+                        <h4 class="card-title">James Sherlock</h4>
+                        <h5 class="card-title">Manchester</h5>
+                        <p class="card-text">Interested in starting a local bowls league or joining up with a bowls club
+                            already running. Any info would be appreciated. Thanks!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="assets/local-player/player3.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <div>
+                            <span>
+                                <i class="fa fa-star checked"></i> 8.9 Superb
+                            </span>
+                        </div>
+                        <h4 class="card-title">Dorothy Spiers</h4>
+                        <h5 class="card-title">Bristol</h5>
+                        <p class="card-text">Love to build up the women’s hockey scene here in Bristol. Already have a
+                            great local hardware store willing to promote the sport by offering new team members with
+                            new jerseys.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="assets/local-player/player4.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <div>
+                            <span>
+                                <i class="fa fa-star checked"></i> 8.6 Superb
+                            </span>
+                        </div>
+                        <h4 class="card-title">Chunwen Xiu</h4>
+                        <h5 class="card-title">London</h5>
+                        <p class="card-text">I have moved recently to London from Shanghai for work. I am looking for
+                            someone to do some Boxing fitness with and the occassional sparring! Send us a note!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- prem's code -->
+<section class="tour-style-two">
+    <div class="auto-container">
+        <div class="sec-title text-center pt-20">
+            <p>It is easy to play sport wherever you are and whenever you want</p>
+            <h2 class="text-5xl max-md:text-3xl">LOCAL PLAYERS &amp; TEAMS FOR A GAME</h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-6 col-md-12 col-sm-12 tour-block" *ngFor="let player of playerData">
+                <div class="tour-block-two wow fadeInLeft animated animated" data-wow-delay="00ms"
+                    data-wow-duration="1500ms"
+                     *ngIf="player"
+                >
+                    <div
+                        class="inner-box first-line: max-sm:flex max-sm:flex-col max-sm:items-center border-white pl-2">
+                        <figure class="image-box" *ngIf="player?.profile_image">
+                            <img class="local-player-img" [src]="returnImg({ player })" alt="">
+                            <a href="tour-details.html"><i class="fas fa-link"></i></a>
+                        </figure>
+                        <div class="content-box">
+                            <div class="flex items-center gap-2 max-sm:justify-center max-sm:text-center">
+                                <i class="fa-solid fa-star rating"></i>
+                                <span class="text-[#808080]">
+                                    5.0 Superb
+                                </span>
+                            </div>
+                          <h3 class="text-[#0c5060] w-full max-sm:text-center">
+                            {{
+                              (player?.user?.name ? player?.user?.name : (player?.first_name + " " + player?.last_name))
+                                | slice:0:11
+                            }}{{ (player?.user?.name ? player?.user?.name : (player?.first_name + " " + player?.last_name))?.length > 11 ? '...' : '' }}
+                          </h3>
+                          <!-- <h3 class="text-[#0c5060] w-full max-sm:text-center">
+                             {{
+                              player?.user?.name ? player?.user?.name : (player?.first_name +" "+ player?.last_name)
+                             }}
+                           </h3>-->
+                            <p class="text-pink-600 m-0 text-lg w-full max-sm:text-center"  *ngIf="player?.location">{{player.location}}
+                            </p>
+                            <!-- <p class="text-[#0c5060] max-sm:text-justify"  *ngIf="player?.about_me">{{player?.about_me}}</p> -->
+
+
+                            <p class="text-[#0c5060] max-sm:text-justify"  *ngIf="player?.about_me">
+                                {{ getTruncatedTextByWords(player?.about_me, 10) }}
+
+                            </p>
+
+                            <span class="flex items-center gap-2 text-[#0c5060] max-sm:justify-center">
+                                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                                <i class="fa-solid fa-baseball-bat-ball"></i>
+                                <i class="fa-solid fa-volleyball"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-lg-6 col-md-12 col-sm-12 tour-block">
+                <div class="tour-block-two wow fadeInRight animated animated" data-wow-delay="00ms"
+                    data-wow-duration="1500ms">
+                    <div class="inner-box border-white border-l-4">
+                        <figure class="image-box">
+                            <img src="assets/local-player/player2.png" alt="">
+                            <a href="tour-details.html"><i class="fas fa-link"></i></a>
+                        </figure>
+                        <div class="content-box max-sm:text-center">
+                            <div class="flex items-center gap-2 w-full max-sm:justify-center">
+                                <i class="fa-solid fa-star rating"></i>
+                                <span class="text-[#808080]">
+                                    5.0 Superb
+                                </span>
+                            </div>
+                            <h3 class="text-[#0c5060]">James Sherlock</h3>
+                            <p class="text-pink-600 m-0 text-lg">Manchester</p>
+                            <p class="text-[#0c5060] text-justify">Interested in starting a local bowls league or joining up with a
+                                bowls club already running. Any info would be appreciated. Thanks!</p>
+                            <span class="flex items-center gap-2 text-[#0c5060] w-full max-sm:justify-center">
+                                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                                <i class="fa-solid fa-baseball-bat-ball"></i>
+                                <i class="fa-solid fa-volleyball"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 tour-block">
+                <div class="tour-block-two wow fadeInLeft animated animated" data-wow-delay="300ms"
+                    data-wow-duration="1500ms">
+                    <div class="inner-box border-white border-l-4">
+                        <figure class="image-box">
+                            <img src="assets/local-player/player3.png" alt="">
+                            <a href="tour-details.html"><i class="fas fa-link"></i></a>
+                        </figure>
+                        <div class="content-box max-sm:text-center">
+                            <div class="flex items-center gap-2 max-sm:justify-center">
+                                <i class="fa-solid fa-star rating"></i>
+                                <span class="text-[#808080]">
+                                    5.0 Superb
+                                </span>
+                            </div>
+                            <h3 class="text-[#0c5060]">Dorothy Spiers</h3>
+                            <p class="text-pink-600 m-0 text-lg">Bristol</p>
+                            <p class="text-[#0c5060] max-sm:text-justify">Love to build up the women’s hockey scene here in Bristol. Already
+                                have
+                                a great local hardware store willing to promote the sport by offering new team members
+                                with new jerseys.</p>
+                            <span class="flex items-center gap-2 text-[#0c5060] max-sm:justify-center">
+                                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                                <i class="fa-solid fa-baseball-bat-ball"></i>
+                                <i class="fa-solid fa-volleyball"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 tour-block">
+                <div class="tour-block-two wow fadeInRight animated animated" data-wow-delay="300ms"
+                    data-wow-duration="1500ms">
+                    <div class="inner-box border-white border-l-4">
+                        <figure class="image-box">
+                            <img src="assets/local-player/player4.png" alt="">
+                            <a href="tour-details.html"><i class="fas fa-link"></i></a>
+                        </figure>
+                        <div class="content-box max-sm:text-center">
+                            <div class="flex items-center gap-2 max-sm:justify-center">
+                                <i class="fa-solid fa-star rating"></i>
+                                <span class="text-[#808080]">
+                                    5.0 Superb
+                                </span>
+                            </div>
+                            <h3 class="text-[#0c5060]">Chunwen Xiu</h3>
+                            <p class="text-pink-600 m-0 text-lg">London</p>
+                            <p class="text-[#0c5060] max-sm:text-justify">I have moved recently to London from Shanghai for work. I am
+                                looking for someone to do some Boxing fitness with and the occassional sparring! Send us
+                                a note!</p>
+                            <span class="flex items-center gap-2 text-[#0c5060] max-sm:justify-center">
+                                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                                <i class="fa-solid fa-baseball-bat-ball"></i>
+                                <i class="fa-solid fa-volleyball"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>

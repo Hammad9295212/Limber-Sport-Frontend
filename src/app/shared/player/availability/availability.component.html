@@ -1,0 +1,67 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead class="table-header">
+    <tr>
+      <th></th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+      <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let schedule of scheduleList">
+      <th>{{ schedule?.name }}</th>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.mon === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.tue === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.wed === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.thu === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.fri === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.sat === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.sun === 'Yes')"></td>
+      <td class="edit-icon" (click)="editAvailability(schedule)">
+        <i class="fas fa-pencil-alt" title="Edit"></i>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--
+<div class="table-responsive">
+  <table class="table"
+         style="border: 1px solid lightgrey !important;"
+  >
+    <thead>
+    <tr>
+      <th></th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+      <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let schedule of scheduleList">
+      <th>{{ schedule?.name }}</th>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.mon === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.tue === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.wed === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.thu === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.fri === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.sat === 'Yes')"></td>
+      <td [class.highlight]="(onFIndSchedule(schedule?.id)?.sun === 'Yes')"></td>
+      <td class="edit-icon"><i class="fas fa-pencil-alt"></i></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+-->

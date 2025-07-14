@@ -1,0 +1,80 @@
+<div class="container-fluid" *ngIf="currentUser">
+  <app-header2 [notification_toast]="false"></app-header2>
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1200;">
+    <ngb-toast
+      *ngFor="let toast of toastService.toasts"
+      [autohide]="true"
+      [delay]="toast.delay || 5000"
+      (hidden)="toastService.remove(toast)"
+      [ngClass]="toast?.classname"
+    >
+      <ng-template [ngIf]="isTemplate(toast)" [ngIfElse]="text">
+        <ng-template [ngTemplateOutlet]="toast.textOrTpl"></ng-template>
+      </ng-template>
+
+      <ng-template #text>{{ toast.textOrTpl }}</ng-template>
+    </ngb-toast>
+  </div>
+  <div class="mt-5" style="margin-top: 100px !important;">
+    <div class="container my-4">
+      <h4 class="text-primary mb-4"
+          style="color: #0c5060 !important;"
+      >My Sporting Connections ({{ (Array.isArray(extra?.connectionList) ? extra?.connectionList : extra?.connectionList?.data)?.length }}) </h4>
+      <div class="row">
+       <div
+         class="col-md-3 col-sm-6 col-12"
+            *ngFor="let connection of (Array.isArray(extra?.connectionList) ? extra?.connectionList : extra?.connectionList?.data)">
+         <div class="card profile-card text-center"
+         >
+           <div class="card-body">
+             <div class="profile-image d-flex justify-content-center"
+
+             >
+               <img [src]="connection?.profile_image || '/assets/icons/default.jpg'" alt="Profile Icon" class="img-fluid rounded-circle">
+             </div>
+             <div>
+               <h5 class="mt-3"></h5>
+               <p class="text-danger">{{ connection?.name || connection?.user?.name }}</p>
+               <!--<p class="text-muted small mb-1">Connections: 0</p>-->
+               <p class="text-muted small"></p>
+               <div class="d-flex flex-row align-content-center items-center justify-content-center">
+                 <button class="player-btn-details"
+                         style="margin-right: 6px;"
+
+                         (click)="handlePlayerDetailsView(connection?.pivot?.other_user_id)">
+                  <span> See Details</span>
+                 </button>
+                 <button class="player-btn-connect"
+                         style="height: 56px"
+                         (click)="onPlayerDisconnect(connection?.pivot?.user_id)"
+                         *ngIf="connection?.id"
+                 >
+                   Disconnect
+                 </button>
+               </div>
+               <!--<div class="d-flex flex-row justify-content-center mt-3">
+                 <button class="btn btn-light"
+                         style="margin-right: 10px;"
+                         *ngIf="getCurrentUser() && connection?.pivot?.other_user_id"
+                         (click)="handlePlayerDetailsView(connection?.pivot?.other_user_id)">See Details
+                 </button>
+                 <button class="btn btn-danger"
+                         (click)="onPlayerDisconnect(connection?.id)"
+                 >Disconnect</button>
+               </div>-->
+               <!--<p class="mutual-connections mt-2 mb-0">1 Mutual Connections</p>-->
+             </div>
+           </div>
+         </div>
+       <!--  <app-playercard
+
+           [player]="player"
+           [sportsData]="sportsData"
+           [listView]="false"
+         ></app-playercard>-->
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+

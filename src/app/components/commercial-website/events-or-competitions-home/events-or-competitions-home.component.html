@@ -1,0 +1,970 @@
+<app-header></app-header>
+<div>
+    <div class="w-full hero-section flex justify-center items-center bg-black bg-opacity-50">
+        <div class="mt-16 flex flex-col justify-center items-center text-center text-[#fff] max-w-[1200px] h-full">
+            <h1 class="font-black text-[50px] leading-10 max-sm:text-4xl">
+                Find an Event or Competition to Enter
+            </h1>
+            <h2 class="font-medium text-lg max-sm:text-base">
+                CHOOSE FROM OVER 30,000 EVENTS AND COMPETITIONS TO ENTER AND MAKE NEW FRIENDS THROUGH SPORT AND PHYSICAL
+                ACTIVITY
+            </h2>
+        </div>
+    </div>
+
+    <div class="h-100 -mt-10 px-10" style="background-color:#f0f0f0;">
+        <div class="search-container grid grid-cols-10 gap-2 items-center justify-evenly h-36 max-sm:h-fit">
+            <div class="col-span-2 max-sm:col-span-full sm:pl-10 max-sm:pl-4 font-semibold">
+                <div class="search-select font-semibold text-[#0c5060]">
+                    <label>Competitions & Events</label>
+                </div>
+            </div>
+
+            <div class="col-span-2 max-sm:col-span-full">
+                <div class="search-select">
+                    <select name="sport" class="w-full">
+                        <option value="" data-display="">Which Sport ?</option>
+                        <option value="Acrobatics">Acrobatics</option>
+                        <option value="Aikido">Aikido</option>
+                        <option value="American Football">American Football</option>
+                        <option value="Angling">Angling</option>
+                        <option value="Aquathlon">Aquathlon</option>
+                        <option value="Archery">Archery</option>
+                        <option value="Arm Wrestling">Arm Wrestling</option>
+                        <option value="Artistic Skating (Roller)">Artistic Skating (Roller)</option>
+                        <option value="Athletics">Athletics</option>
+                        <option value="Australian Rules Football">Australian Rules Football</option>
+                        <option value="Badminton">Badminton</option>
+                        <option value="Ballooning">Ballooning</option>
+                        <option value="Ballroom Dancing">Ballroom Dancing</option>
+                        <option value="Baseball">Baseball</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Baton Twirling">Baton Twirling</option>
+                        <option value="Biathlon">Biathlon</option>
+                        <option value="Bicycle Polo">Bicycle Polo</option>
+                        <option value="Billiards and Snooker">Billiards and Snooker</option>
+                        <option value="BMX">BMX</option>
+                        <option value="Bobsleigh">Bobsleigh</option>
+                        <option value="Boccia">Boccia</option>
+                        <option value="Bowls">Bowls</option>
+                        <option value="Boxing">Boxing</option>
+                        <option value="Camogie">Camogie</option>
+                        <option value="Canoeing">Canoeing</option>
+                        <option value="Caving">Caving</option>
+                        <option value="Chinese Martial Arts">Chinese Martial Arts</option>
+                        <option value="Clay Pigeon Shooting">Clay Pigeon Shooting</option>
+                        <option value="Climbing">Climbing</option>
+                        <option value="Cricket">Cricket</option>
+                        <option value="Croquet">Croquet</option>
+                        <option value="Cross Country Running">Cross Country Running</option>
+                        <option value="Curling">Curling</option>
+                        <option value="Cycling">Cycling</option>
+                        <option value="Dance Sport">Dance Sport</option>
+                        <option value="Darts">Darts</option>
+                        <option value="Diving">Diving</option>
+                        <option value="Dodgeball">Dodgeball</option>
+                        <option value="Dragon Boat Racing">Dragon Boat Racing</option>
+                        <option value="Duathlon">Duathlon</option>
+                        <option value="E-Sports">E-Sports</option>
+                        <option value="Equestrian">Equestrian</option>
+                        <option value="Fencing">Fencing</option>
+                        <option value="Fives">Fives</option>
+                        <option value="Floorball">Floorball</option>
+                        <option value="Folk Dancing">Folk Dancing</option>
+                        <option value="Football">Football</option>
+                        <option value="Futsal">Futsal</option>
+                        <option value="Gaelic Football">Gaelic Football</option>
+                        <option value="Gliding">Gliding</option>
+                        <option value="Goalball">Goalball</option>
+                        <option value="Golf">Golf</option>
+                        <option value="Gymnastics">Gymnastics</option>
+                        <option value="Handball">Handball</option>
+                        <option value="Hang Gliding and Paragliding">Hang Gliding and Paragliding</option>
+                        <option value="Harness Racing">Harness Racing</option>
+                        <option value="Health and Beauty Exercise">Health and Beauty Exercise</option>
+                        <option value="Highland Games">Highland Games</option>
+                        <option value="Hockey">Hockey</option>
+                        <option value="Hovering">Hovering</option>
+                        <option value="Hurling">Hurling</option>
+                        <option value="Ice Hockey">Ice Hockey</option>
+                        <option value="Ice Skating">Ice Skating</option>
+                        <option value="Jet Skiing">Jet Skiing</option>
+                        <option value="Ju Jitsu">Ju Jitsu</option>
+                        <option value="Judo">Judo</option>
+                        <option value="Kabaddi">Kabaddi</option>
+                        <option value="Karate">Karate</option>
+                        <option value="Kayaking">Kayaking</option>
+                        <option value="Keep Fit">Keep Fit</option>
+                        <option value="Kendo">Kendo</option>
+                        <option value="Kite Surfing">Kite Surfing</option>
+                        <option value="Kneeboarding">Kneeboarding</option>
+                        <option value="Korfball">Korfball</option>
+                        <option value="Lacrosse">Lacrosse</option>
+                        <option value="Land-Sailing/Yachting">Land-Sailing/Yachting</option>
+                        <option value="Life Saving">Life Saving</option>
+                        <option value="Long Jump">Long Jump</option>
+                        <option value="Luge">Luge</option>
+                        <option value="Model Aircraft Flying">Model Aircraft Flying</option>
+                        <option value="Modern Pentathlon">Modern Pentathlon</option>
+                        <option value="Motor Cruising">Motor Cruising</option>
+                        <option value="Motor Cycling">Motor Cycling</option>
+                        <option value="Motor Sports">Motor Sports</option>
+                        <option value="Mountain Biking">Mountain Biking</option>
+                        <option value="Mountaineering">Mountaineering</option>
+                        <option value="Movement and Dance">Movement and Dance</option>
+                        <option value="Netball">Netball</option>
+                        <option value="Octopush">Octopush</option>
+                        <option value="Orienteering">Orienteering</option>
+                        <option value="Padel Tennis">Padel Tennis</option>
+                        <option value="Parachuting">Parachuting</option>
+                        <option value="Petanque">Petanque</option>
+                        <option value="Pilates">Pilates</option>
+                        <option value="Ping Pong">Ping Pong</option>
+                        <option value="Polo">Polo</option>
+                        <option value="Polocrosse">Polocrosse</option>
+                        <option value="Pool">Pool</option>
+                        <option value="Powerboating">Powerboating</option>
+                        <option value="Powerlifting">Powerlifting</option>
+                        <option value="Puck Hockey (Roller)">Puck Hockey (Roller)</option>
+                        <option value="Quoits">Quoits</option>
+                        <option value="Racketball">Racketball</option>
+                        <option value="Rackets">Rackets</option>
+                        <option value="Rafting">Rafting</option>
+                        <option value="Rambling">Rambling</option>
+                        <option value="Real Tennis">Real Tennis</option>
+                        <option value="Roller Derby">Roller Derby</option>
+                        <option value="Roller Sports">Roller Sports</option>
+                        <option value="Rounders">Rounders</option>
+                        <option value="Rowing">Rowing</option>
+                        <option value="Rugby League">Rugby League</option>
+                        <option value="Rugby Union">Rugby Union</option>
+                        <option value="Running">Running</option>
+                        <option value="Sailing and Yachting">Sailing and Yachting</option>
+                        <option value="Sand and Land Yachting">Sand and Land Yachting</option>
+                        <option value="Shinty">Shinty</option>
+                        <option value="Shooting">Shooting</option>
+                        <option value="Show Jumping">Show Jumping</option>
+                        <option value="Skateboarding">Skateboarding</option>
+                        <option value="Skater Hockey (Roller)">Skater Hockey (Roller)</option>
+                        <option value="Skiing">Skiing</option>
+                        <option value="Skipping">Skipping</option>
+                        <option value="Snooker">Snooker</option>
+                        <option value="Snowboarding">Snowboarding</option>
+                        <option value="Soccer">Soccer</option>
+                        <option value="Softball">Softball</option>
+                        <option value="Sombo">Sombo</option>
+                        <option value="Speed Skating (Roller)">Speed Skating (Roller)</option>
+                        <option value="Speedway">Speedway</option>
+                        <option value="Squash">Squash</option>
+                        <option value="Stoolball">Stoolball</option>
+                        <option value="Sub Aqua">Sub Aqua</option>
+                        <option value="Surf Life Saving">Surf Life Saving</option>
+                        <option value="Surfing">Surfing</option>
+                        <option value="Swimming">Swimming</option>
+                        <option value="Swimming and Diving">Swimming and Diving</option>
+                        <option value="Table Tennis">Table Tennis</option>
+                        <option value="Tang Soo Do">Tang Soo Do</option>
+                        <option value="Tennis">Tennis</option>
+                        <option value="Tenpin Bowling">Tenpin Bowling</option>
+                        <option value="Trampolining">Trampolining</option>
+                        <option value="Triathlon">Triathlon</option>
+                        <option value="Tug Of War">Tug Of War</option>
+                        <option value="Ultimate (Frisbee)">Ultimate (Frisbee)</option>
+                        <option value="Volleyball">Volleyball</option>
+                        <option value="Wakeboarding">Wakeboarding</option>
+                        <option value="Water Polo">Water Polo</option>
+                        <option value="Water Skiing">Water Skiing</option>
+                        <option value="Weightlifting">Weightlifting</option>
+                        <option value="Wheelchair Basketball">Wheelchair Basketball</option>
+                        <option value="Wheelchair Rugby">Wheelchair Rugby</option>
+                        <option value="Windsurfing">Windsurfing</option>
+                        <option value="Wrestling">Wrestling</option>
+                        <option value="Yoga">Yoga</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-span-2 max-sm:col-span-full">
+                <div class="search-select">
+                    <select name="role" class="select w-full">
+                        <option data-display="What are you looking for?">Where ?</option>
+                        <option value="five">Armenia</option>
+                        <option value="four">Mali</option>
+                        <option value="three">Uganda</option>
+                        <option value="two">Zambia</option>
+                        <option value="one">Andorra Island</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="col-span-2 max-sm:col-span-full">
+                <div class="search-select">
+                    <select name="distance" class="w-full">
+                        <option value="" data-display="">Distance From</option>
+                        <option value="5">5 Miles</option>
+                        <option value="10">10 Miles</option>
+                        <option value="25">25 Miles</option>
+                        <option value="25">50 Miles</option>
+                        <option value="00">Anywhere</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="col-span-2 max-sm:col-span-full">
+                <div class="search-select pt-1">
+                    <button id="searchme" type="submit" class="search-btn h-10"
+                        (click)="handleEventsOrCompListPage()"><i
+                            class="fa-solid fa-magnifying-glass pr-2"></i>Find</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="font-sans w-full px-20 flex flex-col justify-center items-center pb-20 pt-2 main-bg ">
+        <div class="w-full px-2 grid grid-cols-full text-center pb-4">
+            <h2 class="text-[#0c5060] font-semibold ">Search for our most recommended events & competitions categories
+            </h2>
+        </div>
+        <div
+            class="w-full px-2 grid grid-cols-12 gap-6 max-md:grid-cols-8 max-sm:grid-cols-4 max-sm:flex max-sm:flex-col justify-center items-center max-w-[1200px]">
+            <span class="col-span-4 cursor-pointer flex justify-center items-center relative w-full h-full">
+                <img src="../../../../assets/WEBSITE - COACHES PAGE IMAGES/male-tennis-coach.png" alt="pic-1"
+                    class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+                <h2 class="absolute bottom-3 w-full text-center text-2xl font-semibold text-white">Football Competitions
+                </h2>
+            </span>
+            <span class="col-span-4 cursor-pointer flex justify-center items-center relative  w-full h-full">
+                <img src="../../../../assets/WEBSITE - COACHES PAGE IMAGES/male-tennis-coach.png" alt="pic-1"
+                    class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+                <h2 class="absolute bottom-3 w-full text-center text-2xl font-semibold text-white">Tennis Tournaments
+                </h2>
+            </span>
+            <span class="col-span-4 cursor-pointer flex justify-center items-center relative  w-full h-full">
+                <img src="../../../../assets/WEBSITE - COACHES PAGE IMAGES/male-tennis-coach.png" alt="pic-1"
+                    class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+                <h2 class="absolute bottom-3 w-full text-center text-2xl font-semibold text-white">Netball Tournaments
+                </h2>
+            </span>
+            <span class="col-span-4 cursor-pointer flex justify-center items-center relative  w-full h-full">
+                <img src="../../../../assets/WEBSITE - COACHES PAGE IMAGES/male-tennis-coach.png" alt="pic-1"
+                    class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+                <h2 class="absolute bottom-3 w-full text-center text-2xl font-semibold text-white">Half Marathons
+                </h2>
+            </span>
+            <span class="col-span-4 cursor-pointer flex justify-center items-center relative  w-full h-full">
+                <img src="../../../../assets/WEBSITE - COACHES PAGE IMAGES/male-tennis-coach.png" alt="pic-1"
+                    class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+                <h2 class="absolute bottom-3 w-full text-center text-2xl font-semibold text-white">Swimming Races
+                </h2>
+            </span>
+            <span class="col-span-4 cursor-pointer flex justify-center items-center relative  w-full h-full">
+                <img src="../../../../assets/WEBSITE - COACHES PAGE IMAGES/male-tennis-coach.png" alt="pic-1"
+                    class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+                <h2 class="absolute bottom-3 w-full text-center text-2xl font-semibold text-white">Road Cycling Races
+                </h2>
+            </span>
+            <span class="col-span-4 cursor-pointer flex justify-center items-center relative  w-full h-full">
+                <img src="../../../../assets/WEBSITE - COACHES PAGE IMAGES/male-tennis-coach.png" alt="pic-1"
+                    class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+                <h2 class="absolute bottom-3 w-full text-center text-2xl font-semibold text-white">Sailing Competitions
+                </h2>
+            </span>
+            <span class="col-span-4 cursor-pointer flex justify-center items-center relative  w-full h-full">
+                <img src="../../../../assets/WEBSITE - COACHES PAGE IMAGES/male-tennis-coach.png" alt="pic-1"
+                    class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+                <h2 class="absolute bottom-3 w-full text-center text-2xl font-semibold text-white">Golf Tournaments
+                </h2>
+            </span>
+
+            <span class="col-span-4 cursor-pointer flex justify-center items-center relative  w-full h-full">
+                <img src="../../../../assets/WEBSITE - COACHES PAGE IMAGES/male-tennis-coach.png" alt="pic-1"
+                    class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+                <h2 class="absolute bottom-3 w-full text-center text-2xl font-semibold text-white">Basketball
+                    Competitions
+                </h2>
+            </span>
+
+            <span class="col-span-full cursor-pointer flex justify-center items-center relative mt-20 ">
+                <button
+                    class="font-semibold text-white text-base px-8 py-4 transition-colors duration-500 rounded-lg grad-btn">View
+                    All
+                    Events</button>
+            </span>
+        </div>
+    </div>
+
+
+    <div class="events-section font-sans py-20">
+        <div class="auto-container">
+            <div
+                class="sec-title flex justify-between items-start max-md:flex-col max-md:items-center max-md:text-center gap-4">
+                <h2 class="text-5xl max-md:text-3xl">LOCAL EVENTS & COMPETITIONS</h2>
+                <a href="#"
+                    class="font-semibold text-white text-base px-12 py-4 transition-colors duration-500 rounded-lg grad-btn no-underline">View
+                    All</a>
+            </div>
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block ">
+                    <div class="news-block-one wow fadeInUp animated rounded-lg " data-wow-delay="00ms"
+                        data-wow-duration="1500ms"
+                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-details.html"><img
+                                        src="../../../../assets/WEBSITE - EVENTS PAGE/Squires-Netball-Tournament-1-5.png"
+                                        alt=""></a>
+                                <span class="post-date text-[#808080]"><i
+                                        class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                            </figure>
+                            <div class="lower-content">
+                                <span
+                                    class="text-white text-sm w-fit flex gap-2 items-center rounded-full py-1 bg-pink-500 px-2">Event
+                                    Tag</span>
+                                <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+                                <span class="text-[#808080] rev-span flex gap-2 items-center">Event Type</span>
+                                <h3 class="text-pink-500 m-0">$160 - $190</h3>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-[#808080] rev-span flex gap-2 items-center">By Event
+                                        Organiser</span>
+                                    <span class="text-[#808080] flex gap-2 items-center"><i
+                                            class="fa-solid fa-location-dot"></i>Birmingham</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores
+                                    nisi
+                                    modi quia</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                                    <a href="blog-details.html"
+                                        class="theme-btn-two-selected py-[13px] px-4 no-underline">Register</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated rounded-lg" data-wow-delay="00ms"
+                        data-wow-duration="1500ms"
+                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-details.html"><img
+                                        src="../../../../assets/WEBSITE - EVENTS PAGE/Squires-Netball-Tournament-1-5.png"
+                                        alt=""></a>
+                                <span class="post-date text-[#808080]"><i
+                                        class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                            </figure>
+                            <div class="lower-content">
+                                <span
+                                    class="text-white text-sm w-fit flex gap-2 items-center rounded-full py-1 bg-pink-500 px-2">Event
+                                    Tag</span>
+                                <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+                                <span class="text-[#808080] rev-span flex gap-2 items-center">Event Type</span>
+                                <h3 class="text-pink-500 m-0">$160 - $190</h3>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-[#808080] rev-span flex gap-2 items-center">By Event
+                                        Organiser</span>
+                                    <span class="text-[#808080] flex gap-2 items-center"><i
+                                            class="fa-solid fa-location-dot"></i>Birmingham</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores
+                                    nisi
+                                    modi quia</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                                    <a href="blog-details.html"
+                                        class="theme-btn-two-selected py-[13px] px-4 no-underline">Register</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated rounded-lg" data-wow-delay="00ms"
+                        data-wow-duration="1500ms"
+                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-details.html"><img
+                                        src="../../../../assets/WEBSITE - EVENTS PAGE/Squires-Netball-Tournament-1-5.png"
+                                        alt=""></a>
+                                <span class="post-date text-[#808080]"><i
+                                        class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                            </figure>
+                            <div class="lower-content">
+                                <span
+                                    class="text-white text-sm w-fit flex gap-2 items-center rounded-full py-1 bg-pink-500 px-2">Event
+                                    Tag</span>
+                                <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+                                <span class="text-[#808080] rev-span flex gap-2 items-center">Event Type</span>
+                                <h3 class="text-pink-500 m-0">$160 - $190</h3>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-[#808080] rev-span flex gap-2 items-center">By Event
+                                        Organiser</span>
+                                    <span class="text-[#808080] flex gap-2 items-center"><i
+                                            class="fa-solid fa-location-dot"></i>Birmingham</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores
+                                    nisi
+                                    modi quia</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                                    <a href="blog-details.html"
+                                        class="theme-btn-two-selected py-[13px] px-4 no-underline">Register</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="events-section font-sans py-10">
+        <div class="auto-container">
+            <div
+                class="sec-title flex justify-between items-start max-md:flex-col max-md:items-center max-md:text-center gap-4">
+                <h2 class="text-5xl max-md:text-3xl">ENTRY DEADLINES CLOSING SOON</h2>
+                <a href="#"
+                    class="font-semibold text-white text-base px-12 py-4 transition-colors duration-500 rounded-lg grad-btn no-underline">View
+                    All</a>
+            </div>
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block ">
+                    <div class="news-block-one wow fadeInUp animated rounded-lg " data-wow-delay="00ms"
+                        data-wow-duration="1500ms"
+                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-details.html"><img
+                                        src="../../../../assets/WEBSITE - EVENTS PAGE/Squires-Netball-Tournament-1-5.png"
+                                        alt=""></a>
+                                <span class="post-date text-[#808080]"><i
+                                        class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                            </figure>
+                            <div class="lower-content">
+                                <span
+                                    class="text-white text-sm w-fit flex gap-2 items-center rounded-full py-1 bg-pink-500 px-2">Event
+                                    Tag</span>
+                                <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+                                <span class="text-[#808080] rev-span flex gap-2 items-center">Event Type</span>
+                                <h3 class="text-pink-500 m-0">$160 - $190</h3>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-[#808080] rev-span flex gap-2 items-center">By Event
+                                        Organiser</span>
+                                    <span class="text-[#808080] flex gap-2 items-center"><i
+                                            class="fa-solid fa-location-dot"></i>Birmingham</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores
+                                    nisi
+                                    modi quia</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                                    <a href="blog-details.html"
+                                        class="theme-btn-two-selected py-[13px] px-4 no-underline">Register</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated rounded-lg" data-wow-delay="00ms"
+                        data-wow-duration="1500ms"
+                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-details.html"><img
+                                        src="../../../../assets/WEBSITE - EVENTS PAGE/Squires-Netball-Tournament-1-5.png"
+                                        alt=""></a>
+                                <span class="post-date text-[#808080]"><i
+                                        class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                            </figure>
+                            <div class="lower-content">
+                                <span
+                                    class="text-white text-sm w-fit flex gap-2 items-center rounded-full py-1 bg-pink-500 px-2">Event
+                                    Tag</span>
+                                <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+                                <span class="text-[#808080] rev-span flex gap-2 items-center">Event Type</span>
+                                <h3 class="text-pink-500 m-0">$160 - $190</h3>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-[#808080] rev-span flex gap-2 items-center">By Event
+                                        Organiser</span>
+                                    <span class="text-[#808080] flex gap-2 items-center"><i
+                                            class="fa-solid fa-location-dot"></i>Birmingham</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores
+                                    nisi
+                                    modi quia</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                                    <a href="blog-details.html"
+                                        class="theme-btn-two-selected py-[13px] px-4 no-underline">Register</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated rounded-lg" data-wow-delay="00ms"
+                        data-wow-duration="1500ms"
+                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-details.html"><img
+                                        src="../../../../assets/WEBSITE - EVENTS PAGE/Squires-Netball-Tournament-1-5.png"
+                                        alt=""></a>
+                                <span class="post-date text-[#808080]"><i
+                                        class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                            </figure>
+                            <div class="lower-content">
+                                <span
+                                    class="text-white text-sm w-fit flex gap-2 items-center rounded-full py-1 bg-pink-500 px-2">Event
+                                    Tag</span>
+                                <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+                                <span class="text-[#808080] rev-span flex gap-2 items-center">Event Type</span>
+                                <h3 class="text-pink-500 m-0">$160 - $190</h3>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-[#808080] rev-span flex gap-2 items-center">By Event
+                                        Organiser</span>
+                                    <span class="text-[#808080] flex gap-2 items-center"><i
+                                            class="fa-solid fa-location-dot"></i>Birmingham</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores
+                                    nisi
+                                    modi quia</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                                    <a href="blog-details.html"
+                                        class="theme-btn-two-selected py-[13px] px-4 no-underline">Register</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="events-section font-sans py-10">
+        <div class="auto-container">
+            <div
+                class="sec-title flex justify-between items-start max-md:flex-col max-md:items-center max-md:text-center gap-2">
+                <h2 class="text-[46px] max-md:text-3xl max-xl:whitespace-normal whitespace-nowrap">FEATURED EVENTS AND
+                    COMPETITIONS</h2>
+                <a href="#"
+                    class="font-semibold text-white text-base px-6 py-4 transition-colors duration-500 rounded-lg grad-btn no-underline">View
+                    All</a>
+            </div>
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block ">
+                    <div class="news-block-one wow fadeInUp animated rounded-lg " data-wow-delay="00ms"
+                        data-wow-duration="1500ms"
+                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-details.html"><img
+                                        src="../../../../assets/WEBSITE - EVENTS PAGE/Squires-Netball-Tournament-1-5.png"
+                                        alt=""></a>
+                                <span class="post-date text-[#808080]"><i
+                                        class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                            </figure>
+                            <div class="lower-content">
+                                <span
+                                    class="text-white text-sm w-fit flex gap-2 items-center rounded-full py-1 bg-pink-500 px-2">Event
+                                    Tag</span>
+                                <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+                                <span class="text-[#808080] rev-span flex gap-2 items-center">Event Type</span>
+                                <h3 class="text-pink-500 m-0">$160 - $190</h3>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-[#808080] rev-span flex gap-2 items-center">By Event
+                                        Organiser</span>
+                                    <span class="text-[#808080] flex gap-2 items-center"><i
+                                            class="fa-solid fa-location-dot"></i>Birmingham</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores
+                                    nisi
+                                    modi quia</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                                    <a href="blog-details.html"
+                                        class="theme-btn-two-selected py-[13px] px-4 no-underline">Register</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated rounded-lg" data-wow-delay="00ms"
+                        data-wow-duration="1500ms"
+                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-details.html"><img
+                                        src="../../../../assets/WEBSITE - EVENTS PAGE/Squires-Netball-Tournament-1-5.png"
+                                        alt=""></a>
+                                <span class="post-date text-[#808080]"><i
+                                        class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                            </figure>
+                            <div class="lower-content">
+                                <span
+                                    class="text-white text-sm w-fit flex gap-2 items-center rounded-full py-1 bg-pink-500 px-2">Event
+                                    Tag</span>
+                                <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+                                <span class="text-[#808080] rev-span flex gap-2 items-center">Event Type</span>
+                                <h3 class="text-pink-500 m-0">$160 - $190</h3>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-[#808080] rev-span flex gap-2 items-center">By Event
+                                        Organiser</span>
+                                    <span class="text-[#808080] flex gap-2 items-center"><i
+                                            class="fa-solid fa-location-dot"></i>Birmingham</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores
+                                    nisi
+                                    modi quia</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                                    <a href="blog-details.html"
+                                        class="theme-btn-two-selected py-[13px] px-4 no-underline">Register</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated rounded-lg" data-wow-delay="00ms"
+                        data-wow-duration="1500ms"
+                        style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <a href="blog-details.html"><img
+                                        src="../../../../assets/WEBSITE - EVENTS PAGE/Squires-Netball-Tournament-1-5.png"
+                                        alt=""></a>
+                                <span class="post-date text-[#808080]"><i
+                                        class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                            </figure>
+                            <div class="lower-content">
+                                <span
+                                    class="text-white text-sm w-fit flex gap-2 items-center rounded-full py-1 bg-pink-500 px-2">Event
+                                    Tag</span>
+                                <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+                                <span class="text-[#808080] rev-span flex gap-2 items-center">Event Type</span>
+                                <h3 class="text-pink-500 m-0">$160 - $190</h3>
+                                <div class="flex justify-between items-center pt-3">
+                                    <span class="text-[#808080] rev-span flex gap-2 items-center">By Event
+                                        Organiser</span>
+                                    <span class="text-[#808080] flex gap-2 items-center"><i
+                                            class="fa-solid fa-location-dot"></i>Birmingham</span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores
+                                    nisi
+                                    modi quia</p>
+                                <div class="flex items-center justify-between">
+                                    <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                                    <a href="blog-details.html"
+                                        class="theme-btn-two-selected py-[13px] px-4 no-underline">Register</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="testimonial-section bg-color-1 centred pt-10 bg-[#e7e7e7]">
+        <div class="auto-container">
+            <div class="sec-title centred flex flex-col items-center">
+                <p>Review &amp; Testimonials</p>
+                <h2 class="text-5xl max-md:text-3xl">Competition & Event Reviews</h2>
+            </div>
+
+            <ngb-carousel #carousel [interval]="15000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
+                [showNavigationIndicators]="showNavigationIndicators" [wrap]="wrap" (slide)="onSlide($event)">
+                <ng-template ngbSlide>
+                    <div class="grid grid-cols-12 w-full gap-4">
+                        <div class="testimonial-block-one col-span-4 max-md:hidden">
+                            <div class="inner-box">
+                                <div class="rating-box ">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </div>
+                                <div class="text">
+                                    <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                                    <p class="">“I cannot begin to explain how much simpler running
+                                        an event is with everything being one platform. The
+                                        amount of paperwork reduction alone is worth signing
+                                        up for Limber.”</p>
+                                </div>
+                                <div class="author-box">
+                                    <h4 class="text-[#0c5060]">Name of Competiton /Event</h4>
+                                    <span class="designation text-[#808080]">Finlay Reed</span>
+                                    <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-block-one col-span-4 max-md:hidden">
+                            <div class="inner-box">
+                                <div class="rating-box ">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </div>
+                                <div class="text">
+                                    <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                                    <p class="">“I cannot begin to explain how much simpler running
+                                        an event is with everything being one platform. The
+                                        amount of paperwork reduction alone is worth signing
+                                        up for Limber.”</p>
+                                </div>
+                                <div class="author-box">
+                                    <h4 class="text-[#0c5060]">Name of Competiton /Event</h4>
+                                    <span class="designation text-[#808080]">Finlay Reed</span>
+                                    <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-block-one col-span-4 max-md:hidden">
+                            <div class="inner-box">
+                                <div class="rating-box ">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </div>
+                                <div class="text">
+                                    <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                                    <p class="">“I cannot begin to explain how much simpler running
+                                        an event is with everything being one platform. The
+                                        amount of paperwork reduction alone is worth signing
+                                        up for Limber.”</p>
+                                </div>
+                                <div class="author-box">
+                                    <h4 class="text-[#0c5060]">Name of Competiton /Event</h4>
+                                    <span class="designation text-[#808080]">Finlay Reed</span>
+                                    <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="grid grid-cols-12 w-full gap-4">
+                        <div class="testimonial-block-one col-span-4 max-md:hidden">
+                            <div class="inner-box">
+                                <div class="rating-box ">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </div>
+                                <div class="text">
+                                    <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                                    <p class="">“I cannot begin to explain how much simpler running
+                                        an event is with everything being one platform. The
+                                        amount of paperwork reduction alone is worth signing
+                                        up for Limber.”</p>
+                                </div>
+                                <div class="author-box">
+                                    <h4 class="text-[#0c5060]">Name of Competiton /Event</h4>
+                                    <span class="designation text-[#808080]">Finlay Reed</span>
+                                    <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-block-one col-span-4 max-md:hidden">
+                            <div class="inner-box">
+                                <div class="rating-box ">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </div>
+                                <div class="text">
+                                    <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                                    <p class="">“I cannot begin to explain how much simpler running
+                                        an event is with everything being one platform. The
+                                        amount of paperwork reduction alone is worth signing
+                                        up for Limber.”</p>
+                                </div>
+                                <div class="author-box">
+                                    <h4 class="text-[#0c5060]">Name of Competiton /Event</h4>
+                                    <span class="designation text-[#808080]">Finlay Reed</span>
+                                    <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-block-one col-span-4 max-md:hidden">
+                            <div class="inner-box">
+                                <div class="rating-box ">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </div>
+                                <div class="text">
+                                    <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                                    <p class="">“I cannot begin to explain how much simpler running
+                                        an event is with everything being one platform. The
+                                        amount of paperwork reduction alone is worth signing
+                                        up for Limber.”</p>
+                                </div>
+                                <div class="author-box">
+                                    <h4 class="text-[#0c5060]">Name of Competiton /Event</h4>
+                                    <span class="designation text-[#808080]">Finlay Reed</span>
+                                    <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="grid grid-cols-12 w-full gap-4">
+                        <div class="testimonial-block-one col-span-4 max-md:hidden">
+                            <div class="inner-box">
+                                <div class="rating-box ">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </div>
+                                <div class="text">
+                                    <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                                    <p class="">“I cannot begin to explain how much simpler running
+                                        an event is with everything being one platform. The
+                                        amount of paperwork reduction alone is worth signing
+                                        up for Limber.”</p>
+                                </div>
+                                <div class="author-box">
+                                    <h4 class="text-[#0c5060]">Name of Competiton /Event</h4>
+                                    <span class="designation text-[#808080]">Finlay Reed</span>
+                                    <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-block-one col-span-4 max-md:hidden">
+                            <div class="inner-box">
+                                <div class="rating-box ">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </div>
+                                <div class="text">
+                                    <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                                    <p class="">“I cannot begin to explain how much simpler running
+                                        an event is with everything being one platform. The
+                                        amount of paperwork reduction alone is worth signing
+                                        up for Limber.”</p>
+                                </div>
+                                <div class="author-box">
+                                    <h4 class="text-[#0c5060]">Name of Competiton /Event</h4>
+                                    <span class="designation text-[#808080]">Finlay Reed</span>
+                                    <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-block-one col-span-4 max-md:hidden">
+                            <div class="inner-box">
+                                <div class="rating-box ">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                </div>
+                                <div class="text">
+                                    <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                                    <p class="">“I cannot begin to explain how much simpler running
+                                        an event is with everything being one platform. The
+                                        amount of paperwork reduction alone is worth signing
+                                        up for Limber.”</p>
+                                </div>
+                                <div class="author-box">
+                                    <h4 class="text-[#0c5060]">Name of Competiton /Event</h4>
+                                    <span class="designation text-[#808080]">Finlay Reed</span>
+                                    <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+    </div>
+
+
+    <div class="w-full font-sans py-10 bg-white">
+
+        <div class="w-full py-10 px-6 gap-10 flex flex-col justify-center items-center">
+            <div class="flex items-center justify-evenly gap-14 max-w-[1200px] max-lg:flex-col">
+                <div class="w-1/2 p-4 rounded-lg img-cont max-md:w-full">
+                    <img src="../../../../assets/WEBSITE - HOW IT WORKS FOR IMAGES/section-02-img-01-get-out-and-reconnect.png"
+                        alt="pic">
+                </div>
+                <div class="flex flex-col items-start text-start gap-2 w-1/2 max-lg:w-full text-[#0c5060]">
+                    <h5 class="text-xl font-medium w-full">PROMOTE YOUR COMPETITON OR EVENT</h5>
+                    <h2 class="font-extrabold w-full">Create your competition or event , Enroll competitors and
+                        entrants, communicate event information and view event analytics</h2>
+                    <button (click)="navigateToHomePage()"
+                        class="text-[#0c5060] px-6 py-3 border-[1.5px] border-[#0c5060] hover:bg-[#0c5060] duration-500 font-semibold transition-all rounded-md hover:text-white">
+                        Register</button>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-evenly gap-14 max-w-[1200px] max-lg:flex-col">
+                <div
+                    class="flex flex-col items-end text-end gap-2 w-1/2 max-lg:w-full text-[#0c5060] max-lg:text-start max-lg:items-start">
+                    <h5 class="text-xl font-medium w-full max-lg:text-start ">OUR PARTNERS</h5>
+                    <h2 class="font-extrabold w-full max-lg:text-start ">Limber is community where anyone interested in
+                        sport and physical activity, including individuals, athletes, coaches, referee, parents, teams
+                        and
+                        clubs and brands go all</h2>
+                    <button (click)="navigateToHomePage()"
+                        class="text-[#0c5060] px-6 py-3 border-[1.5px] border-[#0c5060] hover:bg-[#0c5060] duration-500 font-semibold transition-all rounded-md hover:text-white">
+                        Join</button>
+                </div>
+                <div class="w-1/2 bg-white p-4 rounded-lg img-cont max-md:w-full">
+                    <img src="../../../../assets/WEBSITE - HOW IT WORKS FOR IMAGES/section-02-img-02-celebrate-an-active-lifestyle.png"
+                        alt="pic">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,78 @@
+
+.profile-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  background-color: #fff;
+  margin-top: 10px
+}
+
+.profile-image img {
+  width: 80px;
+  height: 80px;
+  background-color: #e0e0e0;
+}
+
+.profile-card h5 {
+  font-weight: 600;
+  color: #000;
+}
+
+.profile-card .text-danger {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.profile-card .text-muted {
+  font-size: 12px;
+}
+
+.btn-connect {
+  background: linear-gradient(to right, #6a0dad, #f50057);
+  border: none;
+}
+
+.mutual-connections {
+  font-size: 13px;
+  color: #d500f9;
+}
+
+.mutual-connections:hover {
+  color: #ad00ff;
+  text-decoration: underline;
+}
+.player-btn-details,
+.player-btn-connect {
+  border-radius: 20px;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.player-btn-details {
+  border: 1px solid #666;
+  color: #666;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.player-btn-connect {
+  /* background-color: #d4e157;*/
+  background: linear-gradient(
+    180deg,
+    #f45683 0.00%,
+    #f55f7b 17.82%,
+    #fda543 78.32%,
+    #ffb636 100.00%);
+  color: #fff;
+  border: none;
+  transition: 0.3s;
+}
+
+.player-btn-details:hover {
+  background-color: #f5f5f5;
+}
+
+.player-btn-connect:hover {
+  background-color: #c0ca33;
+}

@@ -1,0 +1,72 @@
+.friend-section {
+    background: url(/assets/limber-community/Group-4480.png) center center padding-box;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.friend-section {
+    position: relative;
+}
+
+.sec-pad {
+    padding: 144px 0px 150px 0px;
+}
+
+.auto-container {
+    position: static;
+    max-width: 1200px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+
+.align-center {
+    margin: 0px auto;
+}
+
+.text-center {
+    text-align: center !important;
+    color: azure;
+}
+
+.image-border {
+    border: solid 9px;
+    color: white;
+    border-radius: 15px;
+}
+
+/* .text-left {
+    text-align: right;
+    color: #0c5060 !important;
+}
+
+.text-right {
+    text-align: left;
+    color: #0c5060 !important; 
+} */
+.row {
+    align-items: center !important;
+}
+
+.search-btn {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 17px;
+    line-height: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #fff !important;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+    z-index: 1;
+    background: linear-gradient(180deg,
+            #f45683 0.00%,
+            #f55f7b 17.82%,
+            #fda543 78.32%,
+            #ffb636 100.00%);
+    box-shadow: 0px 15px 25px 0px rgba(255, 124, 91, 0.3);
+    transition: all 500ms ease;
+}

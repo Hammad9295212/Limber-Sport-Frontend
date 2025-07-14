@@ -1,0 +1,843 @@
+<app-header></app-header>
+
+<div class="w-full grid grid-cols-12 font-sans items-center justify-center">
+  <div
+    class="mt-16 hero-section col-span-full w-full justify-center items-center text-center text-[#fff]"
+  >
+    <div class="flex flex-col max-w-[1200px]">
+      <h1 class="font-black text-[50px] leading-10 max-sm:text-4xl">
+        Be Coached by the Best
+      </h1>
+      <h2 class="font-medium text-lg max-sm:text-base">
+        CHOOSE FROM OUR NETWORK OF RATED SPORTS COACHES TO YOU OR YOUR SCHOOL,
+        UNIVERSITY OR CLUB TEAM
+      </h2>
+    </div>
+  </div>
+
+  <div
+    class="grid grid-cols-7 col-span-full max-w-[1200px] px-6 items-start justify-center py-20 mx-auto gap-4 max-lg:grid-cols-1 max-sm:px-4s"
+  >
+    <div
+      class="col-span-5 grid grid-cols-2 items-start bg-white px-10 max-sm:px-0 max-lg:col-span-1"
+    >
+      <div
+        class="col-span-full flex items-center border bg-[#ebebeb] text-[#0c5060] w-full justify-around rounded-md h-20 min-w-[300px] tabs-controller"
+      >
+        <button
+          class="w-1/3 h-full px-2"
+          (click)="navigate('event-reg')"
+          [ngClass]="{ selected: isEventReg }"
+        >
+          1. Event Registration
+        </button>
+        <button
+          class="w-1/3 h-full px-2"
+          (click)="navigate('part-det')"
+          [ngClass]="{ selected: isPartDet }"
+        >
+          2. Participant Details
+        </button>
+        <button
+          class="w-1/3 h-full px-2"
+          (click)="navigate('payment')"
+          [ngClass]="{ selected: isPayment }"
+        >
+          3. Payment
+        </button>
+        <button
+          class="w-1/3 h-full px-2"
+          (click)="navigate('conf')"
+          [ngClass]="{ selected: isConf }"
+        >
+          4. Confirm
+        </button>
+      </div>
+
+      <ng-container *ngIf="isEventReg">
+        <div
+          class="col-span-full grid grid-cols-1 items-start gap-4 pt-10 w-full max-sm:grid-cols-1"
+        >
+          <div
+            class="col-span-full bg-white border rounded-md p-4 w-full flex items-center gap-2"
+          >
+            <div
+              class="flex flex-col items-start justify-center gap-2 text-[#0c5060]"
+            >
+              <img
+                src="../../../../assets/WEBSITE - EVENTS PAGE/basketball-390008_1920.png"
+                alt=""
+                class="w-40 h-40 rounded-md"
+              />
+              <h2>Name of Event</h2>
+              <h4>Sport</h4>
+              <div class="flex items-center gap-2 text-[#808080]">
+                <i class="fa-solid fa-calendar-days text-[#0c5060]"></i>
+                12-12-2024
+              </div>
+              <div class="flex items-center gap-2 text-[#808080]">
+                <i class="fa-solid fa-location-dot text-[#0c5060]"></i>
+                London, United Kingdom
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 pl-40 max-md:pl-0">
+              <img
+                src="../../../../assets/WEBSITE - EVENTS PAGE/basketball-390008_1920.png"
+                alt=""
+                class="w-20 h-20 max-md:h-14 max-md:w-14 rounded-full object-cover"
+              />
+              <img
+                src="../../../../assets/WEBSITE - EVENTS PAGE/basketball-390008_1920.png"
+                alt=""
+                class="w-20 h-20 max-md:h-14 max-md:w-14 rounded-full object-cover"
+              />
+              <img
+                src="../../../../assets/WEBSITE - EVENTS PAGE/basketball-390008_1920.png"
+                alt=""
+                class="w-20 h-20 max-md:h-14 max-md:w-14 rounded-full object-cover"
+              />
+              <img
+                src="../../../../assets/WEBSITE - EVENTS PAGE/basketball-390008_1920.png"
+                alt=""
+                class="w-20 h-20 max-md:h-14 max-md:w-14 rounded-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div
+            class="col-span-full bg-white border rounded-md p-4 w-full table-responsive"
+          >
+            <table class="w-11/12 max-md:w-full border-spacing-3">
+              <thead class="text-blue-400 text-sm">
+                <td>Event Name</td>
+                <td>
+                  Date & <br />
+                  Start Time
+                </td>
+                <td>Age</td>
+                <td>Club Member /<br />Non-Member</td>
+                <td>Price</td>
+                <td></td>
+              </thead>
+
+              <tbody>
+                <tr class="p-2 text-[#808080]">
+                  <td>Marathon (25.1m)</td>
+                  <td>
+                    12-03-2024<br />
+                    0830hrs
+                  </td>
+                  <td>Adult</td>
+                  <td>Member</td>
+                  <td class="text-pink-500 text-xl font-semibold">$90.00</td>
+                  <td>
+                    <span class="w-fit h-6 flex items-center shadow-class">
+                      <button
+                        class="bg-pink-500 px-[12px] h-8 text-white text-lg font-semibold rounded-l-md"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        inputmode="numeric"
+                        [defaultValue]="1"
+                        name="no_of_registrant"
+                        class="w-8 px-1 h-8"
+                      />
+                      <button
+                        class="bg-pink-500 h-8 px-[10px] text-white text-lg font-semibold rounded-r-md"
+                      >
+                        +
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+
+                <tr class="b p-2 text-[#808080]">
+                  <td>Marathon (25.1m)</td>
+                  <td>
+                    12-03-2024<br />
+                    0830hrs
+                  </td>
+                  <td>Adult</td>
+                  <td>Member</td>
+                  <td class="text-pink-500 text-xl font-semibold">$90.00</td>
+                  <td>
+                    <span class="w-fit h-6 flex items-center shadow-class">
+                      <button
+                        class="bg-pink-500 px-[12px] h-8 text-white text-lg font-semibold rounded-l-md"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        inputmode="numeric"
+                        [defaultValue]="1"
+                        name="no_of_registrant"
+                        class="w-8 px-1 h-8"
+                      />
+                      <button
+                        class="bg-pink-500 h-8 px-[10px] text-white text-lg font-semibold rounded-r-md"
+                      >
+                        +
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+
+                <tr class="b p-2 text-[#808080]">
+                  <td>Marathon (25.1m)</td>
+                  <td>
+                    12-03-2024<br />
+                    0830hrs
+                  </td>
+                  <td>Adult</td>
+                  <td>Member</td>
+                  <td class="text-pink-500 text-xl font-semibold">$90.00</td>
+                  <td>
+                    <span class="w-fit h-6 flex items-center shadow-class">
+                      <button
+                        class="bg-pink-500 px-[12px] h-8 text-white text-lg font-semibold rounded-l-md"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        inputmode="numeric"
+                        [defaultValue]="1"
+                        name="no_of_registrant"
+                        class="w-8 px-1 h-8"
+                      />
+                      <button
+                        class="bg-pink-500 h-8 px-[10px] text-white text-lg font-semibold rounded-r-md"
+                      >
+                        +
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+
+                <tr class="b p-2 text-[#808080]">
+                  <td>Marathon (25.1m)</td>
+                  <td>
+                    12-03-2024<br />
+                    0830hrs
+                  </td>
+                  <td>Adult</td>
+                  <td>Member</td>
+                  <td class="text-pink-500 text-xl font-semibold">$90.00</td>
+                  <td>
+                    <span class="w-fit h-6 flex items-center shadow-class">
+                      <button
+                        class="bg-pink-500 px-[12px] h-8 text-white text-lg font-semibold rounded-l-md"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        inputmode="numeric"
+                        [defaultValue]="1"
+                        name="no_of_registrant"
+                        class="w-8 px-1 h-8"
+                      />
+                      <button
+                        class="bg-pink-500 h-8 px-[10px] text-white text-lg font-semibold rounded-r-md"
+                      >
+                        +
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+
+                <tr class="b p-2 text-[#808080]">
+                  <td>Marathon (25.1m)</td>
+                  <td>
+                    12-03-2024<br />
+                    0830hrs
+                  </td>
+                  <td>Adult</td>
+                  <td>Member</td>
+                  <td class="text-pink-500 text-xl font-semibold">$90.00</td>
+                  <td>
+                    <span class="w-fit h-6 flex items-center shadow-class">
+                      <button
+                        class="bg-pink-500 px-[12px] h-8 text-white text-lg font-semibold rounded-l-md"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        inputmode="numeric"
+                        [defaultValue]="1"
+                        name="no_of_registrant"
+                        class="w-8 px-1 h-8"
+                      />
+                      <button
+                        class="bg-pink-500 h-8 px-[10px] text-white text-lg font-semibold rounded-r-md"
+                      >
+                        +
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div
+              class="col-span-full w-full flex items-center justify-between pt-4 pr-20"
+            >
+              <button
+                class="text-pink-500 border-[1.5px] border-pink-500 bg-white rounded-md w-28 py-3 shadow-class"
+              >
+                Cancel
+              </button>
+              <button class="selected rounded-md py-3 px-4">
+                Checkout Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="isPartDet">
+        <div
+          class="col-span-full grid grid-cols-2 items-start gap-4 pt-10 w-full max-sm:grid-cols-1"
+        >
+          <h3 class="text-[#0c5060] font-semibold col-span-full pb-4">
+            Coaching Session Details
+          </h3>
+
+          <div
+            class="mb-2 bg-white rounded-md col-span-full"
+            *ngFor="let item of items"
+          >
+            <h3
+              class="text-[#0c5060] font-semibold col-span-full border bg-white cursor-pointer p-4 flex justify-between rounded-md"
+              [ngClass]="{ 'accordion-header-open': item.isOpen }"
+              (click)="toggleItem(item)"
+            >
+              {{ item.header }}
+              <span [ngClass]="{ 'accordion-cross-open': item.isOpen }">
+                <i class="fa-solid fa-x"></i>
+              </span>
+            </h3>
+            <div
+              class="hidden grid-cols-2 items-start gap-4 pt-10 w-full max-sm:grid-cols-1"
+              [ngClass]="{ 'accordion-content-open': item.isOpen }"
+            >
+              <div
+                class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+              >
+                <label for="first_name" class="text-sm">First Name</label>
+                <input
+                  name="first_name"
+                  placeholder="Your First Name"
+                  type="text"
+                  class="w-full border p-3 rounded-md"
+                />
+              </div>
+
+              <div
+                class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+              >
+                <label for="last_name" class="text-sm">Last Name</label>
+                <input
+                  name="last_name"
+                  placeholder="Your Last Name"
+                  type="text"
+                  class="w-full border p-3 rounded-md"
+                />
+              </div>
+
+              <div
+                class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+              >
+                <label for="email" class="text-sm">Email</label>
+                <input
+                  name="email"
+                  placeholder="Your Email"
+                  type="email"
+                  class="w-full border p-3 rounded-md"
+                />
+              </div>
+
+              <div
+                class="col-span-1 w-full flex gap-2 items-center text-[#808080]"
+              >
+                <span class="w-1/5 flex flex-col gap-2 items-start">
+                  <label for="int_code" class="text-sm">Int Code</label>
+                  <input
+                    name="int_code"
+                    placeholder="+00"
+                    type="number"
+                    class="w-full border py-3 px-2 rounded-md"
+                  />
+                </span>
+                <span
+                  class="w-4/5 flex flex-col gap-2 items-start text-[#808080]"
+                >
+                  <label for="phone_number" class="text-sm"
+                    >Telephone Number</label
+                  >
+                  <input
+                    name="phone_number"
+                    placeholder="1234-567-890"
+                    type="number"
+                    class="w-full border p-3 rounded-md"
+                  />
+                </span>
+              </div>
+
+              <div
+                class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+              >
+                <label for="dob" class="text-sm">Date of birth</label>
+                <input
+                  name="dob"
+                  placeholder="01/01/2024"
+                  type="date"
+                  class="w-full border p-3 rounded-md"
+                />
+              </div>
+
+              <div
+                class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+              >
+                <label for="gender" class="text-sm">Gender</label>
+                <select
+                  name="gender"
+                  id="gender"
+                  class="w-full border p-3 rounded-md"
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+
+              <div
+                class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+              >
+                <label for="address_one" class="text-sm">Home Address </label>
+                <input
+                  name="address_one"
+                  placeholder="Address Line 1"
+                  type="text"
+                  class="w-full border p-3 rounded-md"
+                />
+              </div>
+
+              <div
+                class="col-span-1 w-full flex flex-col gap-2 pt-7 text-[#808080]"
+              >
+                <input
+                  name="address_two"
+                  placeholder="Address Line 2"
+                  type="text"
+                  class="w-full border p-3 rounded-md"
+                />
+              </div>
+
+              <div class="col-span-1 w-full flex flex-col gap-2 text-[#808080]">
+                <input
+                  name="city"
+                  placeholder="City"
+                  type="text"
+                  class="w-full border p-3 rounded-md"
+                />
+              </div>
+
+              <div class="col-span-1 w-full flex flex-col gap-2 text-[#808080]">
+                <input
+                  name="state"
+                  placeholder="State"
+                  type="text"
+                  class="w-full border p-3 rounded-md"
+                />
+              </div>
+
+              <div class="col-span-1 w-full flex flex-col gap-2 text-[#808080]">
+                <input
+                  name="post_code"
+                  placeholder="Postcode"
+                  type="text"
+                  class="w-full border p-3 rounded-md"
+                />
+              </div>
+
+              <div
+                class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+              >
+                <select
+                  name="country"
+                  id="country"
+                  class="w-full border p-3 rounded-md"
+                >
+                  <option value="">Country</option>
+                  <option value="pakistan">Pakistan</option>
+                  <option value="usa">USA</option>
+                  <option value="gabon">Gabon</option>
+                </select>
+              </div>
+
+              <div
+                class="col-span-full w-full flex gap-2 items-center text-pink-500"
+              >
+                <input type="checkbox" name="save_address" />
+                <label for="save_address" class="text-sm"
+                  >Save this address as your billing address</label
+                >
+              </div>
+
+              <div
+                class="col-span-full w-full flex flex-col gap-2 items-start pt-4 text-[#808080]"
+              >
+                <label for="medical_cond" class="text-sm"
+                  >Medical Conditions ? (If any)</label
+                >
+                <textarea
+                  name="medical_cond"
+                  placeholder="Type Here"
+                  type="text"
+                  rows="5"
+                  class="w-full border p-3 rounded-md"
+                >
+                </textarea>
+              </div>
+
+              <div
+                class="col-span-full w-full flex flex-col gap-2 items-start pt-4 text-[#808080]"
+              >
+                <label for="charity_name" class="text-sm"
+                  >Charity Name Support ? (If any)</label
+                >
+                <input
+                  name="charity_name"
+                  placeholder="Type Here"
+                  type="text"
+                  class="w-full border p-3 rounded-md"
+                />
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-[#0c5060] font-semibold col-span-full pb-4">
+            Emergency Contact Details
+          </h3>
+
+          <div
+            class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+          >
+            <label for="first_name" class="text-sm">First Name</label>
+            <input
+              name="first_name"
+              placeholder="Your First Name"
+              type="text"
+              class="w-full border p-3 rounded-md"
+            />
+          </div>
+
+          <div
+            class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+          >
+            <label for="last_name" class="text-sm">Last Name</label>
+            <input
+              name="last_name"
+              placeholder="Your Last Name"
+              type="text"
+              class="w-full border p-3 rounded-md"
+            />
+          </div>
+
+          <div
+            class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+          >
+            <label for="email" class="text-sm">Email</label>
+            <input
+              name="email"
+              placeholder="Your Email"
+              type="email"
+              class="w-full border p-3 rounded-md"
+            />
+          </div>
+
+          <div
+            class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+          >
+            <label for="phone_number" class="text-sm">Contact Number</label>
+            <span class="w-full flex gap-2 items-start">
+              <input
+                name="int_code"
+                placeholder="+00"
+                type="number"
+                class="w-1/5 border py-3 px-2 rounded-md"
+              />
+              <input
+                name="phone_number"
+                placeholder="1234-567-890"
+                type="number"
+                class="w-4/5 border p-3 rounded-md"
+              />
+            </span>
+          </div>
+
+          <div
+            class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+          >
+            <label for="relationship" class="text-sm">Relationship</label>
+            <select
+              name="relationship"
+              id="relationship"
+              class="w-full border p-3 rounded-md"
+            >
+              <option value="family">Family</option>
+              <option value="friend">Friend</option>
+            </select>
+          </div>
+
+          <div
+            class="col-span-full w-full flex gap-2 items-center text-pink-500"
+          >
+            <label class="text-sm"
+              >Registered Confirmation and tickets will be delivered to the user
+              in electronic format to their registered email address</label
+            >
+          </div>
+
+          <div class="col-span-full w-full flex items-center justify-between">
+            <button
+              class="text-pink-500 border-[1.5px] border-pink-500 bg-white rounded-md w-28 py-3 shadow-class"
+            >
+              Cancel
+            </button>
+            <button class="selected rounded-md w-28 py-3">Next</button>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="isPayment">
+        <div
+          class="col-span-full grid grid-cols-2 items-start gap-4 pt-10 w-full max-sm:grid-cols-1"
+        >
+          <h3 class="text-[#0c5060] font-semibold col-span-full">
+            Payment Mode
+          </h3>
+
+          <div
+            class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+          >
+            <label for="payment_method" class="text-sm"
+              >Select mode of payment</label
+            >
+            <select
+              name="payment_method"
+              id="payment_method"
+              class="w-full border p-3 rounded-md"
+            >
+              <option value="credit_card">Credit Card</option>
+              <option value="cash">Cash</option>
+            </select>
+          </div>
+
+          <h3 class="text-[#0c5060] font-semibold col-span-full pt-6">
+            Card Info
+          </h3>
+
+          <div
+            class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+          >
+            <label for="card_number" class="text-sm">Card Number</label>
+            <input
+              name="card_number"
+              placeholder="XXXX-XXXX-XXXX-XXXX"
+              type="number"
+              class="w-full border p-3 rounded-md"
+            />
+          </div>
+
+          <div
+            class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+          >
+            <label for="card_name" class="text-sm">Name on the card</label>
+            <input
+              name="card_name"
+              placeholder="John Doe"
+              type="text"
+              class="w-full border p-3 rounded-md"
+            />
+          </div>
+
+          <div class="col-span-1 w-full flex gap-2 items-center text-[#808080]">
+            <span class="w-1/2 flex flex-col gap-2 items-start">
+              <label for="exp-month" class="text-sm">Expiry Date</label>
+              <input
+                name="exp-month"
+                placeholder="MM"
+                type="number"
+                class="w-full border p-3 rounded-md"
+              />
+            </span>
+            <span
+              class="w-1/2 flex flex-col gap-2 items-start text-[#808080] pt-7"
+            >
+              <input
+                name="exp-year"
+                placeholder="YYYY"
+                type="number"
+                class="w-full border p-3 rounded-md"
+              />
+            </span>
+          </div>
+
+          <div
+            class="col-span-1 w-full flex flex-col gap-2 items-start text-[#808080]"
+          >
+            <label for="sec_code" class="text-sm">Security Code</label>
+            <span class="flex items-center gap-2 w-full">
+              <input
+                name="sec_code"
+                placeholder="XXX"
+                type="number"
+                class="w-full border p-3 rounded-md"
+              />
+              <i class="fa-solid fa-credit-card text-5xl text-[#e2e2e2]"></i>
+            </span>
+          </div>
+
+          <div
+            class="col-span-full w-full flex gap-2 items-center text-pink-500"
+          >
+            <input type="checkbox" name="save_card" />
+            <label for="save_card" class="text-sm"
+              >Save this card for future payments</label
+            >
+          </div>
+
+          <div
+            class="col-span-full w-full flex gap-2 items-start text-[#808080]"
+          >
+            <input type="checkbox" name="recieve_email" />
+            <label for="recieve_email" class="text-sm -mt-1"
+              >By ticking this tick box, you consent to receiving event &
+              competition recommendations, training advice and other promotion
+              material from Limber partners and affiliates by email.</label
+            >
+          </div>
+
+          <div
+            class="col-span-full w-full flex gap-2 items-start text-[#808080]"
+          >
+            <input type="checkbox" name="terms" />
+            <label for="terms" class="text-sm -mt-1"
+              >By registering for this event, agree to the
+              <span class="text-pink-500 underline"
+                >Limber Booking Terms and Conditions</span
+              >
+              and you understand that we will transfer your personal information
+              to the Booking Provide or the Event Organiser.</label
+            >
+          </div>
+
+          <div class="col-span-full w-full flex items-center justify-between">
+            <button
+              class="text-pink-500 border-[1.5px] border-pink-500 bg-white rounded-md w-28 py-3 shadow-class"
+            >
+              Prev
+            </button>
+            <button class="selected rounded-md w-56 py-3">Pay Now</button>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="isConf">
+        <div
+          class="col-span-full grid grid-cols-2 items-start gap-4 pt-10 w-full max-sm:grid-cols-1"
+        >
+          <h3 class="text-[#0c5060] font-semibold col-span-full">
+            Confirmation
+          </h3>
+
+          <div
+            class="col-span-full w-full flex flex-col gap-6 items-center justify-center text-[#808080] border rounded-md bg-white py-4 text-center"
+          >
+            <i class="fa-solid fa-circle-check rating text-9xl"></i>
+
+            <h4 class="text-[#0c5060]">
+              Congratulations! Your payment has been confirmed.
+            </h4>
+            <span class="">
+              REGISTRATION REFERENCE NUMBER
+              <br />
+              XV94567Yt
+            </span>
+
+            <span class="">
+              Your session details and Invoice have been emailed to you at
+              <br />
+              <p class="text-pink-500 pt-2">email&#64;address.com</p>
+            </span>
+
+            <button
+              class="flex items-center justify-center rounded-md selected py-3 w-36"
+              (click)="navigateToHome()"
+            >
+              Home
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div
+      class="col-span-2 flex flex-col items-start bg-[#123942] px-4 py-6 rounded-md w-full text-white gap-2 max-lg:col-span-1 max-lg:w-96 max-sm:w-full max-lg:mx-auto"
+    >
+      <h4>Your Basket</h4>
+      <img
+        src="../../../../assets/WEBSITE - COACHES PAGE IMAGES/pexels-andrew-personal-training-733500.png"
+        class="rounded-md w-full min-h-40 h-fit"
+      />
+
+      <h4 class="pt-2">Name of the Event</h4>
+      <div class="flex flex-col items-start w-full">
+        <span class="flex gap-2 items-center py-2 w-full"
+          ><i class="fa-regular fa-calendar-days text-pink-600"></i>Date
+          <strong>01-01-2024</strong></span
+        >
+        <span
+          class="flex gap-2 items-center border-t border-b border-white py-2 w-full"
+          ><i class="fa-solid fa-location-dot text-pink-600"></i>Location
+          <strong>London, UK</strong></span
+        >
+      </div>
+
+      <h4 class="pt-2">Ticket Summary</h4>
+
+      <div class="flex flex-col items-start gap-2 w-full">
+        <span class="flex gap-2 justify-between items-center w-full">
+          <span>Marathon (25.1) <br />Adult, Member</span>
+          <span class="text-lg font-semibold">x1</span>
+          <strong>$100.00</strong>
+        </span>
+        <span class="flex gap-2 justify-between items-center w-full">
+          <span>Kids Fun Run (3m)<br />Juniors, Non-Member</span>
+          <span class="text-lg font-semibold">x1</span>
+          <strong>$25.00</strong>
+        </span>
+        <span class="flex gap-2 justify-between items-center w-full"
+          >Sales Tax <strong>$10.00</strong></span
+        >
+        <span class="flex gap-2 justify-between items-center w-full"
+          >Booking Fee <strong>$10.00</strong></span
+        >
+      </div>
+
+      <button
+        class="bg-white py-3 rounded-md text-lg w-full font-semibold text-pink-500"
+      >
+        Total $145.00
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

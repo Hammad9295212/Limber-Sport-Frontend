@@ -1,0 +1,186 @@
+<header class="header">
+  <div style="display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 60px;">
+    <a class="logo">
+      <img src="assets/logo/logo.png" alt="Logo"/>
+    </a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">
+      <i class="fa-solid fa-bars" id="menu-icon"
+         style="color: white"
+      ></i>
+      <i class="fa-solid fa-xmark hidden" id="close-icon"
+         style="color: white"
+      ></i>
+    </label>
+
+    <nav class="navigation">
+      <div class="button-container" style="align-items: center !important;">
+        <button class="icon-button" (click)="onNavigate()">
+          <img src="assets/icons/home.png" alt="Home"/>
+          <span class="icon-title">Home</span>
+        </button>
+        <button class="icon-button" (click)="viewPlayerFilter()">
+          <img src="assets/icons/player.png" alt="Find Players"/>
+          <span class="icon-title">Find Players</span>
+        </button>
+        <button class="icon-button" (click)="viewCoachFilter()">
+          <img src="assets/icons/coach.png" alt="Find Coaches"/>
+          <span class="icon-title">Find Coaches</span>
+        </button>
+        <button class="icon-button" routerLink="/clubs-home">
+          <img src="assets/icons/club.png" alt="Find Clubs"/>
+          <span class="icon-title">Find Clubs</span>
+        </button>
+        <button class="icon-button" routerLink="/events-home">
+          <img src="assets/icons/event.png" alt="Find Events"/>
+          <span class="icon-title">Find Events</span>
+        </button>
+        <button class="icon-button" routerLink="/notifications">
+          <img src="assets/icons/notification.png" alt="Notifications"/>
+          <span class="icon-title">Notifications</span>
+          <span class="notification-badge"
+                *ngIf="total_notifications && notification_toast">{{ total_notifications || 0 }}</span>
+        </button>
+        <!--<button class="icon-button" routerLink="/notifications">
+          <img src="assets/icons/notification.png" alt="Notifications" />
+          <span class="icon-title">Notifications</span>
+        </button>-->
+        <button class="profile-container">
+          <img class="profile-icon" [src]="playerDetailsData?.profile_image || 'assets/icons/default.jpg'"
+               alt="Profile"/>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="onNavigate()">Edit Profile</a>
+            <a class="dropdown-item" routerLink="/settings">Setting</a>
+            <a class="dropdown-item" (click)="handleLogout()">Logout</a>
+          </div>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!--
+<header
+  class="
+    block
+    w-full
+    header
+    py-4
+    sm:flex sm:items-center sm:justify-between
+    font-sans
+  "
+>
+  <div class="sm:flex sm:items-center sm:justify-around w-full">
+    <div class="flex justify-between sm:block px-4">
+      <a class="block text-2xl font-bold text-white">
+        <img src="assets/logo/logo.png" alt="Logo" />
+      </a>
+
+      <button class="block bg-transparent sm:hidden">
+        <input class="invisible appearance-none" type="checkbox" id="toggle" />
+
+        <label for="toggle">
+          <i id="menu-icon" class="fa-solid fa-bars cursor-pointer text-white text-3xl"></i>
+          <i id="close-icon" class="hidden fa-solid fa-xmark cursor-pointer text-white text-3xl"></i>
+        </label>
+      </button>
+    </div>
+
+    <div
+      #linksDiv
+      id="navigation"
+      class="
+        bg-[#0c5060]
+        flex
+        h-0
+        flex-col
+        items-center
+        justify-center
+        gap-2
+        transition-all
+        overflow-hidden
+        duration-500
+        ease-in-out
+        sm:h-auto sm:flex-row sm:overflow-auto
+        font-medium
+      "
+    >
+      <div class="button-container">
+        <button class="icon-button" (click)="onNavigate()">
+          <img src="assets/icons/home.png"
+               style="width: 18px;height: 18px"
+               alt="Home" />
+          <span class="icon-title">Home</span>
+        </button>
+        <button class="icon-button" (click)="viewPlayerFilter()">
+          <img src="assets/icons/player.png" alt="Find Players" />
+          <span class="icon-title">Find Players</span>
+        </button>
+        <button class="icon-button" routerLink="/coaches-home">
+          <img src="assets/icons/coach.png" alt="Find Coaches" />
+          <span class="icon-title">Find Coaches</span>
+        </button>
+        <button class="icon-button" routerLink="/clubs-home">
+          <img src="assets/icons/club.png" alt="Find Clubs" />
+          <span class="icon-title">Find Clubs</span>
+        </button>
+        <button class="icon-button" routerLink="/events-home">
+          <img src="assets/icons/event.png" alt="Find Events" />
+          <span class="icon-title">Find Events</span>
+        </button>
+        <button class="icon-button"
+                routerLink="/notifications"
+        >
+          <img
+            src="assets/icons/notification.png"
+            style="width: 18px; height: 18px; margin-right: 10px"
+            alt="Notifications"
+          />
+          <span class="icon-title">Notifications</span>
+          <div class="notification-badge" *ngIf="total_notifications && notification_toast">{{ total_notifications || 0 }}</div>
+        </button>
+
+        <button class="profile-container" routerLink="/events-home"
+                style="margin-left: 20px;"
+        >
+
+          <div>
+            <img  class="profile-icon"
+                  [src]="playerDetailsData?.profile_image || 'assets/icons/default.jpg'"
+                  alt="Find Profile" />
+            &lt;!&ndash;<div class="profile-icon">
+              <img
+                [src]="playerDetailsData?.profile_image || 'assets/icons/default.jpg'"
+                   alt="Profile Picture" class="rounded-profile-pic">
+            </div>&ndash;&gt;
+            <div class="dropdown-menu">
+              <a class="dropdown-item" (click)="handleLogout()">Logout</a>
+            </div>
+          </div>
+        </button>
+     &lt;!&ndash;   <div *ngIf="isUser" class="relative">
+          <button class="rounded-full p-2 w-16 h-16" (click)="logoutPopup = !logoutPopup">
+            <img
+              [src]="playerDetailsData?.profile_image || 'assets/icons/default.jpg'"
+              class="w-full rounded-full border"
+              alt="Profile Image"
+              style="border: 1px solid; height: 50px; margin-top: 15px; margin-left: 10px;"
+            />
+          </button>
+          <div
+            class="absolute bg-white text-[#0c5060] py-2 px-3 w-24 flex items-start left-0 max-lg:right-2 max-sm:relative max-sm:top-0 max-sm:right-0 top-20 z-50 rounded-md"
+            *ngIf="logoutPopup"
+            style="top: 3rem !important;left: -2rem !important;"
+          >
+            <button class="font-semibold" (click)="handleLogout()">Logout</button>
+          </div>
+        </div>&ndash;&gt;
+      </div>
+    </div>
+  </div>
+</header>
+-->

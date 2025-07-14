@@ -1,0 +1,1510 @@
+<app-header *ngIf="!currentUser"></app-header>
+<app-header2 *ngIf="currentUser"></app-header2>
+
+<div class="font-sans main-div flex flex-col items-center">
+  <div class="col-12 hero-section flex justify-center items-center bg-black bg-opacity-50">
+    <div class="mt-16 flex flex-col justify-center items-center text-center text-[#fff] max-w-[1200px] h-full">
+      <h1 class="font-black text-[50px] leading-10 max-sm:text-4xl">Be Coached by the best </h1>
+      <h2 class="font-medium text-lg max-sm:text-base">CHOOSE FROM OUR NETWORK OF RATED SPORTS COACHES TO YOU OR
+        YOUR SCHOOL,
+        UNIVERSITY OR CLUB TEAM </h2>
+    </div>
+  </div>
+  <div
+    class="grid grid-cols-12 max-md:grid-cols-9 max-sm:grid-cols-6 items-start justify-between py-10 gap-2 max-w-[1200px] text-[#0c5060] px-4 relative">
+    <div class="col-span-full grid grid-cols-12 justify-center items-center mb-3">
+      <div class="col-start-3 col-end-10 max-lg:col-span-full justify-between">
+        <div class="text-end h-14 px-2" (click)="onClearFilter()">
+          <p class="cursor-pointer">Clear Filters</p>
+        </div>
+        <div class="flex items-center justify-between px-2">
+          <h4>Showing 1 - {{ coachListData?.length }} Results</h4><span class="flex items-center justify-center gap-2"><select
+          name="sort" id="sort"
+          class="pl-2 h-10 pr-4 rounded-md border-2 border-[#0c5060] font-semibold">
+                            <option>Sort by</option>
+                            <option value="location">Location </option>
+                            <option value="rating">Rating </option>
+                        </select><button class="bg-inherit border-2 border-[#0c5060] px-3 rounded-md h-10"
+                                         (click)="handleCoachesView('list')" [ngClass]="{selected:isCoachesList}"><i
+          class="fa-solid fa-bars"></i></button><button
+          class="bg-inherit border-2 border-[#0c5060] px-3 rounded-md h-10 selected"
+          (click)="handleCoachesView('card')" [ngClass]="{selected:isCoachesCard}"><i
+          class="fa-brands fa-windows"></i></button></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-3 max-lg:col-span-3 flex flex-col justify-center items-center gap-8 max-md:hidden">
+      <ng-container *ngTemplateOutlet="dynamicFilters; context: { mobile: true }"></ng-container>
+     <!-- <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Looking for</h4><label for="looking_for" class="flex gap-2 text-sm"><input
+        type="checkbox" name="looking_for" id="looking_for-input" value="players">Players</label><label
+        for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                            id="looking_for-input" value="coaches">Coaches</label><label
+        for="looking_for"
+        class="flex gap-2 text-sm"><input type="checkbox" name="looking_for" id="looking_for-input"
+                                          value="clubs">Clubs</label><label for="looking_for"
+                                                                            class="flex gap-2 text-sm"><input
+        type="checkbox" name="looking_for" id="looking_for-input" value="events and competitions">Events
+        and Competitions</label><label for=" looking_for" class="flex gap-2 text-sm"><input type="checkbox"
+                                                                                            name="looking_for"
+                                                                                            id="looking_for-input"
+                                                                                            value="facilities">Facilities</label><label
+        for=" looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                             id="looking_for-input" value="special">Special Offers and
+        Deals</label>
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060] ">Sports</h4><input type="text" placeholder="Search ..."
+                                                      class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full"><label
+        for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                            id="looking_for-input" value="american-football">American
+        Football</label><label
+        for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                            id="looking_for-input"
+                                                            value="badminton">Badminton</label><label for="looking_for"
+                                                                                                      class="flex gap-2 text-sm"><input
+        type="checkbox" name="looking_for" id="looking_for-input"
+        value="baseball">Baseball</label><label for="looking_for" class="flex gap-2 text-sm"><input
+        type="checkbox" name="looking_for" id="looking_for-input"
+        value="basketball">Basketball</label><label for=" looking_for" class="flex gap-2 text-sm"><input
+        type="checkbox" name="looking_for" id="looking_for-input" value="beach-volleyball">Beach
+        Volleyball</label><label for=" looking_for" class="flex gap-2 text-sm"><input type="checkbox"
+                                                                                      name="looking_for"
+                                                                                      id="looking_for-input"
+                                                                                      value="boxing">Boxing</label>
+        <button
+          class="text-end text-[#0c5060] text-sm font-semibold absolute right-3 bottom-2">See More
+        </button>
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060] ">Where</h4><input type="text" placeholder="Type location here"
+                                                     class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full">
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060] ">Distance From Me</h4><input type="range" min="0" max="100"
+                                                                placeholder="Miles" class="w-full">
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060] ">Price Range</h4><input type="range" min="0" max="100" placeholder="price"
+                                                           class="w-full">
+      </div>
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Gender</h4><label for="gender" class="flex gap-2 text-sm"><input
+        type="checkbox" name="gender" id="gender-input" value="male">Male</label><label for="gender"
+                                                                                        class="flex gap-2 text-sm"><input
+        type="checkbox" name="gender" id="gender-input"
+        value="female">Female</label><label for="gender" class="flex gap-2 text-sm"><input
+        type="checkbox" name="gender" id="gender-input" value="mixed">Mixed</label><label for="gender"
+                                                                                          class="flex gap-2 text-sm"><input
+        type="checkbox" name="gender" id="gender-input"
+        value="unspecified">Unspecified</label>
+      </div>
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Coach Rating</h4><label for="rating"
+                                                           class="flex gap-2 text-sm items-center rating"><input
+        type="checkbox" name="rating"
+        id="rating-input" value="five"><i class="fa-solid fa-star"></i><i
+        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+        class="fa-solid fa-star"></i></label><label for="rating"
+                                                    class="flex gap-2 text-sm items-center rating"><input
+        type="checkbox" name="rating"
+        id="rating-input" value="four"><i class="fa-solid fa-star"></i><i
+        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+        class="fa-solid fa-star"></i></label><label for="rating"
+                                                    class="flex gap-2 text-sm items-center rating"><input
+        type="checkbox" name="rating"
+        id="rating-input" value="three"><i class="fa-solid fa-star"></i><i
+        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label><label for="rating"
+                                                                                    class="flex gap-2 text-sm items-center rating"><input
+        type="checkbox" name="rating"
+        id="rating-input" value="two"><i class="fa-solid fa-star"></i><i
+        class="fa-solid fa-star"></i></label><label for=" rating"
+                                                    class="flex gap-2 text-sm items-center rating"><input
+        type="checkbox" name="rating"
+        id="rating-input" value="one"><i class="fa-solid fa-star"></i></label>
+      </div>
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Type of Coaching</h4><label for="type" class="flex gap-2 text-sm"><input
+        type="checkbox" name="type" id="type-input" value="oneOnOne">1 on 1</label><label for="type"
+                                                                                          class="flex gap-2 text-sm"><input
+        type="checkbox" name="type" id="type-input" value="oneOnTwo">1 on
+        2</label><label for="type" class="flex gap-2 text-sm"><input type="checkbox" name="type"
+                                                                     id="type-input" value="group">Group
+        Coaching</label><label for="type"
+                               class="flex gap-2 text-sm"><input type="checkbox" name="type" id="type-input"
+                                                                 value="highlyRated">Highly Rated</label><label
+        for="type" class="flex gap-2 text-sm"><input
+        type="checkbox" name="type" id="type-input" value="specialNeeds">Special Needs
+        Coaching</label><label for="type" class="flex gap-2 text-sm"><input type="checkbox" name="type"
+                                                                            id="type-input" value="disabledCoaching">Disabled
+        Coaching</label>
+      </div>
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Search By Coach Tags</h4><label for="tags" class="flex gap-2 text-sm"><input
+        type="checkbox" name="tags" id="tags-input" value="just-joined">Just Joined</label><label
+        for="tags" class="flex gap-2 text-sm"><input type="checkbox" name="tags" id="tags-input"
+                                                     value="online-in-24-hrs">Online in last 24 hours</label><label
+        for="tags"
+        class="flex gap-2 text-sm"><input type="checkbox" name="tags" id="tags-input"
+                                          value="lots-of-activity">Lost of Activity</label><label for="tags"
+                                                                                                  class="flex gap-2 text-sm"><input
+        type="checkbox" name="tags" id="tags-input"
+        value="highly-rated">Highly Rated</label>
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060] ">Search</h4><input type="text" placeholder="Search"
+                                                      class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md search-input w-full">
+      </div>-->
+    </div>
+    <div class="col-span-6 max-lg:col-span-6 max-md:col-span-full grid grid-cols-8 justify-center items-center px-2"
+
+    >
+
+      <ng-container *ngIf="coachListData?.length < 1">
+        <div
+          class="col-span-full grid grid-cols-4 max-lg:grid-cols-3 justify-center items-center gap-4 gap-y-10 pt-3"
+        >
+          <p class="col-span-full text-center" style="color: red">
+            No search results displayed
+          </p>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isCoachesCard">
+        <div class="col-span-full grid gap-y-10 pt-3 row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+               style="margin-right: -8px"
+               *ngFor="let data of coachListData?.slice(((extra.pagination.activePagination * extra.pagination.perPage) - extra.pagination.perPage), (extra.pagination.activePagination * extra.pagination.perPage))"
+          >
+            <app-playercard
+              [player]="data"
+              [sportsData]="sportsData"
+              [listView]="false"
+              (onPlayConnect)="onLoadModal($event, content)"
+            ></app-playercard>
+            <!-- <div class="news-block-one flex flex-col justify-between wow fadeInUp animated animated animated"
+                  data-wow-delay="00ms"
+                  data-wow-duration="1500ms"
+                  style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+               <div class="inner-box flex flex-col h-full"
+               >
+                 <figure class="image-box">
+                   <a><img [src]="returnImg(data)" alt=""
+                           class="h-64 max-md:h-full"></a>
+                   &lt;!&ndash;  <div class="card shadow-sm d-flex flex-row align-items-center p-2 rounded-pill swimmer"
+                          *ngIf="data?.sport && data?.sport[0] && data?.sport[0]?.play"
+                          style="bottom: 10% !important;padding: 0px !important;"
+                     >
+                       <div class="icon-wrapper bg-gradient rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px;">
+                         <div>
+                           <i class="fa-regular fa-futbol footbal"></i>
+                         </div>
+                       </div>
+                       <div class="text-wrapper">
+                         <h6 class="mb-0" style="font-size: 12px">{{ onFindSport(data?.sport) }}</h6>
+                       </div>
+                     </div>&ndash;&gt;
+                   &lt;!&ndash; <span class="post-date"
+
+                          *ngIf="data?.sport && data?.sport[0] && data?.sport[0]?.play"
+
+                    ><i class="fa-regular fa-futbol"></i>{{ onFindSport(data?.sport) }}</span>&ndash;&gt;
+                 </figure>
+                 &lt;!&ndash; <figure class="image-box" style="margin-bottom: 0 !important;">
+                    <a (click)="handlePlayerDetailsView(data?.id)">
+                      <img [src]="returnImg(data)" alt="">
+                    </a>
+                    <div class="card shadow-sm d-flex flex-row align-items-center p-2 rounded-pill swimmer"
+                         *ngIf="data?.sport && data?.sport[0] && data?.sport[0]?.play"
+                    >
+                      <div class="icon-wrapper bg-gradient rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px;">
+                        <div>
+                          <i class="fa-regular fa-futbol footbal"></i>
+                        </div>
+                      </div>
+                      <div class="text-wrapper">
+                        <h6 class="mb-0" style="font-size: 12px">{{ onFindSport(data?.sport) }}</h6>
+                        &lt;!&ndash;<h6 class="mb-0">Open Water</h6>
+                        <small class="text-muted">Swimming</small>&ndash;&gt;
+                      </div>
+                    </div>
+                  </figure>&ndash;&gt;
+                 <div class="lower-content mt-4 flex-grow flex flex-col justify-between"
+                      style="margin-top: 0px !important;"
+                 >
+                   <div>
+                     <div class="flex justify-between items-center">
+           <span class="text-[#808080] rev-span flex gap-2 items-center"
+                 (click)="handlePlayerDetailsView(data?.id)"><i
+             class="fa-solid fa-star"></i>8.0</span>
+                       <div class="flex flex-col justify-start items-center"
+                            (click)="handlePlayerDetailsView(data?.id)">
+             <span class="text-[#808080] flex gap-2 items-center"><i
+               class="fa-solid fa-location-dot"></i>{{ (data?.player && data?.player[0]) && data?.player[0]?.location }}</span>
+                         <span class="text-[#808080] flex gap-2 items-center"
+                               *ngIf="data?.distanceFromReference">{{ data?.distanceFromReference }} miles away</span>
+                       </div>
+                     </div>
+                     &lt;!&ndash;<h3>
+                       <a (click)="handlePlayerDetailsView(data?.id)" class="no-underline mt-4">
+                         {{
+                           (data?.name ? data?.name : data?.user?.name) | slice:0:11
+                         }}{{ (data?.name ? data?.name : data?.user?.name)?.length > 11 ? '...' : '' }}
+                       </a>
+                     </h3>&ndash;&gt;
+
+                     <h3>
+                       <a (click)="handlePlayerDetailsView(data?.id)"
+                          class="no-underline mt-4 title-me">{{ data?.name ? data?.name : (data?.user?.name) }}</a>
+                     </h3>
+                     &lt;!&ndash;   <div class="badge" *ngIf="data?.sport && data?.sport[0] && data?.sport[0]?.play">
+                          <div class="icon">
+                            &lt;!&ndash; Replace with your icon, for example using FontAwesome &ndash;&gt;
+                            <i class="fa-regular fa-futbol"></i>
+                          </div>
+                          <span class="badge-text">{{ onFindSport(data?.sport) }}</span>
+                        </div>&ndash;&gt;
+
+                     <span class="text-[#0c5060] m-0"
+                           (click)="handlePlayerDetailsView(data?.id)">Ability</span>
+                     <p class="text-[#0c5060] m-0 title-me">
+                       {{ onGetSport(data?.sport) }}
+                     </p>
+                     &lt;!&ndash; <p (click)="handlePlayerDetailsView(data?.id)">
+                       {{ (data?.player && data?.player[0]) && data?.player[0]?.about_me }}
+                     </p> &ndash;&gt;
+                     <p (click)="handlePlayerDetailsView(data?.id)"
+                        class="about-me"
+                     >
+                       {{ (data?.player && data?.player[0]) ? getTruncatedTextByWords(data?.player[0]?.about_me, 10) : '' }}
+                     </p>
+
+                   </div>
+                   <div class="flex items-center justify-evenly">
+                     <a
+                       style="font-size: 12px !important;"
+                       (click)="handlePlayerDetailsView(data?.id)" class="theme-btn-two">See
+                       Details</a>
+                     <a class="theme-btn-two"
+                        *ngIf="currentUser"
+                        style="font-size: 12px !important;" (click)="onLoadModal(data, content)">
+                       {{
+                         data?.connection_status === '1' ?
+                           'Waiting for connection' :
+                           'Connect'
+                       }}
+                     </a>
+                   </div>
+                 </div>
+               </div>
+             </div>-->
+          </div>
+        </div>
+
+        <div class="col-span-full flex items-center justify-start gap-2 pt-4">
+          <button
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center cursor-pointer"
+            *ngFor="let pagination of [].constructor(extra.pagination.paginationButtons); let i = index"
+            [class.selected]="extra.pagination.activePagination === (i + 1)"
+            (click)="onNavigateToPagination(i + 1)"
+          >
+            {{ i + 1 }}
+          </button>
+        </div>
+
+      </ng-container>
+
+      <ng-container
+        *ngIf="isCoachesList">
+
+        <div class="col-span-full grid grid-cols-1 justify-center items-center gap-4 gap-y-10 pt-3">
+
+          <div class="col-span-1"
+               *ngFor="let data of coachListData?.slice(((extra.pagination.activePagination * extra.pagination.perPage) - extra.pagination.perPage), (extra.pagination.activePagination * extra.pagination.perPage))"
+          >
+            <app-playercard
+              [player]="data"
+              [sportsData]="sportsData"
+              [listView]="true"
+              (onPlayConnect)="onLoadModal($event, content)"
+            ></app-playercard>
+            <!-- <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+                  data-wow-duration="1500ms"
+                  style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+               <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1">
+                 <figure class="image-box col-span-2 max-[540px]:col-span-full m-0">
+                   <a (click)="handlePlayerDetailsView(data?.id)" class="block"><img
+                     [src]="returnImg(data)" alt="" class=""></a>&lt;!&ndash;
+                   <div class="card shadow-sm d-flex flex-row align-items-center p-2 rounded-pill swimmer"
+                        *ngIf="data?.sport && data?.sport[0] && data?.sport[0]?.play"
+                        style="bottom: 10% !important;padding: 0px !important;"
+                   >
+                     <div class="icon-wrapper bg-gradient rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px;">
+                       <div>
+                         <i class="fa-regular fa-futbol footbal"></i>
+                       </div>
+                     </div>
+                     <div class="text-wrapper">
+                       <h6 class="mb-0" style="font-size: 12px">{{ onFindSport(data?.sport) }}</h6>
+                     </div>
+                   </div>&ndash;&gt;
+                 </figure>
+                 <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                   <div class="flex justify-between items-center">
+                                       <span class="text-[#808080] rev-span flex gap-2 items-center"
+                                             (click)="handlePlayerDetailsView(data?.id)"><i
+                                         class="fa-solid fa-star"></i>8.0</span>
+                     <div class="flex flex-col justify-start items-center"
+                          (click)="handlePlayerDetailsView(data?.id)">
+                                           <span class="text-[#808080] flex gap-2 items-center"><i
+                                             class="fa-solid fa-location-dot"></i>{{ (data?.player && data?.player[0]) && data?.player[0].location }}</span>
+                       <span class="text-[#808080] flex gap-2 items-center"
+                             *ngIf="data?.distanceFromReference">{{ data?.distanceFromReference }} miles away</span>
+                     </div>
+                   </div>
+                   &lt;!&ndash; <h3>
+                      <a (click)="handlePlayerDetailsView(data?.id)" class="no-underline mt-4">
+                        {{
+                          (data?.name ? data?.name : data?.user?.name) | slice:0:11
+                        }}{{ (data?.name ? data?.name : data?.user?.name)?.length > 11 ? '...' : '' }}
+                      </a>
+                    </h3>&ndash;&gt;
+                   <h3>
+                     <a (click)="handlePlayerDetailsView(data?.id)"
+                        class="no-underline mt-4">
+
+                       {{ data?.name ? data?.name : (data?.user?.name) }}
+                     </a>
+                   </h3>
+                   <span class="m-0 text-[#0c5060]"
+                         (click)="handlePlayerDetailsView(data?.id)">Ability</span>
+                   <p class="m-0 text-[#0c5060]">
+                     {{ onGetSport(data?.sport) }}
+                   </p>
+
+                   <p (click)="handlePlayerDetailsView(data?.id)"
+                   >
+                     {{ (data?.player && data?.player[0]) && data?.player[0].about_me }}</p>
+                   <div class="flex items-center justify-evenly gap-2">
+                     <a (click)="handlePlayerDetailsView(data?.id)" class="theme-btn-two">See
+                       Details</a>
+                     <a class="theme-btn-two"
+                        *ngIf="currentUser"
+                        (click)="onLoadModal(data, content)">
+                       {{
+                         data?.connection_status === '1' ?
+                           'Waiting for connection' :
+                           'Connect'
+                       }}
+                     </a>
+                   </div>
+
+                 </div>
+               </div>
+             </div>-->
+          </div>
+
+        </div>
+
+        <div class="col-span-full flex items-center justify-start gap-2 pt-4">
+          <button
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center cursor-pointer"
+            *ngFor="let pagination of [].constructor(extra.pagination.paginationButtons); let i = index"
+            [class.selected]="extra.pagination.activePagination === (i + 1)"
+            (click)="onNavigateToPagination(i + 1)"
+          >
+            {{ i + 1 }}
+          </button>
+          <button
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer">
+            <i
+              class="fa-solid fa-caret-right"></i></button>
+        </div>
+
+
+      </ng-container>
+
+    </div>
+    <!--<ng-container *ngIf="isCoachesCard">
+      <div
+        class="col-span-6 max-lg:col-span-6 max-md:col-span-full grid grid-cols-8 justify-center items-center px-2">
+        <div
+          class="col-span-full grid gap-y-10 pt-3 row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+               *ngFor="let data of coachListData?.slice(((extra.pagination.activePagination * extra.pagination.perPage) - extra.pagination.perPage), (extra.pagination.activePagination * extra.pagination.perPage))"
+          >
+            <app-playercard
+              [player]="data"
+              [sportsData]="sportsData"
+              [listView]="false"
+              (onPlayConnect)="onLoadModal($event, content)"
+            ></app-playercard>
+          </div>
+        </div>
+        <div class="col-span-full flex items-center justify-start gap-2 pt-4">
+          <button
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center cursor-pointer"
+            *ngFor="let pagination of [].constructor(extra.pagination.paginationButtons); let i = index"
+            [class.selected]="extra.pagination.activePagination === (i + 1)"
+            (click)="onNavigateToPagination(i + 1)"
+          >
+            {{ i + 1 }}
+          </button>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isCoachesList">
+      <div
+        class="col-span-6 max-lg:col-span-6 max-md:col-span-full grid grid-cols-8 justify-center items-center px-2">
+        <div class="col-span-full grid grid-cols-1 justify-center items-center gap-4 gap-y-10 pt-3">
+
+          <div class="col-span-1"
+               *ngFor="let data of coachListData?.slice(((extra.pagination.activePagination * extra.pagination.perPage) - extra.pagination.perPage), (extra.pagination.activePagination * extra.pagination.perPage))"
+          >
+            <app-playercard
+              [player]="data"
+              [sportsData]="sportsData"
+              [listView]="true"
+              (onPlayConnect)="onLoadModal($event, content)"
+            ></app-playercard>
+            &lt;!&ndash; <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+                  data-wow-duration="1500ms"
+                  style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+               <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1">
+                 <figure class="image-box col-span-2 max-[540px]:col-span-full m-0">
+                   <a (click)="handlePlayerDetailsView(data?.id)" class="block"><img
+                     [src]="returnImg(data)" alt="" class=""></a>&lt;!&ndash;
+                   <div class="card shadow-sm d-flex flex-row align-items-center p-2 rounded-pill swimmer"
+                        *ngIf="data?.sport && data?.sport[0] && data?.sport[0]?.play"
+                        style="bottom: 10% !important;padding: 0px !important;"
+                   >
+                     <div class="icon-wrapper bg-gradient rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px;">
+                       <div>
+                         <i class="fa-regular fa-futbol footbal"></i>
+                       </div>
+                     </div>
+                     <div class="text-wrapper">
+                       <h6 class="mb-0" style="font-size: 12px">{{ onFindSport(data?.sport) }}</h6>
+                     </div>
+                   </div>&ndash;&gt;
+                 </figure>
+                 <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                   <div class="flex justify-between items-center">
+                                       <span class="text-[#808080] rev-span flex gap-2 items-center"
+                                             (click)="handlePlayerDetailsView(data?.id)"><i
+                                         class="fa-solid fa-star"></i>8.0</span>
+                     <div class="flex flex-col justify-start items-center"
+                          (click)="handlePlayerDetailsView(data?.id)">
+                                           <span class="text-[#808080] flex gap-2 items-center"><i
+                                             class="fa-solid fa-location-dot"></i>{{ (data?.player && data?.player[0]) && data?.player[0].location }}</span>
+                       <span class="text-[#808080] flex gap-2 items-center"
+                             *ngIf="data?.distanceFromReference">{{ data?.distanceFromReference }} miles away</span>
+                     </div>
+                   </div>
+                   &lt;!&ndash; <h3>
+                      <a (click)="handlePlayerDetailsView(data?.id)" class="no-underline mt-4">
+                        {{
+                          (data?.name ? data?.name : data?.user?.name) | slice:0:11
+                        }}{{ (data?.name ? data?.name : data?.user?.name)?.length > 11 ? '...' : '' }}
+                      </a>
+                    </h3>&ndash;&gt;
+                   <h3>
+                     <a (click)="handlePlayerDetailsView(data?.id)"
+                        class="no-underline mt-4">
+
+                       {{ data?.name ? data?.name : (data?.user?.name) }}
+                     </a>
+                   </h3>
+                   <span class="m-0 text-[#0c5060]"
+                         (click)="handlePlayerDetailsView(data?.id)">Ability</span>
+                   <p class="m-0 text-[#0c5060]">
+                     {{ onGetSport(data?.sport) }}
+                   </p>
+
+                   <p (click)="handlePlayerDetailsView(data?.id)"
+                   >
+                     {{ (data?.player && data?.player[0]) && data?.player[0].about_me }}</p>
+                   <div class="flex items-center justify-evenly gap-2">
+                     <a (click)="handlePlayerDetailsView(data?.id)" class="theme-btn-two">See
+                       Details</a>
+                     <a class="theme-btn-two"
+                        *ngIf="currentUser"
+                        (click)="onLoadModal(data, content)">
+                       {{
+                         data?.connection_status === '1' ?
+                           'Waiting for connection' :
+                           'Connect'
+                       }}
+                     </a>
+                   </div>
+
+                 </div>
+               </div>
+             </div>&ndash;&gt;
+          </div>
+
+        </div>
+        <div class="col-span-full flex items-center justify-start gap-2 pt-4">
+          <button
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center cursor-pointer"
+            *ngFor="let pagination of [].constructor(extra.pagination.paginationButtons); let i = index"
+            [class.selected]="extra.pagination.activePagination === (i + 1)"
+            (click)="onNavigateToPagination(i + 1)"
+          >
+            {{ i + 1 }}
+          </button>
+          <button
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer">
+            <i
+              class="fa-solid fa-caret-right"></i></button>
+        </div>
+      </div>
+    </ng-container>-->
+    <div
+      class="col-span-3 flex flex-col bg-inherit gap-8 max-md:col-span-full px-6 justify-center items-center max-sm:pt-6">
+      <!--   <div
+             class="card-shadow bg-white rounded-md py-4 px-2 flex flex-col items-start justify-center gap-4 w-full max-md:max-w-sm">
+             <h4>Featured Coaches</h4>
+             <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+                 class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md">
+                 <h5 class="">Hove Basketball Club</h5>
+                 <div class="flex justify-between items-center text-sm"><span
+                         class="flex gap-2 items-center rev-span"><i
+                             class="fa-solid fa-star rating"></i>8.0</span><span class="flex gap-2 items-center"><i
+                             class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+             </div>
+             <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+                 class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md">
+                 <h5 class="">Hove Basketball Club</h5>
+                 <div class="flex justify-between items-center text-sm"><span
+                         class="flex gap-2 items-center rev-span"><i
+                             class="fa-solid fa-star rating"></i>8.0</span><span class="flex gap-2 items-center"><i
+                             class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+             </div>
+             <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+                 class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md">
+                 <h5 class="">Hove Basketball Club</h5>
+                 <div class="flex justify-between items-center text-sm"><span
+                         class="flex gap-2 items-center rev-span"><i
+                             class="fa-solid fa-star rating"></i>8.0</span><span class="flex gap-2 items-center"><i
+                             class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+             </div>
+         </div>-->
+      <app-featured></app-featured>
+    </div>
+    <div id="sidebar absolute top-2 w-72 md:hidden bg-white">
+      <div
+        class="absolute z-50 left-0 top-24 rounded-r-full selected text-white md:hidden bg-transparent py-2 px-3 text-xl sidebar-btn">
+        <input class="invisible appearance-none" type="checkbox" id="toggle-sidebar"
+               name="toggle-sidebar"/><label for="toggle-sidebar"><i
+        class="fa-solid fa-caret-right cursor-pointer inline-block" id="menu-icon"></i><i
+        class="fa-solid fa-caret-left hidden cursor-pointer" id="close-icon"></i></label>
+      </div>
+      <div id="sidebar-filters"
+           class="flex card-shadow flex-col justify-center md:hidden items-center gap-4 transition-all duration-500 ease-in-out p-4 absolute z-50 left-0 top-40 bg-white">
+        <ng-container *ngTemplateOutlet="dynamicFilters; context: { mobile: false }"></ng-container>
+        <!--<div
+          class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Looking for</h4><label for="looking_for"
+                                                            class="flex gap-2 text-sm"><input type="checkbox"
+                                                                                              name="looking_for"
+                                                                                              id="looking_for-input"
+                                                                                              value="players">Players</label><label
+          for="looking_for" class="flex gap-2 text-sm"><input
+          type="checkbox" name="looking_for" id="looking_for-input"
+          value="coaches">Coaches</label><label for="looking_for" class="flex gap-2 text-sm"><input
+          type="checkbox" name="looking_for" id="looking_for-input" value="clubs">Clubs</label><label
+          for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                              id="looking_for-input" value="events and competitions">Events
+          and Competitions</label><label
+          for=" looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                               id="looking_for-input"
+                                                               value="facilities">Facilities</label><label
+          for=" looking_for"
+          class="flex gap-2 text-sm"><input type="checkbox" name="looking_for" id="looking_for-input"
+                                            value="special">Special Offers and Deals</label>
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060] ">Sports</h4><input type="text" placeholder="Search ..."
+                                                        class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full"><label
+          for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                              id="looking_for-input" value="american-football">American
+          Football</label><label
+          for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                              id="looking_for-input" value="badminton">Badminton</label><label
+          for="looking_for"
+          class="flex gap-2 text-sm"><input type="checkbox" name="looking_for" id="looking_for-input"
+                                            value="baseball">Baseball</label><label for="looking_for"
+                                                                                    class="flex gap-2 text-sm"><input
+          type="checkbox" name="looking_for" id="looking_for-input"
+          value="basketball">Basketball</label><label for=" looking_for"
+                                                      class="flex gap-2 text-sm"><input type="checkbox"
+                                                                                        name="looking_for"
+                                                                                        id="looking_for-input"
+                                                                                        value="beach-volleyball">Beach
+          Volleyball</label><label for=" looking_for"
+                                   class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                                     id="looking_for-input"
+                                                                     value="boxing">Boxing</label>
+          <button
+            class="text-end text-[#0c5060] text-sm font-semibold absolute right-3 bottom-2">See
+            More
+          </button>
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060] ">Where</h4><input type="text" placeholder="Type location here"
+                                                       class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full">
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060] ">Distance From Me</h4><input type="range" min="0" max="100"
+                                                                  placeholder="Miles" class="w-full">
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060] ">Price Range</h4><input type="range" min="0" max="100"
+                                                             placeholder="price" class="w-full">
+        </div>
+        <div
+          class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Gender</h4><label for="gender" class="flex gap-2 text-sm"><input
+          type="checkbox" name="gender" id="gender-input" value="male">Male</label><label for="gender"
+                                                                                          class="flex gap-2 text-sm"><input
+          type="checkbox" name="gender" id="gender-input"
+          value="female">Female</label><label for="gender" class="flex gap-2 text-sm"><input
+          type="checkbox" name="gender" id="gender-input" value="mixed">Mixed</label><label
+          for="gender" class="flex gap-2 text-sm"><input type="checkbox" name="gender" id="gender-input"
+                                                         value="unspecified">Unspecified</label>
+        </div>
+        <div
+          class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Coach Rating</h4>
+          <label for="rating"
+                                                             class="flex gap-2 text-sm items-center rating"><input
+          type="checkbox" name="rating"
+          id="rating-input" value="five"><i class="fa-solid fa-star"></i><i
+          class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+          class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label><label for="rating"
+                                                                                      class="flex gap-2 text-sm items-center rating"><input
+          type="checkbox" name="rating"
+          id="rating-input" value="four"><i class="fa-solid fa-star"></i><i
+          class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+          class="fa-solid fa-star"></i></label><label for="rating"
+                                                      class="flex gap-2 text-sm items-center rating"><input
+          type="checkbox" name="rating"
+          id="rating-input" value="three"><i class="fa-solid fa-star"></i><i
+          class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label><label for="rating"
+                                                                                      class="flex gap-2 text-sm items-center rating"><input
+          type="checkbox" name="rating"
+          id="rating-input" value="two"><i class="fa-solid fa-star"></i><i
+          class="fa-solid fa-star"></i></label><label for=" rating"
+                                                      class="flex gap-2 text-sm items-center rating"><input
+          type="checkbox" name="rating"
+          id="rating-input" value="one"><i class="fa-solid fa-star"></i></label>
+        </div>
+        <div
+          class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Type of Coaching</h4><label for="type" class="flex gap-2 text-sm"><input
+          type="checkbox" name="type" id="type-input" value="oneOnOne">1 on 1</label><label for="type"
+                                                                                            class="flex gap-2 text-sm"><input
+          type="checkbox" name="type" id="type-input" value="oneOnTwo">1
+          on 2</label><label for="type" class="flex gap-2 text-sm"><input type="checkbox" name="type"
+                                                                          id="type-input" value="group">Group
+          Coaching</label><label for="type"
+                                 class="flex gap-2 text-sm"><input type="checkbox" name="type" id="type-input"
+                                                                   value="highlyRated">Highly Rated</label><label
+          for="type" class="flex gap-2 text-sm"><input
+          type="checkbox" name="type" id="type-input" value="specialNeeds">Special Needs
+          Coaching</label><label for="type" class="flex gap-2 text-sm"><input type="checkbox" name="type"
+                                                                              id="type-input" value="disabledCoaching">Disabled
+          Coaching</label>
+        </div>
+        <div
+          class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Search By Coach Tags</h4><label for="tags"
+                                                                     class="flex gap-2 text-sm"><input type="checkbox"
+                                                                                                       name="tags"
+                                                                                                       id="tags-input"
+                                                                                                       value="just-joined">Just
+          Joined</label><label for="tags" class="flex gap-2 text-sm"><input
+          type="checkbox" name="tags" id="tags-input" value="online-in-24-hrs">Online in last 24
+          hours</label><label for="tags" class="flex gap-2 text-sm"><input type="checkbox" name="tags"
+                                                                           id="tags-input" value="lots-of-activity">Lost
+          of Activity</label><label for="tags"
+                                    class="flex gap-2 text-sm"><input type="checkbox" name="tags" id="tags-input"
+                                                                      value="highly-rated">Highly Rated</label>
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060] ">Search</h4><input type="text" placeholder="Search"
+                                                        class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md search-input w-full">
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+<ng-template #dynamicFilters let-support="mobile">
+
+
+  <div
+    class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+
+    <!-- Title -->
+    <h4 class="text-[#0c5060]">Search</h4>
+
+    <!-- Search Input -->
+    <div class="flex items-center w-full">
+      <input type="text" placeholder="Search"
+             class="text-[#0c5060] text-sm border border-black px-3 py-2 w-full"
+             [ngClass]="!support ? 'rounded-md search-input' : ''"
+             id="searchTerm"
+             (input)="onFilter($event)"
+      />
+
+      <!-- Conditionally display search icon if support is true -->
+      <i *ngIf="support"
+         class="fa fa-search cursor-pointer ml-2 text-[#0c5060]"
+         (click)="hideFilterBar()">
+      </i>
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+    <h4 class="text-[#0c5060]">Location</h4>
+
+    <div class="flex items-center w-full">
+      <input
+        type="text"
+        placeholder="Type location here"
+        (input)="onFilterData($event, 'location', support, support)"
+        #searchInput
+        id="locationInput"
+        class="text-[#0c5060] text-sm border border-[black] px-3 py-2 w-full"
+        [ngClass]="support ? '' : 'rounded-md'"
+        [value]="location || ''"
+      />
+      <i *ngIf="support"
+         class="fa fa-search cursor-pointer ml-2 text-[#0c5060]"
+         (click)="hideFilterBar()">
+      </i>
+
+
+      <div *ngIf="placeSuggesiton && placeSuggesiton.length > 0 && extra.showSuggestions"
+           class="absolute left-0 top-32 w-full bg-white border border-[#0c5060] rounded-md shadow-md z-10">
+        <ul class="flex flex-col">
+          <li *ngFor="let loc of placeSuggesiton"
+              class="px-3 py-2 cursor-pointer hover:bg-[#f0f0f0] text-sm text-[#0c5060]"
+              (click)="selectLocation(loc)">
+            {{ loc }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+    <h4 class="text-[#0c5060]">Distance From</h4>
+    <div class="flex w-full items-center">
+          <span class="text-sm text-[#808080] mr-2">
+            {{ queryParams?.distance || '0' }}
+          </span>
+      <input type="range" min="0" max="100" placeholder="Miles" class="w-full"
+             [value]="distance"
+             (change)="onFilterData($event, 'distance')"/>
+      <span class="text-sm text-[#808080] ml-2">100 Miles</span>
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+    <h4 class="text-[#0c5060]">Price</h4>
+    <div class="flex w-full items-center">
+          <span class="text-sm text-[#808080] mr-2">
+           ${{ queryParams?.price || '0' }}
+          </span>
+      <input type="range" min="0" max="100" placeholder="Miles" class="w-full"
+             [value]="distance"
+             (change)="onFilterData($event, 'price')"/>
+      <span class="text-sm text-[#808080] ml-2">$100</span>
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+    <h4 class="text-[#0c5060]">Looking for</h4>
+    <label class="flex gap-2 text-sm" *ngFor="let role of rolesData; let roleIndex = index">
+      <input type="radio"
+             name="looking_for"
+             [value]="role.id"
+             [id]="role.id"
+             [checked]="role?.id?.toString() === roleValue"
+             (input)="onFilterData($event, 'role_id')"
+             id="lookingFor{{roleIndex}}"
+      >
+      {{ role.name }}
+    </label>
+    <!--<label class="flex gap-2 text-sm" *ngFor="let role of rolesData; let roleIndex = index">
+      <input type="radio" name="looking_for"
+             [value]="role.id"
+             [checked]="role.name === roleValue"
+             [name]="role?.name + role?.id + roleIndex"
+             (input)="onFilterData($event, 'role_id')"
+      >
+      {{ role.name }}
+    </label>-->
+  </div>
+
+  <div
+    class="bg-white card-shadow rounded-md text-[#808080] w-full relative px-4 py-6"
+    [ngClass]="{'flex flex-col items-start pb-8 gap-2': extra['displayedSportsAccordian']}"
+    [class.cardFix]="!extra['displayedSportsAccordian']"
+  >
+    <div class="toggle-header flex justify-between w-full items-center" (click)="toggleAccordion('displayedSportsAccordian')" style="cursor: pointer;">
+      <h4 class="text-[#0c5060]">Sports</h4>
+      <span [ngClass]="{'rotate-180': extra['displayedSportsAccordian']}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </span>
+    </div>
+    <div *ngIf="extra['displayedSportsAccordian']" class="accordion" id="accordionExample">
+      <input type="text" placeholder="Search ..."
+             class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full mb-2"
+             (input)="localFilterSearch($event, 'displayedSports', 'name', true)"
+      >
+
+      <label class="flex gap-2 text-sm" style="display: none !important;">
+        <input type="radio"
+               name="sport_selection"
+               value=""
+               [checked]="'' === (sportValue || '').toString() || !queryParams.sport"
+               (input)="onFilterData({ target: { value: '' } }, ['sport', 'play_id'])"
+               id="sportsSelection"
+        >
+        Select
+      </label>
+      <label class="flex gap-2 text-sm" *ngFor="let sportItem of displayedSports">
+        <input type="radio"
+               name="sport_selection"
+               [value]="sportItem.id"
+               [id]="sportItem.id"
+               (input)="onFilterData($event, ['sport', 'play_id'])"
+        >
+        {{ sportItem.name }}
+      </label>
+
+      <div style="display: flex; flex-direction: row;">
+        <button class="text-end text-[#0c5060] text-sm font-semibold"
+                style="margin-right: 40px"
+                (click)="loadLessItems()"
+                *ngIf="currentIndex > itemsPerPage">
+          Show Less
+        </button>
+        <button class="text-end text-[#0c5060] text-sm font-semibold right-3 bottom-2"
+                (click)="loadMoreItems()">Show More
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!--  <div
+      class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+      <h4 class="text-[#0c5060] ">Ability</h4>
+      <input type="text" placeholder="Search ..."
+             class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full"
+             (input)="localFilterSearch($event, 'abilityData', 'name')"
+      >
+      <label class="flex gap-2 text-sm" style="display: none !important;">
+        <input type="radio"
+               name="looking_for"
+               value=""
+               checked
+               (input)="onFilterData($event, 'ability_id')"
+               id="ability_idSelection"
+        >
+        Select
+      </label>
+      <label class="flex gap-2 text-sm" *ngFor="let ability of abilityData">
+        &lt;!&ndash;     [checked]="ability?.id?.toString() === queryParams?.ability_id?.toString()" &ndash;&gt;
+        <input type="radio"
+               name="looking_for"
+               [id]="ability.id"
+               [value]="ability.id"
+
+               (input)="onFilterData($event, 'ability_id')"
+        >
+        {{ ability.name }}
+      </label>
+      &lt;!&ndash;<label for="looking_for" class="flex gap-2 text-sm" *ngFor="let ability of abilityData">
+        <input type="checkbox" name="looking_for" id="looking_for-input" value={{ability.id}}>
+        {{ ability.name }}
+      </label>&ndash;&gt;
+    </div>-->
+  <div
+    class="bg-white card-shadow rounded-md text-[#808080] w-full relative px-4 py-6"
+    [ngClass]="{'flex flex-col items-start pb-8 gap-2': extra['isAbilityAccordionOpen']}"
+    [class.cardFix]="!extra['isAbilityAccordionOpen']"
+  >
+
+    <!-- Toggle Button for Ability Section -->
+    <div class="toggle-header flex justify-between w-full items-center" (click)="toggleAccordion('isAbilityAccordionOpen')" style="cursor: pointer;">
+      <h4 class="text-[#0c5060]">Ability</h4> <!-- Title can be dynamic -->
+      <!-- Arrow to indicate toggle state -->
+      <span [ngClass]="{'rotate-180': extra['isAbilityAccordionOpen ']}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </span>
+    </div>
+
+    <!-- Accordion Content for Ability -->
+    <div *ngIf="extra['isAbilityAccordionOpen']" class="accordion">
+      <input type="text" placeholder="Search ..."
+             class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full mb-2"
+             (input)="localFilterSearch($event, 'abilityData', 'name')"
+      >
+
+      <label class="flex gap-2 text-sm" style="display: none !important;">
+        <input type="radio"
+               name="looking_for"
+               value=""
+               checked
+               (input)="onFilterData($event, 'ability_id')"
+               id="ability_idSelection"
+        >
+        Select
+      </label>
+
+      <label class="flex gap-2 text-sm" *ngFor="let ability of abilityData">
+        <input type="radio"
+               name="looking_for"
+               [id]="ability.id"
+               [value]="ability.id"
+               (input)="onFilterData($event, 'ability_id')"
+        >
+        {{ ability.name }}
+      </label>
+    </div>
+
+  </div>
+
+
+  <!-- <div
+     class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+     <h4 class="text-[#0c5060]">Looking to Play</h4>
+     <label for="looking_for-anytime" class="flex gap-2 text-sm" style="display: none !important;">
+       <input type="radio" name="looking_for" id="looking_for-clear" value="anytime">Anytime
+     </label>
+     <label for="looking_for-anytime" class="flex gap-2 text-sm">
+       <input type="radio" name="looking_for" id="looking_for-anytime" value="anytime"
+              (input)="onFilterData($event, 'availability_id')">Anytime
+     </label>
+     <label for="looking_for-weekdays" class="flex gap-2 text-sm">
+       <input type="radio" name="looking_for" id="looking_for-weekdays" value="weekdays"
+              (input)="onFilterData($event, 'availability_id')">Weekdays
+     </label>
+     <label for="looking_for-weekends" class="flex gap-2 text-sm">
+       <input type="radio" name="looking_for" id="looking_for-weekends" value="weekends"
+              (input)="onFilterData($event, 'availability_id')">Weekends
+     </label>
+     <label for="looking_for-mornings" class="flex gap-2 text-sm">
+       <input type="radio" name="looking_for" id="looking_for-mornings" value="mornings"
+              (input)="onFilterData($event, 'availability_id')">Mornings
+     </label>
+     <label for="looking_for-lunchtimes" class="flex gap-2 text-sm">
+       <input type="radio" name="looking_for" id="looking_for-lunchtimes" value="lunchtimes"
+              (input)="onFilterData($event, 'availability_id')">Lunchtimes
+     </label>
+     <label for="looking_for-afternoons" class="flex gap-2 text-sm">
+       <input type="radio" name="looking_for" id="looking_for-afternoons" value="afternoons"
+              (input)="onFilterData($event, 'availability_id')">Afternoons
+     </label>
+     <label for="looking_for-evenings" class="flex gap-2 text-sm">
+       <input type="radio" name="looking_for" id="looking_for-evenings" value="evenings"
+              (input)="onFilterData($event, 'availability_id')">Evenings
+     </label>
+   </div>-->
+  <div
+    class="bg-white card-shadow rounded-md text-[#808080] w-full relative px-4 py-6"
+    [ngClass]="{'flex flex-col items-start pb-8 gap-2': extra['isLookingToPlayAccordionOpen']}"
+    [class.cardFix]="!extra['isLookingToPlayAccordionOpen']"
+  >
+
+    <div class="toggle-header flex justify-between w-full items-center" (click)="toggleAccordion('isLookingToPlayAccordionOpen')" style="cursor: pointer;">
+      <h4 class="text-[#0c5060]">Looking to Play</h4>
+      <span [ngClass]="{'rotate-180': extra['isLookingToPlayAccordionOpen']}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </span>
+    </div>
+
+    <div *ngIf="extra['isLookingToPlayAccordionOpen']">
+      <label for="looking_for-anytime" class="flex gap-2 text-sm" style="display: none !important;">
+        <input type="radio" name="looking_for" id="looking_for-clear" value="anytime">Anytime
+      </label>
+
+      <label for="looking_for-anytime" class="flex gap-2 text-sm">
+        <input type="radio" name="looking_for" id="looking_for-anytime" value="anytime"
+               (input)="onFilterData($event, 'availability_id')">Anytime
+      </label>
+
+      <label for="looking_for-weekdays" class="flex gap-2 text-sm">
+        <input type="radio" name="looking_for" id="looking_for-weekdays" value="weekdays"
+               (input)="onFilterData($event, 'availability_id')">Weekdays
+      </label>
+
+      <label for="looking_for-weekends" class="flex gap-2 text-sm">
+        <input type="radio" name="looking_for" id="looking_for-weekends" value="weekends"
+               (input)="onFilterData($event, 'availability_id')">Weekends
+      </label>
+
+      <label for="looking_for-mornings" class="flex gap-2 text-sm">
+        <input type="radio" name="looking_for" id="looking_for-mornings" value="mornings"
+               (input)="onFilterData($event, 'availability_id')">Mornings
+      </label>
+
+      <label for="looking_for-lunchtimes" class="flex gap-2 text-sm">
+        <input type="radio" name="looking_for" id="looking_for-lunchtimes" value="lunchtimes"
+               (input)="onFilterData($event, 'availability_id')">Lunchtimes
+      </label>
+
+      <label for="looking_for-afternoons" class="flex gap-2 text-sm">
+        <input type="radio" name="looking_for" id="looking_for-afternoons" value="afternoons"
+               (input)="onFilterData($event, 'availability_id')">Afternoons
+      </label>
+
+      <label for="looking_for-evenings" class="flex gap-2 text-sm">
+        <input type="radio" name="looking_for" id="looking_for-evenings" value="evenings"
+               (input)="onFilterData($event, 'availability_id')">Evenings
+      </label>
+    </div>
+
+  </div>
+
+
+  <!--<div
+    class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+    <h4 class="text-[#0c5060]">Age Range</h4>
+
+    <label for="" class="flex gap-2 text-sm">
+      <input type="radio" name="age_group"
+             id="ageRangeSelection" value=""
+             (input)="onFilterData($event, 'age_range')"
+      /> No age limit
+    </label>
+
+    <label for="age_16_18" class="flex gap-2 text-sm">
+      <input type="radio" name="age_group"
+             id="age_16_18" value="16,18"
+             (input)="onFilterData($event, 'age_range')"
+      /> 16 - 18
+    </label>
+
+    <label for="age_19_24" class="flex gap-2 text-sm">
+      <input type="radio" name="age_group"
+             id="age_19_24" value="19,24"
+             (input)="onFilterData($event, 'age_range')"
+      /> 19 - 24
+    </label>
+
+    <label for="age_25_34" class="flex gap-2 text-sm">
+      <input type="radio" name="age_group" id="age_25_34" value="25,34"
+             (input)="onFilterData($event, 'age_range')"
+      > 25 - 34
+    </label>
+
+    <label for="age_35_44" class="flex gap-2 text-sm">
+      <input type="radio" name="age_group" id="age_35_44" value="35,44"
+             (input)="onFilterData($event, 'age_range')"
+      > 35 - 44
+    </label>
+
+    <label for="age_45_54" class="flex gap-2 text-sm">
+      <input type="radio" name="age_group" id="age_45_54" value="45,54"
+             (input)="onFilterData($event, 'age_range')"
+      > 45 - 54
+    </label>
+
+    <label for="age_55_64" class="flex gap-2 text-sm">
+      <input type="radio" name="age_group" id="age_55_64" value="55,64"
+             (input)="onFilterData($event, 'age_range')"
+      > 55 - 64
+    </label>
+
+    <label for="age_65_over" class="flex gap-2 text-sm">
+      <input type="radio" name="age_group" id="age_65_over" value="65,100"
+             (input)="onFilterData($event, 'age_range')"
+      > 65 and Over
+    </label>
+    &lt;!&ndash;   <label for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                                  id="looking_for-input" value="16,18">16 - 18</label>
+       <label for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                                  id="looking_for-input" value="18to24">18 - 24</label>
+       <label for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                                  id="looking_for-input" value="25to34">25 - 34</label>
+       <label for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                                  id="looking_for-input" value="35 to 44">35 -
+         44</label>
+       <label for=" looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                                   id="looking_for-input" value="45to54">45 -
+         54</label>
+       <label for=" looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                                   id="looking_for-input" value="55to64">55 -
+         64</label>
+       <label for=" looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+                                                                   id="looking_for-input" value="65orOver">65 or
+         over</label>&ndash;&gt;
+  </div>-->
+  <div
+    class="bg-white card-shadow rounded-md text-[#808080] w-full relative px-4 py-6"
+    [ngClass]="{'flex flex-col items-start pb-8 gap-2': extra['isAgeRangeAccordionOpen']}"
+    [class.cardFix]="!extra['isAgeRangeAccordionOpen']"
+  >
+
+    <!-- Toggle Header for Age Range Section -->
+    <div class="toggle-header flex justify-between w-full items-center" (click)="toggleAccordion('isAgeRangeAccordionOpen ')" style="cursor: pointer;">
+      <h4 class="text-[#0c5060]">Age Range</h4>
+      <!-- Arrow to indicate toggle state -->
+      <span [ngClass]="{'rotate-180': extra['isAgeRangeAccordionOpen ']}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </span>
+    </div>
+
+    <!-- Accordion Content for Age Range -->
+    <div *ngIf="extra['isAgeRangeAccordionOpen ']">
+
+      <label for="" class="flex gap-2 text-sm">
+        <input type="radio" name="age_group"
+               id="ageRangeSelection" value=""
+               (input)="onFilterData($event, 'age_range')"
+        /> No age limit
+      </label>
+
+      <label for="age_16_18" class="flex gap-2 text-sm">
+        <input type="radio" name="age_group"
+               id="age_16_18" value="16,18"
+               (input)="onFilterData($event, 'age_range')"
+        /> 16 - 18
+      </label>
+
+      <label for="age_19_24" class="flex gap-2 text-sm">
+        <input type="radio" name="age_group"
+               id="age_19_24" value="19,24"
+               (input)="onFilterData($event, 'age_range')"
+        /> 19 - 24
+      </label>
+
+      <label for="age_25_34" class="flex gap-2 text-sm">
+        <input type="radio" name="age_group" id="age_25_34" value="25,34"
+               (input)="onFilterData($event, 'age_range')"
+        > 25 - 34
+      </label>
+
+      <label for="age_35_44" class="flex gap-2 text-sm">
+        <input type="radio" name="age_group" id="age_35_44" value="35,44"
+               (input)="onFilterData($event, 'age_range')"
+        > 35 - 44
+      </label>
+
+      <label for="age_45_54" class="flex gap-2 text-sm">
+        <input type="radio" name="age_group" id="age_45_54" value="45,54"
+               (input)="onFilterData($event, 'age_range')"
+        > 45 - 54
+      </label>
+
+      <label for="age_55_64" class="flex gap-2 text-sm">
+        <input type="radio" name="age_group" id="age_55_64" value="55,64"
+               (input)="onFilterData($event, 'age_range')"
+        > 55 - 64
+      </label>
+
+      <label for="age_65_over" class="flex gap-2 text-sm">
+        <input type="radio" name="age_group" id="age_65_over" value="65,100"
+               (input)="onFilterData($event, 'age_range')"
+        > 65 and Over
+      </label>
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="bg-white card-shadow rounded-md text-[#808080] w-full relative px-4 py-6"
+    [ngClass]="{'flex flex-col items-start pb-8 gap-2': extra['toggleGenderAccordion']}"
+    [class.cardFix]="!extra['toggleGenderAccordion']"
+  >
+    <div class="toggle-header flex justify-between w-full items-center" (click)="toggleAccordion('toggleGenderAccordion')" style="cursor: pointer;">
+      <h4 class="text-[#0c5060]">Gender</h4>
+      <!-- Arrow to indicate toggle state -->
+      <span [ngClass]="{'rotate-180': extra['toggleGenderAccordion']}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </span>
+    </div>
+    <div *ngIf="extra['toggleGenderAccordion']">
+      <label class="flex gap-2 text-sm" style="display: none !important;">
+        <input type="radio" name="gender"
+               [id]="'looking_for-input-' + ''" value=""
+               (input)="onFilterData($event, 'gender_id')"
+        >
+        Select
+      </label>
+      <label for="looking_for" class="flex gap-2 text-sm" *ngFor="let gender of genderData">
+        <input type="radio" name="gender"
+               [id]="'looking_for-input-' + gender.id" [value]="gender.id"
+               (input)="onFilterData($event, 'gender_id')"
+        >
+        {{ gender.name }}
+      </label>
+    </div>
+  </div>
+
+  <div
+    class="bg-white card-shadow rounded-md text-[#808080] w-full relative px-4 py-6"
+    [ngClass]="{'flex flex-col items-start pb-8 gap-2': extra['coachRatingAccordion']}"
+    [class.cardFix]="!extra['coachRatingAccordion']"
+  >
+    <div class="toggle-header flex justify-between w-full items-center" (click)="toggleAccordion('coachRatingAccordion')" style="cursor: pointer;">
+      <h4 class="text-[#0c5060]">Coach Rating</h4>
+      <span [ngClass]="{'rotate-180': extra['coachRatingAccordion']}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </span>
+    </div>
+    <div *ngIf="extra['coachRatingAccordion']">
+      <label for="rating"
+             class="flex gap-2 text-sm items-center rating"><input
+        type="checkbox" name="rating"
+        id="rating-input" value="five"><i class="fa-solid fa-star"></i><i
+        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label><label for="rating"
+                                                                                    class="flex gap-2 text-sm items-center rating"><input
+      type="checkbox" name="rating"
+      id="rating-input" value="four"><i class="fa-solid fa-star"></i><i
+      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+      class="fa-solid fa-star"></i></label><label for="rating"
+                                                  class="flex gap-2 text-sm items-center rating"><input
+      type="checkbox" name="rating"
+      id="rating-input" value="three"><i class="fa-solid fa-star"></i><i
+      class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label><label for="rating"
+                                                                                  class="flex gap-2 text-sm items-center rating"><input
+      type="checkbox" name="rating"
+      id="rating-input" value="two"><i class="fa-solid fa-star"></i><i
+      class="fa-solid fa-star"></i></label><label for=" rating"
+                                                  class="flex gap-2 text-sm items-center rating"><input
+      type="checkbox" name="rating"
+      id="rating-input" value="one"><i class="fa-solid fa-star"></i></label>
+    </div>
+  </div>
+
+  <div
+    class="bg-white card-shadow rounded-md text-[#808080] w-full relative px-4 py-6"
+    [ngClass]="{'flex flex-col items-start pb-8 gap-2': extra['typeOfCoachingAccordion']}"
+    [class.cardFix]="!extra['typeOfCoachingAccordion']"
+  >
+    <div class="toggle-header flex justify-between w-full items-center" (click)="toggleAccordion('typeOfCoachingAccordion')" style="cursor: pointer;">
+      <h4 class="text-[#0c5060]">Type of Coaching</h4>
+      <span [ngClass]="{'rotate-180': extra['typeOfCoachingAccordion']}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </span>
+    </div>
+    <div *ngIf="extra['typeOfCoachingAccordion']">
+      <label for="type" class="flex gap-2 text-sm"><input
+        type="checkbox" name="type" id="type-input" value="oneOnOne">1 on 1</label><label for="type"
+                                                                                          class="flex gap-2 text-sm"><input
+      type="checkbox" name="type" id="type-input" value="oneOnTwo">1 on
+      2</label><label for="type" class="flex gap-2 text-sm"><input type="checkbox" name="type"
+                                                                   id="type-input" value="group">Group
+      Coaching</label><label for="type"
+                             class="flex gap-2 text-sm"><input type="checkbox" name="type" id="type-input"
+                                                               value="highlyRated">Highly Rated</label><label
+      for="type" class="flex gap-2 text-sm"><input
+      type="checkbox" name="type" id="type-input" value="specialNeeds">Special Needs
+      Coaching</label><label for="type" class="flex gap-2 text-sm"><input type="checkbox" name="type"
+                                                                          id="type-input" value="disabledCoaching">Disabled
+      Coaching</label>
+    </div>
+  </div>
+
+  <!--<div
+    class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+    <h4 class="text-[#0c5060]">Gender</h4>
+    <label class="flex gap-2 text-sm" style="display: none !important;">
+      <input type="radio" name="gender"
+             [id]="'looking_for-input-' + ''" value=""
+             (input)="onFilterData($event, 'gender_id')"
+      >
+      Select
+    </label>
+    <label for="looking_for" class="flex gap-2 text-sm" *ngFor="let gender of genderData">
+      <input type="radio" name="gender"
+             [id]="'looking_for-input-' + gender.id" [value]="gender.id"
+             (input)="onFilterData($event, 'gender_id')"
+      >
+      {{ gender.name }}
+    </label>
+    &lt;!&ndash;<label for="looking_for" class="flex gap-2 text-sm" *ngFor="let gender of genderData">
+      <input type="checkbox" name="looking_for" id="looking_for-input" value={{gender.id}}>
+      {{ gender.name }}
+    </label>&ndash;&gt;
+  </div>-->
+
+  <div
+    class="bg-white card-shadow rounded-md text-[#808080] w-full relative px-4 py-6"
+    [ngClass]="{'flex flex-col items-start pb-8 gap-2': extra['isPlayerTagsAccordionOpen']}"
+    [class.cardFix]="!extra['isPlayerTagsAccordionOpen']"
+  >
+
+    <div class="toggle-header flex justify-between w-full items-center" (click)="toggleAccordion('isPlayerTagsAccordionOpen')" style="cursor: pointer;">
+      <h4 class="text-[#0c5060]">Search By Coach Tags</h4>
+      <span [ngClass]="{'rotate-180': extra['isPlayerTagsAccordionOpen']}">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </span>
+    </div>
+    <div *ngIf="extra['isPlayerTagsAccordionOpen']">
+      <label for="tag-today" class="flex gap-2 text-sm" style="display: none !important;">
+        <input type="radio" name="tag-today" id="tagsfields"
+               value="''"
+        >
+      </label>
+
+      <label for="tag-today" class="flex gap-2 text-sm">
+        <input type="radio" name="tag-today" id="tag-todays"
+               value="Today"
+               (input)="onFilterData($event, 'tags')"
+        >
+        Today
+      </label>
+
+      <label for="tag-today" class="flex gap-2 text-sm">
+        <input type="radio" name="tag-today" id="tag-today-24"
+               value="Yesterday"
+               (input)="onFilterData($event, 'tags')"
+        >
+        Online in last 24 hour
+      </label>
+
+      <label for="tag-yesterday" class="flex gap-2 text-sm">
+        <input type="radio" name="tag-today" id="tag-activity"
+               value="Activity"
+               (input)="onFilterData($event, 'tags')">
+        Lots of Activity
+      </label>
+
+      <label for="tag-yesterday" class="flex gap-2 text-sm">
+        <input type="radio" name="tag-today" id="tag-highly"
+               value="Rating"
+               (input)="onFilterData($event, 'tags')">
+        Highly Rated
+      </label>
+    </div>
+  </div>
+
+  <!--<div
+    class="flex flex-col items-start justify-center px-4 pb-4 bg-inherit gap-2 rounded-md text-[#808080] w-full card-shadow py-3">
+    <h4 class="text-[#0c5060]">Search By Player Tags</h4>
+
+    <label for="tag-today" class="flex gap-2 text-sm" style="display: none !important;">
+      <input type="radio" name="tag-today" id="tagsfields"
+             value="''"
+      >
+    </label>
+
+    <label for="tag-today" class="flex gap-2 text-sm">
+      <input type="radio" name="tag-today" id="tag-todays"
+             value="Today"
+             (input)="onFilterData($event, 'tags')"
+      >
+      Today
+    </label>
+
+    <label for="tag-today" class="flex gap-2 text-sm">
+      <input type="radio" name="tag-today" id="tag-today-24"
+             value="Yesterday"
+             (input)="onFilterData($event, 'tags')"
+      >
+
+      Online in last 24 hour
+    </label>
+
+    <label for="tag-yesterday" class="flex gap-2 text-sm">
+      <input type="radio" name="tag-today" id="tag-activity"
+             value="Activity"
+             (input)="onFilterData($event, 'tags')">
+      Lots of Activity
+    </label>
+
+    <label for="tag-yesterday" class="flex gap-2 text-sm">
+      <input type="radio" name="tag-today" id="tag-highly"
+             value="Rating"
+             (input)="onFilterData($event, 'tags')">
+      Highly Rated
+    </label>
+
+  </div>-->
+
+</ng-template>
+
+<ng-template #content let-modal>
+  <div class="modal-header headerModal">
+    <h4 class="modal-title" style="color: white"></h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="col-12 column">
+        <div class="form-group">
+           <textarea
+             class="form-control Invalid font-medium w-full mt-2"
+             rows="4"
+             [(ngModel)]="extra['note']"
+             placeholder="Hi, I want to connect with you...."
+           ></textarea>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 column">
+          <div class="form-group message-btn"
+               style="margin-top: 10px; display: flex; justify-content: center; align-items: center;"
+          >
+            <button (click)="onPlayConnect(extra.selPlayer)"
+                    [disabled]="extra.loading"
+                    class="text-center text-[#fff] transition-colors bg-[#ff7c5b] hover:bg-[#061a3a] rounded-md w-fit py-2 px-10 text-[17px] font-semibold">
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="closeModal" class="btn btn-secondary headerModal" (click)="modal.close('Close click')">
+      Close
+    </button>
+  </div>
+</ng-template>

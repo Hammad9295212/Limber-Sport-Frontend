@@ -1,0 +1,1214 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  padding: 96px 80px 102px 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center; /* Vertically centers the input */
+  background-image: url('../../../../../assets/WEBSITE\ -\ HOW\ IT\ WORKS\ FOR\ IMAGES/For\ Players/section-01-bg.png');
+}
+
+.file-input {
+  margin-right: 0px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.verification-item {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #2c3e50; /* Darker blue for the text */
+}
+.verification-item i {
+  color: #2ecc71; /* Green color for the checkmark */
+  margin-right: 10px;
+}
+.credentials, .accreditations, .services {
+/*  margin-bottom: 50px;*/
+}
+.accreditation-table th {
+  color: #3498db; /* Blue color for headings */
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.accreditation-table td {
+  padding: 10px;
+}
+.verified {
+  color: #2ecc71; /* Green for verified check */
+}
+.services span {
+  display: inline-block;
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+.cardHead {
+  color: #0c5060 !important;
+  font-weight: bold;
+  margin-bottom: 22px;
+}
+.cardHead2 {
+  color: #0c5060 !important;
+  font-weight: bold;
+}
+.cardSub {
+  color: #48666c;
+  font-weight: 700;
+  font-size: 15px;
+}
+.cardLinks {
+  color: #7ac0fc !important;
+  text-decoration: none !important;
+  font-size: 14px;
+}
+.tabled {
+  font-size: 14px;
+}
+.selected {
+  background: linear-gradient(180deg,
+  #f45683 0.00%,
+  #f55f7b 17.82%,
+  #fda543 78.32%,
+  #ffb636 100.00%);
+  color: white;
+}
+
+@media screen and (max-width: 639px) {
+  .header:has(#toggle:checked) #navigation {
+    height: var(--menu-height, 0px);
+  }
+
+  .header:has(#toggle:checked) #menu-icon {
+    display: none;
+  }
+
+  .header:has(#toggle:checked) #close-icon {
+    display: inline-block;
+    color: white;
+  }
+}
+
+.header {
+  /* position: relative; */
+  /* background: #0c5060; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100px;
+  background-color: #0c5060;
+
+}
+
+/* Ava */
+
+.availability-table {
+  max-width: 600px;
+  margin: auto;
+}
+
+.availability-cell {
+  background-color: #00bcd4;
+  width: 100%;
+  height: 30px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.availability-header {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.edit-link {
+  text-align: right;
+  color: #00bcd4;
+  cursor: pointer;
+}
+
+.day-header {
+  font-weight: bold;
+  text-align: center;
+}
+
+.time-slot {
+  text-align: left;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.headerModal {
+  background: linear-gradient(
+    180deg,
+    #f45683 0.00%,
+    #f55f7b 17.82%,
+    #fda543 78.32%,
+    #ffb636 100.00%) !important;
+}
+
+/* availability-grid grid */
+
+.availability-grid {
+  max-width: 600px;
+  background-color: #f7f1fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.grid-header {
+  font-weight: bold;
+  text-align: center;
+}
+
+.grid-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.time-label {
+  flex: 1;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.grid-slot {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #fff;
+  margin-right: 5px
+}
+
+.grid-slot.checked {
+  background-color: #192b13;
+}
+
+.grid-slot.checked i {
+  color: #d4d79e;
+}
+
+/* edit player */
+/*
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-button {
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.icon-button img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.icon-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.icon-button:active {
+  transform: translateY(0);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+*/
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-button {
+  padding: 10px;
+  width: 100px;
+  height: 90px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.icon-button img {
+  max-width: 25px; /* Smaller size for the icon */
+  max-height: 25px;
+  margin-bottom: 8px; /* Space between icon and title */
+}
+
+.icon-title {
+  font-size: 12px;
+  color: white;
+}
+
+.icon-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.about-me {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3.5; /* Show 3 lines */
+  -webkit-box-orient: vertical;
+  height: calc(3.5 * 1.5em); /* 3 lines height; adjust 1.5em according to your line-height */
+  line-height: 1.5em; /* Set your line-height */
+  max-height: calc(3.5 * 1.5em); /* Ensure the height does not exceed 3 lines */
+}
+
+.icon-button:active {
+  transform: translateY(0);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select {
+  appearance: none; /* Removes the default dropdown arrow */
+  -webkit-appearance: none; /* Removes the arrow in WebKit browsers */
+  -moz-appearance: none; /* Removes the arrow in Firefox */
+  text-align: center; /* Centers text */
+  position: relative; /* Position relative to enable pseudo-elements */
+}
+
+/* Optional: Remove the background and create a clean look */
+.custom-select::-ms-expand {
+  display: none; /* Removes the dropdown arrow in IE and Edge */
+}
+
+.custom-select:disabled {
+  background-color: #f9f9f9; /* Optional: Adds a subtle background when disabled */
+  color: #0c506060; /* Adjusts text color */
+}
+
+.available { /*  background-color: #00bcd4; */
+  width: 40px;
+  height: 40px;
+  background-color: lightgrey;
+}
+
+th {
+  vertical-align: middle;
+}
+
+/*  */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  right: -8px;
+  margin-top: 0px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-width: 150px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.col4Height {
+  height: 350px
+}
+
+.col8Height {
+  height: 250px;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  background-color: #fff;
+  border: none;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f2f2f2;
+}
+
+/* Hide the trash icon by default */
+.trash-icon {
+  display: none !important;
+}
+
+/* Show the trash icon when hovering over the club-container */
+.club-container:hover .trash-icon {
+  display: block;
+}
+
+/* Show dropdown on hover of parent container */
+.dropdown-container:hover .dropdown-menu,
+.dropdown-container:focus-within .dropdown-menu {
+  display: block;
+}
+
+/* Ensure the container has relative positioning */
+.relative {
+  position: relative;
+}
+.trash-icon2 {
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+  color: red;
+}
+
+.list-item:hover .trash-icon2 {
+  opacity: 1;
+}
+/* Trash icon styling */
+.trash-icon {
+  padding: 5px;
+  border-radius: 50%; /* Circular background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a slight shadow */
+}
+
+.trash-icon i {
+  font-size: 16px; /* Adjust the icon size */
+}
+
+.player-details-container {
+  display: flex;
+  flex-wrap: wrap; /* Enable wrapping */
+}
+
+.button-group {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.position-relative:hover .delete-btn {
+  display: block !important;
+}
+
+@media (max-width: 450px) {
+  .player-details-container {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .button-group {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-start; /* Align buttons to the start */
+  }
+}
+
+/* Main container styling */
+.profile-section {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Location input wrapper for better spacing and alignment */
+.location-input-wrapper {
+  position: relative;
+}
+
+/* Suggestions list styling */
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 207px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  max-height: 150px;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  z-index: 1000;
+  margin-left: 19px;
+}
+
+/* Individual suggestion item */
+.suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Hover effect on suggestion items */
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.available {
+  position: relative;
+  width: 50px !important;
+  height: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+/* Apply color only when 'active' class is present */
+.available.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%; /* Covers 90% of the td */
+  height: 90%;
+  background-color: #00bcd4; /* Desired color */
+  z-index: 1;
+}
+
+.available.inactive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%; /* Covers 90% of the td */
+  height: 90%;
+  background-color: lightgrey; /* Desired color */
+  z-index: 1;
+}
+.sel2 {
+  display: flex;
+  height: 25px;
+  margin-left: 10px;
+  width: 25px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  cursor: pointer;
+}
+/*
+.hero-section {
+  position: relative;
+  width: 100%;
+  padding: 96px 80px 102px 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end; !* Aligns the input to the right *!
+  align-items: center; !* Vertically centers the input *!
+  background-image: url('../../../../../assets/WEBSITE\ -\ HOW\ IT\ WORKS\ FOR\ IMAGES/For\ Players/section-01-bg.png');
+}
+
+.file-input {
+  margin-right: 0px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+
+.selected {
+  background: linear-gradient(180deg,
+  #f45683 0.00%,
+  #f55f7b 17.82%,
+  #fda543 78.32%,
+  #ffb636 100.00%);
+  color: white;
+}
+
+@media screen and (max-width: 639px) {
+  .header:has(#toggle:checked) #navigation {
+    height: var(--menu-height, 0px);
+  }
+
+  .header:has(#toggle:checked) #menu-icon {
+    display: none;
+  }
+
+  .header:has(#toggle:checked) #close-icon {
+    display: inline-block;
+    color: white;
+  }
+}
+
+.header {
+  !* position: relative; *!
+  !* background: #0c5060; *!
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100px;
+  background-color: #0c5060;
+
+}
+
+!* Ava *!
+
+.availability-table {
+  max-width: 600px;
+  margin: auto;
+}
+
+.availability-cell {
+  background-color: #00bcd4;
+  width: 100%;
+  height: 30px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.availability-header {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.edit-link {
+  text-align: right;
+  color: #00bcd4;
+  cursor: pointer;
+}
+
+.day-header {
+  font-weight: bold;
+  text-align: center;
+}
+
+.time-slot {
+  text-align: left;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.headerModal {
+  background: linear-gradient(
+    180deg,
+    #f45683 0.00%,
+    #f55f7b 17.82%,
+    #fda543 78.32%,
+    #ffb636 100.00%) !important;
+}
+
+!* availability-grid grid *!
+
+.availability-grid {
+  max-width: 600px;
+  background-color: #f7f1fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+.grid-header {
+  font-weight: bold;
+  text-align: center;
+}
+.grid-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.time-label {
+  flex: 1;
+  text-align: right;
+  margin-right: 10px;
+}
+.grid-slot {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #fff;
+  margin-right: 5px
+}
+.grid-slot.checked {
+  background-color: #192b13;
+}
+.grid-slot.checked i {
+  color: #d4d79e;
+}
+
+!* edit player *!
+!*
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-button {
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.icon-button img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.icon-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.icon-button:active {
+  transform: translateY(0);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+*!
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-button {
+  padding: 10px;
+  width: 100px;
+  height: 90px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.icon-button img {
+  max-width: 25px; !* Smaller size for the icon *!
+  max-height: 25px;
+  margin-bottom: 8px; !* Space between icon and title *!
+}
+
+.icon-title {
+  font-size: 12px;
+  color: white;
+}
+
+.icon-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+.about-me {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3.5; !* Show 3 lines *!
+  -webkit-box-orient: vertical;
+  height: calc(3.5 * 1.5em); !* 3 lines height; adjust 1.5em according to your line-height *!
+  line-height: 1.5em; !* Set your line-height *!
+  max-height: calc(3.5 * 1.5em); !* Ensure the height does not exceed 3 lines *!
+}
+.icon-button:active {
+  transform: translateY(0);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select {
+  appearance: none; !* Removes the default dropdown arrow *!
+  -webkit-appearance: none; !* Removes the arrow in WebKit browsers *!
+  -moz-appearance: none; !* Removes the arrow in Firefox *!
+  text-align: center; !* Centers text *!
+  position: relative; !* Position relative to enable pseudo-elements *!
+}
+
+!* Optional: Remove the background and create a clean look *!
+.custom-select::-ms-expand {
+  display: none; !* Removes the dropdown arrow in IE and Edge *!
+}
+
+.custom-select:disabled {
+  background-color: #f9f9f9; !* Optional: Adds a subtle background when disabled *!
+  color: #0c506060; !* Adjusts text color *!
+}
+.available { !*  background-color: #00bcd4; *!
+  width: 40px;
+  height: 40px;
+  background-color: lightgrey;
+}
+th {
+  vertical-align: middle;
+}
+!*  *!
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none; !* Hidden by default *!
+  position: absolute;
+  right: -8px;
+  margin-top: 0px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-width: 150px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  background-color: #fff;
+  border: none;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f2f2f2;
+}
+!* Hide the trash icon by default *!
+.trash-icon {
+  display: none !important;
+}
+
+!* Show the trash icon when hovering over the club-container *!
+.club-container:hover .trash-icon {
+  display: block;
+}
+
+!* Show dropdown on hover of parent container *!
+.dropdown-container:hover .dropdown-menu,
+.dropdown-container:focus-within .dropdown-menu {
+  display: block;
+}
+!* Ensure the container has relative positioning *!
+.relative {
+  position: relative;
+}
+
+!* Trash icon styling *!
+.trash-icon {
+  padding: 5px;
+  border-radius: 50%; !* Circular background *!
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); !* Add a slight shadow *!
+}
+
+.trash-icon i {
+  font-size: 16px; !* Adjust the icon size *!
+}
+.player-details-container {
+  display: flex;
+  flex-wrap: wrap; !* Enable wrapping *!
+}
+
+.button-group {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+}
+.position-relative:hover .delete-btn {
+  display: block !important;
+}
+@media (max-width: 450px) {
+  .player-details-container {
+    flex-direction: column; !* Stack items vertically *!
+  }
+
+  .button-group {
+    flex-direction: column; !* Stack buttons vertically *!
+    align-items: flex-start; !* Align buttons to the start *!
+  }
+}
+!* Main container styling *!
+.profile-section {
+  font-size: 14px;
+  color: #333;
+}
+
+!* Location input wrapper for better spacing and alignment *!
+.location-input-wrapper {
+  position: relative;
+}
+
+!* Suggestions list styling *!
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 207px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  max-height: 150px;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  z-index: 1000;
+  margin-left: 19px;
+}
+
+!* Individual suggestion item *!
+.suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+!* Hover effect on suggestion items *!
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+.available {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+!* Apply color only when 'active' class is present *!
+.available.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%; !* Covers 90% of the td *!
+  height: 90%;
+  background-color: #00bcd4; !* Desired color *!
+  z-index: 1;
+}
+.available.inactive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%; !* Covers 90% of the td *!
+  height: 90%;
+  background-color: lightgrey; !* Desired color *!
+  z-index: 1;
+}
+*/
+.gallery img {
+  border-radius: 10px;
+}
+
+.gallery .row > div {
+  padding: 15px;
+}
+
+.gallery h2 {
+  font-weight: bold;
+  color: #05475f;
+}
+
+.image-container {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image-container img {
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+/* Sid Card */
+
+.booking-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 40px auto;
+}
+.gradient-star {
+  color: linear-gradient(
+    180deg,
+    #f45683 0.00%,
+    #f55f7b 17.82%,
+    #fda543 78.32%,
+    #ffb636 100.00%
+  );
+}
+.booking-form h5 {
+  font-weight: bold;
+  color: #2a3842;
+  font-size: 18px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.form-control:focus {
+  border-color: #ff715b;
+  box-shadow: none;
+}
+
+.form-control {
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+
+.pricing-info {
+  font-weight: bold;
+  color: #ff715b;
+  text-align: right;
+}
+
+.total-info {
+  font-weight: bold;
+  color: #ff715b;
+  text-align: right;
+}
+
+.btn-primaryy {
+  background: linear-gradient(to right, #f76b1c, #fca420);
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+}
+
+.btxy {
+  background-color: transparent;
+  border: none;
+  color: #ff715b;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  text-decoration: underline;
+}
+
+.icon-calendar {
+  color: white;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.form-control::placeholder {
+  color: #b3b3b3;
+}
+/* Profile Card */
+.client-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #eaeef4;
+}
+
+.client-name {
+  font-weight: 700;
+  color: #05404F;
+}
+
+.client-location {
+  color: #9E9E9E;
+  font-size: 14px;
+}
+
+.client-list {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 40px auto;
+}
+/* Coaching Session */
+
+.sessions-table {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+tbody, td, tfoot, th, thead, tr {
+  font-size: 14px;
+}
+.styled-table {
+  width: 100%;
+  border-collapse: separate; /* Ensure borders are not collapsed */
+  border-spacing: 0 10px;    /* Add vertical space between rows */
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 8px;
+}
+
+.price {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 22px;
+}
+
+.sessions-table th, .sessions-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-header {
+  color: #74b9ff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.table-content {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.price {
+  color: #ff6b6b;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.table-content .price-link {
+  color: #ff6b6b;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .sessions-table {
+    padding: 10px;
+  }
+
+  .table th, .table td {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 15px;
+  }
+}
+/*Accordian  */
+.alert {
+  background-color: #f84c5a;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.profileEditIcon {
+  width: 30px;
+  cursor: pointer;
+  color: #f5f5f5c7;
+  font-size: 26px;
+}
+.alert .close {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+.boxCheck{
+  color: #f84c5a;
+}
+.socialMediaGap {
+  margin-bottom: 5px;
+}
+.form-check-input:checked {
+  background-color: #f76b1c;
+  border-color: #f76b1c;
+}
+.faq-item {
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+.boxCheck:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;;
+}
+.faq-title {
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+
+.faq-title i {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.activecss {
+  background: #f45683;
+  color: white;
+}
+
+.faq-content {
+  padding: 15px;
+  display: none;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.faq-item.active .faq-content {
+  display: block;
+}
+
+.faq-item.active .faq-title i {
+  transform: rotate(45deg);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .faq-title {
+    font-size: 14px;
+  }
+}

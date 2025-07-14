@@ -1,0 +1,25 @@
+.hero-section {
+    position: relative;
+    width: 100%;
+    padding: 96px 80px 102px 80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-image: url('../../../../../assets/WEBSITE\ -\ HOW\ IT\ WORKS\ FOR\ IMAGES/For\ Players/section-01-bg.png'); */
+}
+
+.selected {
+    background: linear-gradient(180deg,
+            #f45683 0.00%,
+            #f55f7b 17.82%,
+            #fda543 78.32%,
+            #ffb636 100.00%);
+    color: white;
+}
+
+table tr td {
+    padding: 8px 4px;
+    text-align: center;
+    font-weight: 600;
+    color: #0c5060;
+}

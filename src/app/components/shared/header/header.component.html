@@ -1,0 +1,145 @@
+<header class="
+    block
+    w-full
+   header
+    py-4
+    sm:flex sm:items-center sm:justify-between
+    font-sans
+  ">
+  <lib-toastify-toast-container></lib-toastify-toast-container>
+  <div class="sm:flex sm:items-center sm:justify-around w-full">
+
+    <div class="flex justify-between sm:block px-4">
+      <a class="block text-2xl font-bold text-white"> <img
+          src="assets/logo/logo.png"></a>
+
+      <button class="block bg-transparent sm:hidden">
+        <input class="invisible appearance-none" type="checkbox" id="toggle" />
+
+        <label for="toggle">
+          <i id="menu-icon" class="fa-solid fa-bars cursor-pointer inline-block text-white text-3xl"></i>
+
+          <i id="close-icon" class="hidden fa-solid fa-xmark cursor-pointer text-white text-3xl"></i>
+
+        </label>
+      </button>
+    </div> <!--     sm:h-auto -->
+    <div #linksDiv id="navigation" style="--menu-height: 100vh" class="
+    bg-[#0c5060]
+      flex
+      h-0
+
+      flex-col
+      items-center
+      justify-center
+      gap-4
+      max-sm:overflow-hidden
+      transition-all
+      duration-500
+      ease-in-out
+      sm:flex-row
+      font-medium
+    ">
+      <!-- <a>Home</a> -->
+      <a (click)="navigateToHomePage()"
+        class="cursor-pointer text-white no-underline hover:text-[#ff7c5b] transition-all link-white"
+         style="margin-top: -200px"
+      ></a>
+      <a (click)="navigateToHomePage()"
+        class="cursor-pointer text-white no-underline hover:text-[#ff7c5b] transition-all link-white"
+      >Home</a>
+      <a (click)="navigateToAboutUsPage()"
+        class="cursor-pointer text-white no-underline hover:text-[#ff7c5b] transition-all link-white">About Us</a>
+      <a (click)="navigateToUniSportPage()"
+        class="cursor-pointer text-white no-underline hover:text-[#ff7c5b] transition-all link-white">University
+        Sport</a>
+      <a (click)="navigateToCorpSportPage()"
+        class="cursor-pointer text-white no-underline hover:text-[#ff7c5b] transition-all link-white">Corporate
+        Sport</a>
+      <div class="flex flex-col items-start drop-down sm:h-full sm:py-10 relative" style="justify-content: center">
+        <a (click)="navigateToHowItWorksPage()"
+           class="text-inherit flex no-underline cursor-pointer text-white hover:text-[#ff7c5b] link-white transition-all">
+          How It Works
+        </a>
+        <div
+          class="dropdown-content bg-white flex flex-col gap-2 px-6 py-6 rounded-lg w-60 drop-down-content -left-2 absolute z-50 shadow-lg">
+          <a (click)="navigateToPlayersPage()"
+             class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer ">For
+            Players</a>
+          <a (click)="navigateToClubsPage()"
+             class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer">For
+            Clubs</a>
+          <a (click)="navigateToCoachesPage()"
+             class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer">For
+            Coaches</a>
+          <a (click)="navigateToEventOragnisersPage()"
+             class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer">For
+            Event
+            Organisers</a>
+          <a (click)="navigateToFacilityProvidersPage()"
+             class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer">For
+            Facility
+            Providers</a>
+          <a (click)="navigateToPartnersAndAdvertisersPage()"
+             class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer">For
+            Partners &
+            <br />
+            Advisers</a>
+        </div>
+      </div>
+
+      <!--    <div class="flex flex-col items-start drop-down sm:h-full sm:py-10">
+            <a (click)="navigateToHowItWorksPage()"
+              class="text-inherit flex no-underline cursor-pointer text-white hover:text-[#ff7c5b] link-white transition-all">
+              How It Works
+            </a>
+            <div class="bg-white flex flex-col gap-2 px-6 py-6 rounded-lg w-60 drop-down-content top-24 -left-2">
+              <a (click)="navigateToPlayersPage()"
+                class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer ">For
+                Players</a>
+              <a (click)="navigateToClubsPage()"
+                class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer">For
+                Clubs</a>
+              <a (click)="navigateToCoachesPage()"
+                class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer">For
+                Coaches</a>
+              <a (click)="navigateToEventOragnisersPage()"
+                class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer">For
+                Event
+                Organisers</a>
+              <a (click)="navigateToFacilityProvidersPage()"
+                class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer">For
+                Facility
+                Providers</a>
+              <a (click)="navigateToPartnersAndAdvertisersPage()"
+                class="hover:text-[#ff7c5b] text-[#061a3a] transition-all no-underline font-semibold cursor-pointer">For
+                Partners &
+                <br />
+                Advisers</a>
+            </div>
+          </div>-->
+
+      <a (click)="navigateToContactPage()"
+        class="cursor-pointer text-white no-underline hover:text-[#ff7c5b] link-white transition-all">Contact</a>
+      <div *ngIf="isUser" class="relative">
+        <button class="rounded-full p-2 w-16 h-16 " (click)="handleLogoutPopup()">
+          <img src="assets/icons/default.jpg"
+            class="w-full" alt="">
+        </button>
+        <div
+          class="absolute bg-white text-[#0c5060] py-2 px-3 w-24 flex items-start left-0 max-lg:right-2 max-sm:relative max-sm:top-0 max-sm:right-0 top-20 z-50 rounded-md"
+          *ngIf="logoutPopup">
+          <button class="font-semibold" (click)="handleLogout()">Logout</button>
+        </div>
+      </div>
+      <div *ngIf="!isUser" class="flex max-sm:flex-col items-center gap-4">
+        <a (click)="navigateToSignUp()" class="theme-btn cursor-pointer text-white no-underline transition-all">Sign
+          Up</a>
+        <a (click)="navigateToLoginPage()" class="theme-btn cursor-pointer text-white no-underline transition-all">Log
+          in</a>
+      </div>
+
+      <ng-content></ng-content>
+    </div>
+  </div>
+</header>

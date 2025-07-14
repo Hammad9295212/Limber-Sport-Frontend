@@ -1,0 +1,1172 @@
+<div class="flex w-full bg-[#f7f7f7] font-sans">
+  <div class="flex items-start justify-start w-full pb-4">
+
+    <div class="w-full grid grid-cols-12 px-8 pt-4 gap-6 relative">
+      <div class="col-span-full flex items-center gap-4 justify-between text-start max-sm:flex-col">
+
+        <div class="flex items-center gap-12 max-sm:w-full max-sm:items-start max-md:gap-4 max-sm:flex-col max-sm:gap-4">
+          <span class="flex items-center gap-2 text-[#72b4ff]"><i class="fa-solid fa-angle-left font-semibold"></i>
+            Back</span>
+
+          <div class="flex items-center gap-2 text-[#808080]">
+            Dashboard <i class="fa-solid fa-angles-right"></i>
+            Events<i class="fa-solid fa-angles-right"></i>
+            <span class="text-[#Ec4899] font-semibold">Create an Event</span>
+          </div>
+        </div>
+
+
+        <div class="flex gap-2 items-center w-fit max-sm:w-full relative">
+          <div class="bg-white rounded-lg text-[#7794fd] px-2 whitespace-nowrap">
+            <input class="bg-inherit border-none rounded-lg px-2 py-2 w-40 max-sm:w-11/12" placeholder="Search" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-span-full flex flex-col gap-2 bg-white p-12 relative w-full max-sm:px-6">
+        <div class="absolute top-0 w-full flex items-center left-0">
+          <div class="w-[14.28%] py-1"
+            [ngClass]="{ 'selected':  tabs[0] || tabs[1] || tabs[2] ||tabs[3] ||tabs[4] ||tabs[5] ||tabs[6]||tabs[7]}">
+          </div>
+          <div class="w-[14.28%] py-1"
+            [ngClass]="{ 'selected': tabs[1] || tabs[2] ||tabs[3] ||tabs[4] ||tabs[5] ||tabs[6]||tabs[7] }">
+          </div>
+          <div class="w-[14.28%] py-1"
+            [ngClass]="{ 'selected': tabs[2] || tabs[3] ||tabs[4] ||tabs[5] ||tabs[6]||tabs[7] }">
+          </div>
+          <div class="w-[14.28%] py-1"
+            [ngClass]="{ 'selected': tabs[3] || tabs[4] ||tabs[5] ||tabs[6]||tabs[7] }">
+          </div>
+          <div class="w-[14.28%] py-1"
+            [ngClass]="{ 'selected': tabs[4] || tabs[5] ||tabs[6]||tabs[7] }">
+          </div>
+          <div class="w-[14.28%] py-1"
+            [ngClass]="{ 'selected':tabs[5] || tabs[6]|| tabs[7] }">
+          </div>
+          <div class="w-[14.28%] py-1" [ngClass]="{ 'selected': tabs[6] || tabs[7] }">
+          </div>
+          <div class="w-[14.28%] py-1" [ngClass]="{ 'selected':tabs[7] }">
+          </div>
+        </div>
+
+        <div *ngIf="currentTab === 1" class="flex flex-col items-start gap-3">
+
+          <p class="text-[#Ec4899] m-0 font-semibold">Step 1: Event Overview</p>
+          <h4 class="text-[#0c5060] font-semibold">Let's create your event</h4>
+
+          <div class="w-full px-6 max-sm:px-0 flex flex-col gap-2">
+
+            <div class="w-full border-dash bg-[#f7f7f7] flex items-center justify-center gap-4 h-52 relative">
+              <!-- <input type="file" name="" class=" absolute z-50 top-1/2 left-1/2 w-full h-full"> -->
+              <span class="flex flex-col items-center text-[#808080]">
+                <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
+                <p class="m-0 text-sm">UPLOAD</p>
+              </span>
+              <p class="text-sm">or</p>
+              <p class="text-[#57a8f3] underline">Choose file</p>
+
+              <div
+                class="border-2 border-white bg-[#f7f7f7] flex flex-col -bottom-8 left-1 items-center justify-end gap-2 absolute text-xs h-32 px-2">
+                <div class="flex flex-col items-center text-[#808080]">
+                  <p class="m-0 text-sm">Event Logo</p>
+                  <p class="m-0 text-xs">Size 180 x 160 px</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                  <!-- <input type="file" name="" class=" absolute z-50 top-1/2 left-1/2 w-full h-full"> -->
+                  <span class="flex flex-col items-center text-[#808080]">
+                    <i class="fa-solid fa-cloud-arrow-up text-2xl"></i>
+                    <p class="m-0 text-[8px]">UPLOAD</p>
+                  </span>
+                  <p class="text-sm">or</p>
+                  <p class="text-[#57a8f3] underline">Choose file</p>
+                </div>
+              </div>
+            </div>
+
+            <h5 class="text-[#0c5060] font-semibold w-full px-4 mt-10 bg-[#f7f7f7] py-3">Event Overview</h5>
+
+            <div class="w-full flex flex-col items-start gap-3">
+
+              <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                <label for="name_of_event" class="text-[#0c5060] whitespace-nowrap">Name Of Event</label>
+                <input type="text" class="border px-3 py-2 rounded-sm w-full">
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Organiser Name</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full"
+                    placeholder="Name of Company Organising Event">
+                </span>
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Event Available To</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Who can attend the event">
+                </span>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Sport</label>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>Select Sport</option>
+                    <option value="Cricket">Cricket</option>
+                  </select>
+                </span>
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Type of Event</label>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>Select Type of Event</option>
+                    <option value="Cricket">Cricket</option>
+                  </select>
+                </span>
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Skill Level</label>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>Select Skill Level</option>
+                    <option value="Cricket">Cricket</option>
+                  </select>
+                </span>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Age Range</label>
+                  <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                      name="under_18">
+                    Under 18
+                  </label>
+                  <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                      name="under_18">
+                    Adults
+                  </label>
+                  <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                      name="under_18">
+                    Seniors
+                  </label>
+                </span>
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Gender</label>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>Select Genders</option>
+                    <option value="Cricket">Cricket</option>
+                  </select>
+                </span>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                <label for="name_of_event" class="text-[#0c5060]">Summary Description</label>
+                <textarea type="text" class="border px-3 py-2 rounded-sm w-full" rows="4"></textarea>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Start Date</label>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>DD</option>
+                  </select>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>MM</option>
+                  </select>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>YYYY</option>
+                  </select>
+                </span>
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">End Date</label>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>DD</option>
+                  </select>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>MM</option>
+                  </select>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>YYYY</option>
+                  </select>
+                </span>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Start Time</label>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>1000</option>
+                    <option value="Cricket">Cricket</option>
+                  </select>
+                </span>
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">End Time</label>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>1700</option>
+                    <option value="Cricket">Cricket</option>
+                  </select>
+                </span>
+                <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Repeat</label>
+                  <select class="border px-3 py-2 rounded-sm w-full">
+                    <option>Never</option>
+                    <option value="Cricket">Cricket</option>
+                  </select>
+                </span>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                <label for="name_of_organiser" class="text-[#0c5060]">Event Duration</label>
+                <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                    name="under_18">
+                  All Day Event
+                </label>
+              </div>
+
+              <div class="w-full flex gap-3 items-center justify-end pt-8 max-sm:items-start">
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1">Save as
+                  draft</button>
+                <button
+                  class="text-white border-2 border-[#Ec4899] bg-[#Ec4899] w-24 text-sm rounded-md py-1">Cancel</button>
+                <button class="text-white border-2 border-[#Ec4899] bg-[#Ec4899] w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(2)">Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="currentTab === 2" class="flex flex-col items-start gap-3">
+
+          <p class="text-[#Ec4899] m-0 font-semibold">Step 2: Detailed Event Information</p>
+
+          <div class="w-full px-6 max-sm:px-0 flex flex-col gap-2 pt-2">
+
+            <div class="w-full flex flex-col items-start gap-3">
+
+              <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Detailed Description</label>
+                <textarea type="text" class="border px-3 py-2 rounded-sm w-full" rows="4"></textarea>
+              </div>
+
+              <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">What is Included?</label>
+                <textarea type="text" class="border px-3 py-2 rounded-sm w-full" rows="4"></textarea>
+              </div>
+
+              <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Event Day Logistics</label>
+                <textarea type="text" class="border px-3 py-2 rounded-sm w-full" rows="4"></textarea>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                <label for="name_of_event" class="text-[#0c5060] pr-16">Prizes</label>
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="First Prize Winner" />
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Second Prize Winner" />
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Third Prize Winner" />
+              </div>
+
+              <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Prize Description</label>
+                <textarea type="text" class="border px-3 py-2 rounded-sm w-full" rows="4"></textarea>
+              </div>
+
+              <div class="w-full flex gap-3 items-center justify-end pt-8 max-sm:items-start">
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1">Save as
+                  draft</button>
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(1)">Back</button>
+                <button class="text-white border-2 border-[#Ec4899] bg-[#Ec4899] w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(3)">Next</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="currentTab === 3" class="flex flex-col items-start gap-3">
+
+          <p class="text-[#Ec4899] m-0 font-semibold">Step 3: Location, Travel and Event Sponsors</p>
+
+          <div class="w-full px-6 max-sm:px-0 flex flex-col gap-2 pt-2">
+
+            <div class="w-full flex flex-col items-start gap-3">
+
+              <div class="w-full flex gap-3 items-center max-md:flex-col max-md:items-start">
+                <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Location</label>
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Enter Postcode or City" />
+                <span class="flex gap-2 items-center">
+                  <p class="m-0 whitespace-nowrap">Same As Club</p>
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer" />
+                    <div
+                      class="relative w-14 h-6 bg-[#EC3899] rounded-full peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-[#52e99e]">
+                    </div>
+                  </label>
+                </span>
+              </div>
+
+              <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Address</label>
+                <div class="flex flex-col gap-4 w-full">
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Address Line 1" />
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Address Line 2" />
+                  <span class="flex gap-6 items-center w-full">
+                    <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="City" />
+                    <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="State" />
+                  </span>
+                  <span class="flex gap-6 items-center w-full">
+                    <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Postal Code" />
+                    <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Country" />
+                  </span>
+                </div>
+              </div>
+
+              <div class="w-full flex gap-8 items-center max-sm:flex-col max-sm:items-start max-sm:gap-3">
+                <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Travel</label>
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Option elected" />
+              </div>
+
+              <div class="w-full flex flex-col items-center gap-2 pt-4">
+                <span class="w-full flex items-center justify-between max-sm:flex-col max-sm:items-start">
+                  <p class="text-[#0c5060]">Event Sponsors</p>
+                  <span class="flex gap-2 items-center text-sm text-[#0c5060] relative">
+                    Add Sponsor Logo
+                    <button class="grad-btn rounded-full px-2 py-1" (click)="toggleSponsorLogoPopup()">+</button>
+                    <div *ngIf="sponsorLogoPopup"
+                      class="border-2 border-white bg-[#f7f7f7] flex flex-col right-2 top-8 items-center justify-end gap-2 absolute pt-3 px-2 w-36">
+                      <div class="flex flex-col items-center text-[#808080]">
+                        <p class="m-0 text-xl text-center">Sponsor Logo</p>
+                        <p class="m-0 text-xs">Size 180 x 160 px</p>
+                      </div>
+                      <div class="flex gap-2 items-center">
+                        <!-- <input type="file" name="" class=" absolute z-50 top-1/2 left-1/2 w-full h-full"> -->
+                        <span class="flex flex-col items-center text-[#808080]">
+                          <i class="fa-solid fa-cloud-arrow-up text-2xl"></i>
+                          <p class="m-0 text-[8px]">UPLOAD</p>
+                        </span>
+                        <p class="text-sm">or</p>
+                        <p class="text-[#57a8f3] underline whitespace-nowrap">Choose file</p>
+                      </div>
+                    </div>
+
+                  </span>
+                </span>
+
+                <div class="w-full grid grid-cols-3 gap-6 max-md:grid-cols-2 max-sm:grid-cols-1">
+                  <div class="col-span-1 flex gap-2 flex-col items-center w-full bg-[#f7f7f7] py-4 text-sm">
+                    <span>- YOUR LOGO HERE - </span>
+                    <span class="flex flex-col items-center">
+                      <p class="m-0">BECOME AND EVENT</p>
+                      <p class="m-0">SPONSOR NOW</p>
+                    </span>
+                  </div>
+                  <div class="col-span-1 flex gap-2 flex-col items-center w-full bg-[#f7f7f7] py-4 text-sm">
+                    <span>- YOUR LOGO HERE - </span>
+                    <span class="flex flex-col items-center">
+                      <p class="m-0">BECOME AND EVENT</p>
+                      <p class="m-0">SPONSOR NOW</p>
+                    </span>
+                  </div>
+                  <div class="col-span-1 hidden md:flex gap-2 flex-col items-center w-full bg-[#f7f7f7] py-4 text-sm">
+                    <span>- YOUR LOGO HERE - </span>
+                    <span class="flex flex-col items-center">
+                      <p class="m-0">BECOME AND EVENT</p>
+                      <p class="m-0">SPONSOR NOW</p>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-full flex gap-3 items-center justify-end pt-8 max-sm:items-start">
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1">Save as
+                  draft</button>
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(2)">Back</button>
+                <button class="text-white border-2 border-[#Ec4899] bg-[#Ec4899] w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(4)">Next</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="currentTab === 4" class="flex flex-col items-start gap-3">
+
+          <p class="text-[#Ec4899] m-0 font-semibold">Step 4: Event Ticketing, Settings and Terms and Conditions</p>
+
+          <div class="w-full px-6 max-sm:px-0 flex flex-col gap-2 pt-2">
+
+            <div class="w-full flex flex-col items-start gap-3">
+
+              <h5 class="text-[#0c5060]">Event Ticketing</h5>
+
+              <div class="w-full flex gap-3 items-center max-md:flex-col max-md:items-start">
+
+                <span class="w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Limber Ticket
+                    Seller</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full"
+                    placeholder="Option selected" />
+                </span>
+
+                <span class="w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start ">
+                  <label for="name_of_event"
+                    class="text-[#0c5060] flex flex-col items-start max-sm:flex-row max-sm:w-fit max-sm:whitespace-nowrap">
+                    <span class="whitespace-nowrap">Tickets Sold</span>
+                    <span class="whitespace-nowrap">Through 3rd Party</span>
+                  </label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full"
+                    placeholder="Option selected" />
+                  <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full"
+                    placeholder="Ticket Purchase URL" />
+                </span>
+
+              </div>
+
+              <div class="w-full flex items-center justify-end gap-2 text-sm text-[#0c5060] relative">
+                Add Ticket
+                <button class="grad-btn rounded-full px-[10px] text-2xl">+</button>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start text-[#0c5060]">
+                <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap pr-10">Type of Ticket</label>
+                <select type="text" class="border px-3 py-2 rounded-sm w-full">
+                  <option>Members</option>
+                </select>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start text-[#0c5060]">
+                <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap pr-10">Name of Ticket</label>
+                <input type="text" class="border px-3 py-2 rounded-sm w-full">
+              </div>
+
+              <div class="w-full flex gap-3 items-center justify-between max-md:flex-col max-md:items-start">
+
+                <span
+                  class="w-fit max-md:w-full flex items-center gap-8 max-sm:gap-3 max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Adult Event
+                    Price</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full"
+                    placeholder="Option selected" />
+                </span>
+
+                <span class="w-fit max-md:w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Senior
+                    Price</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full"
+                    placeholder="Option selected" />
+                </span>
+
+                <span class="w-fit max-md:w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Junior
+                    Price</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full"
+                    placeholder="Option selected" />
+                </span>
+
+              </div>
+
+              <div class="w-full flex gap-3 items-center justify-between max-md:flex-col max-md:items-start">
+
+                <span class="w-fit max-lg:w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Available</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full" />
+                </span>
+
+                <span class="w-fit max-lg:w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Available</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full" />
+                </span>
+
+                <span class="w-fit max-lg:w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Available</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full" />
+                </span>
+
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-md:flex-col max-md:items-start">
+
+                <span class="w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Discount Code</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" />
+                </span>
+
+                <span class="w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Discount %</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" />
+                </span>
+
+              </div>
+
+              <div class="w-full flex gap-10 mt-10 items-start justify-between max-md:flex-col max-md:gap-3 ">
+
+                <div class="w-1/3 flex flex-col gap-3 items-start max-md:w-full">
+                  <h5 class="text-[#0c5060] bg-[#f7f7f7] w-full px-3 py-2">Event Settings</h5>
+
+                  <div class="flex gap-2 items-center justify-between w-full text-[#0c5060] pt-4">
+                    <p class="m-0">Auto Invite Match Players</p>
+                    <label class="inline-flex items-center cursor-pointer">
+                      <input type="checkbox" value="" class="sr-only peer" />
+                      <div
+                        class="relative w-14 h-6 bg-[#EC3899] rounded-full peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-[#52e99e]">
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="flex gap-2 items-center justify-between w-full text-[#0c5060] pt-4">
+                    <p class="m-0">Auto Join Event</p>
+                    <label class="inline-flex items-center cursor-pointer">
+                      <input type="checkbox" value="" class="sr-only peer" />
+                      <div
+                        class="relative w-14 h-6 bg-[#EC3899] rounded-full peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-[#52e99e]">
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="flex gap-2 items-center justify-between w-full text-[#0c5060] pt-4">
+                    <p class="m-0">Publish on Social Networks</p>
+                    <label class="inline-flex items-center cursor-pointer">
+                      <input type="checkbox" value="" class="sr-only peer" />
+                      <div
+                        class="relative w-14 h-6 bg-[#EC3899] rounded-full peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-[#52e99e]">
+                      </div>
+                    </label>
+                  </div>
+
+                </div>
+
+                <div class="w-2/3 flex flex-col gap-3 items-start max-md:w-full">
+                  <h5 class="text-[#0c5060] bg-[#f7f7f7] w-full px-3 py-2">Event Terms & Conditions</h5>
+
+                  <div class="w-full border bg-white flex items-center justify-center gap-4 h-52 relative">
+                    <input type="text" name="" class=" absolute top-2 w-full px-2"
+                      placeholder="Pleae enter Terms and Conditions here or upload Terms and Conditions">
+                    <div class="absolute bottom-2 left-2 flex items-center gap-2">
+                      <span class="flex flex-col items-center text-[#808080]">
+                        <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
+                        <p class="m-0 text-sm">UPLOAD</p>
+                      </span>
+                      <p class="text-sm">or</p>
+                      <p class="text-[#57a8f3] underline">Choose file</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="w-full flex gap-3 items-center justify-end pt-8 max-sm:items-start">
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1">Save as
+                  draft</button>
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(3)">Back</button>
+                <button class="text-white border-2 border-[#Ec4899] bg-[#Ec4899] w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(5)">Next</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="currentTab === 5" class="flex flex-col items-start gap-3">
+
+          <p class="text-[#Ec4899] m-0 font-semibold">Step 5: FAQS</p>
+
+          <div class="w-full px-6 max-sm:px-0 flex flex-col gap-2 pt-2">
+
+            <div class="w-full flex flex-col items-start gap-3 text-[#0c5060]">
+
+              <h5 class="">Please add your FAQ's and Answers for your event or competition</h5>
+
+              <div class="w-full flex flex-col gap-2 items-start">
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="FAQ 1 Title" />
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="FAQ 1 Answer" />
+              </div>
+
+              <div class="w-full flex flex-col gap-2 items-start">
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="FAQ 2 Title" />
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="FAQ 2 Answer" />
+              </div>
+
+              <div class="w-full flex flex-col gap-2 items-start">
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="FAQ 3 Title" />
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="FAQ 3 Answer" />
+              </div>
+
+              <div class="w-full flex flex-col gap-2 items-start">
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="FAQ 4 Title" />
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="FAQ 4 Answer" />
+              </div>
+
+              <div class="w-full flex flex-col gap-2 items-start">
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="FAQ 5 Title" />
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="FAQ 5 Answer" />
+              </div>
+
+              <div class="w-full flex items-center justify-start gap-2 text-sm text-[#0c5060] relative">
+                <button class="grad-btn rounded-full px-[10px] text-2xl">+</button>
+                Add FAQ
+              </div>
+
+              <div class="w-full flex gap-3 items-center justify-end pt-8 max-sm:items-start">
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1">Save as
+                  draft</button>
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(4)">Back</button>
+                <button class="text-white border-2 border-[#Ec4899] bg-[#Ec4899] w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(6)">Next</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="currentTab === 6" class="flex flex-col items-start gap-3">
+
+          <p class="text-[#Ec4899] m-0 font-semibold">Step 6: Event Organiser Details and Publish Event</p>
+
+          <div class="w-full px-6 max-sm:px-0 flex flex-col gap-2 pt-2">
+
+            <div class="w-full flex flex-col items-start gap-3 text-[#0c5060]">
+
+              <div
+                class="border-2 border-white bg-[#f7f7f7] flex flex-col right-2 top-8 items-center justify-end gap-2 pt-3 px-2 w-36">
+                <div class="flex flex-col items-center text-[#808080]">
+                  <p class="m-0 text-xl text-center">Organiser Profile Pic</p>
+                  <p class="m-0 text-xs">Size 180 x 160 px</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                  <!-- <input type="file" name="" class=" absolute z-50 top-1/2 left-1/2 w-full h-full"> -->
+                  <span class="flex flex-col items-center text-[#808080]">
+                    <i class="fa-solid fa-cloud-arrow-up text-2xl"></i>
+                    <p class="m-0 text-[8px]">UPLOAD</p>
+                  </span>
+                  <p class="text-xs">or</p>
+                  <p class="text-[#57a8f3] text-sm underline whitespace-nowrap">Choose file</p>
+                </div>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start text-[#0c5060]">
+                <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap pr-10">Name of Organiser</label>
+                <input type="text" class="border px-3 py-2 rounded-sm w-full">
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start text-[#0c5060]">
+                <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap pr-10">Organiser Website</label>
+                <input type="text" class="border px-3 py-2 rounded-sm w-full">
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start text-[#0c5060]">
+                <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap pr-16">Contact Person</label>
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="First Name">
+                <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Last Name">
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start text-[#0c5060]">
+                <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap pr-24">Contact Tel</label>
+                <span class="flex items-center gap-3 w-full">
+                  <input type="text" class="border px-3 py-2 rounded-sm w-2/12" placeholder="Intl Code">
+                  <input type="text" class="border px-3 py-2 rounded-sm w-10/12" placeholder="Contact Telephone">
+                </span>
+              </div>
+
+              <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start text-[#0c5060]">
+                <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap pr-16 mr-2">Contact Email</label>
+                <input type="email" class="border px-3 py-2 rounded-sm w-full" placeholder="Email Address">
+              </div>
+
+              <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start text-[#0c5060]">
+                <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap pr-6">About The Organizer</label>
+                <textarea type="email" class="border px-3 py-2 rounded-sm w-full" rows="4">
+                  </textarea>
+              </div>
+
+              <div class="w-full flex gap-3 items-center justify-end pt-8 max-sm:items-start">
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1">Save as
+                  draft</button>
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(5)">Back</button>
+                <button class="text-white border-2 border-[#Ec4899] bg-[#Ec4899] w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(7)">Next</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="currentTab === 7" class="flex flex-col items-start gap-3">
+
+          <div class="w-full flex items-center justify-between gap-2 max-sm:flex-col max-sm:items-start">
+            <p class="text-[#Ec4899] m-0 font-semibold">Review</p>
+            <button class="text-[#5a98f4]">Save and Exit</button>
+          </div>
+
+          <div class="w-full flex flex-col gap-2 pt-2">
+
+            <div class="w-full flex flex-col items-start gap-3 text-[#0c5060]">
+
+              <div class="w-full border-dash bg-[#f7f7f7] flex items-center justify-center gap-4 h-52 relative">
+                <!-- <input type="file" name="" class=" absolute z-50 top-1/2 left-1/2 w-full h-full"> -->
+                <span class="flex flex-col items-center text-[#808080]">
+                  <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
+                  <p class="m-0 text-sm">UPLOAD</p>
+                </span>
+                <p class="text-sm">or</p>
+                <p class="text-[#57a8f3] underline">Choose file</p>
+
+                <div
+                  class="border-2 border-white bg-[#f7f7f7] flex flex-col -bottom-8 left-1 items-center justify-end gap-2 absolute text-xs h-32 px-2">
+                  <div class="flex flex-col items-center text-[#808080]">
+                    <p class="m-0 text-sm">Event Logo</p>
+                    <p class="m-0 text-xs">Size 180 x 160 px</p>
+                  </div>
+                  <div class="flex gap-2 items-center">
+                    <!-- <input type="file" name="" class=" absolute z-50 top-1/2 left-1/2 w-full h-full"> -->
+                    <span class="flex flex-col items-center text-[#808080]">
+                      <i class="fa-solid fa-cloud-arrow-up text-2xl"></i>
+                      <p class="m-0 text-[8px]">UPLOAD</p>
+                    </span>
+                    <p class="text-sm">or</p>
+                    <p class="text-[#57a8f3] underline">Choose file</p>
+                  </div>
+                </div>
+              </div>
+
+              <h5 class="text-[#0c5060] font-semibold w-full px-4 mt-10 bg-[#f7f7f7] py-3">Event Overview</h5>
+
+              <div class="w-full flex flex-col items-start gap-3">
+
+                <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] whitespace-nowrap">Name Of Event</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full">
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Organiser Name</label>
+                    <input type="text" class="border px-3 py-2 rounded-sm w-full"
+                      placeholder="Name of Company Organising Event">
+                  </span>
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Event Available To</label>
+                    <input type="text" class="border px-3 py-2 rounded-sm w-full"
+                      placeholder="Who can attend the event">
+                  </span>
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Sport</label>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>Select Sport</option>
+                      <option value="Cricket">Cricket</option>
+                    </select>
+                  </span>
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Type of Event</label>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>Select Type of Event</option>
+                      <option value="Cricket">Cricket</option>
+                    </select>
+                  </span>
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Skill Level</label>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>Select Skill Level</option>
+                      <option value="Cricket">Cricket</option>
+                    </select>
+                  </span>
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Gender</label>
+                    <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                        name="under_18">
+                      Male
+                    </label>
+                    <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                        name="under_18">
+                      Female
+                    </label>
+                    <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                        name="under_18">
+                      Mixed
+                    </label>
+                  </span>
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Age Range</label>
+                    <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                        name="under_18">
+                      Under 18
+                    </label>
+                    <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                        name="under_18">
+                      Adults
+                    </label>
+                    <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                        name="under_18">
+                      Seniors
+                    </label>
+                  </span>
+                </div>
+
+                <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060]">Summary Description</label>
+                  <textarea type="text" class="border px-3 py-2 rounded-sm w-full" rows="4"></textarea>
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Start Date</label>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>DD</option>
+                    </select>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>MM</option>
+                    </select>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>YYYY</option>
+                    </select>
+                  </span>
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">End Date</label>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>DD</option>
+                    </select>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>MM</option>
+                    </select>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>YYYY</option>
+                    </select>
+                  </span>
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Start Time</label>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>1000</option>
+                      <option value="Cricket">Cricket</option>
+                    </select>
+                  </span>
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">End Time</label>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>1700</option>
+                      <option value="Cricket">Cricket</option>
+                    </select>
+                  </span>
+                  <span class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_organiser" class="text-[#0c5060] whitespace-nowrap">Repeat</label>
+                    <select class="border px-3 py-2 rounded-sm w-full">
+                      <option>Never</option>
+                      <option value="Cricket">Cricket</option>
+                    </select>
+                  </span>
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-md:flex-col max-sm:items-start">
+                  <label for="name_of_organiser" class="text-[#0c5060]">Event Duration</label>
+                  <label for="18" class="flex items-center gap-2 text-[#0c5060] text-sm"><input type="checkbox"
+                      name="under_18">
+                    All Day Event
+                  </label>
+                </div>v>
+              </div>
+
+              <h5 class="text-[#0c5060] font-semibold w-full px-4 mt-10 bg-[#f7f7f7] py-3">Detailed Event Information
+              </h5>
+
+              <div class="w-full flex flex-col items-start gap-3">
+                <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Detailed Description</label>
+                  <textarea type="text" class="border px-3 py-2 rounded-sm w-full" rows="4"></textarea>
+                </div>
+
+                <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">What is Included?</label>
+                  <textarea type="text" class="border px-3 py-2 rounded-sm w-full" rows="4"></textarea>
+                </div>
+
+                <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Event Day Logistics</label>
+                  <textarea type="text" class="border px-3 py-2 rounded-sm w-full" rows="4"></textarea>
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] pr-16">Prizes</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="First Prize Winner" />
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Second Prize Winner" />
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Third Prize Winner" />
+                </div>
+
+                <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Prize Description</label>
+                  <textarea type="text" class="border px-3 py-2 rounded-sm w-full" rows="4"></textarea>
+                </div>
+              </div>
+
+              <h5 class="text-[#0c5060] font-semibold w-full px-4 mt-10 bg-[#f7f7f7] py-3">Location & Travel to Event
+                Details
+              </h5>
+
+              <div class="w-full flex flex-col items-start gap-3">
+                <div class="w-full flex gap-3 items-center max-md:flex-col max-md:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Location</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Enter Postcode or City" />
+                  <span class="flex gap-2 items-center">
+                    <p class="m-0 whitespace-nowrap">Same As Club</p>
+                    <label class="inline-flex items-center cursor-pointer">
+                      <input type="checkbox" value="" class="sr-only peer" />
+                      <div
+                        class="relative w-14 h-6 bg-[#EC3899] rounded-full peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-[#52e99e]">
+                      </div>
+                    </label>
+                  </span>
+                </div>
+
+                <div class="w-full flex gap-3 items-start max-sm:flex-col max-sm:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Address</label>
+                  <div class="flex flex-col gap-4 w-full">
+                    <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Address Line 1" />
+                    <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Address Line 2" />
+                    <span class="flex gap-6 items-center w-full">
+                      <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="City" />
+                      <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="State" />
+                    </span>
+                    <span class="flex gap-6 items-center w-full">
+                      <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Postal Code" />
+                      <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Country" />
+                    </span>
+                  </div>
+                </div>
+
+                <div class="w-full flex gap-8 items-center max-sm:flex-col max-sm:items-start max-sm:gap-3">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit">Travel</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Option elected" />
+                </div>
+
+                <div class="w-full flex flex-col items-center gap-2 pt-4">
+                  <span class="w-full flex items-center justify-between max-sm:flex-col max-sm:items-start">
+                    <p class="text-[#0c5060]">Event Sponsors</p>
+                  </span>
+
+                  <div class="w-full grid grid-cols-3 gap-6 max-md:grid-cols-2 max-sm:grid-cols-1">
+                    <div class="col-span-1 flex gap-2 flex-col items-center w-full bg-[#f7f7f7] py-4 text-sm">
+                      <span>- YOUR LOGO HERE - </span>
+                      <span class="flex flex-col items-center">
+                        <p class="m-0">BECOME AND EVENT</p>
+                        <p class="m-0">SPONSOR NOW</p>
+                      </span>
+                    </div>
+                    <div class="col-span-1 flex gap-2 flex-col items-center w-full bg-[#f7f7f7] py-4 text-sm">
+                      <span>- YOUR LOGO HERE - </span>
+                      <span class="flex flex-col items-center">
+                        <p class="m-0">BECOME AND EVENT</p>
+                        <p class="m-0">SPONSOR NOW</p>
+                      </span>
+                    </div>
+                    <div class="col-span-1 hidden md:flex gap-2 flex-col items-center w-full bg-[#f7f7f7] py-4 text-sm">
+                      <span>- YOUR LOGO HERE - </span>
+                      <span class="flex flex-col items-center">
+                        <p class="m-0">BECOME AND EVENT</p>
+                        <p class="m-0">SPONSOR NOW</p>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h5 class="text-[#0c5060] font-semibold w-full px-4 mt-10 bg-[#f7f7f7] py-3">Event Ticketing
+              </h5>
+
+              <div class="w-full flex flex-col items-start gap-3">
+                <div class="w-full flex gap-3 items-center max-md:flex-col max-md:items-start">
+                  <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Limber Ticket
+                    Seller</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Option selected" />
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-md:flex-col max-md:items-start">
+                  <label for="name_of_event"
+                    class="text-[#0c5060] flex flex-col items-start max-sm:flex-row max-sm:w-fit max-sm:whitespace-nowrap">
+                    <span class="whitespace-nowrap">Tickets Sold</span>
+                    <span class="whitespace-nowrap">Through 3rd Party</span>
+                  </label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Option selected" />
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full" placeholder="Ticket Purchase URL" />
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start text-[#0c5060]">
+                  <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap pr-10">Type of Ticket</label>
+                  <select type="text" class="border px-3 py-2 rounded-sm w-full">
+                    <option>Members</option>
+                  </select>
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-sm:flex-col max-sm:items-start text-[#0c5060]">
+                  <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap pr-10">Name of Ticket</label>
+                  <input type="text" class="border px-3 py-2 rounded-sm w-full">
+                </div>
+
+                <div class="w-full flex gap-3 items-center justify-between max-md:flex-col max-md:items-start">
+
+                  <span
+                    class="w-fit max-md:w-full flex items-center gap-8 max-sm:gap-3 max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Adult Event
+                      Price</label>
+                    <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full"
+                      placeholder="Option selected" />
+                  </span>
+
+                  <span class="w-fit max-md:w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Senior
+                      Price</label>
+                    <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full"
+                      placeholder="Option selected" />
+                  </span>
+
+                  <span class="w-fit max-md:w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Junior
+                      Price</label>
+                    <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full"
+                      placeholder="Option selected" />
+                  </span>
+
+                </div>
+
+                <div class="w-full flex gap-3 items-center justify-between max-md:flex-col max-md:items-start">
+
+                  <span class="w-fit max-lg:w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Available</label>
+                    <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full" />
+                  </span>
+
+                  <span class="w-fit max-lg:w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Available</label>
+                    <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full" />
+                  </span>
+
+                  <span class="w-fit max-lg:w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Available</label>
+                    <input type="text" class="border px-3 py-2 rounded-sm w-40 max-lg:w-full" />
+                  </span>
+
+                </div>
+
+                <div class="w-full flex gap-3 items-center max-md:flex-col max-md:items-start">
+
+                  <span class="w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Discount
+                      Code</label>
+                    <input type="text" class="border px-3 py-2 rounded-sm w-full" />
+                  </span>
+
+                  <span class="w-full flex items-center gap-3 max-sm:flex-col max-sm:items-start">
+                    <label for="name_of_event" class="text-[#0c5060] max-sm:w-fit whitespace-nowrap">Discount %</label>
+                    <input type="text" class="border px-3 py-2 rounded-sm w-full" />
+                  </span>
+
+                </div>
+
+              </div>
+
+              <h5 class="text-[#0c5060] font-semibold w-full px-4 mt-10 bg-[#f7f7f7] py-3">Event Settings
+              </h5>
+
+              <div class="w-full flex justify-between max-sm:flex-col items-start gap-3">
+                <div class="flex gap-2 items-center justify-between w-full text-[#0c5060] pt-4">
+                  <p class="m-0">Auto Invite Match Players</p>
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer" />
+                    <div
+                      class="relative w-14 h-6 bg-[#EC3899] rounded-full peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-[#52e99e]">
+                    </div>
+                  </label>
+                </div>
+
+                <div class="flex gap-2 items-center justify-between w-full text-[#0c5060] pt-4">
+                  <p class="m-0">Auto Join Event</p>
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer" />
+                    <div
+                      class="relative w-14 h-6 bg-[#EC3899] rounded-full peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-[#52e99e]">
+                    </div>
+                  </label>
+                </div>
+
+                <div class="flex gap-2 items-center justify-between w-full text-[#0c5060] pt-4">
+                  <p class="m-0">Publish on Social Networks</p>
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer" />
+                    <div
+                      class="relative w-14 h-6 bg-[#EC3899] rounded-full peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-[#52e99e]">
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <h5 class="text-[#0c5060] font-semibold w-full px-4 mt-10 bg-[#f7f7f7] py-3">Event Terms & Conditions
+              </h5>
+
+              <div class="w-full flex max-sm:flex-col items-start gap-3">
+                <label for="name_of_event" class=" max-sm:w-fit whitespace-nowrap">Terms & Conditions</label>
+                <div class="w-full border bg-white flex items-center justify-center gap-4 h-32 relative">
+                  <input type="text" name="" class=" absolute top-2 w-full px-2"
+                    placeholder="Pleae enter Terms and Conditions here or upload Terms and Conditions">
+                  <div class="absolute bottom-2 left-0 right-0 w-full flex items-center justify-center gap-2">
+                    <span class="flex flex-col items-center text-[#808080]">
+                      <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
+                      <p class="m-0 text-sm">UPLOAD</p>
+                    </span>
+                    <p class="text-sm">or</p>
+                    <p class="text-[#57a8f3] underline">Choose file</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-full flex gap-3 items-center justify-end pt-8 max-sm:items-start">
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1">Save as
+                  draft</button>
+                <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-white w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(6)">Back</button>
+                <button class="text-white border-2 border-[#Ec4899] bg-[#Ec4899] w-24 text-sm rounded-md py-1"
+                  (click)="handleTabChange(8)">Publish</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="currentTab === 8" class="flex flex-col items-center justify-center">
+          <div class="w-8/12 flex flex-col items-center gap-4 grad-bg-135 p-4 max-md:w-full">
+            <div class="w-full flex items-center justify-end text-white text-2xl">
+              <button (click)="handleNavigateToClubEvents()">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <div class="w-full flex items-center justify-center h-fit">
+              <img src="../../../../assets/illustrations/email-sent.svg" class="w-full h-96 max-sm:h-60">
+            </div>
+
+            <div class="flex flex-col items-center gap-2 w-72 text-center max-sm:w-60">
+              <h4 class="font-semibold text-white">Event Published!</h4>
+              <p class="m-0 leading-none text-[#f7f7f7f7]">Now lets get competitive! Invite your sporting connections
+                and network to register for and
+                enter the event, promote the event and start training to win or exceed their expctations!</p>
+            </div>
+
+            <div class="w-full flex items-center gap-10 justify-center max-sm:flex-col max-sm:gap-4">
+              <button class="text-[#5a98f4] border-2 border-[#5a98f4] bg-inherit rounded-md text-sm w-44 h-10"
+                (click)="handleTabChange(7)">REVIEW EVENT</button>
+              <button
+                class="border-2 border-[#Ec4899] bg-[#Ec4899] text-white font-semibold rounded-md w-44 h-10">INVITE TO
+                EVENT</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

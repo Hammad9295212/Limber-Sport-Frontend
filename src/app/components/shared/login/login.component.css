@@ -1,0 +1,245 @@
+.news-section {
+    background: url(/assets/easy-book/bookBack.png) center center padding-box;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.news-section {
+    position: relative;
+}
+.disabled-btn {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.login-heading {
+    color: grey;
+    font-size: 18px;
+    font-weight: 700px;
+    margin-top: 50px;
+}
+
+.sec-pad {
+    padding: 144px 0px 150px 0px;
+}
+.toast-container {
+  top: 20px;
+  right: 20px;
+  max-width: 300px;
+}
+
+.auto-container {
+    position: static;
+    max-width: 1200px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+
+.content-box p {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.content-box h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+
+
+
+.friend-sections {
+    background: url(/assets/limber-community/Group-4480.png) center center padding-box;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.friend-sections {
+    position: relative;
+}
+
+.sec-pads {
+    padding: 0px;
+    background-color: #d3d3d3;
+}
+
+.auto-containers {
+    position: static;
+    max-width: 1200px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+
+
+
+.form-inner {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.1);
+    padding: 50px 40px;
+    border-radius: 10px;
+}
+
+
+.form-inner h3 {
+    display: block;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+
+.googleBtn {
+    background-color: #4185f4;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px !important;
+    padding: 1px 2px 0px 1px;
+    line-height: 2.5 !important;
+    text-transform: none;
+}
+
+.googleBtn img {
+    margin: 0;
+    background-color: #fff;
+    height: 42px;
+    float: left;
+}
+
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+/* Target the input when it is autofilled */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #808080 !important;
+}
+
+.form-inner .text {
+    position: relative;
+    display: block;
+    text-align: center;
+    margin-top: 17px;
+    margin-bottom: 12px;
+}
+
+.form-inner .text span {
+    position: relative;
+    display: inline-block;
+    font-size: 26px;
+    line-height: 32px;
+    color: #8a8a8a;
+    font-weight: 400;
+    width: 65px;
+    background: #fff;
+    text-align: center;
+}
+
+
+.form-inner .form-group {
+    position: relative;
+    margin-bottom: 23px;
+}
+
+.form-group label {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    color: #808080;
+    margin-bottom: 4px;
+}
+
+.form-inner .form-group input[type='password'],
+.form-inner .form-group input[type='email'],
+.form-inner .form-group input[type='text'] {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 60px;
+    border: 1px solid #e6ebeb;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #808080;
+    padding: 10px 20px;
+    transition: all 500ms ease;
+}
+
+.other-text a {
+    color: #ff7c5b;
+}
+
+.form-inner .form-group .theme-btn {
+    width: 170px;
+    height: auto;
+    margin-bottom: 20px;
+    background-color: #ff7c5b !important;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.pull-right {
+    float: right;
+}
+
+.showHide {
+    display: none;
+}
+
+.theme-btn:before {
+    webkit-transition-duration: 800ms;
+    transition-duration: 800ms;
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    content: "";
+    top: 110%;
+    left: 50%;
+    background: #061a3a;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+
+.response {
+    color: #d54130;
+}
+
+.form-inner .other-text a {
+    color: #ff7c5b;
+}
+
+@media screen and (max-width: 639px) {
+
+    .form-inner .form-group input[type='password'],
+    .form-inner .form-group input[type='email'],
+    .form-inner .form-group input[type='text'] {
+
+        height: 40px;
+        padding: 6px 10px;
+    }
+}
+
+.gradient-bg {
+    background: linear-gradient(180deg,
+            #f45683 0%,
+            #f55f7b 17.82%,
+            #fda543 78.32%,
+            #ffb636 100%);
+}

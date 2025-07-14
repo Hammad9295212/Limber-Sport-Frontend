@@ -1,0 +1,36 @@
+.hero-section {
+    /* height: 342px; */
+    margin-top: 100px;
+    width: 100%;
+    padding: 100px 80px 150px 80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../../../../assets/WEBSITE\ -\ ABOUT\ US\ PAGE\ IMAGES/section-01-bg.png");
+}
+
+.img-cont {
+    /* box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.2); */
+}
+
+#grad-bg {
+    background: transparent linear-gradient(180deg, #f45683 0%, #F55F7B 18%, #FDA543 78%, #FFB636 100%) 0% 0% no-repeat padding-box;
+}
+
+.bg-careers {
+    /* height: 342px; */
+    margin-top: 100px;
+    width: 100%;
+    padding: 96px 80px 100px 80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../../../../assets/WEBSITE\ -\ ABOUT\ US\ PAGE\ IMAGES/section-06-bg.png");
+}
+
+.main-div {
+    background: url('../../../../assets/WEBSITE\ -\ EVENTS\ PAGE/Group 4503.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

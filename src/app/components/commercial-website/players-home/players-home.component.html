@@ -1,0 +1,859 @@
+<app-header></app-header>
+
+<div class="w-full hero-section flex justify-center items-center bg-black bg-opacity-50">
+  <div class="mt-16 flex flex-col justify-center items-center text-center text-[#fff] max-w-[1200px] h-full">
+    <h1 class="font-black text-[50px] leading-10 max-sm:text-4xl">
+      Limber for Players
+    </h1>
+    <h2 class="font-medium text-lg max-sm:text-base">
+      TIME TO LIMBER UP, GET MORE ACTIVE, AND FIND LOCAL PLAYERS JUST LIKE YOU!
+    </h2>
+  </div>
+</div>
+
+<div class="h-100 -mt-5 px-10" style="background-color:#f0f0f0;margin-bottom: 100px;">
+  <app-find-player
+    [selectRole]="1"
+  ></app-find-player>
+  <!-- <div class="search-container grid grid-cols-12 gap-2 items-center justify-center h-36 max-sm:h-fit">
+     <div class="col-span-3 max-sm:col-span-full">
+       <div class="search-select">
+         <label class="font-semibold text-[#0c5060] sm:pl-8 max-sm:pl-4">Players</label>
+       </div>
+     </div>
+
+     <div class="col-span-2 max-sm:col-span-full">
+       <div class="search-select">
+         <select name="role" class="select w-full">
+           <option data-display="What are you looking for?">Ability ?</option>
+           <option value="five">5 Star</option>
+           <option value="four">4 Star</option>
+           <option value="three">3 Star</option>
+           <option value="two">2 Star</option>
+           <option value="one">1 Star</option>
+         </select>
+       </div>
+     </div>
+
+     <div class="col-span-2 max-sm:col-span-full">
+       <div class="search-select">
+         <select name="role" class="select w-full">
+           <option data-display="What are you looking for?">Where ?</option>
+           <option value="five">Armenia</option>
+           <option value="four">Mali</option>
+           <option value="three">Uganda</option>
+           <option value="two">Zambia</option>
+           <option value="one">Andorra Island</option>
+         </select>
+       </div>
+     </div>
+
+     <div class="col-span-3 max-sm:col-span-full">
+       <div class="search-select">
+         <select name="distance" class="w-full">
+           <option value="" data-display="">Distance From</option>
+           <option value="5">5 Miles</option>
+           <option value="10">10 Miles</option>
+           <option value="25">25 Miles</option>
+           <option value="25">50 Miles</option>
+           <option value="00">Anywhere</option>
+         </select>
+
+       </div>
+     </div>
+
+     <div class="col-span-2 max-sm:col-span-full">
+       <div class="search-select pt-1">
+         <button id="searchme" type="submit" class="search-btn h-10" (click)="handlePlayersListPage()"><i
+           class="fa-solid fa-magnifying-glass pr-2"></i>Find
+         </button>
+       </div>
+     </div>
+   </div>-->
+</div>
+
+<div class="font-sans w-full px-20 flex justify-center items-center pb-20 pt-4 main-bg ">
+  <div
+    class="w-full px-2 grid grid-cols-12 gap-6 max-md:grid-cols-8 max-sm:grid-cols-4 max-sm:flex max-sm:flex-col justify-center items-center max-w-[1200px]">
+        <span class="col-span-4 cursor-pointer flex justify-center items-center relative w-full h-full">
+            <img src="/assets/Players-Home/tennis.jpg" alt="pic-1"
+                 class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+            <h2
+              class="absolute bottom-3 left-1 text-center text-2xl font-semibold text-white px-4 max-sm:whitespace-pre-wrap">
+                Tennis</h2>
+        </span>
+    <span class="col-span-4 cursor-pointer flex justify-center items-center relative w-full h-full">
+            <img src="/assets/Players-Home/trainer.jpg" alt="pic-1"
+                 class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+            <h2
+              class="absolute bottom-3 left-1 text-center text-2xl font-semibold text-white px-4 max-sm:whitespace-pre-wrap">
+                Personal Trainer</h2>
+        </span>
+    <span class="col-span-4 cursor-pointer flex justify-center items-center relative w-full h-full">
+            <img src="/assets/Players-Home/netball.jpg" alt="pic-1"
+                 class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+            <h2
+              class="absolute bottom-3 left-1 text-center text-2xl font-semibold text-white px-4 max-sm:whitespace-pre-wrap">
+                Netball</h2>
+        </span>
+    <span class="col-span-4 cursor-pointer flex justify-center items-center relative w-full h-full">
+            <img src="/assets/Players-Home/running.jpg" alt="pic-1"
+                 class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+            <h2
+              class="absolute bottom-3 left-1 text-center text-2xl font-semibold text-white px-4 max-sm:whitespace-pre-wrap">
+                Running</h2>
+        </span>
+    <span class="col-span-4 cursor-pointer flex justify-center items-center relative w-full h-full">
+            <img src="/assets/Players-Home/golf.jpg" alt="pic-1"
+                 class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+            <h2
+              class="absolute bottom-3 left-1 text-center text-2xl font-semibold text-white px-4 max-sm:whitespace-pre-wrap">
+                Golf</h2>
+        </span>
+    <span class="col-span-4 cursor-pointer flex justify-center items-center relative w-full h-full">
+            <img src="/assets/Players-Home/hiking.jpg" alt="pic-1"
+                 class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+            <h2
+              class="absolute bottom-3 left-1 text-center text-2xl font-semibold text-white px-4 max-sm:whitespace-pre-wrap">
+                Hiking</h2>
+        </span>
+    <span class="col-span-4 cursor-pointer flex justify-center items-center relative w-full h-full">
+            <img src="/assets/Players-Home/cycling.png" alt="pic-1"
+                 class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+            <h2
+              class="absolute bottom-3 left-1 text-center text-2xl font-semibold text-white px-4 max-sm:whitespace-pre-wrap">
+                Cycling</h2>
+        </span>
+    <span class="col-span-4 cursor-pointer flex justify-center items-center relative w-full h-full">
+            <img src="/assets/Players-Home/football.jpg" alt="pic-1"
+                 class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+            <h2
+              class="absolute bottom-3 left-1 text-center text-2xl font-semibold text-white px-4 max-sm:whitespace-pre-wrap">
+                Football</h2>
+        </span>
+
+    <span class="col-span-4 cursor-pointer flex justify-center items-center relative w-full h-full">
+            <img src="/assets/Players-Home/basketball.jpg" alt="pic-1"
+                 class="bg-white p-3 rounded-xl img-card w-full h-full object-cover">
+            <h2
+              class="absolute bottom-3 left-1 text-center text-2xl font-semibold text-white px-4 max-sm:whitespace-pre-wrap">
+                Basketball</h2>
+        </span>
+
+    <span class="col-span-full cursor-pointer flex justify-center items-center relative mt-20 ">
+            <button
+              class="font-semibold text-white text-base px-8 py-4 transition-colors duration-500 rounded-lg grad-btn"
+              (click)="viewPlayerFilter()"
+            >
+              View All Sports
+            </button>
+        </span>
+  </div>
+</div>
+
+
+<div class="events-section font-sans py-20">
+  <div class="auto-container">
+    <div class="sec-title flex justify-between items-start max-md:flex-col max-md:items-center max-md:text-center">
+      <h2 class="text-5xl max-md:text-3xl">Players Near You</h2>
+      <a (click)="viewPlayerFilter()"
+         class="font-semibold text-white text-base px-8 py-2 transition-colors duration-500 rounded-lg grad-btn no-underline">
+        View All
+      </a>
+    </div>
+    <div class="row clearfix">
+      <div class="col-md-3 col-12 mb-5"
+           *ngFor="let data of nearPlayersData?.slice(0, 4)"
+      >
+        <app-playercard
+          [player]="data"
+          [sportsData]="sportsData"
+          [listView]="false"
+          [width]="'270px'"
+          [gridViewHeight]="checkItemsNotWithSports(nearPlayersData)"
+          [connectionVisible]="true"
+        ></app-playercard>
+        <!--<div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+             data-wow-duration="1500ms"
+             style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+          <div class="inner-box">
+            <figure class="image-box">
+              <a><img [src]="returnImg(data)"alt=""></a>
+              <span
+                *ngIf="data?.sport && data?.sport[0] && data?.sport[0]?.play"
+                class="post-date"><i class="fa-regular fa-futbol"></i>{{  onFindSport(data?.sport)  }}</span>
+            </figure>
+            <div class="lower-content">
+              <div class="flex justify-between items-center">
+                                <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                  class="fa-solid fa-star"></i>8.0</span>
+                <span class="text-[#808080] flex gap-2 items-center"><i
+                  class="fa-solid fa-location-dot"></i>{{ (data?.player && data?.player[0]) && data?.player[0]?.location }}</span>
+              </div>
+              <h3><a class="no-underline mt-4">{{ data?.name ? data?.name : (data?.user?.name) }}</a></h3>
+              <p>
+                {{ (data?.player && data?.player[0]) ? getTruncatedTextByWords(data?.player[0]?.about_me, 10) : '' }}
+              </p>
+              <div class="flex items-center justify-evenly">
+                <a class="theme-btn-two" (click)="handlePlayerDetailsView(data?.id)">See Details</a>
+&lt;!&ndash;
+                <a class="theme-btn-two">Connect</a>
+&ndash;&gt;
+              </div>
+
+            </div>
+          </div>
+        </div>-->
+      </div>
+      <!-- <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+         <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="300ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
+           <div class="inner-box">
+             <figure class="image-box">
+               <a href="blog-details.html"><img src="../../../../assets/Players-Home/4.jpg" alt=""></a>
+               <span class="post-date"><i class="fa-regular fa-futbol"></i>Scuba Diving</span>
+             </figure>
+             <div class="lower-content">
+               <div class="flex justify-between items-center">
+                                 <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                   class="fa-solid fa-star"></i>8.0</span>
+                 <span class="text-[#808080] flex gap-2 items-center"><i
+                   class="fa-solid fa-location-dot"></i>Birmingham</span>
+               </div>
+               <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores nisi
+                 modi quia
+                 nostrum velit obcaecati dolores, earum non, cum molestiae, quae debitis quas ipsam
+                 soluta consectetur.
+                 Veniam!</p>
+               <div class="flex items-center justify-evenly">
+                 <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                 <a href="blog-details.html" class="theme-btn-two">Connect</a>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+         <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="600ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+           <div class="inner-box">
+             <figure class="image-box">
+               <a href="blog-details.html"><img src="../../../../assets/Players-Home/2.jpg" alt=""></a>
+               <span class="post-date"><i class="fa-regular fa-futbol"></i>Climbing</span>
+             </figure>
+             <div class="lower-content">
+               <div class="flex justify-between items-center">
+                                 <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                   class="fa-solid fa-star"></i>8.0</span>
+                 <span class="text-[#808080] flex gap-2 items-center"><i
+                   class="fa-solid fa-location-dot"></i>Birmingham</span>
+               </div>
+
+               <h3><a href="blog-details.html" class="no-underline mt-4">LONDON MARATHON 2022</a></h3>
+
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores nisi
+                 modi quia
+                 nostrum velit obcaecati dolores, earum non, cum molestiae, quae debitis quas ipsam
+                 soluta consectetur.
+                 Veniam!</p>
+               <div class="flex items-center justify-evenly">
+                 <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                 <a href="blog-details.html" class="theme-btn-two">Connect</a>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>-->
+    </div>
+  </div>
+</div>
+
+
+<div class="events-section font-sans py-10">
+  <div class="auto-container">
+    <div class="sec-title flex justify-between items-start max-md:flex-col max-md:items-center max-md:text-center">
+      <h2 class="text-5xl max-md:text-3xl whitespace-nowrap">Most Active Players</h2>
+      <a (click)="viewPlayerFilter()"
+         class="font-semibold text-white text-base px-8 py-2 transition-colors duration-500 rounded-lg grad-btn no-underline">
+        View All
+      </a>
+    </div>
+    <div class="row clearfix">
+      <div class="col-md-3 col-12 mb-5"
+           *ngFor="let data of activePlayersData?.slice(0, 4)"
+      >
+        <app-playercard
+          [player]="data"
+          [sportsData]="sportsData"
+          [listView]="false"
+          [width]="'270px'"
+          [gridViewHeight]="checkItemsNotWithSports(activePlayersData)"
+          [connectionVisible]="true"
+        ></app-playercard>
+       <!-- <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+             data-wow-duration="1500ms"
+             style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+          <div class="inner-box">
+            <figure class="image-box">
+              <a><img [src]="returnImg(data)"alt=""></a>
+              <span
+                *ngIf="data?.sport && data?.sport[0] && data?.sport[0]?.play"
+                class="post-date"><i class="fa-regular fa-futbol"></i>{{  onFindSport(data?.sport)  }}</span>
+            </figure>
+            <div class="lower-content">
+              <div class="flex justify-between items-center">
+                                <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                  class="fa-solid fa-star"></i>8.0</span>
+                <span class="text-[#808080] flex gap-2 items-center"><i
+                  class="fa-solid fa-location-dot"></i>{{ (data?.player && data?.player[0]) && data?.player[0]?.location }}</span>
+              </div>
+              <h3><a class="no-underline mt-4">{{ data?.name ? data?.name : (data?.user?.name) }}</a></h3>
+              <p>
+                {{ (data?.player && data?.player[0]) ? getTruncatedTextByWords(data?.player[0]?.about_me, 10) : '' }}
+              </p>
+              <div class="flex items-center justify-evenly">
+                <a class="theme-btn-two" (click)="handlePlayerDetailsView(data?.id)">See Details</a>
+              &lt;!&ndash;  <a class="theme-btn-two">Connect</a>&ndash;&gt;
+              </div>
+
+            </div>
+          </div>
+        </div>-->
+      </div>
+     <!-- <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+        <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+             data-wow-duration="1500ms"
+             style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+          <div class="inner-box">
+            <figure class="image-box">
+              <a href="blog-details.html"><img src="../../../../assets/Players-Home/1.jpg" alt=""></a>
+              <span class="post-date"><i class="fa-regular fa-futbol"></i>Open Water Swimming</span>
+            </figure>
+            <div class="lower-content">
+              <div class="flex justify-between items-center">
+                                <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                  class="fa-solid fa-star"></i>8.0</span>
+                <span class="text-[#808080] flex gap-2 items-center"><i
+                  class="fa-solid fa-location-dot"></i>Birmingham</span>
+              </div>
+              <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores nisi
+                modi quia
+                nostrum velit obcaecati dolores, earum non, cum molestiae, quae debitis quas ipsam
+                soluta consectetur.
+                Veniam!</p>
+              <div class="flex items-center justify-evenly">
+                <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                <a href="blog-details.html" class="theme-btn-two">Connect</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+        <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="300ms"
+             data-wow-duration="1500ms"
+             style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
+          <div class="inner-box">
+            <figure class="image-box">
+              <a href="blog-details.html"><img src="../../../../assets/Players-Home/4.jpg" alt=""></a>
+              <span class="post-date"><i class="fa-regular fa-futbol"></i>Scuba Diving</span>
+            </figure>
+            <div class="lower-content">
+              <div class="flex justify-between items-center">
+                                <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                  class="fa-solid fa-star"></i>8.0</span>
+                <span class="text-[#808080] flex gap-2 items-center"><i
+                  class="fa-solid fa-location-dot"></i>Birmingham</span>
+              </div>
+              <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores nisi
+                modi quia
+                nostrum velit obcaecati dolores, earum non, cum molestiae, quae debitis quas ipsam
+                soluta consectetur.
+                Veniam!</p>
+              <div class="flex items-center justify-evenly">
+                <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                <a href="blog-details.html" class="theme-btn-two">Connect</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+        <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="600ms"
+             data-wow-duration="1500ms"
+             style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+          <div class="inner-box">
+            <figure class="image-box">
+              <a href="blog-details.html"><img src="../../../../assets/Players-Home/2.jpg" alt=""></a>
+              <span class="post-date"><i class="fa-regular fa-futbol"></i>Climbing</span>
+            </figure>
+            <div class="lower-content">
+              <div class="flex justify-between items-center">
+                                <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                  class="fa-solid fa-star"></i>8.0</span>
+                <span class="text-[#808080] flex gap-2 items-center"><i
+                  class="fa-solid fa-location-dot"></i>Birmingham</span>
+              </div>
+
+              <h3><a href="blog-details.html" class="no-underline mt-4">LONDON MARATHON 2022</a></h3>
+
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores nisi
+                modi quia
+                nostrum velit obcaecati dolores, earum non, cum molestiae, quae debitis quas ipsam
+                soluta consectetur.
+                Veniam!</p>
+              <div class="flex items-center justify-evenly">
+                <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                <a href="blog-details.html" class="theme-btn-two">Connect</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </div>
+  </div>
+</div>
+
+
+
+<div class="events-section font-sans py-10">
+  <div class="auto-container">
+    <div class="sec-title flex justify-between items-start max-md:flex-col max-md:items-center max-md:text-center">
+      <h2 class="text-5xl max-md:text-3xl">Top Rated Players</h2>
+      <a (click)="viewPlayerFilter()"
+         class="font-semibold text-white text-base px-8 py-2 transition-colors duration-500 rounded-lg grad-btn no-underline">
+        View All
+      </a>
+    </div>
+    <div class="row clearfix">
+      <div class="col-md-3 col-12 mb-5"
+           *ngFor="let data of playerListData?.slice(0, 4)"
+      >
+        <app-playercard
+          [player]="data"
+          [sportsData]="sportsData"
+          [listView]="false"
+          [width]="'270px'"
+          [gridViewHeight]="checkItemsNotWithSports(playerListData)"
+          [connectionVisible]="true"
+        ></app-playercard>
+       <!-- <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+             data-wow-duration="1500ms"
+             style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+          <div class="inner-box">
+            <figure class="image-box">
+              <a><img [src]="returnImg(data)"alt=""></a>
+              <span
+                *ngIf="data?.sport && data?.sport[0] && data?.sport[0]?.play"
+                class="post-date"><i class="fa-regular fa-futbol"></i>{{  onFindSport(data?.sport)  }}</span>
+            </figure>
+            <div class="lower-content">
+              <div class="flex justify-between items-center">
+                                <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                  class="fa-solid fa-star"></i>8.0</span>
+                <span class="text-[#808080] flex gap-2 items-center"><i
+                  class="fa-solid fa-location-dot"></i>{{ (data?.player && data?.player[0]) && data?.player[0]?.location }}</span>
+              </div>
+              <h3><a class="no-underline mt-4">{{ data?.name ? data?.name : (data?.user?.name) }}</a></h3>
+              <p>
+                {{ (data?.player && data?.player[0]) ? getTruncatedTextByWords(data?.player[0]?.about_me, 10) : '' }}
+              </p>
+              <div class="flex items-center justify-evenly">
+                <a class="theme-btn-two" (click)="handlePlayerDetailsView(data?.id)">See Details</a>
+               &lt;!&ndash; <a class="theme-btn-two">Connect</a>&ndash;&gt;
+              </div>
+
+            </div>
+          </div>
+        </div>-->
+      </div>
+    <!--  <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+        <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+             data-wow-duration="1500ms"
+             style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+          <div class="inner-box">
+            <figure class="image-box">
+              <a href="blog-details.html"><img src="../../../../assets/Players-Home/1.jpg" alt=""></a>
+              <span class="post-date"><i class="fa-regular fa-futbol"></i>Open Water Swimming</span>
+            </figure>
+            <div class="lower-content">
+              <div class="flex justify-between items-center">
+                                <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                  class="fa-solid fa-star"></i>8.0</span>
+                <span class="text-[#808080] flex gap-2 items-center"><i
+                  class="fa-solid fa-location-dot"></i>Birmingham</span>
+              </div>
+              <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores nisi
+                modi quia
+                nostrum velit obcaecati dolores, earum non, cum molestiae, quae debitis quas ipsam
+                soluta consectetur.
+                Veniam!</p>
+              <div class="flex items-center justify-evenly">
+                <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                <a href="blog-details.html" class="theme-btn-two">Connect</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+        <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="300ms"
+             data-wow-duration="1500ms"
+             style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms; animation-name: fadeInUp;">
+          <div class="inner-box">
+            <figure class="image-box">
+              <a href="blog-details.html"><img src="../../../../assets/Players-Home/4.jpg" alt=""></a>
+              <span class="post-date"><i class="fa-regular fa-futbol"></i>Scuba Diving</span>
+            </figure>
+            <div class="lower-content">
+              <div class="flex justify-between items-center">
+                                <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                  class="fa-solid fa-star"></i>8.0</span>
+                <span class="text-[#808080] flex gap-2 items-center"><i
+                  class="fa-solid fa-location-dot"></i>Birmingham</span>
+              </div>
+              <h3><a href="blog-details.html" class="no-underline mt-4">BIKE BATH 2022</a></h3>
+
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores nisi
+                modi quia
+                nostrum velit obcaecati dolores, earum non, cum molestiae, quae debitis quas ipsam
+                soluta consectetur.
+                Veniam!</p>
+              <div class="flex items-center justify-evenly">
+                <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                <a href="blog-details.html" class="theme-btn-two">Connect</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+        <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="600ms"
+             data-wow-duration="1500ms"
+             style="visibility: visible; animation-duration: 1500ms; animation-delay: 600ms; animation-name: fadeInUp;">
+          <div class="inner-box">
+            <figure class="image-box">
+              <a href="blog-details.html"><img src="../../../../assets/Players-Home/2.jpg" alt=""></a>
+              <span class="post-date"><i class="fa-regular fa-futbol"></i>Climbing</span>
+            </figure>
+            <div class="lower-content">
+              <div class="flex justify-between items-center">
+                                <span class="text-[#808080] rev-span flex gap-2 items-center"><i
+                                  class="fa-solid fa-star"></i>8.0</span>
+                <span class="text-[#808080] flex gap-2 items-center"><i
+                  class="fa-solid fa-location-dot"></i>Birmingham</span>
+              </div>
+
+              <h3><a href="blog-details.html" class="no-underline mt-4">LONDON MARATHON 2022</a></h3>
+
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit maiores nisi
+                modi quia
+                nostrum velit obcaecati dolores, earum non, cum molestiae, quae debitis quas ipsam
+                soluta consectetur.
+                Veniam!</p>
+              <div class="flex items-center justify-evenly">
+                <a href="blog-details.html" class="theme-btn-two">See Details</a>
+                <a href="blog-details.html" class="theme-btn-two">Connect</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </div>
+  </div>
+</div>
+
+
+<div class="testimonial-section bg-color-1 centred pt-20 bg-[#e7e7e7]">
+  <div class="auto-container">
+    <div class="sec-title centred flex flex-col items-center">
+      <p>Review &amp; Testimonials</p>
+      <h2 class="text-5xl max-md:text-3xl">Why Players Love Limber</h2>
+    </div>
+
+    <ngb-carousel #carousel [interval]="15000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
+                  [showNavigationIndicators]="showNavigationIndicators" [wrap]="wrap" (slide)="onSlide($event)">
+      <ng-template ngbSlide>
+        <div class="grid grid-cols-12 w-full gap-4">
+          <div class="testimonial-block-one col-span-4 max-md:hidden">
+            <div class="inner-box">
+              <div class="rating-box ">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p class="">“I cannot begin to explain how much simpler running
+                  an event is with everything being one platform. The
+                  amount of paperwork reduction alone is worth signing
+                  up for Limber.”</p>
+              </div>
+              <div class="author-box">
+                <h4>Thando Zingonil,</h4>
+                <span class="designation">Black Girls Do Run Club, UK</span>
+                <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-block-one col-span-4 max-md:hidden">
+            <div class="inner-box text-center pr-4">
+              <div class="rating-box ">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p>“I cannot begin to explain how much simpler running
+                  an event is with everything being one platform. The
+                  amount of paperwork reduction alone is worth signing
+                  up for Limber.”</p>
+              </div>
+              <div class="author-box">
+                <h4>Thando Zingonil,</h4>
+                <span class="designation">Black Girls Do Run Club, UK</span>
+                <figure class="thumb-box"><img src="/assets/review/review2.png" alt="">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-block-one col-span-4 max-md:col-span-full">
+            <div class="inner-box">
+              <div class="rating-box ">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p>“I cannot begin to explain how much simpler running
+                  an event is with everything being one platform. The
+                  amount of paperwork reduction alone is worth signing
+                  up for Limber.”</p>
+              </div>
+              <div class="author-box">
+                <h4>Thando Zingonil,</h4>
+                <span class="designation">Black Girls Do Run Club, UK</span>
+                <figure class="thumb-box"><img src="/assets/review/review3.png" alt="">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="grid grid-cols-12 w-full gap-4">
+          <div class="testimonial-block-one col-span-4 max-md:hidden">
+            <div class="inner-box">
+              <div class="rating-box ">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p>“I cannot begin to explain how much simpler running
+                  an event is with everything being one platform. The
+                  amount of paperwork reduction alone is worth signing
+                  up for Limber.”</p>
+              </div>
+              <div class="author-box">
+                <h4>Thando Zingonil,</h4>
+                <span class="designation">Black Girls Do Run Club, UK</span>
+                <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-block-one col-span-4 max-md:hidden">
+            <div class="inner-box text-center pr-4">
+              <div class="rating-box ">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p>“I cannot begin to explain how much simpler running
+                  an event is with everything being one platform. The
+                  amount of paperwork reduction alone is worth signing
+                  up for Limber.”</p>
+              </div>
+              <div class="author-box">
+                <h4>Thando Zingonil,</h4>
+                <span class="designation">Black Girls Do Run Club, UK</span>
+                <figure class="thumb-box"><img src="/assets/review/review2.png" alt="">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-block-one col-span-4 max-md:col-span-full">
+            <div class="inner-box">
+              <div class="rating-box ">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p>“I cannot begin to explain how much simpler running
+                  an event is with everything being one platform. The
+                  amount of paperwork reduction alone is worth signing
+                  up for Limber.”</p>
+              </div>
+              <div class="author-box">
+                <h4>Thando Zingonil,</h4>
+                <span class="designation">Black Girls Do Run Club, UK</span>
+                <figure class="thumb-box"><img src="/assets/review/review3.png" alt="">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="grid grid-cols-12 w-full gap-4">
+          <div class="testimonial-block-one col-span-4 max-md:hidden">
+            <div class="inner-box">
+              <div class="rating-box ">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p>“I cannot begin to explain how much simpler running
+                  an event is with everything being one platform. The
+                  amount of paperwork reduction alone is worth signing
+                  up for Limber.”</p>
+              </div>
+              <div class="author-box">
+                <h4>Thando Zingonil,</h4>
+                <span class="designation">Black Girls Do Run Club, UK</span>
+                <figure class="thumb-box"><img src="/assets/review/review1.png" alt="">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-block-one col-span-4 max-md:hidden">
+            <div class="inner-box text-center pr-4">
+              <div class="rating-box ">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p>“I cannot begin to explain how much simpler running
+                  an event is with everything being one platform. The
+                  amount of paperwork reduction alone is worth signing
+                  up for Limber.”</p>
+              </div>
+              <div class="author-box">
+                <h4>Thando Zingonil,</h4>
+                <span class="designation">Black Girls Do Run Club, UK</span>
+                <figure class="thumb-box"><img src="/assets/review/review2.png" alt="">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-block-one col-span-4 max-md:col-span-full">
+            <div class="inner-box">
+              <div class="rating-box ">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p>“I cannot begin to explain how much simpler running
+                  an event is with everything being one platform. The
+                  amount of paperwork reduction alone is worth signing
+                  up for Limber.”</p>
+              </div>
+              <div class="author-box">
+                <h4>Thando Zingonil,</h4>
+                <span class="designation">Black Girls Do Run Club, UK</span>
+                <figure class="thumb-box"><img src="/assets/review/review3.png" alt="">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</div>
+
+
+
+<div class="w-full font-sans py-10 bg-[#f7f7f7]">
+
+  <div class="main-div w-full py-10 px-6 gap-10 flex flex-col justify-center items-center">
+    <div class="flex items-center justify-evenly gap-14 max-w-[1200px] max-lg:flex-col">
+      <div class="w-1/2 bg-white p-4 rounded-lg img-cont max-md:w-full">
+        <img src="../../../../assets/WEBSITE - HOW IT WORKS FOR IMAGES/section-02-img-01-get-out-and-reconnect.png"
+             alt="pic">
+      </div>
+      <div class="flex flex-col items-start text-start gap-2 w-1/2 max-lg:w-full text-[#0c5060]">
+        <h5 class="text-xl font-medium w-full">COACH WITH US</h5>
+        <h2 class="font-extrabold w-full max-sm:font-semibold max-sm:text-xl">Register for Free, take booking's
+          and promote yourself to our community of people, teams and clubs looking for coaches</h2>
+        <button (click)="navigateToHomePage()"
+                class="text-[#0c5060] px-6 py-3 border-[1.5px] border-[#0c5060] hover:bg-[#0c5060] duration-500 font-semibold transition-all rounded-md hover:text-white">
+          Register</button>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-evenly gap-14 max-w-[1200px] max-lg:flex-col">
+      <div
+        class="flex flex-col items-end text-end gap-2 w-1/2 max-lg:w-full text-[#0c5060] max-lg:text-start max-lg:items-start">
+        <h5 class="text-xl font-medium w-full max-lg:text-start ">OUR PARTNERS</h5>
+        <h2 class="font-extrabold w-full max-lg:text-start max-sm:font-semibold max-sm:text-xl">Limber is
+          community where anyone interested in
+          sport and physical activity, including individuals, athletes, coaches, referee, parents, teams and
+          clubs and brands go all</h2>
+        <button (click)="navigateToHomePage()"
+                class="text-[#0c5060] px-6 py-3 border-[1.5px] border-[#0c5060] hover:bg-[#0c5060] duration-500 font-semibold transition-all rounded-md hover:text-white">
+          Join</button>
+      </div>
+      <div class="w-1/2 bg-white p-4 rounded-lg img-cont max-md:w-full">
+        <img src="../../../../assets/WEBSITE - HOW IT WORKS FOR IMAGES/section-02-img-02-celebrate-an-active-lifestyle.png"
+             alt="pic">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

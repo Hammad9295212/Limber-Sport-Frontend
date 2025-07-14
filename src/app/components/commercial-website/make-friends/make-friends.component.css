@@ -1,0 +1,27 @@
+.friend-section{
+    background: url(/assets/make-friend/group.png) center center padding-box;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.friend-section {
+    position: relative;
+}
+.sec-pad {
+    padding: 144px 0px 150px 0px;
+}
+
+.auto-container {
+    position: static;
+    max-width: 1200px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+.align-center{
+    margin: 0px auto;
+}
+.text-center {
+    text-align: center !important;
+    color: azure;
+}

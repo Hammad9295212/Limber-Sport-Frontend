@@ -1,0 +1,838 @@
+<div class="flex w-full bg-[#f7f7f7] font-sans">
+  <div class="flex items-start justify-start w-full pb-4">
+    <div class="h-screen w-20 fixed z-10">
+      <div class="fixed h-screen w-20 gradient-bg left-0 top-0 flex flex-col items-start px-3 justify-start pt-8 gap-2"
+           id="sidebar">
+        <div id="logo" class="pb-4">
+          <img src="../../../assets/logo/logo.png" alt="" id="logo-img" />
+        </div>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Dashboard</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item" [routerLink]="('/club-profile')">
+          <i class="fa-solid fa-house text-lg"></i>
+          <p class="m-0" id="text">Club Page</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item" [routerLink]="('/club-coaches')">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Coaches</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item" [routerLink]="('/club-events')">
+          <i class="fa-solid fa-calendar-days text-lg"></i>
+          <p class="m-0" id="text">Events</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Facilities Rental</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-user text-lg"></i>
+          <p class="m-0" id="text">Club Member</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-people-group text-lg"></i>
+          <p class="m-0" id="text">Teams</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-message text-lg"></i>
+          <p class="m-0" id="text">Messages</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Training Class</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Promotions</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Gallery</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-chart-simple text-lg"></i>
+          <p class="m-0" id="text">Statistics</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white pt-6" id="item">
+          <i class="fa-solid fa-gear text-lg"></i>
+          <p class="m-0" id="text">Settings</p>
+        </button>
+      </div>
+    </div>
+
+    <div class="w-full grid grid-cols-12 px-8 pt-4 gap-6 pl-28 relative">
+      <div class="col-span-full flex items-center justify-between text-start max-sm:flex-col">
+        <div class="flex flex-col items-start">
+          <h2 class="text-[#f45683] w-fit max-sm:w-full">Coaches</h2>
+          <span class="flex items-center gap-2 text-[#0c5060]">
+            <p class="">Dashboard</p>
+            <p class="font-semibold">>></p>
+            <p class="font-semibold text-[#f45683]">Club Coaches</p>
+          </span>
+        </div>
+        <div class="flex gap-2 items-center w-fit max-sm:w-full relative">
+          <div class="bg-white rounded-lg text-[#7794fd] px-2 whitespace-nowrap">
+            <input class="bg-inherit border-none rounded-lg px-2 py-2 w-40 max-sm:w-11/12" placeholder="Search" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <button *ngIf="!isDropdownOpen" class="rounded-full font-semibold grad-btn w-9 h-9"
+                  (click)="handleDropdown('open')">
+            +
+          </button>
+          <button *ngIf="isDropdownOpen" class="rounded-full font-semibold bg-[#f95eb3] text-white w-9 h-9"
+                  (click)="handleDropdown('close')">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <div *ngIf="isDropdownOpen"
+               class="absolute bg-white text-[#808080] flex flex-col px-4 py-3 gap-2 items-start top-10 right-0 w-fit z-[999999] shadow-class rounded-md">
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-user"></i>New Member
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-calendar-plus"></i>New Event
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-regular fa-paper-plane"></i>Invite Member
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-circle-play"></i>Training Class
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-message"></i>New Message
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-building"></i>New Facility
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-clover"></i>New Lead
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-briefcase"></i>New Promotion
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-image"></i>News/Blog Post
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-people-group"></i>New Team
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-user"></i>New Coach
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-span-full w-full flex flex-col bg-white gap-3 px-3 pt-3 pb-2 items-start rounded-lg">
+        <div class="flex items-center justify-between w-full relative">
+          <h4 class="text-[#0c5060] font-semibold">
+            Total Coaches (8)
+          </h4>
+          <div class="self-end flex gap-2 items-center text-[#0c5060]">
+            <i class="fa-solid fa-list transition-colors cursor-pointer" [ngClass]="{ 'text-[#Ec4899]': isCoachesList }"
+               (click)="handleCoachesListView('list')"></i>
+            <i class="fa-brands fa-windows transition-colors cursor-pointer"
+               [ngClass]="{ 'text-[#Ec4899]': !isCoachesList }" (click)="handleCoachesListView('card')"></i>
+          </div>
+        </div>
+
+        <ng-container *ngIf="isCoachesList">
+          <div class="table-responsive w-full">
+            <table class="w-full">
+              <tbody>
+              <tr class="border-b">
+                <td>
+                  <img src="../../../assets/one-destination/destination2.png" class="w-16 rounded-full h-16" alt="" />
+                </td>
+
+                <td>
+                  <p class="m-0 text-sm font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs pt-2">Senior Pro Tennis Coach</p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Mobile Number
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    +44 7456 789123
+                  </p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Weekly Bookings
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    22
+                  </p>
+                </td>
+
+                <td>
+                    <span class="flex items-center gap-2">
+                      <i class="fa-solid fa-circle text-green-400 text-lg"></i>
+                      <p class="text-[#0c5060] text-xs m-0 font-semibold">Available</p>
+                    </span>
+                </td>
+
+                <td>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </td>
+              </tr>
+              <tr class="border-b">
+                <td>
+                  <img src="../../../assets/one-destination/destination2.png" class="w-16 rounded-full h-16" alt="" />
+                </td>
+
+                <td>
+                  <p class="m-0 text-sm font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs pt-2">Senior Pro Tennis Coach</p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Mobile Number
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    +44 7456 789123
+                  </p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Weekly Bookings
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    22
+                  </p>
+                </td>
+
+                <td>
+                    <span class="flex items-center gap-2">
+                      <i class="fa-solid fa-circle text-red-600 text-lg"></i>
+                      <p class="text-[#0c5060] text-xs m-0 font-semibold">On Holday</p>
+                    </span>
+                </td>
+
+                <td>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </td>
+              </tr>
+
+              <tr class="border-b">
+                <td>
+                  <img src="../../../assets/one-destination/destination2.png" class="w-16 rounded-full h-16" alt="" />
+                </td>
+
+                <td>
+                  <p class="m-0 text-sm font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs pt-2">Senior Pro Tennis Coach</p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Mobile Number
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    +44 7456 789123
+                  </p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Weekly Bookings
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    22
+                  </p>
+                </td>
+
+                <td>
+                    <span class="flex items-center gap-2">
+                      <i class="fa-solid fa-circle text-green-400 text-lg"></i>
+                      <p class="text-[#0c5060] text-xs m-0 font-semibold">Available</p>
+                    </span>
+                </td>
+
+                <td>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </td>
+              </tr>
+
+              <tr class="border-b">
+                <td>
+                  <img src="../../../assets/one-destination/destination2.png" class="w-16 rounded-full h-16" alt="" />
+                </td>
+
+                <td>
+                  <p class="m-0 text-sm font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs pt-2">Senior Pro Tennis Coach</p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Mobile Number
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    +44 7456 789123
+                  </p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Weekly Bookings
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    22
+                  </p>
+                </td>
+
+                <td>
+                    <span class="flex items-center gap-2">
+                      <i class="fa-solid fa-circle text-red-600 text-lg"></i>
+                      <p class="text-[#0c5060] text-xs m-0 font-semibold">On Holday</p>
+                    </span>
+                </td>
+
+                <td>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </td>
+              </tr>
+
+              <tr class="border-b">
+                <td>
+                  <img src="../../../assets/one-destination/destination2.png" class="w-16 rounded-full h-16" alt="" />
+                </td>
+
+                <td>
+                  <p class="m-0 text-sm font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs pt-2">Senior Pro Tennis Coach</p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Mobile Number
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    +44 7456 789123
+                  </p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Weekly Bookings
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    22
+                  </p>
+                </td>
+
+                <td>
+                    <span class="flex items-center gap-2">
+                      <i class="fa-solid fa-circle text-green-400 text-lg"></i>
+                      <p class="text-[#0c5060] text-xs m-0 font-semibold">Available</p>
+                    </span>
+                </td>
+
+                <td>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </td>
+              </tr>
+
+              <tr class="border-b">
+                <td>
+                  <img src="../../../assets/one-destination/destination2.png" class="w-16 rounded-full h-16" alt="" />
+                </td>
+
+                <td>
+                  <p class="m-0 text-sm font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs pt-2">Senior Pro Tennis Coach</p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Mobile Number
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    +44 7456 789123
+                  </p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Weekly Bookings
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    22
+                  </p>
+                </td>
+
+                <td>
+                    <span class="flex items-center gap-2">
+                      <i class="fa-solid fa-circle text-red-600 text-lg"></i>
+                      <p class="text-[#0c5060] text-xs m-0 font-semibold">On Holday</p>
+                    </span>
+                </td>
+
+                <td>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </td>
+              </tr>
+
+              <tr class="border-b">
+                <td>
+                  <img src="../../../assets/one-destination/destination2.png" class="w-16 rounded-full h-16" alt="" />
+                </td>
+
+                <td>
+                  <p class="m-0 text-sm font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs pt-2">Senior Pro Tennis Coach</p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Mobile Number
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    +44 7456 789123
+                  </p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Weekly Bookings
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    22
+                  </p>
+                </td>
+
+                <td>
+                    <span class="flex items-center gap-2">
+                      <i class="fa-solid fa-circle text-green-400 text-lg"></i>
+                      <p class="text-[#0c5060] text-xs m-0 font-semibold">Available</p>
+                    </span>
+                </td>
+
+                <td>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </td>
+              </tr>
+              <tr class="border-b">
+                <td>
+                  <img src="../../../assets/one-destination/destination2.png" class="w-16 rounded-full h-16" alt="" />
+                </td>
+
+                <td>
+                  <p class="m-0 text-sm font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs pt-2">Senior Pro Tennis Coach</p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Mobile Number
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    +44 7456 789123
+                  </p>
+                </td>
+
+                <td>
+                  <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                    Weekly Bookings
+                  </p>
+                  <p class="text-xs text-[#0c5060] m-0 font-semibold pt-2">
+                    22
+                  </p>
+                </td>
+
+                <td>
+                    <span class="flex items-center gap-2">
+                      <i class="fa-solid fa-circle text-green-400 text-lg"></i>
+                      <p class="text-[#0c5060] text-xs m-0 font-semibold">Available</p>
+                    </span>
+                </td>
+
+                <td>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="!isCoachesList">
+          <div
+            class="col-span-full w-full grid grid-cols-4 gap-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
+
+            <div class="col-span-1 w-full p-3 border bg-white flex flex-col items-start gap-2">
+              <div class="m-0 w-full">
+                <img src="../../../assets/one-destination/destination2.png" class="w-full h-32" alt="" />
+              </div>
+
+              <div class="w-full m-0 flex items-center justify-between">
+                <span class="flex flex-col items-start">
+                  <p class="m-0 font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs font-semibold">Senior Pro Tennis Coach</p>
+                </span>
+                <span>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </span>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Mobile Number
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  +44 7456 789123
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Weekly Bookings
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  22
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex items-center gap-2">
+                <i class="fa-solid fa-circle text-green-400 text-lg"></i>
+                <p class="text-[#0c5060] text-xs m-0 font-semibold">Available</p>
+              </div>
+            </div>
+
+            <div class="col-span-1 w-full p-3 border bg-white flex flex-col items-start gap-2">
+              <div class="m-0 w-full">
+                <img src="../../../assets/one-destination/destination2.png" class="w-full h-32" alt="" />
+              </div>
+
+              <div class="w-full m-0 flex items-center justify-between">
+                <span class="flex flex-col items-start">
+                  <p class="m-0 font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs font-semibold">Senior Pro Tennis Coach</p>
+                </span>
+                <span>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </span>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Mobile Number
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  +44 7456 789123
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Weekly Bookings
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  22
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex items-center gap-2">
+                <i class="fa-solid fa-circle text-green-400 text-lg"></i>
+                <p class="text-[#0c5060] text-xs m-0 font-semibold">Available</p>
+              </div>
+            </div>
+
+            <div class="col-span-1 w-full p-3 border bg-white flex flex-col items-start gap-2">
+              <div class="m-0 w-full">
+                <img src="../../../assets/one-destination/destination2.png" class="w-full h-32" alt="" />
+              </div>
+
+              <div class="w-full m-0 flex items-center justify-between">
+                <span class="flex flex-col items-start">
+                  <p class="m-0 font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs font-semibold">Senior Pro Tennis Coach</p>
+                </span>
+                <span>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </span>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Mobile Number
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  +44 7456 789123
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Weekly Bookings
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  22
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex items-center gap-2">
+                <i class="fa-solid fa-circle text-red-600 text-lg"></i>
+                <p class="text-[#0c5060] text-xs m-0 font-semibold">On Holday</p>
+              </div>
+            </div>
+
+            <div class="col-span-1 w-full p-3 border bg-white flex flex-col items-start gap-2">
+              <div class="m-0 w-full">
+                <img src="../../../assets/one-destination/destination2.png" class="w-full h-32" alt="" />
+              </div>
+
+              <div class="w-full m-0 flex items-center justify-between">
+                <span class="flex flex-col items-start">
+                  <p class="m-0 font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs font-semibold">Senior Pro Tennis Coach</p>
+                </span>
+                <span>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </span>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Mobile Number
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  +44 7456 789123
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Weekly Bookings
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  22
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex items-center gap-2">
+                <i class="fa-solid fa-circle text-green-400 text-lg"></i>
+                <p class="text-[#0c5060] text-xs m-0 font-semibold">Available</p>
+              </div>
+            </div>
+
+            <div class="col-span-1 w-full p-3 border bg-white flex flex-col items-start gap-2">
+              <div class="m-0 w-full">
+                <img src="../../../assets/one-destination/destination2.png" class="w-full h-32" alt="" />
+              </div>
+
+              <div class="w-full m-0 flex items-center justify-between">
+                <span class="flex flex-col items-start">
+                  <p class="m-0 font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs font-semibold">Senior Pro Tennis Coach</p>
+                </span>
+                <span>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </span>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Mobile Number
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  +44 7456 789123
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Weekly Bookings
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  22
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex items-center gap-2">
+                <i class="fa-solid fa-circle text-red-600 text-lg"></i>
+                <p class="text-[#0c5060] text-xs m-0 font-semibold">On Holday</p>
+              </div>
+            </div>
+
+            <div class="col-span-1 w-full p-3 border bg-white flex flex-col items-start gap-2">
+              <div class="m-0 w-full">
+                <img src="../../../assets/one-destination/destination2.png" class="w-full h-32" alt="" />
+              </div>
+
+              <div class="w-full m-0 flex items-center justify-between">
+                <span class="flex flex-col items-start">
+                  <p class="m-0 font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs font-semibold">Senior Pro Tennis Coach</p>
+                </span>
+                <span>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </span>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Mobile Number
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  +44 7456 789123
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Weekly Bookings
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  22
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex items-center gap-2">
+                <i class="fa-solid fa-circle text-green-400 text-lg"></i>
+                <p class="text-[#0c5060] text-xs m-0 font-semibold">Available</p>
+              </div>
+            </div>
+
+            <div class="col-span-1 w-full p-3 border bg-white flex flex-col items-start gap-2">
+              <div class="m-0 w-full">
+                <img src="../../../assets/one-destination/destination2.png" class="w-full h-32" alt="" />
+              </div>
+
+              <div class="w-full m-0 flex items-center justify-between">
+                <span class="flex flex-col items-start">
+                  <p class="m-0 font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs font-semibold">Senior Pro Tennis Coach</p>
+                </span>
+                <span>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </span>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Mobile Number
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  +44 7456 789123
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Weekly Bookings
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  22
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex items-center gap-2">
+                <i class="fa-solid fa-circle text-red-600 text-lg"></i>
+                <p class="text-[#0c5060] text-xs m-0 font-semibold">On Holday</p>
+              </div>
+            </div>
+
+            <div class="col-span-1 w-full p-3 border bg-white flex flex-col items-start gap-2">
+              <div class="m-0 w-full">
+                <img src="../../../assets/one-destination/destination2.png" class="w-full h-32" alt="" />
+              </div>
+
+              <div class="w-full m-0 flex items-center justify-between">
+                <span class="flex flex-col items-start">
+                  <p class="m-0 font-semibold text-[#EC3899]">
+                    Tony Roche
+                  </p>
+                  <p class="m-0 text-[#0c5060] text-xs font-semibold">Senior Pro Tennis Coach</p>
+                </span>
+                <span>
+                  <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                </span>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Mobile Number
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  +44 7456 789123
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex flex-col items-start">
+                <p class="text-xs text-[#57a8f3] m-0 font-semibold">
+                  Weekly Bookings
+                </p>
+                <p class="text-xs text-[#0c5060] m-0 font-semibold">
+                  22
+                </p>
+              </div>
+
+              <div class="w-full m-0 flex items-center gap-2">
+                <i class="fa-solid fa-circle text-green-400 text-lg"></i>
+                <p class="text-[#0c5060] text-xs m-0 font-semibold">Available</p>
+              </div>
+            </div>
+
+          </div>
+        </ng-container>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

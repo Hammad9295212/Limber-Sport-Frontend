@@ -1,0 +1,131 @@
+<div class="font-sans bg-[#f5f6f6]">
+  <div class="col-12 flex items-center justify-center w-full">
+    <ngb-carousel #carousel [interval]="1000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
+      (slide)="onSlide($event)">
+      @for (img of images; track img; let i = $index) {
+      <ng-template ngbSlide>
+        <div class="carousel-caption">
+          <h1>Limber finds more sports for you</h1>
+          <h5>TRY SOMETHING NEW, TRY LIMBER SPORTS</h5>
+        </div>
+        <div class="picsum-img-wrapper">
+          <img [src]="img" alt="My image {{ i + 1 }} description" class="max-sm:pt-16 max-sm:h-[300px]" />
+        </div>
+      </ng-template>
+      }
+    </ngb-carousel>
+  </div>
+</div>
+<lib-toastify-toast-container></lib-toastify-toast-container>
+<div class="h-10 mt-5 bg-[#f5f6f6]">
+  <app-find-player></app-find-player>
+ <!-- <form class="search-container grid grid-cols-12 p-2 gap-2" [formGroup]="searchForm">
+    <div class="col-span-3 max-md:col-span-full text-center">
+      <span class="search-span">Find a player, club, event and more</span>
+      <div class="search-select w-full">
+        <select name="role" class="select w-full text-center" formControlName="role">
+          <option value="">Select one</option>
+          <option *ngFor="let data of rolesData" value={{data.id}}>{{data.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-span-3 max-md:col-span-full text-center">
+      <div class="list search-select w-full relative">
+        <span class="search-span">Select your sport</span>
+        <select name="sport" class="w-full text-center" formControlName="sport">
+          <option value="" data-display="">Select a sport</option>
+          <option *ngFor="let data of playData" value={{data.id}}>{{data.name}}</option>
+        </select>
+
+        &lt;!&ndash; <ngx-select-dropdown class="w-full" [config]="playConfig" [options]="playData" (change)="searchChange($event)"
+          [multiple]="false"></ngx-select-dropdown> &ndash;&gt;
+        &lt;!&ndash; <input id="location" name="location"
+          class="search-text font-semibold rounded-1 px-2 py-2 mt-[5px] w-full text-center" formControlName="sport"
+          type="text" placeholder="Select sport" /> &ndash;&gt;
+        &lt;!&ndash; <mat-autocomplete #auto="matAutocomplete">
+          @for (option of playData; track option) {
+          <mat-option [value]="option.id">{{option.name}}</mat-option>
+          }
+        </mat-autocomplete>
+
+        <input type="text" placeholder="Select sport" matInput formControlName="sport" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of filteredOptions | async; track option) {
+          <mat-option [value]="option">{{option}}</mat-option>
+          }
+        </mat-autocomplete> &ndash;&gt;
+      </div>
+    </div>
+    <div class="col-span-3 max-md:col-span-full text-center relative">
+      <span class="search-span w-full">Choose your location</span>
+
+      <input #searchInput id="pac-input" type="text" placeholder="Enter a location" class="w-full text-center input-field" />
+
+
+    </div>
+
+    <div class="col-span-3 max-md:col-span-full text-center">
+      <span class="search-span">Choose your distance</span>
+      <div class="search-select w-full">
+        <select name="distance" class="w-full text-center" formControlName="distance">
+          <option value="" data-display="">Select one</option>
+          <option value="5">5 Miles</option>
+          <option value="10">10 Miles</option>
+          <option value="25">25 Miles</option>
+          <option value="25">50 Miles</option>
+          <option value="75">75 Miles</option>
+          <option value="100">100 Miles</option>
+          <option value="00">Anywhere</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-span-full message-btn mt-4">
+      <button id="searchme" type="submit" class="search-btn" (click)="handleFindNow()">
+        <i class="fa-solid fa-magnifying-glass pr-2"></i>Find Now
+      </button>
+    </div>
+  </form>-->
+</div>
+
+<div class="w-full">
+  <div class="col-md-12">
+    <app-one-destination>Hello 1</app-one-destination>
+  </div>
+</div>
+
+<div class="w-full">
+  <div class="col-md-12">
+    <app-local-players>Hello 1</app-local-players>
+  </div>
+</div>
+
+<div class="w-full">
+  <div class="col-md-12">
+    <app-easy-book>Hello 1</app-easy-book>
+  </div>
+</div>
+
+<div class="w-full">
+  <div class="col-md-12">
+    <app-enter-local-events>Hello 1</app-enter-local-events>
+  </div>
+</div>
+
+<div class="w-full">
+  <div class="col-md-12">
+    <app-top-reviews>Hello 1</app-top-reviews>
+  </div>
+</div>
+
+<div class="w-full">
+  <div class="col-md-12">
+    <app-make-friends></app-make-friends>
+  </div>
+</div>
+
+<div class="w-full">
+  <div class="col-md-12">
+    <app-limber-community></app-limber-community>
+  </div>
+</div>

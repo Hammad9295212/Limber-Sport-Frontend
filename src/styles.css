@@ -1,0 +1,93 @@
+@import "../node_modules/@ng-select/ng-select/themes/default.theme.css";
+@import 'ngx-toastr/toastr';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Poppins-Regular'), url('assets/fonts/Poppins-Regular.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Poppins-Medium'), url('assets/fonts/Poppins-Medium.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Poppins-SemiBold'), url('assets/fonts/Poppins-SemiBold.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Poppins-Bold'), url('assets/fonts/Poppins-Bold.ttf') format('ttf');
+}
+
+.ngx-dropdown-container[_ngcontent-ng-c3547108007] .ngx-dropdown-list-container[_ngcontent-ng-c3547108007] {
+    max-height: 200px !important;
+}
+
+.ngx-dropdown-container[_ngcontent-ng-c3547108007] .ngx-dropdown-button[_ngcontent-ng-c3547108007] {
+    margin-top: 4px;
+    padding: 8px 10px !important;
+}
+
+.ngx-dropdown-container[_ngcontent-ng-c3547108007] .ngx-dropdown-button[_ngcontent-ng-c3547108007] .display-text[_ngcontent-ng-c3547108007] {
+    text-align: center !important;
+}
+
+.ngx-dropdown-container[_ngcontent-ng-c3547108007] .ngx-dropdown-list-container[_ngcontent-ng-c3547108007] {
+    top: 0px !important;
+}
+
+/*
+.ngx-dropdown-container[_ngcontent-ng-c3547108007] {
+    height: inherit;
+}
+
+.ngx-dropdown-container[_ngcontent-ng-c3547108007]  {
+    height: inherit;
+}
+
+.ngx-dropdown-container[_ngcontent-ng-c3547108007] .ngx-dropdown-button[_ngcontent-ng-c3547108007] {
+    height: inherit;
+}
+
+.ngx-dropdown-container[_ngcontent-ng-c3547108007] .ngx-dropdown-button[_ngcontent-ng-c3547108007] {
+    text-align: center !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+
+/*
+!* Ensure all testimonial blocks have the same height *!
+.testimonial-block-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px; !* Adjust this value based on the content *!
+  margin-bottom: 20px;
+}
+
+!* Adjust the inner box to take up the full height *!
+.testimonial-block-one .inner-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+*/
+

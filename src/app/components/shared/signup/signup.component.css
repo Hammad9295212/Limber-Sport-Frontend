@@ -1,0 +1,437 @@
+
+.sports-text {
+  font-weight: bolder;
+  color: #0c5060;
+  margin-top: -40px;
+}
+
+.signup-heading {
+  color: grey;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 50px;
+}
+
+/*.ng-select.countryPicker {
+  border:none !important;
+}
+.ng-select.countryPicker ::ng-deep .ng-select-container  {
+  min-height: 0px;
+  border-radius: 0;
+}*/
+
+/* Remove border from the container */
+.ng-select.countryPicker .ng-select-container,
+.ng-select.countryPicker ::ng-deep .ng-select-container {
+  border: none !important;
+}
+
+/* Remove the blue border when the search input is focused */
+.ng-select.countryPicker ::ng-deep .ng-select-container .ng-select-search {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
+/*.ng-select.countryPicker .ng-select-container  {
+  border:none !important;
+
+}
+.ng-select.countryPicker ::ng-deep .ng-select-container  {
+  border:none !important;
+}*/
+
+
+.signup-form {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.disabled-btn {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.news-section {
+  background: url(/assets/easy-book/bookBack.png) center center padding-box;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.news-section {
+  position: relative;
+}
+
+.sec-pad {
+  padding: 144px 0px 150px 0px;
+}
+
+.auto-container {
+  position: static;
+  max-width: 1200px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+
+.content-box p {
+
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.content-box h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+
+.friend-sections {
+  background: url(/assets/limber-community/Group-4480.png) center center padding-box;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.friend-sections {
+  position: relative;
+}
+
+.sec-pads {
+  padding: 0px;
+  background-color: #d3d3d3;
+}
+
+.auto-containers {
+  position: static;
+  max-width: 1200px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+
+
+.form-inner {
+  position: relative;
+  display: block;
+  background: #ffffff;
+  box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.1);
+  padding: 50px 40px;
+  border-radius: 10px;
+}
+
+
+.form-inner h3 {
+  display: block;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+
+.googleBtn {
+  background-color: #4185f4;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px !important;
+  padding: 1px 2px 0px 1px;
+  line-height: 2.5 !important;
+  text-transform: none;
+}
+
+.googleBtn img {
+  margin: 0;
+  background-color: #fff;
+  height: 42px;
+  float: left;
+}
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.form-inner .text {
+  position: relative;
+  display: block;
+  text-align: center;
+  margin-top: 17px;
+  margin-bottom: 12px;
+}
+
+.form-inner .text span {
+  position: relative;
+  display: inline-block;
+  font-size: 26px;
+  line-height: 32px;
+  color: #8a8a8a;
+  font-weight: 400;
+  width: 65px;
+  background: #fff;
+  text-align: center;
+}
+
+
+.form-inner .form-group {
+  position: relative;
+  margin-bottom: 23px;
+}
+
+.form-group label {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  color: #808080 !important;
+  margin-bottom: 4px;
+}
+
+.form-inner .form-group input[type='password'],
+.form-inner .form-group input[type='email'],
+.form-inner .form-group input[type='number'],
+.form-inner .form-group input[type='text'],
+.form-inner .form-group select {
+  position: relative;
+  display: block;
+  height: 60px;
+  border: 1px solid #e6ebeb;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #808080 !important;
+  padding: 10px 20px;
+  transition: all 500ms ease;
+  font-weight: 500;
+}
+
+.form-inner .form-group input[type='checkbox'] {
+  border: 1px solid #e6ebeb;
+  border-radius: 5px;
+  color: #808080 !important;
+  font-weight: 500;
+}
+
+.terms a {
+  color: #ff7c5b;
+  font-weight: 500;
+}
+
+.other-text a {
+  color: #ff7c5b;
+}
+
+
+.form-inner .form-group .theme-btn {
+  width: 170px;
+  height: auto;
+  margin-bottom: 20px;
+  background-color: #ff7c5b !important;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.theme-btn:before {
+  -webkit-transition-duration: 800ms;
+  transition-duration: 800ms;
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  content: "";
+  top: 110%;
+  left: 50%;
+  background: #061a3a;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  z-index: -1 !important;
+}
+
+
+.response {
+  color: #d54130;
+}
+
+.form-inner .other-text a {
+  color: #ff7c5b;
+}
+
+.popup-div {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 639px) {
+
+  .form-inner .form-group input[type='password'],
+  .form-inner .form-group input[type='email'],
+  .form-inner .form-group input[type='number'],
+  .form-inner .form-group input[type='text'],
+  .form-inner .form-group select {
+
+    height: 40px;
+    padding: 6px 10px;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(180deg,
+  #f45683 0%,
+  #f55f7b 17.82%,
+  #fda543 78.32%,
+  #ffb636 100%);
+}
+
+.ng-select {
+  height: 50px;
+  position: relative;
+}
+
+.ng-select .ng-dropdown-panel {
+  background: #fff;
+  border: 1px solid #a9a9a9;
+  padding: 4px 8px;
+  z-index: 1000 !important;
+  /* Ensure dropdown appears above other elements */
+}
+
+.ng-select .ng-select-container {
+  height: 50px !important;
+  border: 0;
+}
+
+.ng-select .ng-input {
+  display: flex;
+}
+
+.ng-select .ng-placeholder {
+  color: #a9a9a9;
+  /* Adjust color if necessary */
+}
+
+.ng-select.ng-select-opened > .ng-select-container .ng-arrow-wrapper {
+  transform: rotate(45deg);
+}
+
+.ng-select .ng-value-container {
+  padding: 0 !important;
+  border-top: 0 !important;
+  padding: 5px;
+}
+
+.ng-select .ng-value-container .ng-value {
+  border: 1px solid #a9a9a9 !important;
+  background-color: #d9edff !important;
+  color: #000000 !important;
+  border-radius: 5px !important;
+  padding: 5px !important;
+  margin-right: 5px !important;
+  z-index: 2 !important;
+  height: auto !important;
+}
+
+.ng-select .ng-value-container .ng-value .ng-value-icon.left {
+  color: #ffffff !important;
+  font-size: 15px;
+  padding: 0px 4px 2px 4px;
+  background: #f44336;
+  box-sizing: content-box;
+  margin: 0px 6px 0px 0px;
+}
+
+.ng-select .ng-clear-wrapper {
+  display: none;
+}
+
+/* Additional Styles to Ensure Visibility */
+.ng-select .ng-dropdown-panel {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  /* Add shadow to enhance visibility */
+}
+
+.ng-select .ng-dropdown-panel .ng-option {
+  padding: 8px 12px;
+  /* Ensure options are visible and not too small */
+  cursor: pointer;
+}
+
+.ng-select .ng-dropdown-panel .ng-option:hover {
+  background-color: #f1f1f1;
+  /* Highlight option on hover */
+}
+
+
+/* Gamo */
+
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.selected-item {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+}
+
+.custom-select:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item img {
+  margin-right: 10px;
+}
+
+/*  */
+
+/* For Chrome, Safari, Edge, Opera */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: #808080 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* For Firefox */
+input:-moz-autofill {
+  box-shadow: 0 0 0px 1000px white inset;
+  -moz-text-fill-color: #808080 !important;
+}
+
+/* For Internet Explorer */
+input:-ms-autofill {
+  box-shadow: 0 0 0px 1000px white inset;
+  -ms-text-fill-color: #808080 !important;
+}

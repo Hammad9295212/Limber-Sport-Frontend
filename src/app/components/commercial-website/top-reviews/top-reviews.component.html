@@ -1,0 +1,184 @@
+<div class="testimonial-section bg-color-1 centred pt-10 bg-[#e7e7e7]">
+  <div class="auto-container">
+    <div class="sec-title centred flex flex-col items-center">
+      <p>Review &amp; Testimonials</p>
+      <h2 class="text-5xl max-md:text-3xl">Top Reviews For Limber</h2>
+    </div>
+
+    <app-testimonials
+      [crouselData]="testimonials"
+    ></app-testimonials>
+
+<!--    <ngb-carousel #carousel [interval]="15000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
+                  [showNavigationIndicators]="showNavigationIndicators" [wrap]="wrap" (slide)="onSlide($event)">
+      <ng-template ngbSlide>
+        <div class="grid grid-cols-12 w-full gap-2">
+          <div class="testimonial-block-one col-span-4">
+            <div class="inner-box">
+              <div class="flex items-center gap-2 rating justify-center pb-4">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+
+                <p class="">“I have not always been the most outgoing of sorts, but love a good
+                  badminton match. Limber introduced me to a local club where I am now designated
+                  keeper”</p>
+              </div>
+              <div class="author-box">
+                <h4 class="text-[#0c5060]">Adam Mellor</h4>
+                <span class="designation text-[#808080]">London</span>
+
+                <figure
+                  class="thumb-box flex items-center justify-center h-20 w-20 rounded-full bg-white absolute -bottom-12 left-[39%]">
+                  <img src="/assets/main-page/home_testimonial_1.png" alt=""
+                       class="object-cover h-16 w-16 rounded-full object-top">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-block-one col-span-4">
+            <div class="inner-box text-center pr-4">
+              <div class="flex items-center gap-2 rating justify-center pb-4">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+
+                <p class="">“There is nothing better than a rough Rugby match and a pint to share with
+                  friends afterwards. Couldn't be happier with joining Limber. Cheer mates!”</p>
+              </div>
+              <div class="author-box">
+                <h4 class="text-[#0c5060]">Conor Corcoran</h4>
+                <span class="designation text-[#808080]">Bath</span>
+                <figure
+                  class="thumb-box flex items-center justify-center h-20 w-20 rounded-full bg-white absolute -bottom-12 left-[39%]">
+                  <img src="/assets/main-page/home_testimonial_2.png" alt=""
+                       class="object-cover h-16 w-16 rounded-full object-top">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-block-one col-span-4 max-md:col-span-full">
+            <div class="inner-box">
+              <div class="flex items-center gap-2 rating justify-center pb-4">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p class="">“I just returned from a semester abroad and was thrilled to find a local
+                  cycling club through Limber. I get to stay fit and meet an amazing group of
+                  friends!”</p>
+              </div>
+              <div class="author-box">
+                <h4 class="text-[#0c5060]">Julia Morton</h4>
+                <span class="designation text-[#808080]">Reigate</span>
+                <figure
+                  class="thumb-box flex items-center justify-center h-20 w-20 rounded-full bg-white absolute -bottom-12 left-[39%]">
+                  <img src="/assets/main-page/home_testimonial_3.png" alt=""
+                       class="object-cover h-16 w-16 rounded-full object-top">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="grid grid-cols-12 w-full gap-2">
+          <div class="testimonial-block-one col-span-4">
+            <div class="inner-box">
+              <div class="flex items-center gap-2 rating justify-center pb-4">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+
+                <p class="">“I have not always been the most outgoing of sorts, but love a good
+                  badminton match. Limber introduced me to a local club where I am now designated
+                  keeper”</p>
+              </div>
+              <div class="author-box">
+                <h4 class="text-[#0c5060]">Adam Mellor</h4>
+                <span class="designation text-[#808080]">London</span>
+
+                <figure
+                  class="thumb-box flex items-center justify-center h-20 w-20 rounded-full bg-white absolute -bottom-12 left-[39%]">
+                  <img src="/assets/main-page/home_testimonial_1.png" alt=""
+                       class="object-cover h-16 w-16 rounded-full object-top">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-block-one col-span-4">
+            <div class="inner-box text-center pr-4">
+              <div class="flex items-center gap-2 rating justify-center pb-4">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+
+                <p class="">“There is nothing better than a rough Rugby match and a pint to share with
+                  friends afterwards. Couldn't be happier with joining Limber. Cheer mates!”</p>
+              </div>
+              <div class="author-box">
+                <h4 class="text-[#0c5060]">Conor Corcoran</h4>
+                <span class="designation text-[#808080]">Bath</span>
+                <figure
+                  class="thumb-box flex items-center justify-center h-20 w-20 rounded-full bg-white absolute -bottom-12 left-[39%]">
+                  <img src="/assets/main-page/home_testimonial_2.png" alt=""
+                       class="object-cover h-16 w-16 rounded-full object-top">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-block-one col-span-4 max-md:col-span-full">
+            <div class="inner-box">
+              <div class="flex items-center gap-2 rating justify-center pb-4">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <div class="text">
+                <div class="icon" style="background-image: url(assets/review/quote-1.png);"></div>
+                <p class="">“I just returned from a semester abroad and was thrilled to find a local
+                  cycling club through Limber. I get to stay fit and meet an amazing group of
+                  friends!”</p>
+              </div>
+              <div class="author-box">
+                <h4 class="text-[#0c5060]">Julia Morton</h4>
+                <span class="designation text-[#808080]">Reigate</span>
+                <figure
+                  class="thumb-box flex items-center justify-center h-20 w-20 rounded-full bg-white absolute -bottom-12 left-[39%]">
+                  <img src="/assets/main-page/home_testimonial_3.png" alt=""
+                       class="object-cover h-16 w-16 rounded-full object-top">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>-->
+  </div>
+</div>

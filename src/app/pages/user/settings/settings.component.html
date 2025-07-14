@@ -1,0 +1,94 @@
+<div class="container-fluid" *ngIf="currentUser">
+  <app-header2 [notification_toast]="false"></app-header2>
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1200;">
+    <ngb-toast
+      *ngFor="let toast of toastService.toasts"
+      [autohide]="true"
+      [delay]="toast.delay || 5000"
+      (hidden)="toastService.remove(toast)"
+      [ngClass]="toast?.classname"
+    >
+      <ng-template [ngIf]="isTemplate(toast)" [ngIfElse]="text">
+        <ng-template [ngTemplateOutlet]="toast.textOrTpl"></ng-template>
+      </ng-template>
+
+      <ng-template #text>{{ toast.textOrTpl }}</ng-template>
+    </ngb-toast>
+  </div>
+
+  <div class="container" style="margin-top: 100px">
+    <div class="row">
+
+<!--      <div class="col-lg-3">
+        <div class="sidebar">
+          <a>Update Password &gt;</a>
+          <a>Update Email &gt;</a>
+          <a>Update Mobile &gt;</a>
+          <a>Verify My Profile &gt;</a>
+          <a>Startup &gt;</a>
+          <a>Give Feedback &gt;</a>
+          <a>Privacy &gt;</a>
+          <a class="active">Blocked Users &gt;</a>
+        </div>
+      </div>-->
+      <div class="col-lg-9">
+        <div class="content">
+          <h3>Blocked Users</h3>
+          <div class="table-responsive">
+            <p *ngIf="!extra?.blockedList || extra?.blockedList?.length < 1">No blocked users found</p>
+            <table class="table table-bordered table-hover"
+                   *ngIf="extra?.blockedList?.length"
+            >
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let blocked of extra?.blockedList">
+                <td>{{ blocked?.name }}</td>
+                <td>{{ blocked?.email }}</td>
+                <td>
+                  <button class="btn btn-danger btn-sm" (click)="onPlayerDisconnect(blocked?.pivot?.user_id)">Unblock</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="content">
+          <h3>Reported Users</h3>
+          <div class="table-responsive">
+            <p *ngIf="!extra?.reportedList || extra?.reportedList?.length < 1">No reported users found</p>
+            <table
+              class="table table-bordered table-hover"
+              *ngIf="extra?.reportedList?.length"
+            >
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let reported of extra?.reportedList">
+                <td>{{ reported?.name }}</td>
+                <td>{{ reported?.email }}</td>
+               <!-- <td>
+                  <button class="btn btn-danger btn-sm">Unblock</button>
+                </td>-->
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+

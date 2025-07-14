@@ -1,0 +1,1461 @@
+<app-header2 *ngIf="isUser"
+             (handleCompleteProfile)="handleCompleteProfile()"
+></app-header2>
+<!--<header class="
+    block
+    w-full
+   header
+    py-4
+    sm:flex sm:items-center sm:justify-between
+    font-sans
+  ">
+  <div class="sm:flex sm:items-center sm:justify-around w-full">
+
+    <div class="flex justify-between sm:block px-4">
+      <a class="block text-2xl font-bold text-white" routerLink="/home"> <img src="assets/logo/logo.png"></a>
+
+      <button class="block bg-transparent sm:hidden">
+        <input class="invisible appearance-none" type="checkbox" id="toggle"/>
+
+        <label for="toggle">
+          <i id="menu-icon" class="fa-solid fa-bars cursor-pointer inline-block text-white text-3xl"></i>
+
+          <i id="close-icon" class="hidden fa-solid fa-xmark cursor-pointer text-white text-3xl"></i>
+
+        </label>
+      </button>
+    </div>
+    <div #linksDiv id="navigation" style="&#45;&#45;menu-height: 100vh" class="
+    bg-[#0c5060]
+      flex
+      h-0
+      flex-col
+      items-center
+      justify-center
+      gap-2
+      transition-all
+      overflow-hidden
+      duration-500
+      ease-in-out
+      sm:h-auto sm:flex-row sm:overflow-auto
+      font-medium
+    ">
+      <button class="selected w-40 py-2 rounded-md">Find Players</button>
+      <button class="selected w-40 py-2 rounded-md">Find Coaches</button>
+      <button class="selected w-40 py-2 rounded-md">Find Clubs</button>
+    </div>
+    <div *ngIf="isUser" class="relative">
+      <button class="rounded-full p-2 w-16 h-16 " (click)="logoutPopup = !logoutPopup">
+        <img src="../../../../assets/E. TESTIMONIALS IMAGES/testimonial-marketers-harry-cartwright-img-01.png"
+             class="w-full" alt="">
+      </button>
+      <div
+        class="absolute bg-white text-[#0c5060] py-2 px-3 w-24 flex items-start left-0 max-lg:right-2 max-sm:relative max-sm:top-0 max-sm:right-0 top-20 z-50 rounded-md"
+        *ngIf="logoutPopup">
+        <button class="font-semibold" (click)="handleLogout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</header>-->
+<app-header *ngIf="!isUser"></app-header>
+<!-- flex flex-col  items-center w-full font-sans pt-16 -->
+<div [ngClass]="window.innerWidth > 450 ? 'flex flex-col items-center w-full font-sans pt-16' : 'container-fluid'">
+  <!--  background-image: url('/assets/WEBSITE\ -\ HOW\ IT\ WORKS\ FOR\ IMAGES/For\ Players/section-01-bg.png') -->
+
+  <div
+    class="hero-section w-full col-span-full h-60"
+    [ngStyle]="{ backgroundImage: getbannerImage() ? getbannerImage() : 'url(/assets/WEBSITE - HOW IT WORKS FOR IMAGES/For Players/section-01-bg.png)' }"
+
+  >
+
+    <input
+      type="file"
+      class="file-input"
+      id="bannerImage"
+      (change)="onImagePickUsingFormControl($event, 'banner_image')"
+      style="display: none !important;"
+      *ngIf="isCompleteProfile"
+    />
+    <i class="fas fa-edit absolute bottom-4 text-sm w-full profileEditIcon"
+       style="left: 95%;top: 8%"
+       *ngIf="isCompleteProfile"
+       (click)="onEleClick('banner_image')"
+    ></i>
+
+  </div>
+
+  <!--<div class="hero-section w-full col-span-full h-60"
+       [ngStyle]="{
+       backgroundImage: getbannerImage()
+     }"
+  >
+    <input type="file"
+           (change)="onImagePickUsingFormControl($event, 'banner_image')"
+           *ngIf="isCompleteProfile"/>
+  </div>-->
+  <!-- <div class="hero-section w-full col-span-full h-60"
+        [ngStyle]="{  }"
+   >
+   </div>-->
+  <lib-toastify-toast-container></lib-toastify-toast-container>
+
+  <form [formGroup]="playerDetailsForm"
+        id="myForm"
+        class="col-span-12 max-w-[1200px] mxa grid grid-cols-1 items-center justify-center pb-10 px-10 relative gap-10">
+
+    <div
+      class="col-span-full flex items-end -mt-20 gap-4 max-sm:flex-col max-sm:justify-center max-sm:items-center">
+      <div class="w-52 h-52 p-2 bg-white rounded-lg relative">
+        <img src={{playerDetailsData?.profile_image}} *ngIf="playerDetailsForm?.controls['profile_image']"
+             class="w-full h-full">
+        <i class="fas fa-edit absolute bottom-4 text-sm w-full profileEditIcon"
+           style="left: 47%;"
+           *ngIf="isCompleteProfile"
+           (click)="onEleClick('profile_image')"
+        ></i>
+        <input type="file"
+               id="profile_image"
+               class="absolute bottom-2 left-2 text-sm w-full"
+               (change)="onImagePickUsingFormControl($event, 'profile_image')"
+               style="display: none !important;"
+               *ngIf="isCompleteProfile"/>
+      </div>
+
+      <div class="text-sm mb-2 flex flex-col gap-4">
+        <div class="text-[#808080] flex items-center gap-4">Ratings
+          <!-- rating.component.html -->
+
+          <span class="text-yellow-500 text-3xl">
+  <!-- Use *ngFor to render filled stars based on the overall rating -->
+ <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+      <i
+        class="fa-solid"
+        [ngClass]="{
+          'fa-star': !(i === Math.floor(calculateOverallRating()) && calculateOverallRating() % 1 >= 0.5),
+          'fa-star-half-stroke': i === Math.floor(calculateOverallRating()) && calculateOverallRating() % 1 >= 0.5,
+        }"
+        [style.color]="
+          i < Math.floor(calculateOverallRating()) ||
+          (i === Math.floor(calculateOverallRating()) && calculateOverallRating() % 1 >= 0.5)
+            ? '#FFC107'
+            : '#E0E0E0'
+        "
+      ></i>
+    </ng-container>
+</span>
+
+          <!--<span class="text-yellow-500 text-3xl">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </span>-->
+        </div>
+        <div class="text-blue-500">
+          ({{ (extra?.reviews?.length || 0) }} ratings and {{ (extra?.reviews?.length || 0) }}
+          reviews)
+        </div>
+      </div>
+    </div>
+
+    <div class="col-span-full flex flex-col pl-20 max-lg:px-0 text-[#0c5060] gap-6"
+         style="padding: 0 !important;"
+    >
+      <div class="flex gap-2 items-start justify-between"
+           *ngIf="window.innerWidth > 450"
+      >
+        <div class="flex flex-col items-start gap-2 whitespace-nowrap">
+          <div class="flex gap-4 items-center">
+            <input placeholder="John Jackson" name="name" formControlName="name" *ngIf="isCompleteProfile"
+                   class="px-2 py-2 font-semibold text-4xl border rounded-md max-md:w-full" type="text">
+            <h2 class="font-medium" *ngIf="!isCompleteProfile">{{
+                (playerDetailsData?.user?.first_name || '') + " " +
+                (playerDetailsData?.user?.last_name || '')
+              }}</h2>
+            <i class="fa-regular fa-circle-check text-green-600 text-lg"></i>
+          </div>
+          <input type="text" name="tagline" placeholder="Heading Tagline" formControlName="heading_tagline"
+                 class="px-2 py-2 font-semibold text-xl border rounded-md w-fit" *ngIf="isCompleteProfile">
+          <p class="font-semibold" *ngIf="!isCompleteProfile">{{ playerDetailsData?.heading_tagline }}</p>
+        </div>
+
+        <div class="w-full flex justify-end gap-3 items-end leading-3">
+          <button *ngIf="isCompleteProfile" class="w-20 text-center py-2 rating text-sm font-semibold"
+                  (click)="handleCompleteProfile()">Cancel
+          </button>
+          <button *ngIf="!isCompleteProfile && canEditProfile"
+                  class="w-40 text-center py-2 rounded-md selected text-sm font-semibold"
+                  (click)="handleCompleteProfile()">Complete Profile
+          </button>
+          <button *ngIf="isCompleteProfile"
+                  class="w-20 text-center py-2 rounded-md selected text-sm font-semibold"
+                  (click)="handleSavePlayerData()" [disabled]="formSubmitted">Save
+          </button>
+        </div>
+      </div>
+      <div class="flex gap-2 items-start justify-between player-details-container"
+           *ngIf="window.innerWidth <= 450"
+      >
+        <div class="flex flex-col items-start gap-2 whitespace-nowrap">
+          <div class="flex gap-4 items-center pb-2">
+            <input
+              placeholder="John Jackson"
+              name="name"
+              formControlName="name"
+              *ngIf="isCompleteProfile"
+              class="px-2 py-2 font-semibold text-4xl border rounded-md max-md:w-full"
+              type="text"
+            />
+            <h2 class="font-medium" *ngIf="!isCompleteProfile">
+              {{ (playerDetailsData?.user?.first_name || '') + ' ' + (playerDetailsData?.user?.last_name || '') }}
+            </h2>
+            <i class="fa-regular fa-circle-check text-green-600 text-lg"></i>
+          </div>
+          <input
+            type="text"
+            name="tagline"
+            placeholder="Heading Tagline"
+            formControlName="heading_tagline"
+            class="px-2 py-2 font-semibold text-xl border rounded-md w-fit"
+            *ngIf="isCompleteProfile"
+          />
+          <p class="font-semibold" *ngIf="!isCompleteProfile">{{ playerDetailsData?.heading_tagline }}</p>
+        </div>
+
+        <div class="button-group">
+          <button
+            *ngIf="isCompleteProfile"
+            class="w-20 text-center py-2 rating text-sm font-semibold"
+            (click)="handleCompleteProfile()"
+          >
+            Cancel
+          </button>
+          <button
+            *ngIf="!isCompleteProfile && canEditProfile"
+            class="w-40 text-center py-2 rounded-md selected text-sm font-semibold"
+            (click)="handleCompleteProfile()"
+          >
+            Complete Profile
+          </button>
+          <button
+            *ngIf="isCompleteProfile"
+            class="w-20 text-center py-2 rounded-md selected text-sm font-semibold"
+            (click)="handleSavePlayerData()"
+            [disabled]="formSubmitted"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+
+
+      <div class="flex justify-between gap-4 max-lg:flex-col pt-2"
+           style="padding: 0 !important;"
+      >
+        <!-- Updated HTML -->
+        <span class="profile-section text-[#808080] flex gap-3 items-center max-sm:flex-col">
+
+  <div class="flex flex-col w-full gap-4" style="display: flex; justify-content: space-between; flex-direction: row">
+
+       <div class="location-section flex flex-col w-full">
+    <label class="text-lg" style="color: #a4a7bf !important;font-size: 15px;">Location</label>
+    <div class="location-input-wrapper flex items-center gap-2 w-full">
+      <i class="fa-solid fa-location-dot text-[#0c5060]"></i>
+      <ng-container *ngIf="!isCompleteProfile">
+        <span class="whitespace-nowrap overflow-ellipsis overflow-hidden w-full">
+          {{ playerDetailsData?.location || 'Not specified' }}
+        </span>
+      </ng-container>
+      <ng-container *ngIf="isCompleteProfile">
+        <input
+          type="text"
+          name="city"
+          placeholder="Enter your location"
+          formControlName="location"
+          class="px-2 py-2 border rounded-md flex-grow"
+          (input)="onFilterData($event, 'location')"
+        />
+        <!-- Suggestions Dropdown -->
+        <ul *ngIf="placeSuggesiton.length > 0" class="suggestions-list w-full bg-white border mt-1 rounded-md">
+          <li
+            *ngFor="let suggestion of placeSuggesiton"
+            (click)="selectSuggestion(suggestion)"
+            class="suggestion-item px-2 py-1 hover:bg-gray-200 cursor-pointer"
+          >
+            {{ suggestion }}
+          </li>
+        </ul>
+      </ng-container>
+    </div>
+  </div>
+
+       <div class="age-section flex flex-col w-full">
+    <label class="text-lg" style="color: #a4a7bf !important;font-size: 15px;">Age</label>
+    <div class="age-input-wrapper flex items-center gap-2 w-full">
+      <ng-container *ngIf="!isCompleteProfile">
+        <span class="whitespace-nowrap overflow-ellipsis overflow-hidden w-full">
+          {{ playerDetailsData?.dob ? calculateAge(playerDetailsData?.dob) + ' years old' : 'Not specified' }}
+        </span>
+      </ng-container>
+      <ng-container *ngIf="isCompleteProfile">
+        <input
+          type="date"
+          name="dob"
+          [placeholder]="playerDetailsData?.dob ? (playerDetailsData?.dob + ' years old') : ('Your age')"
+          class="px-2 py-2 border rounded-md flex-grow"
+          formControlName="dob"
+        />
+      </ng-container>
+    </div>
+  </div>
+
+       <div class="sex-section flex flex-col w-full">
+    <label class="text-lg" style="color: #a4a7bf !important;font-size: 15px;">Sex</label>
+    <div class="sex-input-wrapper flex items-center gap-2 w-full">
+      <ng-container *ngIf="!isCompleteProfile">
+        <span class="whitespace-nowrap overflow-ellipsis overflow-hidden w-full">
+          {{ playerDetailsData?.gender?.name || 'Not specified' }}
+        </span>
+      </ng-container>
+      <ng-container *ngIf="isCompleteProfile">
+        <select
+          formControlName="gender_id"
+          name="gender"
+          class="px-2 py-2 border rounded-md flex-grow"
+        >
+          <option *ngFor="let gender of genderList" [value]="gender.id">
+            {{ gender.name }}
+          </option>
+        </select>
+      </ng-container>
+    </div>
+  </div>
+
+</div>
+
+
+          <!--<div class="location-input-wrapper flex flex-col gap-2 items-start"
+               style="display: flex;flex-direction: row;justify-content: space-around"
+          >
+            <div class="flex gap-2 items-center">
+              <i class="fa-solid fa-location-dot text-[#0c5060]"></i>
+              <span *ngIf="!isCompleteProfile">{{ playerDetailsData?.location + '   ' }}</span>
+              <input
+                type="text"
+                name="city"
+                placeholder="London"
+                formControlName="location"
+                *ngIf="isCompleteProfile"
+                class="px-2 py-2 border rounded-md w-40"
+                (input)="onFilterData($event, 'location')"
+              />
+              &lt;!&ndash; Suggestions Dropdown &ndash;&gt;
+            <ul *ngIf="placeSuggesiton.length > 0 && isCompleteProfile" class="suggestions-list w-40">
+              <li
+                *ngFor="let suggestion of placeSuggesiton"
+                (click)="selectSuggestion(suggestion)"
+                class="suggestion-item"
+              >
+                {{ suggestion }}
+              </li>
+            </ul>
+            </div>
+
+               <input
+                 type="date"
+                 name="dob"
+                 [placeholder]="playerDetailsData?.dob ? (playerDetailsData?.dob + ' years old') : ('Your age')"
+                 *ngIf="isCompleteProfile"
+                 class="px-2 py-2 border rounded-md w-40"
+                 formControlName="dob"
+               />
+            <span *ngIf="!isCompleteProfile && playerDetailsData?.dob" style="padding-left: 10px">
+              {{ calculateAge(playerDetailsData?.dob) }} years old {{ '   ' }}
+            </span>
+
+             <select
+               formControlName="gender_id"
+               name="gender"
+               class="px-2 py-2 border rounded-md w-40"
+               *ngIf="playerDetailsForm?.controls['gender_id'] && isCompleteProfile"
+             >
+              <option *ngFor="let gender of genderList" [value]="gender.id">
+                {{ gender.name }}
+              </option>
+            </select>
+            <span *ngIf="!isCompleteProfile" style="padding-left: 10px">Male</span>
+
+          </div>-->
+
+</span>
+
+        <!--    <span class="text-[#808080] flex gap-3 items-center max-sm:flex-col">
+                <p class="flex gap-2 items-center">
+                    <i class="fa-solid fa-location-dot text-[#0c5060]"></i>
+                    <input type="text" name="city" placeholder="London" formControlName="location"
+                           *ngIf="isCompleteProfile" class="px-2 py-2 border rounded-md w-40">
+
+                  {{ !isCompleteProfile ? playerDetailsData?.location : null }}
+                </p>
+                <p>
+                    <input type="date" name="dob"
+                           [placeholder]="playerDetailsData?.dob ? (playerDetailsData?.dob + ' years old') : ('Your age')"
+                           *ngIf="isCompleteProfile"
+                           class="px-2 py-2 border rounded-md w-40"
+                           formControlName="dob"
+                    >
+                    <span
+                      *ngIf="!isCompleteProfile && playerDetailsData?.dob">{{ calculateAge(playerDetailsData?.dob) }}
+                      years old</span>
+                </p>
+                <p>
+                    <select formControlName="gender_id" name="gender" class="px-2 py-2 border rounded-md w-40"
+                            *ngIf="playerDetailsForm?.controls['gender_id'] && isCompleteProfile">
+                        <option *ngFor="let gender of genderList" value={{gender.id}}>{{ gender.name }}</option>
+                    </select>
+                    <span *ngIf="!isCompleteProfile">Male</span>
+                </p>
+            </span>-->
+        <span class="flex gap-3 items-center">
+                    <button
+                      *ngIf="!canEditProfile"
+                      class="px-6 py-2 text-sm font-semibold bg-white text-[#4dacff] border-2 border-[#4dacff] rounded-lg">
+                        CONTACT MEMBER
+                    </button>
+          <!--<button class="px-6 py-2 text-sm font-semibold border rounded-lg selected">
+              CONNECT
+          </button>-->
+          <!-- <button class="text-[#808080] text-4xl font-semibold"><i class="fa-solid fa-bars"></i></button>-->
+          <div class="dropdown-container" *ngIf="!canEditProfile">
+            <button class="text-[#808080] text-4xl font-semibold">
+               <i class="fa-solid fa-bars"></i>
+            </button>
+           <div class="dropdown-menu">
+             <button (click)="onBlockReport('block')">Block</button>
+             <button (click)="openCenteredModal(content, 'report')">Report</button>
+           </div>
+           </div>
+         </span>
+      </div>
+
+      <div
+        class="text-[#808080] flex items-center justify-start gap-4 max-md:flex-col max-md:justify-center pt-2"
+        style="padding: 0 !important;"
+      >
+        <p class="font-semibold flex items-center gap-2"><i
+          class="fa-solid fa-graduation-cap text-[#436fe7]"></i>
+          <select name="school" formControlName="school_id"
+                  class="px-2 py-2 border rounded-md w-40 font-semibold"
+                  *ngIf="playerDetailsForm?.controls['school_id'] && isCompleteProfile">
+            <option *ngFor="let school of schoolList" value={{school.id}}>{{ school?.name }}</option>
+          </select>
+          <span *ngIf="!isCompleteProfile">{{ playerDetailsData?.school?.name }}</span>
+        </p>
+        <p class="font-semibold flex items-center gap-2">
+          <i class="fa-solid fa-graduation-cap text-[#436fe7]"></i>
+          <select name="university" *ngIf="playerDetailsForm?.controls['university_id'] && isCompleteProfile"
+                  formControlName="university_id" class="px-2 py-2 border rounded-md w-40 font-semibold">
+            <option *ngFor="let uni of universityList" value={{uni.id}}>{{ uni.name }}</option>
+          </select>
+          <span *ngIf="!isCompleteProfile">{{ playerDetailsData?.university?.name }}</span>
+        </p>
+        <p class="font-semibold flex items-center gap-2">
+          <i class="fa-solid fa-briefcase text-[#436fe7]"></i>
+          <select formControlName="company_id"
+                  *ngIf="playerDetailsForm?.controls['company_id'] && isCompleteProfile" name="company"
+                  class="px-2 py-2 border rounded-md w-40">
+            <option *ngFor="let company of companyList" value={{company.id}}>{{ company.name }}</option>
+          </select>
+          <span *ngIf="!isCompleteProfile">{{ playerDetailsData?.company?.name }}</span>
+        </p>
+
+      </div>
+    </div>
+
+    <div class="col-span-full flex flex-col pl-20 max-lg:px-0 text-[#0c5060]"
+         style="padding: 0 !important;gap: 0.5rem !important;"
+    >
+      <h2 class="font-bold" style="margin: 0 !important;padding: 0 !important;">About</h2>
+
+      <textarea type="text" name="about" formControlName="about_me" placeholder="Enter your information"
+                class="p-4 border rounded-md w-full" rows="8"
+                *ngIf="playerDetailsForm?.controls['about_me'] && isCompleteProfile"
+                maxlength="250"
+      >
+                </textarea>
+      <p style="margin: 0 !important;padding: 0 !important;color: #a4a7bf !important;"
+         *ngIf="!isCompleteProfile">{{ playerDetailsData?.about_me }}
+
+
+      <div class="grid grid-cols-4 gap-4 max-sm:grid-cols-1 max-sm:justify-items-center mt-8">
+        <p class="flex gap-2 items-center col-span-1 font-semibold">
+          <i class="fa-solid fa-phone text-lg"></i>
+          <input type="tel" name="telephone" placeholder="Telephone" class="px-2 py-2 border rounded-md w-44"
+                 [value]="extra?.contactsData?.contact_number1"
+                 id="contact_number1"
+                 *ngIf="isCompleteProfile">
+          <span
+            *ngIf="!isCompleteProfile">{{ extra?.contactsData?.contact_number1 ? '(' + extra?.contactsData?.contact_number1 + ')' : 'Telephone' }}</span>
+        </p>
+        <p class="flex gap-2 items-center col-span-1 font-semibold">
+          <i class="fa-solid fa-phone text-lg"></i>
+          <input type="text" name="mobile" placeholder="Mobile Phone"
+                 class="px-2 py-2 border rounded-md w-44"
+                 id="contact_number2"
+                 [value]="extra?.contactsData?.contact_number2"
+                 *ngIf="isCompleteProfile">
+          <span
+            *ngIf="!isCompleteProfile">Mobile Phone {{ extra?.contactsData?.contact_number2 ? '(' + extra?.contactsData?.contact_number2 + ')' : '' }}</span>
+        </p>
+        <p class="flex gap-2 items-center col-span-1 font-semibold">
+          <i class="fa-brands fa-facebook-f text-lg"></i>
+          <input type="text" name="social-1" placeholder="Social Media Link 1"
+                 id="facebook_link"
+                 [value]="extra?.contactsData?.facebook_link"
+                 class="px-2 py-2 border rounded-md w-44" *ngIf="isCompleteProfile">
+          <span
+            *ngIf="!isCompleteProfile">{{ extra?.contactsData?.facebook_link ? '(' + extra?.contactsData?.facebook_link + ')' : 'Social Media Link 1' }}</span>
+        </p>
+        <p class="flex gap-2 items-center col-span-1 font-semibold">
+          <i class="fa-brands fa-facebook-f text-lg"></i>
+          <input type="text" name="social-2" placeholder="Social Media Link 2"
+                 id="instagram_link"
+                 [value]="extra?.contactsData?.instagram_link"
+                 class="px-2 py-2 border rounded-md w-44" *ngIf="isCompleteProfile">
+          <span
+            *ngIf="!isCompleteProfile">{{ extra?.contactsData?.instagram_link ? '(' + extra?.contactsData?.instagram_link + ')' : 'Instagram Link' }}</span>
+        </p>
+        <p class="flex gap-2 items-center col-span-1 font-semibold">
+          <i class="fa-solid fa-envelope text-lg"></i>
+          <input type="email" name="email" placeholder="Email Address"
+                 [value]="extra?.contactsData?.email"
+                 id="contactEmail"
+                 class="px-2 py-2 border rounded-md w-44" *ngIf="isCompleteProfile">
+          <span
+            *ngIf="!isCompleteProfile">{{ extra?.contactsData?.email ? '(' + extra?.contactsData?.email + ')' : 'Email Address' }}</span>
+        </p>
+        <p class="flex gap-2 items-center col-span-1 font-semibold">
+          <i class="fa-solid fa-globe text-lg"></i>
+          <input type="text" name="website" placeholder="Website" class="px-2 py-2 border rounded-md w-44"
+                 [value]="extra?.contactsData?.website_link1"
+                 id="website_link1"
+                 *ngIf="isCompleteProfile">
+          <span
+            *ngIf="!isCompleteProfile">{{ extra?.contactsData?.website_link1 ? extra?.contactsData?.website_link1 : 'Websites' }}</span>
+        </p>
+        <p class="flex gap-2 items-center col-span-1 font-semibold">
+          <i class="fa-brands fa-instagram text-lg"></i>
+          <input type="text" name="social-3" placeholder="Social Media Link 3"
+                 id="website_link2"
+                 [value]="extra?.contactsData?.website_link2"
+                 class="px-2 py-2 border rounded-md w-44" *ngIf="isCompleteProfile">
+          <span
+            *ngIf="!isCompleteProfile">{{ extra?.contactsData?.website_link2 ? '(' + extra?.contactsData?.website_link2 + ')' : 'Social Media Link 3' }}</span>
+        </p>
+        <p class="flex gap-2 items-center col-span-1 font-semibold">
+          <i class="fa-brands fa-instagram text-lg"></i>
+          <input type="text" name="social-4" placeholder="Social Media Link 4"
+                 [value]="extra?.contactsData?.website_link3"
+                 id="website_link3"
+                 class="px-2 py-2 border rounded-md w-44" *ngIf="isCompleteProfile">
+          <span
+            *ngIf="!isCompleteProfile">{{ extra?.contactsData?.website_link3 ? '(' + extra?.contactsData?.website_link3 + ')' : 'Social Media Link 4' }}</span>
+        </p>
+      </div>
+
+      <div class="flex flex-col items-start leading-3 mt-6">
+        <p class="font-semibold">My Sporting Video Profile</p>
+        <input type="text" name="social-4"
+               placeholder="www.youtube.com/John-Jackson-AmericanFootballQuarterBack"
+               [value]="extra?.contactsData?.video_profile_link"
+               id="video_profile_link"
+               class="px-2 py-2 border rounded-md w-[500px] max-md:w-fit text-[#808080]" *ngIf="isCompleteProfile">
+        <p class="text-[#808080] leading-6" *ngIf="!isCompleteProfile">
+          <a *ngIf="extra?.contactsData?.video_profile_link"
+             style="cursor: pointer"
+             (click)="openExternalLink(extra?.contactsData?.video_profile_link)">{{ extra?.contactsData?.video_profile_link }} </a>
+        </p>
+      </div>
+
+      <div class="flex flex-col items-start gap-4 mt-6">
+        <div class="flex items-center gap-2 relative">
+          <p class="font-semibold m-0">My sports I am Looking to Play</p>
+          <button class="font-semibold text-lg px-2 selected rounded-full"
+                  *ngIf="canEditProfile"
+                  (click)="openCenteredModal(content, 'sports')">+
+          </button>
+          <!-- <div class="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center"
+              *ngIf="sportsToPlayModal">
+              <div class="bg-white w-1/2 flex flex-col gap-2">
+                  <div class="w-full flex items-end" (click)="handleSportsToPlayModal()">Hello</div>
+              </div>
+          </div> -->
+        </div>
+        <div class="flex gap-10 items-center max-sm:flex-wrap">
+
+          <ng-container *ngFor="let sport of extra?.playerRoles">
+            <div class="d-flex flex-column gap-2 align-items-center" *ngIf="sport?.play">
+              <div class="position-relative d-flex flex-row">
+                <img
+                  [src]="sport?.play?.play_image"
+                  alt=""
+                  class="img-fluid rounded w-100"
+                  style="height: 50px; object-fit: cover;"
+                />
+                <button
+                  class="btn btn-link text-danger position-absolute top-0 end-0 me-2 mt-2 d-none delete-btn"
+                  (click)="onDeleteData('sports', { id: sport?.id })"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+              <div class="text-center">
+                <p class="text-secondary" style="padding-bottom: 2px;margin-bottom: 2px">
+                  {{ sport?.play?.name }}
+                </p>
+                <div>
+                  <span class="text-secondary" style="font-size: 13px !important;">
+                    {{ getAbilityByName(sport?.ability_id)?.name || 'No Ability Selected' }}
+                    {{ ' ' }}
+                  </span>
+                  <!--    <i class="fas fa-edit"
+                         style="cursor: pointer"
+                         (click)="openCenteredModal(content, 'sports', sport, 'update')"
+                      ></i>-->
+                </div>
+              </div>
+              <!--<div class="text-muted p-2 text-center">
+                {{ getAbilityByName(sport?.ability_id)?.name || 'No Ability Selected' }}
+              </div>-->
+            </div>
+          </ng-container>
+          <!-- <ng-container *ngFor="let sport of extra?.playerRoles">
+             <div class="flex flex-col gap-2 items-center" *ngIf="sport?.play">
+               <div style="display: flex;flex-direction: row">
+                 <img [src]="sport?.play?.play_image" alt="" class="h-48 max-sm:h-24 w-full rounded-lg">
+                 <button class="text-red-500" (click)="onDeleteData('sports', { id: sport?.id })"
+                         style="margin-top: -5px; margin-left: 5px"
+                 >
+                   <i class="fa-solid fa-trash"></i>
+                 </button>
+               </div>
+               <div style="display: flex; flex-direction: row">
+                 <span class="text-[#808080] leading-none">{{ sport?.play?.name }}</span>
+               </div>
+               <select name="sport-dif"
+                       class="px-2 py-2 border rounded-md max-md:w-fit text-[#0c506060] custom-select"
+                       [disabled]="true"
+                       style="text-align: center !important;"
+               >
+                 <option value="">Select</option>
+                 <option
+                   *ngFor="let ability of abilityData"
+                   [value]="ability?.id"
+                   [selected]="ability?.id === sport?.ability_id"
+                 >{{ ability?.name }}
+                 </option>
+               </select>
+             </div>
+           </ng-container>-->
+
+        </div>
+      </div>
+
+
+      <div class="flex flex-col items-start gap-4 mt-6" style="overflow-x: scroll !important;">
+        <div class="flex items-center gap-2">
+          <p class="font-semibold m-0">My Sports Club</p>
+          <button class="font-semibold text-lg px-2 selected rounded-full"
+                  *ngIf="canEditProfile"
+                  (click)="openCenteredModal(content, 'club')">
+            +
+          </button>
+        </div>
+
+        <div class="flex items-center gap-16 max-sm:flex-wrap">
+          <ng-container *ngFor="let club of extra?.sportsClubList">
+            <div class="d-flex flex-column gap-2 align-items-center" *ngIf="club">
+              <div class="position-relative d-flex flex-row">
+                 <span class="w-36 h-36 rounded-lg border-3 border-[#e744cb] bg-white">
+                <img
+                  [src]="club?.logo || 'assets/icons/default.jpg'"
+                  alt=""
+                  class="h-full w-full"
+                />
+                 </span>
+                <button
+                  class="btn btn-link text-danger position-absolute top-0 end-0 me-2 mt-2 d-none delete-btn"
+                  (click)="onDeleteData('club', { id: club?.id })"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
+              <div class="d-flex flex-row">
+                <span class="text-secondary">
+                  {{ club?.title }}
+                  <i class="fas fa-edit"
+                     style="cursor: pointer"
+                     (click)="openCenteredModal(content, 'club', club, 'update')"
+                  ></i>
+                </span>
+              </div>
+            </div>
+          </ng-container>
+          <!-- <div class="flex flex-col gap-4 items-center justify-center"
+                *ngFor="let club of extra?.sportsClubList"
+           >
+   <span class="w-36 h-36 rounded-lg border-2 border-[#e744cb] bg-white relative">
+     &lt;!&ndash; Trash icon button positioned at the top right &ndash;&gt;
+     <button class="trash-icon absolute top-2 right-2" (click)="onDeleteData('club', { id: club?.id })">
+       <i class="fa-solid fa-trash text-red-500"></i>
+     </button>
+     &lt;!&ndash; Club logo &ndash;&gt;
+     <img src="{{ club?.logo || 'assets/icons/default.jpg' }}"
+          class="h-full w-full rounded-lg"
+          alt="HA"
+     >
+   </span>
+             <div style="display: flex; flex-direction: row">
+               <p class="text-[#808080] text-sm">{{ club?.title }}</p>
+             </div>
+           </div>-->
+
+          <!-- <div class="flex flex-col gap-4 items-center justify-center"
+                *ngFor="let club of extra?.sportsClubList"
+           >
+             <span class="w-36 h-36 rounded-lg border-2 border-[#e744cb] bg-white">
+                 <div>
+                   <button class="text-red-500" (click)="onDeleteData('club', { id: club?.id })">
+                       <i class="fa-solid fa-trash"></i>
+                   </button>
+                 </div>
+                 <img src="{{ club?.logo || 'assets/icons/default.jpg' }}"
+                      class="h-full w-full"
+                      alt="HA"
+                 >
+             </span>
+             <div style="display: flex; flex-direction: row">
+               <p class="text-[#808080] text-sm">{{ club?.title }}</p>
+             </div>
+           </div>-->
+        </div>
+      </div>
+
+      <div class="flex items-start gap-40 max-md:gap-10 max-sm:flex-col mt-10"
+      >
+        <div class="container availability-table p-3"
+             style="margin-top: -10px;padding: 0 !important;margin: 0 !important;">
+          <div class="row mb-2" style="text-align: center">
+            <div class="col-12 availability-header"
+                 style="text-align: left"
+            >
+              Availability to Play
+            </div>
+          </div>
+          <div class="row">
+            <div class="table-responsive">
+              <table class="table table-bordered text-center">
+                <thead>
+                <tr>
+                  <th></th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                  <th>Sun</th>
+                  <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- <tr *ngFor="let avail of extra?.scheduleList">
+                   <th>{{ avail?.name }}</th>
+                   <td class="available"
+                       [ngStyle]="{ 'background-color': (onFIndSchedule(avail?.id)?.mon === 'Yes') ? '#00bcd4' : 'lightgrey' }"></td>
+                   <td class="available"
+                       [ngStyle]="{ 'background-color': (onFIndSchedule(avail?.id)?.tue === 'Yes') ? '#00bcd4' : 'lightgrey' }"></td>
+                   <td class="available"
+                       [ngStyle]="{ 'background-color': (onFIndSchedule(avail?.id)?.wed === 'Yes') ? '#00bcd4' : 'lightgrey' }"></td>
+                   <td class="available"
+                       [ngStyle]="{ 'background-color': (onFIndSchedule(avail?.id)?.thu === 'Yes') ? '#00bcd4' : 'lightgrey' }"></td>
+                   <td class="available"
+                       [ngStyle]="{ 'background-color': (onFIndSchedule(avail?.id)?.fri === 'Yes') ? '#00bcd4' : 'lightgrey' }"></td>
+                   <td class="available"
+                       [ngStyle]="{ 'background-color': (onFIndSchedule(avail?.id)?.sat === 'Yes') ? '#00bcd4' : 'lightgrey' }"></td>
+                   <td class="available"
+                       [ngStyle]="{ 'background-color': (onFIndSchedule(avail?.id)?.sun === 'Yes') ? '#00bcd4' : 'lightgrey' }"></td>
+                   <td
+                     (click)="openCenteredModal(content, 'availability', { schedule_id: avail?.id, id: onFIndSchedule(avail?.id)?.id })">
+                     <i class="fa-solid fa-pencil text-lg"></i>
+                   </td>
+                 </tr>-->
+                <tr *ngFor="let avail of extra?.scheduleList">
+                  <th>{{ avail?.name }}</th>
+                  <td class="available"
+                      [class.active]="onFIndSchedule(avail?.id)?.mon === 'Yes'"
+                      [class.inactive]="onFIndSchedule(avail?.id)?.mon !== 'Yes'"
+                  ></td>
+                  <td class="available"
+                      [class.active]="onFIndSchedule(avail?.id)?.tue  === 'Yes'"
+                      [class.inactive]="onFIndSchedule(avail?.id)?.tue  !== 'Yes'"
+                  ></td>
+                  <td class="available" [class.active]="onFIndSchedule(avail?.id)?.wed === 'Yes'"
+                      [class.inactive]="onFIndSchedule(avail?.id)?.wed !== 'Yes'"
+                  ></td>
+                  <td class="available" [class.active]="onFIndSchedule(avail?.id)?.thu === 'Yes'"
+                      [class.inactive]="onFIndSchedule(avail?.id)?.thu !== 'Yes'"
+                  ></td>
+                  <td class="available" [class.active]="onFIndSchedule(avail?.id)?.fri === 'Yes'"
+                      [class.inactive]="onFIndSchedule(avail?.id)?.fri !== 'Yes'"
+                  ></td>
+                  <td class="available" [class.active]="onFIndSchedule(avail?.id)?.sat === 'Yes'"
+                      [class.inactive]="onFIndSchedule(avail?.id)?.sat !== 'Yes'"
+                  ></td>
+                  <td class="available" [class.active]="onFIndSchedule(avail?.id)?.sun === 'Yes'"
+                      [class.inactive]="onFIndSchedule(avail?.id)?.sun !== 'Yes'"
+                  ></td>
+                  <td
+                    (click)="openCenteredModal(content, 'availability', { schedule_id: avail?.id, id: onFIndSchedule(avail?.id)?.id })">
+                    <i class="fa-solid fa-pencil text-lg"></i>
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+            <!--<table class="table table-bordered text-center">
+              <thead>
+              <tr>
+                <th></th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th>Early Morning</th>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+              </tr>
+              <tr>
+                <th>Morning</th>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available" style="background-color: #00bcd4 !important;"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+              </tr>
+              <tr>
+                <th>Lunch time</th>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+              </tr>
+              <tr>
+                <th>Afternoon</th>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+              </tr>
+              <tr>
+                <th>Late afternoon</th>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+              </tr>
+              <tr>
+                <th>Evening</th>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+                <td class="available"></td>
+              </tr>
+              </tbody>
+            </table>-->
+          </div>
+
+        </div>
+
+        <div class="flex flex-col items-start gap-2"
+             style="margin-top: -9px"
+        >
+          <div class="flex items-center gap-2">
+            <p class="font-semibold m-0">I play my sport at</p>
+            <!--
+                        <p class="text-[#808080] font-semibold m-0 availability-header">I play my sport at</p>
+            -->
+            <button class="font-semibold text-lg px-2 selected rounded-full"
+                    *ngIf="canEditProfile"
+                    (click)="openCenteredModal(content, 'sportList')">+
+            </button>
+          </div>
+          <div class="w-60 grid grid-cols-2 gap-2 text-[#43abeb]">
+            <ul class="list-group">
+              <li
+                class=" list-item d-flex justify-content-between align-items-center "
+                *ngFor="let sport of extra.sportList"
+              >
+                <p
+                  class="mb-0 col-span-1 flex flex-col gap-[10px] text-sm whitespace-nowrap pt-1">{{ sport?.address }}</p>
+                <i class="fas fa-trash-alt trash-icon2" (click)="onDeleteData('sportList', { id: sport?.id })"></i>
+              </li>
+            </ul>
+          </div>
+
+          <!-- <div class="w-60 grid grid-cols-2 gap-2 text-[#43abeb]">
+                         <span class="col-span-1 flex flex-col gap-[10px] text-sm whitespace-nowrap pt-1">
+                             <div *ngFor="let sport of extra.sportList">
+                               {{ sport?.address }}
+                               <i class="fa-solid fa-trash text-danger"
+                                  style="cursor: pointer"
+                                  (click)="onDeleteData('sportList', { id: sport?.id })"></i>
+                             </div>
+            </span>
+           </div>-->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-span-full flex flex-col pl-20 max-lg:px-0 text-[#0c5060] gap-6"
+         style="padding: 0 !important;"
+    >
+      <div class="flex flex-col gap-0"
+
+      >
+                <span class="flex gap-2 items-end">
+                    <h2 class="font-bold">My Sporting Connections</h2>
+                    <p class="cursor-pointer text-[#43abeb] text-sm" routerLink="/my-connections">View All</p>
+                </span>
+        <p class="text-[#43abeb] text-sm">{{
+            ((Array.isArray(extra?.connectionList) ? extra?.connectionList : extra?.connectionList?.data) ?
+              (Array.isArray(extra?.connectionList) ? extra?.connectionList : extra?.connectionList?.data)?.length : 0)
+          }}
+          sporting connections</p>
+      </div>
+
+      <div class="flex gap-4 max-md:flex-wrap"
+           style="overflow-x: scroll !important;"
+      >
+
+        <div class="flex flex-col gap-4 items-center justify-center"
+             *ngFor="let connection of (Array.isArray(extra?.connectionList) ? extra?.connectionList : extra?.connectionList?.data)"
+             [ngStyle]="{'margin-left': '0px'}">
+
+          <span class="w-28 h-28 rounded-3xl bg-white border overflow-hidden">
+        <img [src]="connection?.profile_image || '/assets/icons/default.jpg'" class="h-full w-full" alt="HA"/>
+    </span>
+          <p class="text-[#808080] text-sm">{{ connection?.name }}</p>
+        </div>
+
+        <!--
+                <div class="flex flex-col gap-4 items-center justify-center">
+                            <span class="w-28 h-28 rounded-3xl bg-white border overflow-hidden">
+                                <img src="../../../../../assets/Di. PARTNERS LOGOS IMAGES/JORDAN_REYNOLDS_PROFILE_PIC.png"
+                                     class="h-full w-full">
+                            </span>
+                  <p class="text-[#808080] text-sm">Amanda Hughes Soccer</p>
+                </div>
+
+                <div class="flex flex-col gap-4 items-center justify-center">
+                            <span class="w-28 h-28 rounded-3xl bg-white border overflow-hidden">
+                                <img src="../../../../../assets/Di. PARTNERS LOGOS IMAGES/JORDAN_REYNOLDS_PROFILE_PIC.png"
+                                     class="h-full w-full">
+                            </span>
+                  <p class="text-[#808080] text-sm">Amanda Hughes Soccer</p>
+                </div>
+
+                <div class="flex flex-col gap-4 items-center justify-center">
+                            <span class="w-28 h-28 rounded-3xl bg-white border overflow-hidden">
+                                <img src="../../../../../assets/Di. PARTNERS LOGOS IMAGES/JORDAN_REYNOLDS_PROFILE_PIC.png"
+                                     class="h-full w-full">
+                            </span>
+                  <p class="text-[#808080] text-sm">Amanda Hughes Soccer</p>
+                </div>
+
+                <div class="flex flex-col gap-4 items-center justify-center">
+                            <span class="w-28 h-28 rounded-3xl bg-white border overflow-hidden">
+                                <img src="../../../../../assets/Di. PARTNERS LOGOS IMAGES/JORDAN_REYNOLDS_PROFILE_PIC.png"
+                                     class="h-full w-full">
+                            </span>
+                  <p class="text-[#808080] text-sm">Amanda Hughes Soccer</p>
+                </div>-->
+      </div>
+
+    </div>
+
+    <div class="col-span-full flex flex-col pl-20 max-lg:px-0 text-[#0c5060] gap-6"
+         style="padding: 0 !important;"
+    >
+      <div class="flex items-end gap-2">
+        <h2 class="font-bold"
+            style="padding: 0 !important;margin: 0 !important;"
+        >My Sporting Activity</h2><!--
+        <p class="cursor-pointer text-[#43abeb] text-sm">View All</p>-->
+        <button class="font-semibold text-lg px-2 selected rounded-full"
+                *ngIf="canEditProfile"
+                (click)="openCenteredModal(content, 'activityList')">
+          +
+        </button>
+      </div>
+
+      <div class="flex items-center gap-4 max-lg:flex-wrap">
+        <ng-container *ngFor="let activity of extra?.activityList">
+          <div class="d-flex flex-column gap-2 align-items-center" *ngIf="activity">
+            <div class="position-relative d-flex flex-row">
+                 <span class="w-52 h-48 bg-white">
+                <img
+                  [src]="activity?.activity_image || 'assets/icons/default.jpg'"
+                  alt=""
+                  class="h-full w-full"
+                />
+                 </span>
+              <button
+                class="btn btn-link text-danger position-absolute top-0 end-0 me-2 mt-2 d-none delete-btn"
+                (click)="onDeleteData('activityList', { id: activity?.id })"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+              <span class="absolute top-2 left-2 rounded-full p-2 bg-[#f97ccb] text-white text-xs">
+                          {{ activity?.play?.name }}
+                            </span>
+            </div>
+            <div>
+              <div style="display: flex; flex-direction: row">
+                <span class="font-semibold text-xl">{{ activity?.title }}</span>
+              </div>
+              <span class="text-[#808080] text-lg">{{ formatDate(activity?.date) }}</span>
+              <p class="text-lg"
+                 style="color: #1569ad;text-align: center;font-size: 18px">{{ activity?.play?.name }}</p>
+            </div>
+          </div>
+        </ng-container>
+        <!-- <div class="flex flex-col gap-0 items-center justify-center"
+              *ngFor="let activtiy of extra?.activityList"
+         >
+                     <span class="w-52 h-48 bg-white relative">
+                          <div class="position-relative">
+             <img [src]="activtiy?.activity_image" alt="" class="h-48 max-sm:h-24 w-full rounded-lg">
+
+             <i class="fa fa-trash p-1 rounded-circle position-absolute text-red-500"
+                style="top: 8px; right: 8px; cursor: pointer;"
+                (click)="onDeleteData('activityList', { id: activtiy?.id })"></i>
+           </div>
+                         <span class="absolute top-2 left-2 rounded-full p-2 bg-[#f97ccb] text-white text-xs">
+                           {{ activtiy?.play?.name }}
+                             </span>
+                     </span>
+
+           <div style="display: flex; flex-direction: row">
+             <span class="font-semibold text-xl">{{ activtiy?.title }}</span>
+           </div>
+           <span class="text-[#808080] font-semibold text-lg">{{ formatDate(activtiy?.date) }}</span>
+           &lt;!&ndash; <span class="text-[#43abeb] text-sm">Golf</span>&ndash;&gt;
+         </div>-->
+
+        <!--   <div class="flex flex-col gap-0 items-center justify-center">
+                       <span class="w-52 h-48 bg-white relative">
+                           <img src="../../../../../assets/Di. PARTNERS LOGOS IMAGES/JORDAN_REYNOLDS_PROFILE_PIC.png"
+                                class="h-full w-full">
+                           <span class="absolute top-2 left-2 rounded-full p-2 bg-[#f97ccb] text-white text-xs">Coaching
+                               Session</span>
+                       </span>
+
+             <span class="font-semibold text-xl">Toby Bruce</span>
+             <span class="text-[#808080] font-semibold text-lg">12th March 2024</span>
+             <span class="text-[#43abeb] text-sm">Golf</span>
+           </div>
+
+           <div class="flex flex-col gap-0 items-center justify-center">
+                       <span class="w-52 h-48 bg-white relative">
+                           <img src="../../../../../assets/Di. PARTNERS LOGOS IMAGES/JORDAN_REYNOLDS_PROFILE_PIC.png"
+                                class="h-full w-full">
+                           <span class="absolute top-2 left-2 rounded-full p-2 bg-[#f97ccb] text-white text-xs">Coaching
+                               Session</span>
+                       </span>
+
+             <span class="font-semibold text-xl">Toby Bruce</span>
+             <span class="text-[#808080] font-semibold text-lg">12th March 2024</span>
+             <span class="text-[#43abeb] text-sm">Golf</span>
+           </div>
+
+           <div class="flex flex-col gap-0 items-center justify-center">
+                       <span class="w-52 h-48 bg-white relative">
+                           <img src="../../../../../assets/Di. PARTNERS LOGOS IMAGES/JORDAN_REYNOLDS_PROFILE_PIC.png"
+                                class="h-full w-full">
+                           <span class="absolute top-2 left-2 rounded-full p-2 bg-[#f97ccb] text-white text-xs">Coaching
+                               Session</span>
+                       </span>
+
+             <span class="font-semibold text-xl">Toby Bruce</span>
+             <span class="text-[#808080] font-semibold text-lg">12th March 2024</span>
+             <span class="text-[#43abeb] text-sm">Golf</span>
+           </div>-->
+
+      </div>
+
+    </div>
+
+    <div class="col-span-full flex flex-col pl-20 max-lg:px-0 text-[#0c5060] gap-6"
+         style="padding: 0 !important;"
+    >
+      <div style="display: flex;flex-direction: row;justify-content: space-between">
+        <h2 class="font-bold">Reviews</h2>
+
+        <div class="flex justify-center"
+             style="margin-top: -13px;"
+             *ngIf="!canEditProfile"
+        >
+          <button
+            (click)="openCenteredModal(content, 'add-review')"
+            class="px-6 py-3 bg-[#0c5060] text-white font-semibold rounded-lg hover:bg-[#0a3d4d] focus:outline-none focus:ring-2 focus:ring-[#0c5060] transition duration-200 ease-in-out">
+            Add Review
+          </button>
+        </div>
+      </div>
+
+      <p *ngIf="!extra?.reviews || extra?.reviews?.length < 1">No review found</p>
+      <div class="flex gap-4 items-center max-md:flex-col max-md:justify-center"
+           *ngFor="let review of extra.reviews"
+      >
+        <div class="rounded-full overflow-hidden aspect-square">
+          <img src="/assets/Di. PARTNERS LOGOS IMAGES/JORDAN_REYNOLDS_PROFILE_PIC.png" alt=""
+               class="h-48 w-48"
+               style="width: 75px !important;height: 75px !important;"
+          >
+        </div>
+        <div
+          class="flex flex-col justify-start text-start gap-0 pr-32 max-md:pr-0 max-md:justify-center max-md:items-center">
+          <span class="font-semibold">{{ review?.title }}</span>
+          <span>
+            {{ review?.review }}
+          </span>
+          <span class="font-semibold">24-04-204</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-span-full flex flex-col pl-20 max-lg:px-0 text-[#0c5060] gap-6 w-[800px] max-lg:w-full"
+         style="padding: 0 !important;"
+    >
+      <div class="flex items-center gap-2">
+        <h2 class="font-bold">Sporting Highlights</h2>
+        <button class="font-semibold text-lg px-2 selected rounded-full"
+                style="margin-top: -8px;"
+                *ngIf="canEditProfile"
+                (click)="openCenteredModal(content, 'highlights')">+
+        </button>
+      </div>
+    </div>
+
+    <div class="text-[#808080]" *ngIf="extra?.gallery && extra?.gallery[extra?.gallery?.length - 1]">
+      {{ extra?.gallery[extra?.gallery?.length - 1]?.description }}
+    </div>
+
+    <div class="row">
+      <div class="col-8">
+        <ng-container *ngIf="extra?.gallery && extra?.gallery[extra?.gallery?.length - 1]">
+          <div class="row">
+            <div
+              *ngFor="let photo of extra?.gallery[extra?.gallery?.length - 1]?.media?.slice(0, 5); let i = index"
+              class="image-container col4Height mb-2"
+              [class.col-4]="i !== 3"
+              [class.col-8]="i === 3"
+            >
+              <img [src]="photo?.original_url"
+                   style="border-radius: 10px"
+                   class="img-fluid" alt="Sport 1">
+            </div>
+            <!--<div class="col-4 image-container">
+              <img src="https://via.placeholder.com/300x400.png?text=Sport+2" class="img-fluid" alt="Sport 2">
+            </div>
+            <div class="col-4 image-container">
+              <img src="https://via.placeholder.com/300x400.png?text=Sport+3" class="img-fluid" alt="Sport 3">
+            </div>
+            <div class="col-8 image-container">
+              <img src="https://via.placeholder.com/1200x400.png?text=Sport+4" class="img-fluid" alt="Sport 4">
+            </div>
+            <div class="col-4 image-container">
+              <img src="https://via.placeholder.com/300x400.png?text=Sport+3" class="img-fluid" alt="Sport 3">
+            </div>-->
+          </div>
+          <!--  <div class="grid grid-cols-3 gap-2" *ngFor="let photo of groupArrayIntoSubarrays(extra?.gallery[extra?.gallery?.length - 1]?.media?.slice(0, 5), 5)">
+
+            <div class="col-span-1 rounded-lg overflow-hidden" *ngIf="photo && photo[0]">
+               <img [src]="photo[0]?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+             </div>
+             <div class="col-span-1 rounded-lg overflow-hidden" *ngIf="photo && photo[1]">
+               <img [src]="photo[1]?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+             </div>
+             <div class="col-span-1 rounded-lg overflow-hidden" *ngIf="photo && photo[2]">
+               <img [src]="photo[2]?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+             </div>
+             <div class="col-span-2 rounded-lg overflow-hidden" *ngIf="photo && photo[3]">
+               <img [src]="photo[3]?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+             </div>
+             <div class="col-span-1 rounded-lg overflow-hidden" *ngIf="photo && photo[4]">
+               <img [src]="photo[4]?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+             </div>
+           </div>-->
+        </ng-container>
+      </div>
+    </div>
+
+
+    <!--<div class="grid grid-cols-3 gap-2 " *ngIf="extra?.gallery && extra?.gallery?.length">
+      <div class="col-span-1 rounded-lg overflow-hidden"
+           *ngFor="let photo of extra?.gallery[extra?.gallery?.length - 1]?.media"
+      >
+        <img [src]="photo?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+      </div>
+    </div>-->
+
+
+    <div class="col-span-full flex flex-col pl-20 max-lg:px-0 text-[#0c5060] gap-6 w-[800px] max-lg:w-full"
+         style="padding: 0 !important;"
+    >
+      <div class="flex items-center gap-2">
+        <h2 class="font-bold">Favourite Sporting Brands</h2>
+        <button class="font-semibold text-lg px-2 selected rounded-full"
+                *ngIf="canEditProfile"
+                style="margin-top: -8px;"
+                (click)="openCenteredModal(content, 'brand')">
+          +
+        </button>
+      </div>
+
+      <div class="row">
+
+        <ng-container *ngFor="let brand of extra?.brandList">
+          <div class="gap-2 align-items-center col-3" *ngIf="brand">
+            <div class="position-relative d-flex flex-row">
+              <img
+                [src]="brand?.brand_image"
+                alt=""
+                class="h-48 max-sm:h-24 w-full"
+              />
+              <button
+                class="btn btn-link text-danger position-absolute top-0 end-0 me-2 mt-2 d-none delete-btn"
+                (click)="onDeleteData('brand', { id: brand?.id })"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <!--<div
+        class="grid grid-cols-4 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:items-center max-sm:justify-center">
+        <div class="col-span-1 rounded-lg overflow-hidden flex justify-center w-full"
+             *ngFor="let brand of extra?.brandList"
+        >
+          <img [src]="brand?.brand_image" alt=""
+               class="h-48 rounded-lg">
+        </div>
+      </div>-->
+    </div>
+  </form>
+
+  <ng-template #content let-modal>
+    <div class="modal-header headerModal">
+      <h4 class="modal-title" style="color: white">
+        {{ extra?.mode === 'add-review' ? 'Add Review' : 'Add Detail' }}
+      </h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="col-12 column">
+          <ng-container *ngIf="
+          extra.mode === 'club' ||
+           extra?.mode === 'highlights' ||
+            extra?.mode === 'sportList' ||
+            extra?.mode === 'brand' ||
+            extra?.mode === 'activityList' ||
+            extra?.mode === 'availability' ||
+            extra?.mode === 'add-review'
+">
+            <div class="form-group" *ngFor="let field of extra.fieldsToRender; let i = index">
+              <!-- Label -->
+              <label class="font-medium">{{ field?.label }}</label>
+
+              <!-- Standard Input -->
+              <input
+                *ngIf="!field?.textarea && field?.type !== 'checkbox' && field?.type !== 'rating-picker'"
+                [type]="field?.type || 'text'"
+                class="form-control Invalid font-medium w-full"
+                [id]="field?.key + i"
+                [name]="field?.key + i"
+                (change)="onImagePick($event, field, field?.multiple)"
+                [required]="field?.required"
+                [(ngModel)]="extra[field?.key]"
+                placeholder="Enter your {{ field?.label }}"
+                [accept]="field?.accept"
+                [multiple]="field?.multiple"
+              />
+
+              <!-- Textarea Input -->
+              <textarea
+                *ngIf="field?.textarea"
+                class="form-control Invalid font-medium w-full mt-2"
+                rows="4"
+                [id]="field?.key + i"
+                [name]="field?.key + i"
+                [required]="field?.required"
+                [(ngModel)]="extra[field?.key]"
+                placeholder="Enter your {{ field?.label }}"
+              ></textarea>
+
+              <!-- Checkbox Input -->
+              <div *ngIf="field?.type === 'checkbox'" class="form-check mt-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  [id]="field?.key + i"
+                  [name]="field?.key + i"
+                  [(ngModel)]="extra[field?.key]"
+                  [required]="field?.required"
+                />
+                <label class="form-check-label font-medium" [for]="field?.key + i">
+                  {{ field?.label }}
+                </label>
+              </div>
+
+              <div
+                *ngIf="field?.type === 'rating-picker'"
+                class="rating-container d-flex justify-content-center align-items-center"
+              >
+                <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                  <svg
+                    (click)="extra[field?.key] = (i + 1)"
+                    style="cursor: pointer; width: 24px; height: 24px; margin: 0 5px;"
+                    [attr.fill]="i < extra[field?.key] ? 'gold' : 'none'"
+                    stroke="gold"
+                    stroke-width="2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                  >
+                    <polygon
+                      points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"
+                    ></polygon>
+                  </svg>
+                </ng-container>
+                <!--<p class="text-center">Selected Rating: {{ (extra[field?.key] || 0) }} / 5</p>-->
+              </div>
+
+            </div>
+
+          </ng-container>
+          <div class="form-group" *ngIf="
+          extra.mode === 'sports' ||
+          extra?.mode === 'sportList' ||
+          extra?.mode === 'activityList'">
+            <label class="font-medium">Select your sport</label>
+            <select class="form-control Invalid font-medium w-full" id="play_id" name="play_id"
+                    required
+                    [(ngModel)]="extra.play_id"
+            >
+              <option value="" class="font-medium">Select Your Role</option>
+              <option *ngFor="let role of sportsData" [value]="role.id" class="font-medium">
+                {{ role.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="extra?.mode === 'activityList'">
+            <label class="font-medium">Select your Activity Type</label>
+            <select class="form-control Invalid font-medium w-full" id="activity_type_id" name="activity_type_id"
+                    required
+                    [(ngModel)]="extra.activity_type_id"
+            >
+              <option value="" class="font-medium">Select Your Activity Type</option>
+              <option *ngFor="let activtyType of extra?.activityTypeList" [value]="activtyType.id" class="font-medium">
+                {{ activtyType.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="extra.mode === 'sports'">
+            <label class="font-medium">Select your ability</label>
+            <select class="form-control Invalid font-medium w-full" id="ability_id" name="ability_id"
+                    required
+                    [(ngModel)]="extra.ability_id"
+            >
+              <option value="" class="font-medium">Select Your Ability</option>
+              <option *ngFor="let ability of abilityData" [value]="ability.id" class="font-medium">
+                {{ ability.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="extra.mode === 'club' || extra?.mode === 'sportList'">
+            <label class="font-medium">Select your Club</label>
+            <select class="form-control Invalid font-medium w-full" id="club_ids" name="club_ids"
+                    required
+                    [(ngModel)]="extra['club_id']"
+            >
+              <option value="" class="font-medium">Select Your Club</option>
+              <option *ngFor="let club of extra.clubList?.data" [value]="club.id" class="font-medium">
+                {{ club.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 column">
+            <div class="form-group message-btn"
+                 style="margin-top: 10px; display: flex; justify-content: center; align-items: center;"
+            >
+              <button (click)="onSaveData()"
+                      [disabled]="extra.loading"
+                      class="text-center text-[#fff] transition-colors bg-[#ff7c5b] hover:bg-[#061a3a] rounded-md w-fit py-2 px-10 text-[17px] font-semibold">
+                <div
+                  *ngIf="extra.loading"
+                  class="spinner-border text-light" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <span *ngIf="!extra?.loading">Save</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" id="closeModal" class="btn btn-secondary headerModal" (click)="modal.close('Close click')">
+        Close
+      </button>
+    </div>
+  </ng-template>
+
+</div>
+
+
+<app-footer></app-footer>

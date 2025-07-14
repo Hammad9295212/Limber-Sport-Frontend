@@ -1,0 +1,1533 @@
+<app-header2 *ngIf="isUser"
+             (handleCompleteProfile)="handleCompleteProfile()"
+></app-header2>
+<!--<header class="
+    block
+    w-full
+   header
+    py-4
+    sm:flex sm:items-center sm:justify-between
+    font-sans
+  ">
+  <div class="sm:flex sm:items-center sm:justify-around w-full">
+
+    <div class="flex justify-between sm:block px-4">
+      <a class="block text-2xl font-bold text-white" routerLink="/home"> <img src="assets/logo/logo.png"></a>
+
+      <button class="block bg-transparent sm:hidden">
+        <input class="invisible appearance-none" type="checkbox" id="toggle"/>
+
+        <label for="toggle">
+          <i id="menu-icon" class="fa-solid fa-bars cursor-pointer inline-block text-white text-3xl"></i>
+
+          <i id="close-icon" class="hidden fa-solid fa-xmark cursor-pointer text-white text-3xl"></i>
+
+        </label>
+      </button>
+    </div>
+    <div #linksDiv id="navigation" style="&#45;&#45;menu-height: 100vh" class="
+    bg-[#0c5060]
+      flex
+      h-0
+      flex-col
+      items-center
+      justify-center
+      gap-2
+      transition-all
+      overflow-hidden
+      duration-500
+      ease-in-out
+      sm:h-auto sm:flex-row sm:overflow-auto
+      font-medium
+    ">
+      <button class="selected w-40 py-2 rounded-md">Find Players</button>
+      <button class="selected w-40 py-2 rounded-md">Find Coaches</button>
+      <button class="selected w-40 py-2 rounded-md">Find Clubs</button>
+    </div>
+    <div *ngIf="isUser" class="relative">
+      <button class="rounded-full p-2 w-16 h-16 " (click)="logoutPopup = !logoutPopup">
+        <img src="../../../../assets/E. TESTIMONIALS IMAGES/testimonial-marketers-harry-cartwright-img-01.png"
+             class="w-full" alt="">
+      </button>
+      <div
+        class="absolute bg-white text-[#0c5060] py-2 px-3 w-24 flex items-start left-0 max-lg:right-2 max-sm:relative max-sm:top-0 max-sm:right-0 top-20 z-50 rounded-md"
+        *ngIf="logoutPopup">
+        <button class="font-semibold" (click)="handleLogout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</header>-->
+<app-header *ngIf="!isUser"></app-header>
+<!-- flex flex-col  items-center w-full font-sans pt-16 -->
+<div [ngClass]="window.innerWidth > 450 ? 'flex flex-col items-center w-full font-sans pt-16' : 'container-fluid'">
+  <!--  background-image: url('/assets/WEBSITE\ -\ HOW\ IT\ WORKS\ FOR\ IMAGES/For\ Players/section-01-bg.png') -->
+  <div
+    class="hero-section w-full col-span-full h-60"
+    style="height: 20rem !important;"
+    [ngStyle]="{ backgroundImage: getbannerImage() ? getbannerImage() : 'url(/assets/WEBSITE - HOW IT WORKS FOR IMAGES/For Players/section-01-bg.png)' }"
+
+  >
+    <input
+      type="file"
+      class="file-input"
+      (change)="onImagePickUsingFormControl($event, 'banner_image')"
+      *ngIf="isCompleteProfile"
+      style="display: none !important;"
+    />
+    <i class="fas fa-edit absolute bottom-4 text-sm w-full profileEditIcon"
+       style="left: 95%;top: 8%"
+       *ngIf="isCompleteProfile"
+       (click)="onEleClick('banner_image')"
+    ></i>
+    <div class="col-span-full flex flex-col max-lg:px-0 text-[#0c5060] gap-6"
+         style="margin-top: 194px;margin-left: 75px"
+    >
+      <div class="d-flex justify-content-center">
+        <div class="w-52 h-52 p-2 bg-white rounded-lg relative"
+             style="width: 150px;height: 150px;border-radius: 50%"
+        >
+          <img [src]="coachDetailsData?.profile_image || 'assets/icons/default.jpg'"
+               *ngIf="coachDetailsForm?.controls['profile_image']"
+               style="border-radius: 50%"
+               class="w-full h-full">
+          <i class="fas fa-edit absolute bottom-4 text-sm w-full profileEditIcon"
+             style="left: 47%;"
+             *ngIf="isCompleteProfile"
+             (click)="onEleClick('profile_image')"
+          ></i>
+          <input type="file"
+                 id="profile_image"
+                 class="absolute bottom-2 left-2 text-sm w-full"
+                 (change)="onImagePickUsingFormControl($event, 'profile_image')"
+                 style="display: none !important;"
+                 *ngIf="isCompleteProfile"/>
+        </div>
+        <div class="p-3">
+          <!-- Rating and Reviews Section -->
+          <div class="d-flex align-items-center">
+            <i class="fa fa-star text-warning"></i> <!-- Star icon -->
+            <span class="ms-2 fw-bold" style="color: white;">8.0</span> <!-- Rating value -->
+          </div>
+          <div style="color: white;">
+            (3.98 ratings and 8 Reviews) <!-- Ratings and reviews -->
+          </div>
+
+          <!-- Price Section -->
+          <div class="mt-4">
+    <span class="text-danger fw-bold" style="font-size: 1.5rem;color: #f45683 !important;">
+      $60.00 - $75.00
+    </span>
+            <span style="color: white;">/ Per hr</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="hero-section w-full col-span-full h-60"
+       [ngStyle]="{
+       backgroundImage: getbannerImage()
+     }"
+  >
+    <input type="file"
+           (change)="onImagePickUsingFormControl($event, 'banner_image')"
+           *ngIf="isCompleteProfile"/>
+  </div>-->
+  <!-- <div class="hero-section w-full col-span-full h-60"
+        [ngStyle]="{  }"
+   >
+   </div>-->
+  <lib-toastify-toast-container></lib-toastify-toast-container>
+
+
+  <div class="row" style="padding: 20px;width: 90%;">
+    <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12"
+         style="padding-left: 65px;"
+    >
+      <form [formGroup]="coachDetailsForm"
+            id="myForm"
+            class="col-span-12 mxa grid grid-cols-1 items-center justify-center pb-10 relative gap-10">
+
+        <!--<div
+          class="col-span-full flex items-end -mt-20 gap-4 max-sm:flex-col max-sm:justify-center max-sm:items-center">
+          <div class="w-52 h-52 p-2 bg-white rounded-lg relative"
+               style="width: 150px;height: 150px;border-radius: 50%"
+          >
+            <img [src]="coachDetailsData?.profile_image || 'assets/icons/default.jpg'"
+                 *ngIf="coachDetailsForm?.controls['profile_image']"
+                 style="border-radius: 50%"
+                 class="w-full h-full">
+            <input type="file" class="absolute bottom-2 left-2 text-sm w-full"
+                   (change)="onImagePickUsingFormControl($event, 'profile_image')"
+                   *ngIf="isCompleteProfile"/>
+          </div>
+
+          <div class="text-sm mb-2 flex flex-col gap-4">
+            <div class="text-[#808080] flex items-center gap-4">Ratings
+              &lt;!&ndash; rating.component.html &ndash;&gt;
+
+              <span class="text-yellow-500 text-3xl">
+      &lt;!&ndash; Use *ngFor to render filled stars based on the overall rating &ndash;&gt;
+     <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+          <i
+            class="fa-solid"
+            [ngClass]="{
+              'fa-star': !(i === Math.floor(calculateOverallRating()) && calculateOverallRating() % 1 >= 0.5),
+              'fa-star-half-stroke': i === Math.floor(calculateOverallRating()) && calculateOverallRating() % 1 >= 0.5,
+            }"
+            [style.color]="
+              i < Math.floor(calculateOverallRating()) ||
+              (i === Math.floor(calculateOverallRating()) && calculateOverallRating() % 1 >= 0.5)
+                ? '#FFC107'
+                : '#E0E0E0'
+            "
+          ></i>
+        </ng-container>
+    </span>
+
+              &lt;!&ndash;<span class="text-yellow-500 text-3xl">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>&ndash;&gt;
+            </div>
+            <div class="text-blue-500">
+              ({{ (extra?.reviews?.length || 0) }} ratings and {{ (extra?.reviews?.length || 0) }}
+              reviews)
+            </div>
+          </div>
+        </div>-->
+
+        <div class="mt-10 col-span-full flex flex-col pl-20 max-lg:px-0 text-[#0c5060]"
+             style="padding: 0 !important;gap: 0.5rem !important;"
+        >
+          <div class="flex gap-2 items-start justify-between"
+               *ngIf="window.innerWidth > 450"
+          >
+            <div class="flex flex-col items-start gap-2 whitespace-nowrap">
+              <div class="flex gap-4 items-center">
+                <input placeholder="John Jackson" name="name" formControlName="name" *ngIf="isCompleteProfile"
+                       class="px-2 py-2 font-semibold text-4xl border rounded-md max-md:w-full" type="text">
+                <h2 style="margin-bottom: 0;" class="font-medium" *ngIf="!isCompleteProfile">{{
+                    (coachDetailsData?.user?.first_name || '') + " " +
+                    (coachDetailsData?.user?.last_name || '')
+                  }}</h2>
+                <i class="fa-regular fa-circle-check text-green-600 text-lg"></i>
+              </div>
+              <input type="text" name="tagline" placeholder="Heading Tagline" formControlName="heading_tagline"
+                     class="px-2 py-2 font-semibold text-xl border rounded-md w-fit" *ngIf="isCompleteProfile">
+              <p class="font-semibold" *ngIf="!isCompleteProfile">{{ coachDetailsData?.heading_tagline }}</p>
+            </div>
+
+            <div>
+              <div class="w-full flex justify-end gap-3 items-end leading-3">
+                <button *ngIf="isCompleteProfile" class="w-20 text-center py-2 rating text-sm font-semibold"
+                        (click)="handleCompleteProfile()">Cancel
+                </button>
+                <button *ngIf="!isCompleteProfile && canEditProfile"
+                        class="w-40 text-center py-2 rounded-md selected text-sm font-semibold"
+                        (click)="handleCompleteProfile()">Complete Profile
+                </button>
+                <button *ngIf="isCompleteProfile"
+                        class="w-20 text-center py-2 rounded-md selected text-sm font-semibold"
+                        (click)="handleSavePlayerData()" [disabled]="formSubmitted">Save
+                </button>
+              </div>
+            </div>
+
+          </div>
+          <!-- <div class="flex gap-2 items-start justify-between align-items-center" *ngIf="!isCompleteProfile">
+             <div class="flex flex-col items-start gap-2 whitespace-nowrap">
+               <img style="width: 40px;" src="https://d3ta2lde4xtpor.cloudfront.net/41/Tennis.png">
+               <p class="font-semibold">Tennis</p>
+             </div>
+             <div>
+               <div class="w-full flex justify-end gap-3 items-end leading-3">
+                 <button class="text-center py-1.5 px-2 rating text-sm font-semibold" style="border: 1px solid #00beea;color: #00beea;display: flex;
+     gap: 10px;align-items: center;border-radius: 4px;">
+                   MESSAGE COACH
+                   <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 48 48">
+
+                     <path d="M0 0h48v48H0z" fill="none"/>
+                     <g id="Shopicon">
+                       <path d="M42.371,8.8C41.705,8.304,40.89,8,40,8H8C7.11,8,6.295,8.304,5.629,8.8L24,27.172L42.371,8.8z"/>
+                       <path d="M4,12.828V36c0,2.2,1.8,4,4,4h32c2.2,0,4-1.8,4-4V12.828l-20,20L4,12.828z"/>
+                     </g>
+                   </svg>
+                 </button>
+                 <button
+                         class="w-40 text-center py-2 rounded-md selected text-sm font-semibold">
+                   CONNECT
+                 </button>
+                 <button class="text-[#808080] text-4xl font-semibold">
+                   <i class="fa-solid fa-bars"></i>
+                 </button>
+               </div>
+             </div>
+           </div>-->
+          <div class="flex gap-2 items-start justify-between player-details-container"
+               *ngIf="window.innerWidth <= 450"
+          >
+            <div class="flex flex-col items-start gap-2 whitespace-nowrap">
+              <div class="flex gap-4 items-center pb-2">
+                <input
+                  placeholder="John Jackson"
+                  name="name"
+                  formControlName="name"
+                  *ngIf="isCompleteProfile"
+                  class="px-2 py-2 font-semibold text-4xl border rounded-md max-md:w-full"
+                  type="text"
+                />
+                <h2 class="font-medium" *ngIf="!isCompleteProfile">
+                  {{ (coachDetailsData?.user?.first_name || '') + ' ' + (coachDetailsData?.user?.last_name || '') }}
+                </h2>
+                <i class="fa-regular fa-circle-check text-green-600 text-lg"></i>
+              </div>
+              <input
+                type="text"
+                name="tagline"
+                placeholder="Heading Tagline"
+                formControlName="heading_tagline"
+                class="px-2 py-2 font-semibold text-xl border rounded-md w-fit"
+                *ngIf="isCompleteProfile"
+              />
+              <p class="font-semibold" *ngIf="!isCompleteProfile">{{ coachDetailsData?.heading_tagline }}</p>
+            </div>
+
+            <div class="button-group">
+              <button
+                *ngIf="isCompleteProfile"
+                class="w-20 text-center py-2 rating text-sm font-semibold"
+                (click)="handleCompleteProfile()"
+              >
+                Cancel
+              </button>
+              <button
+                *ngIf="!isCompleteProfile && canEditProfile"
+                class="w-40 text-center py-2 rounded-md selected text-sm font-semibold"
+                (click)="handleCompleteProfile()"
+              >
+                Complete Profile
+              </button>
+              <button
+                *ngIf="isCompleteProfile"
+                class="w-20 text-center py-2 rounded-md selected text-sm font-semibold"
+                (click)="handleSavePlayerData()"
+                [disabled]="formSubmitted"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+
+          <!-- <div class="d-flex align-items-center justify-content-between">
+             <div class="d-flex align-items-center">
+               <img src="https://via.placeholder.com/40" alt="Tennis Icon" class="me-2">
+               <span class="text-muted">Tennis</span>
+             </div>
+             <div class="d-flex">
+               <button class="btn border-primary text-primary me-2 d-flex align-items-center">
+                 MESSAGE COACH
+                 <i class="fa-solid fa-envelope ms-2"></i>
+               </button>
+               <button class="btn text-white" style="background: linear-gradient(90deg, #fc466b, #3f5efb);">
+                 CONNECT
+               </button>
+             </div>
+           </div>-->
+
+
+          <div class="flex justify-between gap-4 max-lg:flex-col pt-2"
+               style="padding: 0 !important;"
+          >
+        <span class="profile-section text-[#808080] flex gap-3 items-center max-sm:flex-col">
+
+          <div class="flex flex-col w-full gap-4"
+               style="display: flex; justify-content: space-between; flex-direction: row">
+
+       <div class="location-section flex flex-col w-full">
+    <label class="text-lg" style="color: #a4a7bf !important;font-size: 15px;">Location</label>
+    <div class="location-input-wrapper flex items-center gap-2 w-full">
+      <i class="fa-solid fa-location-dot text-[#0c5060]"></i>
+      <ng-container *ngIf="!isCompleteProfile">
+        <span class="whitespace-nowrap overflow-ellipsis overflow-hidden w-full">
+          {{ coachDetailsData?.location || 'Not specified' }}
+        </span>
+      </ng-container>
+      <ng-container *ngIf="isCompleteProfile">
+        <input
+          type="text"
+          name="city"
+          placeholder="Enter your location"
+          formControlName="location"
+          class="px-2 py-2 border rounded-md flex-grow"
+          (input)="onFilterData($event, 'location')"
+        />
+        <!-- Suggestions Dropdown -->
+        <ul *ngIf="placeSuggesiton.length > 0" class="suggestions-list w-full bg-white border mt-1 rounded-md">
+          <li
+            *ngFor="let suggestion of placeSuggesiton"
+            (click)="selectSuggestion(suggestion)"
+            class="suggestion-item px-2 py-1 hover:bg-gray-200 cursor-pointer"
+          >
+            {{ suggestion }}
+          </li>
+        </ul>
+      </ng-container>
+    </div>
+  </div>
+
+       <div class="age-section flex flex-col w-full">
+    <label class="text-lg" style="color: #a4a7bf !important;font-size: 15px;">Age</label>
+    <div class="age-input-wrapper flex items-center gap-2 w-full">
+      <ng-container *ngIf="!isCompleteProfile">
+        <span class="whitespace-nowrap overflow-ellipsis overflow-hidden w-full">
+          {{ coachDetailsData?.dob ? calculateAge(coachDetailsData?.dob) + ' years old' : 'Not specified' }}
+        </span>
+      </ng-container>
+      <ng-container *ngIf="isCompleteProfile">
+        <input
+          type="date"
+          name="dob"
+          [placeholder]="coachDetailsData?.dob ? (coachDetailsData?.dob + ' years old') : ('Your age')"
+          class="px-2 py-2 border rounded-md flex-grow"
+          formControlName="dob"
+        />
+      </ng-container>
+    </div>
+  </div>
+
+       <div class="sex-section flex flex-col w-full">
+    <label class="text-lg" style="color: #a4a7bf !important;font-size: 15px;">Sex</label>
+    <div class="sex-input-wrapper flex items-center gap-2 w-full">
+      <ng-container *ngIf="!isCompleteProfile">
+        <span class="whitespace-nowrap overflow-ellipsis overflow-hidden w-full">
+          {{ coachDetailsData?.gender?.name || 'Not specified' }}
+        </span>
+      </ng-container>
+      <ng-container *ngIf="isCompleteProfile">
+        <select
+          formControlName="gender_id"
+          name="gender"
+          class="px-2 py-2 border rounded-md flex-grow"
+        >
+          <option *ngFor="let gender of genderList" [value]="gender.id">
+            {{ gender.name }}
+          </option>
+        </select>
+      </ng-container>
+    </div>
+  </div>
+
+</div>
+
+          <!--  <div class="location-input-wrapper flex flex-col gap-2 items-start"
+                 style="display: flex;flex-direction: row;justify-content: space-around"
+            >
+              <div class="flex gap-2 items-center">
+                <i class="fa-solid fa-location-dot text-[#0c5060]"></i>
+                <span *ngIf="!isCompleteProfile">{{ coachDetailsData?.location + '   ' }}</span>
+                <input
+                  type="text"
+                  name="city"
+                  placeholder="London"
+                  formControlName="location"
+                  *ngIf="isCompleteProfile"
+                  class="px-2 py-2 border rounded-md w-40"
+                  (input)="onFilterData($event, 'location')"
+                />
+                &lt;!&ndash; Suggestions Dropdown &ndash;&gt;
+              <ul *ngIf="placeSuggesiton.length > 0 && isCompleteProfile" class="suggestions-list w-40">
+                <li
+                  *ngFor="let suggestion of placeSuggesiton"
+                  (click)="selectSuggestion(suggestion)"
+                  class="suggestion-item"
+                >
+                  {{ suggestion }}
+                </li>
+              </ul>
+              </div>
+
+                 <input
+                   type="date"
+                   name="dob"
+                   [placeholder]="coachDetailsData?.dob ? (coachDetailsData?.dob + ' years old') : ('Your age')"
+                   *ngIf="isCompleteProfile"
+                   class="px-2 py-2 border rounded-md w-40"
+                   formControlName="dob"
+                 />
+              <span *ngIf="!isCompleteProfile && coachDetailsData?.dob" style="padding-left: 10px">
+                {{ calculateAge(coachDetailsData?.dob) }} years old {{ '   ' }}
+              </span>
+
+               <select
+                 formControlName="gender_id"
+                 name="gender"
+                 class="px-2 py-2 border rounded-md w-40"
+                 *ngIf="coachDetailsForm?.controls['gender_id'] && isCompleteProfile"
+               >
+                <option *ngFor="let gender of genderList" [value]="gender.id">
+                  {{ gender.name }}
+                </option>
+              </select>
+              <span *ngIf="!isCompleteProfile" style="padding-left: 10px">Male</span>
+
+                    </div>-->
+
+</span>
+
+            <!--    <span class="text-[#808080] flex gap-3 items-center max-sm:flex-col">
+                    <p class="flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot text-[#0c5060]"></i>
+                        <input type="text" name="city" placeholder="London" formControlName="location"
+                               *ngIf="isCompleteProfile" class="px-2 py-2 border rounded-md w-40">
+
+                      {{ !isCompleteProfile ? coachDetailsData?.location : null }}
+                    </p>
+                    <p>
+                        <input type="date" name="dob"
+                               [placeholder]="coachDetailsData?.dob ? (coachDetailsData?.dob + ' years old') : ('Your age')"
+                               *ngIf="isCompleteProfile"
+                               class="px-2 py-2 border rounded-md w-40"
+                               formControlName="dob"
+                        >
+                        <span
+                          *ngIf="!isCompleteProfile && coachDetailsData?.dob">{{ calculateAge(coachDetailsData?.dob) }}
+                          years old</span>
+                    </p>
+                    <p>
+                        <select formControlName="gender_id" name="gender" class="px-2 py-2 border rounded-md w-40"
+                                *ngIf="coachDetailsForm?.controls['gender_id'] && isCompleteProfile">
+                            <option *ngFor="let gender of genderList" value={{gender.id}}>{{ gender.name }}</option>
+                        </select>
+                        <span *ngIf="!isCompleteProfile">Male</span>
+                    </p>
+                </span>-->
+            <span class="flex gap-3 items-center">
+                    <button
+                      *ngIf="!canEditProfile"
+                      class="px-6 py-2 text-sm font-semibold bg-white text-[#4dacff] border-2 border-[#4dacff] rounded-lg">
+                        CONTACT MEMBER
+                    </button>
+              <!--<button class="px-6 py-2 text-sm font-semibold border rounded-lg selected">
+                  CONNECT
+              </button>-->
+              <!-- <button class="text-[#808080] text-4xl font-semibold"><i class="fa-solid fa-bars"></i></button>-->
+          <div class="dropdown-container" *ngIf="!canEditProfile">
+            <button class="text-[#808080] text-4xl font-semibold">
+               <i class="fa-solid fa-bars"></i>
+            </button>
+           <div class="dropdown-menu">
+             <button onclick="alert('Block Member')">Block</button>
+             <button onclick="alert('Report Member')">Report</button>
+           </div>
+           </div>
+         </span>
+          </div>
+
+          <!--  <div
+              class="text-[#808080] flex items-center justify-start gap-4 max-md:flex-col max-md:justify-center pt-2"
+              style="padding: 0 !important;"
+            >
+              <p class="font-semibold flex items-center gap-2"><i
+                class="fa-solid fa-graduation-cap text-[#436fe7]"></i>
+                <select name="school" formControlName="school_id"
+                        class="px-2 py-2 border rounded-md w-40 font-semibold"
+                        *ngIf="coachDetailsForm?.controls['school_id'] && isCompleteProfile">
+                  <option *ngFor="let school of schoolList" value={{school.id}}>{{ school?.name }}</option>
+                </select>
+                <span *ngIf="!isCompleteProfile">{{ coachDetailsData?.school?.name }}</span>
+              </p>
+              <p class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-[#436fe7]"></i>
+                <select name="university" *ngIf="coachDetailsForm?.controls['university_id'] && isCompleteProfile"
+                        formControlName="university_id" class="px-2 py-2 border rounded-md w-40 font-semibold">
+                  <option *ngFor="let uni of universityList" value={{uni.id}}>{{ uni.name }}</option>
+                </select>
+                <span *ngIf="!isCompleteProfile">{{ coachDetailsData?.university?.name }}</span>
+              </p>
+              <p class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-briefcase text-[#436fe7]"></i>
+                <select formControlName="company_id"
+                        *ngIf="coachDetailsForm?.controls['company_id'] && isCompleteProfile" name="company"
+                        class="px-2 py-2 border rounded-md w-40">
+                  <option *ngFor="let company of companyList" value={{company.id}}>{{ company.name }}</option>
+                </select>
+                <span *ngIf="!isCompleteProfile">{{ coachDetailsData?.company?.name }}</span>
+              </p>
+
+            </div>-->
+        </div>
+
+        <div class="col-span-full gap-10 flex flex-col pl-20 max-lg:px-0 text-[#0c5060]"
+             style="padding: 0 !important;"
+        >
+          <div>
+            <h2 class="font-bold" style="margin: 0 !important;padding: 0 !important;">About</h2>
+
+            <textarea type="text" name="about" formControlName="about_me" placeholder="Enter your information"
+                      class="p-4 border rounded-md w-full" rows="8"
+                      *ngIf="coachDetailsForm?.controls['about_me'] && isCompleteProfile"
+                      maxlength="250"
+            >
+                </textarea>
+            <p
+              style="margin: 0 !important;padding: 0 !important;color: #a4a7bf !important;"
+              *ngIf="!isCompleteProfile">{{ coachDetailsData?.about_me }}
+          </div>
+
+          <div class="credentials cardSection">
+            <div class="row text-center">
+              <div class="col-md-3" style="padding: 0 !important;">
+                <div class="verification-item" style="margin-left: 9px !important;">
+                  <i class="fas fa-check-circle"></i>
+                  <span style="font-size: 14px;">Insurance</span>
+                </div>
+              </div>
+              <div class="col-md-3" style="padding: 0 !important;">
+                <div class="verification-item">
+                  <i class="fas fa-check-circle"></i>
+                  <span style="font-size: 14px;">Background check verified</span>
+                </div>
+              </div>
+              <div class="col-md-3" style="padding: 0 !important;">
+                <div class="verification-item">
+                  <i class="fas fa-check-circle"></i>
+                  <span style="font-size: 14px;">DBS checked</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="credentials cardSection">
+              <div class="grid grid-cols-4 gap-2 max-sm:grid-cols-1 max-sm:justify-items-center">
+                <p class="flex gap-2 items-center col-span-1 font-semibold socialMediaGap">
+                  <i class="fa-solid fa-phone text-lg"></i>
+                  <input type="tel" name="telephone" placeholder="Telephone" class="px-2 py-2 border rounded-md w-44"
+                         [value]="extra?.contactsData?.contact_number1"
+                         id="contact_number1"
+                         *ngIf="isCompleteProfile">
+                  <span
+                    *ngIf="!isCompleteProfile">{{ extra?.contactsData?.contact_number1 ? '(' + extra?.contactsData?.contact_number1 + ')' : 'Telephone' }}</span>
+                </p>
+                <p class="flex gap-2 items-center col-span-1 font-semibold socialMediaGap">
+                  <i class="fa-solid fa-phone text-lg"></i>
+                  <input type="text" name="mobile" placeholder="Mobile Phone"
+                         class="px-2 py-2 border rounded-md w-44"
+                         id="contact_number2"
+                         [value]="extra?.contactsData?.contact_number2"
+                         *ngIf="isCompleteProfile">
+                  <span
+                    *ngIf="!isCompleteProfile">Mobile Phone {{ extra?.contactsData?.contact_number2 ? '(' + extra?.contactsData?.contact_number2 + ')' : '' }}</span>
+                </p>
+                <p class="flex gap-2 items-center col-span-1 font-semibold socialMediaGap">
+                  <i class="fa-brands fa-facebook-f text-lg"></i>
+                  <input type="text" name="social-1" placeholder="Social Media Link 1"
+                         id="facebook_link"
+                         [value]="extra?.contactsData?.facebook_link"
+                         class="px-2 py-2 border rounded-md w-44" *ngIf="isCompleteProfile">
+                  <span
+                    *ngIf="!isCompleteProfile">{{ extra?.contactsData?.facebook_link ? '(' + extra?.contactsData?.facebook_link + ')' : 'Social Media Link 1' }}</span>
+                </p>
+                <p class="flex gap-2 items-center col-span-1 font-semibold socialMediaGap">
+                  <i class="fa-brands fa-facebook-f text-lg"></i>
+                  <input type="text" name="social-2" placeholder="Social Media Link 2"
+                         id="instagram_link"
+                         [value]="extra?.contactsData?.instagram_link"
+                         class="px-2 py-2 border rounded-md w-44" *ngIf="isCompleteProfile">
+                  <span
+                    *ngIf="!isCompleteProfile">{{ extra?.contactsData?.instagram_link ? '(' + extra?.contactsData?.instagram_link + ')' : 'Instagram Link' }}</span>
+                </p>
+                <p class="flex gap-2 items-center col-span-1 font-semibold">
+                  <i class="fa-solid fa-envelope text-lg"></i>
+                  <input type="email" name="email" placeholder="Email Address"
+                         [value]="extra?.contactsData?.email"
+                         id="contactEmail"
+                         class="px-2 py-2 border rounded-md w-44" *ngIf="isCompleteProfile">
+                  <span
+                    *ngIf="!isCompleteProfile">{{ extra?.contactsData?.email ? '(' + extra?.contactsData?.email + ')' : 'Email Address' }}</span>
+                </p>
+                <p class="flex gap-2 items-center col-span-1 font-semibold">
+                  <i class="fa-solid fa-globe text-lg"></i>
+                  <input type="text" name="website" placeholder="Website" class="px-2 py-2 border rounded-md w-44"
+                         [value]="extra?.contactsData?.website_link1"
+                         id="website_link1"
+                         *ngIf="isCompleteProfile">
+                  <span
+                    *ngIf="!isCompleteProfile">{{ extra?.contactsData?.website_link1 ? extra?.contactsData?.website_link1 : 'Websites' }}</span>
+                </p>
+                <p class="flex gap-2 items-center col-span-1 font-semibold">
+                  <i class="fa-brands fa-instagram text-lg"></i>
+                  <input type="text" name="social-3" placeholder="Social Media Link 3"
+                         id="website_link2"
+                         [value]="extra?.contactsData?.website_link2"
+                         class="px-2 py-2 border rounded-md w-44" *ngIf="isCompleteProfile">
+                  <span
+                    *ngIf="!isCompleteProfile">{{ extra?.contactsData?.website_link2 ? '(' + extra?.contactsData?.website_link2 + ')' : 'Social Media Link 3' }}</span>
+                </p>
+                <p class="flex gap-2 items-center col-span-1 font-semibold">
+                  <i class="fa-brands fa-instagram text-lg"></i>
+                  <input type="text" name="social-4" placeholder="Social Media Link 4"
+                         [value]="extra?.contactsData?.website_link3"
+                         id="website_link3"
+                         class="px-2 py-2 border rounded-md w-44" *ngIf="isCompleteProfile">
+                  <span
+                    *ngIf="!isCompleteProfile">{{ extra?.contactsData?.website_link3 ? '(' + extra?.contactsData?.website_link3 + ')' : 'Social Media Link 4' }}</span>
+                </p>
+              </div>
+          </div>
+
+          <div class="credentials cardSection">
+
+            <div class="d-flex flex-row align-items-center">
+              <h2 class="cardHead mb-0">Credentials & Experience</h2>
+              <div
+                class="selected sel2"
+                (click)="openCenteredModal(content, 'credentials')"
+              >
+                <i class="fa-solid fa-plus"
+                   style="color: white;font-size: 14px"
+                ></i>
+              </div>
+           <!--   <button class="font-semibold text-lg px-2 selected rounded-full"
+                      style="height: 25px;margin-left: 5px;width: 25px;"
+                      *ngIf="canEditProfile"
+                      (click)="openCenteredModal(content, 'credentials')"
+              >+
+              </button>-->
+            </div>
+            <!--  <div class="d-flex flex-row">
+
+                <h2 class="cardHead">Credentials & Experience</h2>
+                <button class="font-semibold text-lg px-2 selected rounded-full"
+                        style="height: 25px;margin-left: 5px;width: 25px;margin-top: 8px"
+                        *ngIf="canEditProfile"
+                        (click)="openCenteredModal(content, 'credentials')"
+                >+
+                </button>
+              </div>-->
+            <!-- <div class="row" *ngIf="extra?.credentialList && extra?.credentialList[extra?.credentialList?.length - 1]">
+               <div class="col-md-4">
+                 <h5 class="cardSub">Credentials</h5>
+                 <p style="text-align: justify;font-size: 14px;">
+                   {{ extra?.credentialList[extra?.credentialList?.length - 1]?.credentials }}
+                 </p>
+               </div>
+               <div class="col-md-4">
+                 <h5 class="cardSub">Specialities</h5>
+                 <p style="text-align: justify;font-size: 14px;"
+                    *ngFor="let speciality of extra?.credentialList[extra?.credentialList?.length - 1]?.credential_speciality_relations"
+                 >{{ speciality?.speciality?.name }}</p>
+               </div>
+               <div class="col-md-4">
+                 <h5 class="cardSub">Coaching Locations</h5>
+                 <p style="    text-align: justify;
+     font-size: 14px;">{{ extra?.credentialList[extra?.credentialList?.length - 1]?.location }}</p>
+                 <p
+                   *ngFor="let club of extra?.credentialList[extra?.credentialList?.length - 1]?.credential_club_list_relations"
+                 ><a class="cardLinks">{{ club?.club_list?.name }}</a></p>
+               </div>
+             </div>-->
+            <table class="table table-borderless accreditation-table">
+              <thead>
+              <tr>
+                <th class="cardLinks">Credentials</th>
+                <th class="cardLinks">Specialities</th>
+                <th class="cardLinks">Coaching Locations</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngIf="extra?.credentialList && extra?.credentialList[extra?.credentialList?.length - 1]">
+                <td class="tabled">{{ extra?.credentialList[extra?.credentialList?.length - 1]?.credentials }}</td>
+                <td class="tabled"
+                    *ngFor="let speciality of extra?.credentialList[extra?.credentialList?.length - 1]?.credential_speciality_relations"
+                >
+                  {{ speciality?.speciality?.name }}
+                </td>
+                <td class="tabled"
+                    *ngFor="let club of extra?.credentialList[extra?.credentialList?.length - 1]?.credential_club_list_relations"
+                >
+                  {{ club?.club_list?.name }}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Professional Accreditations Section -->
+          <div class="accreditations cardSection">
+            <div class="d-flex flex-row align-items-center">
+              <h2 class="cardHead mb-0">Professional Accreditations</h2>
+              <div
+                class="selected sel2"
+                (click)="openCenteredModal(content, 'accreditations')"
+              >
+                <i class="fa-solid fa-plus"
+                   style="color: white;font-size: 14px"
+                ></i>
+              </div>
+             <!-- <button class="font-semibold text-lg px-2 selected rounded-full"
+                      style="height: 25px;margin-left: 5px;width: 25px;"
+                      *ngIf="canEditProfile"
+                      (click)="openCenteredModal(content, 'accreditations')"
+              >+
+              </button>-->
+            </div>
+            <table class="table table-borderless accreditation-table">
+              <thead>
+              <tr>
+                <th class="cardLinks">Accreditation Name</th>
+                <th class="cardLinks">Certification Number</th>
+                <th class="cardLinks">Qualification Date</th>
+                <th class="cardLinks">Expiry Date</th>
+                <th class="cardLinks">Verified</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let accreditation of extra?.accreditationList">
+                <td class="tabled">{{ accreditation?.name }}</td>
+                <td class="tabled">{{ accreditation?.certification_number }}</td>
+                <td class="tabled">{{ accreditation?.qualification_date }}</td>
+                <td class="tabled">{{ accreditation?.expiry_date }}</td>
+                <td class="verified tabled"><i *ngIf="accreditation?.verification_status"
+                                               class="fas fa-check-circle"></i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Services Section -->
+          <div class="services cardSection">
+            <div class="d-flex flex-row align-items-center">
+              <h2 class="cardHead mb-0">Services</h2>
+              <div
+                class="selected sel2"
+                (click)="openCenteredModal(content, 'services')"
+              >
+                <i class="fa-solid fa-plus"
+                   style="color: white;font-size: 14px"
+                ></i>
+               <!-- <button class="font-semibold text-lg px-2 rounded-full"
+
+                        *ngIf="canEditProfile"
+                        (click)="openCenteredModal(content, 'services')"
+                >+
+                </button>-->
+              </div>
+            </div>
+            <div class="row"
+                 *ngIf="onGetService()"
+            >
+              <div class="col-md-3">
+                <h5 class="cardLinks">Ages</h5>
+                <ng-container *ngFor="let age of onGetService('coach_service_age_relations')">
+                  <div class="form-check">
+                    <input class="form-check-input boxCheck" type="checkbox" checked
+                    >
+                    <label class="form-check-label">
+                      <span class="tabled">{{ age?.service_age?.name }}</span><br>
+                    </label>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="col-md-3">
+                <h5 class="cardLinks">Sex</h5>
+                <ng-container *ngFor="let gender of onGetService('coach_service_gender_relations')">
+                  <div class="form-check">
+                    <input class="form-check-input boxCheck" type="checkbox" checked
+
+                    >
+                    <label class="form-check-label">
+                      <span class="tabled">{{ gender?.gender?.name }}</span><br>
+                    </label>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="col-md-3">
+                <h5 class="cardLinks">Coaching Type</h5>
+                <ng-container *ngFor="let coaching_type of onGetService('coach_service_coaching_type_relations')">
+                  <div class="form-check">
+                    <input class="form-check-input boxCheck" type="checkbox" checked
+
+                    >
+                    <label class="form-check-label">
+                      <span class="tabled">{{ coaching_type?.coaching_type?.name }}</span><br>
+                    </label>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="col-md-3">
+                <h5 class="cardLinks">Special Aid</h5>
+                <ng-container *ngFor="let special_aid of onGetService('coach_service_special_aid_relations')">
+                  <div class="form-check">
+                    <input class="form-check-input boxCheck" type="checkbox" checked
+
+                    >
+                    <label class="form-check-label">
+                      <span class="tabled">{{ special_aid?.special_aid?.name }}</span><br>
+                    </label>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+
+          <div class="services cardSection">
+            <div class="d-flex flex-row align-items-center">
+              <h2 class="cardHead mb-0">Coaching Session</h2>
+              <button class="font-semibold text-lg px-2 selected rounded-full"
+                      style="height: 25px;margin-left: 5px;width: 25px;"
+                      *ngIf="canEditProfile"
+                      (click)="openCenteredModal(content, 'coaching_session')"
+              >+
+              </button>
+            </div>
+            <table class="styled-table">
+              <thead>
+              <tr>
+                <th>Coaching Type</th>
+                <th>Ages</th>
+                <th>Genders</th>
+                <th>Places</th>
+                <!--<th>Skill Level</th>-->
+                <th>Session Time</th>
+                <th style="text-align:center;" colspan="3">Prices</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="sessions-table"
+                  *ngFor="let session of extra?.coachingSessionList"
+              >
+                <td>1 on 1<br><small>Anywhere</small></td>
+                <td>{{ session?.coach_service_age?.name }}</td>
+                <td>{{ session?.gender?.name }}</td>
+                <td>{{ session?.available_places ? (session?.available_places?.trim()) : '' }}</td>
+                <!--<td>{{ session?.ability?.name }}</td>-->
+                <td>{{ session?.session_time }}</td>
+                <td colspan="3" class="price"
+                    style="margin-top: 6px"
+                >
+                  <button class="font-semibold text-lg px-2 selected rounded-full"
+                          style="height: 25px;margin-left: 5px;width: 25px;"
+                          *ngIf="(!session?.packages || !session?.packages?.data || session?.packages?.data?.length < 1) && canEditProfile"
+                          (click)="openCenteredModal(content, 'coaching_session_package', session?.id)"
+                  >+
+                  </button>
+                  <ng-container *ngIf="session?.packages">
+                    <p class="price-link" *ngFor="let prices of session?.packages?.data">{{ '$' + prices?.price }} /
+                      session</p>
+                  </ng-container>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="services cardSection">
+            <div class="d-flex flex-row align-items-center">
+              <h2 class="cardHead mb-0">Review</h2>
+              <button class="font-semibold text-lg px-2 selected rounded-full"
+                      style="height: 25px;margin-left: 5px;width: 25px;"
+                      *ngIf="canEditProfile"
+                      (click)="openCenteredModal(content, 'coaching_session')"
+              >+
+              </button>
+            </div>
+            <p *ngIf="!extra?.reviews || extra?.reviews?.length < 1">No review found</p>
+            <div class="flex gap-4 items-center max-md:flex-col max-md:justify-center"
+                 *ngFor="let review of extra.reviews"
+            >
+              <div class="rounded-full overflow-hidden aspect-square">
+                <img src="/assets/Di. PARTNERS LOGOS IMAGES/JORDAN_REYNOLDS_PROFILE_PIC.png" alt=""
+                     class="h-48 w-48"
+                     style="width: 75px !important;height: 75px !important;"
+                >
+              </div>
+              <div
+                class="flex flex-col justify-start text-start gap-0 pr-32 max-md:pr-0 max-md:justify-center max-md:items-center">
+                <span class="font-semibold">{{ review?.title }}</span>
+                <span>
+            {{ review?.review }}
+          </span>
+                <span class="font-semibold">24-04-204</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="services cardSection">
+            <div class="d-flex flex-row align-items-center mb-2">
+              <h2 class="cardHead mb-0">Faqs</h2>
+              <button class="font-semibold text-lg px-2 selected rounded-full"
+                      style="height: 25px;margin-left: 5px;width: 25px;"
+                      *ngIf="canEditProfile"
+                      (click)="openCenteredModal(content, 'faqs')"
+              >+
+              </button>
+            </div>
+            <div class="faq-item"
+                 *ngFor="let faq of extra?.faqList"
+                 (click)="onSetActiveAccordian($event)"
+            >
+              <div class="faq-title">
+                {{ faq?.title }}
+                <i>+</i>
+              </div>
+              <div class="faq-content">
+                {{ faq?.description }}
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="col-span-full flex flex-col pl-20 max-lg:px-0 text-[#0c5060] gap-6 w-[800px] max-lg:w-full"
+             style="padding: 0 !important;"
+        >
+          <div class="flex items-center gap-2">
+            <h2 class="font-bold mb-0">Coaching Videos & Images</h2>
+            <button class="font-semibold text-lg px-2 selected rounded-full"
+                    style="width: 25px;height: 25px;margin-left: 5px;"
+                    *ngIf="canEditProfile"
+                    (click)="openCenteredModal(content, 'highlights')"
+            >+
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-8">
+            <ng-container *ngIf="extra?.gallery && extra?.gallery[extra?.gallery?.length - 1]">
+              <div class="row">
+                <div
+                  *ngFor="let photo of extra?.gallery[extra?.gallery?.length - 1]?.media?.slice(0, 7); let i = index"
+                  class="image-container col4Height mb-2"
+                  [class.col-3]="i !== 4"
+                  [class.col-6]="i === 4"
+                >
+                  <img [src]="photo?.original_url"
+                       style="border-radius: 10px"
+                       class="img-fluid" alt="Sport 1">
+                </div>
+                <!--<div class="col-4 image-container">
+                  <img src="https://via.placeholder.com/300x400.png?text=Sport+2" class="img-fluid" alt="Sport 2">
+                </div>
+                <div class="col-4 image-container">
+                  <img src="https://via.placeholder.com/300x400.png?text=Sport+3" class="img-fluid" alt="Sport 3">
+                </div>
+                <div class="col-8 image-container">
+                  <img src="https://via.placeholder.com/1200x400.png?text=Sport+4" class="img-fluid" alt="Sport 4">
+                </div>
+                <div class="col-4 image-container">
+                  <img src="https://via.placeholder.com/300x400.png?text=Sport+3" class="img-fluid" alt="Sport 3">
+                </div>-->
+              </div>
+              <!--  <div class="grid grid-cols-3 gap-2" *ngFor="let photo of groupArrayIntoSubarrays(extra?.gallery[extra?.gallery?.length - 1]?.media?.slice(0, 5), 5)">
+
+                <div class="col-span-1 rounded-lg overflow-hidden" *ngIf="photo && photo[0]">
+                   <img [src]="photo[0]?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+                 </div>
+                 <div class="col-span-1 rounded-lg overflow-hidden" *ngIf="photo && photo[1]">
+                   <img [src]="photo[1]?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+                 </div>
+                 <div class="col-span-1 rounded-lg overflow-hidden" *ngIf="photo && photo[2]">
+                   <img [src]="photo[2]?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+                 </div>
+                 <div class="col-span-2 rounded-lg overflow-hidden" *ngIf="photo && photo[3]">
+                   <img [src]="photo[3]?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+                 </div>
+                 <div class="col-span-1 rounded-lg overflow-hidden" *ngIf="photo && photo[4]">
+                   <img [src]="photo[4]?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+                 </div>
+               </div>-->
+            </ng-container>
+          </div>
+        </div>
+
+        <!--<div class="grid grid-cols-3 gap-2 " *ngIf="extra?.gallery && extra?.gallery?.length">
+          <div class="col-span-1 rounded-lg overflow-hidden"
+               *ngFor="let photo of extra?.gallery[extra?.gallery?.length - 1]?.media"
+          >
+            <img [src]="photo?.original_url" alt="" class="h-48 max-sm:h-24 w-full">
+          </div>
+        </div>-->
+
+
+        <div class="col-span-full flex flex-col pl-20 max-lg:px-0 text-[#0c5060] gap-6 w-[800px] max-lg:w-full"
+             style="padding: 0 !important;"
+        >
+          <div class="flex items-center gap-2">
+            <h2 class="font-bold mb-0">Coach Sponsers</h2>
+            <button class="font-semibold text-lg px-2 selected rounded-full"
+                    *ngIf="canEditProfile"
+                    style="margin-left: 5px;width: 25px;height: 25px;"
+                    (click)="openCenteredModal(content, 'brand')"
+            >
+              +
+            </button>
+          </div>
+
+          <div class="row">
+
+            <ng-container *ngFor="let brand of extra?.brandList">
+              <div class="gap-2 align-items-center col-3" *ngIf="brand">
+                <div class="position-relative d-flex flex-row">
+                  <img
+                    [src]="brand?.brand_image"
+                    alt=""
+                    class="h-48 max-sm:h-24 w-full"
+                  />
+                  <button
+                    class="btn btn-link text-danger position-absolute top-0 end-0 me-2 mt-2 d-none delete-btn"
+                    (click)="onDeleteData('brand', { id: brand?.id })"
+                  >
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+
+          <!--<div
+            class="grid grid-cols-4 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:items-center max-sm:justify-center">
+            <div class="col-span-1 rounded-lg overflow-hidden flex justify-center w-full"
+                 *ngFor="let brand of extra?.brandList"
+            >
+              <img [src]="brand?.brand_image" alt=""
+                   class="h-48 rounded-lg">
+            </div>
+          </div>-->
+        </div>
+      </form>
+    </div>
+    <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12">
+      <div *ngIf="!canEditProfile" class="booking-form">
+        <h5 style="color: #0c5060;">Which session you prefer?</h5>
+
+        <!-- Date Picker -->
+        <label class="form-label mt-3" style="color: #0c5060;font-weight: 600;font-size: 14px;">Pick a date (if
+          applicable)</label>
+        <div class="input-group mb-3 px-4" style="background: linear-gradient(
+      180deg,
+      #f45683 0.00%,
+      #f55f7b 17.82%,
+      #fda543 78.32%,
+      #ffb636 100.00%);justify-content: center;border-radius: 25px;height: 30px;align-items: center;gap: 10px;width: fit-content;">
+
+          <i class="icon-calendar fas fa-calendar-alt"></i>
+
+          <p style="margin-bottom: 0;font-size: 14px;color: white">12-12-2021</p>
+        </div>
+
+        <!-- Coaching Session Type -->
+        <label style="color: #0c5060;font-weight: 600;font-size: 14px;" class="form-label">Coaching Session Type</label>
+        <select class="form-select mb-3" style="color: #ff715b;">
+          <option selected>1 on 1</option>
+        </select>
+
+        <!-- Number of Sessions -->
+        <label style="color: #0c5060;font-weight: 600;font-size: 14px;" class="form-label">Number of Sessions</label>
+        <select class="form-select mb-3" style="color: #ff715b;">
+          <option selected>1 session</option>
+        </select>
+
+        <!-- Pricing Breakdown -->
+        <div class="d-flex justify-content-between">
+          <span style="color: #0c5060;font-weight: 600;font-size: 14px;">Cost of Session</span>
+          <span class="pricing-info">$160.00</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span style="color: #0c5060;font-weight: 600;font-size: 14px;">Sales Taxes</span>
+          <span class="pricing-info">$32.00</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span style="color: #0c5060;font-weight: 600;font-size: 14px;">Booking Fee</span>
+          <span class="pricing-info">$19.20</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span style="color: #0c5060;font-weight: 600;font-size: 14px;">Total Cost</span>
+          <span class="total-info">$211.20</span>
+        </div>
+
+        <!-- Guest Information -->
+        <h5 class="mt-4" style="color: #0c5060;">Continue as a guest</h5>
+        <input type="text" class="form-control mb-3" placeholder="Your Name">
+        <input type="email" class="form-control mb-3" placeholder="Your Email">
+        <input type="text" class="form-control mb-3" placeholder="Phone">
+
+        <!-- Book Coaching Button -->
+        <button class="btn btn-primaryy">Book Coaching</button>
+
+        <!-- Sign Up or Login -->
+        <a href="#" class="btn-secondaryy" style="    width: 100%;
+    display: block;
+    margin-top: 10px;
+    text-decoration: unset;
+    color: #ff715b;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;">Sign Up or Login</a>
+      </div>
+      <div class="client-list">
+        <h5 class="mb-4" style="color: #0c5060;">Recent Clients</h5>
+        <!-- Client Item -->
+        <div class="d-flex align-items-center mb-3">
+          <img src="/assets/WEBSITE%20-%20EVENTS%20PAGE/39sunkhvpw341@2x.png" class="client-image mr-3"
+               alt="Client Image">
+          <div>
+            <p class="client-name mb-0">Amy Johnson</p>
+            <p class="client-location mb-0">Location</p>
+          </div>
+        </div>
+        <!-- Repeat the same structure for each client -->
+        <div class="d-flex align-items-center mb-3">
+          <img src="/assets/WEBSITE%20-%20EVENTS%20PAGE/39sunkhvpw341@2x.png" class="client-image mr-3"
+               alt="Client Image">
+          <div>
+            <p class="client-name mb-0">Amy Johnson</p>
+            <p class="client-location mb-0">Location</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center mb-3">
+          <img src="/assets/WEBSITE%20-%20EVENTS%20PAGE/39sunkhvpw341@2x.png" class="client-image mr-3"
+               alt="Client Image">
+          <div>
+            <p class="client-name mb-0">Amy Johnson</p>
+            <p class="client-location mb-0">Location</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center mb-3">
+          <img src="/assets/WEBSITE%20-%20EVENTS%20PAGE/39sunkhvpw341@2x.png" class="client-image mr-3"
+               alt="Client Image">
+          <div>
+            <p class="client-name mb-0">Amy Johnson</p>
+            <p class="client-location mb-0">Location</p>
+          </div>
+        </div>
+      </div>
+      <app-featured></app-featured>
+    </div>
+  </div>
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header headerModal">
+      <h4 class="modal-title" style="color: white">
+        {{ extra?.mode === 'add-review' ? 'Add Review' : 'Add Detail' }}
+      </h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="col-12 column">
+          <ng-container *ngIf="
+          extra.mode === 'accreditations' ||
+          extra.mode === 'highlights' ||
+          extra.mode === 'brand' ||
+          extra.mode === 'credentials' ||
+          extra.mode === 'coaching_session' ||
+          extra.mode === 'faqs' ||
+          extra.mode === 'coaching_session_package'
+">
+            <div class="form-group" *ngFor="let field of extra.fieldsToRender; let i = index">
+
+              <ng-container *ngIf="
+              field?.type !== 'coach_service_age_ids' &&
+              field?.type !== 'gender_ids' &&
+              field?.type !== 'coach_service_coaching_type_ids' &&
+              field?.type !== 'ability_ids' &&
+              field?.type !== 'club_list_id' &&
+              field?.type !== 'coaching_session_package_types'
+">
+                <!-- Label -->
+                <label class="font-medium">{{ field?.label + ' ' + field?.type }}</label>
+
+                <!-- Standard Input -->
+                <input
+                  *ngIf="!field?.textarea &&
+                 field?.type !== 'checkbox' && field?.type !== 'rating-picker' &&
+                  field?.type !== 'location'
+"
+                  [type]="field?.type || 'text'"
+                  class="form-control Invalid font-medium w-full"
+                  [id]="field?.key + i"
+                  [name]="field?.key + i"
+                  (change)="onImagePick($event, field, field?.multiple)"
+                  [required]="field?.required"
+                  [(ngModel)]="extra[field?.key]"
+                  placeholder="Enter your {{ field?.label }}"
+                  [accept]="field?.accept"
+                  [multiple]="field?.multiple"
+                />
+
+                <ng-container *ngIf="field?.type === 'location'">
+                  <input
+                    [type]="field?.type || 'text'"
+                    [id]="field?.key + i"
+                    placeholder="Enter your {{ field?.label }}"
+                    [name]="field?.key + i"
+                    [(ngModel)]="extra[field?.key]"
+                    class="form-control Invalid font-medium w-full"
+                    (input)="onFilterData($event, 'location')"
+                  />
+                  <ul *ngIf="placeSuggesiton.length > 0"
+                      style="margin: 0 !important;position: unset !important;"
+                      class="suggestions-list w-full">
+                    <li
+                      *ngFor="let suggestion of placeSuggesiton"
+                      (click)="extra[field?.key] = suggestion;placeSuggesiton = []"
+                      class="suggestion-item"
+                    >
+                      {{ suggestion }}
+                    </li>
+                  </ul>
+                </ng-container>
+
+                <textarea
+                  *ngIf="field?.textarea"
+                  class="form-control Invalid font-medium w-full mt-2"
+                  rows="4"
+                  [id]="field?.key + i"
+                  [name]="field?.key + i"
+                  [required]="field?.required"
+                  [(ngModel)]="extra[field?.key]"
+                  placeholder="Enter your {{ field?.label }}"
+                ></textarea>
+
+                <!-- Checkbox Input -->
+                <div *ngIf="field?.type === 'checkbox'" class="form-check mt-3">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    [id]="field?.key + i"
+                    [name]="field?.key + i"
+                    [(ngModel)]="extra[field?.key]"
+                    [required]="field?.required"
+                  />
+                  <label class="form-check-label font-medium" [for]="field?.key + i">
+                    {{ field?.label }}
+                  </label>
+                </div>
+
+                <div
+                  *ngIf="field?.type === 'rating-picker'"
+                  class="rating-container d-flex justify-content-center align-items-center"
+                >
+                  <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                    <svg
+                      (click)="extra[field?.key] = (i + 1)"
+                      style="cursor: pointer; width: 24px; height: 24px; margin: 0 5px;"
+                      [attr.fill]="i < extra[field?.key] ? 'gold' : 'none'"
+                      stroke="gold"
+                      stroke-width="2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                    >
+                      <polygon
+                        points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"
+                      ></polygon>
+                    </svg>
+                  </ng-container>
+                  <!--<p class="text-center">Selected Rating: {{ (extra[field?.key] || 0) }} / 5</p>-->
+                </div>
+              </ng-container>
+
+            </div>
+
+          </ng-container>
+          <div class="form-group" *ngIf="extra.mode === 'credentials'">
+            <label class="font-medium">Select your Speciality</label>
+            <select class="form-control Invalid font-medium w-full" id="speciality_ids" name="speciality_ids"
+                    required
+                    [(ngModel)]="extra['speciality_ids']"
+            >
+              <option value="" class="font-medium">Select Your Speciality</option>
+              <option *ngFor="let speciality of extra.specialityList" [value]="speciality.id" class="font-medium">
+                {{ speciality.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="extra.mode === 'credentials' || extra.mode === 'coaching_session'">
+            <label class="font-medium">Select your Club</label>
+            <select class="form-control Invalid font-medium w-full" id="club_ids" name="club_ids"
+                    required
+                    [(ngModel)]="extra['clubList_ids']"
+            >
+              <option value="" class="font-medium">Select Your Club</option>
+              <option *ngFor="let club of extra.clubList?.data" [value]="club.id" class="font-medium">
+                {{ club.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="
+          extra.mode === 'services' || extra.mode === 'coaching_session'">
+            <label class="font-medium">Choose ages</label>
+            <select
+              *ngIf="extra.mode === 'coaching_session'"
+              class="form-control Invalid font-medium w-full" id="age_ids" name="age_ids"
+              required
+              [(ngModel)]="extra['coach_service_age_id']"
+            >
+              <option value="" class="font-medium">Select Age</option>
+              <option *ngFor="let age of extra.coachingAgeList" [value]="age.id" class="font-medium">
+                {{ age.name }}
+              </option>
+            </select>
+            <ng-container *ngIf="extra.mode === 'services'">
+              <div *ngFor="let age of extra?.coachingAgeList" class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [id]="age.id"
+                  [value]="age.id"
+                  (change)="onCheckboxChange(age.id, $event, 'coach_service_age_ids')"
+                  [checked]="extra['coach_service_age_ids']?.includes(age.id)"
+                />
+                <label class="form-check-label" [for]="age.id">
+                  {{ age.name }}
+                </label>
+              </div>
+            </ng-container>
+          </div>
+          <div class="form-group" *ngIf="
+          extra.mode === 'services' || extra.mode === 'coaching_session'">
+            <label class="font-medium">Choose genders</label>
+            <select
+              *ngIf="extra.mode === 'coaching_session'"
+              class="form-control Invalid font-medium w-full" id="genderids" name="genderids"
+              required
+              [(ngModel)]="extra['gender_id']"
+            >
+              <option value="" class="font-medium">Select Gender</option>
+              <option *ngFor="let gender of extra.coachingGenderList" [value]="gender.id" class="font-medium">
+                {{ gender.name }}
+              </option>
+            </select>
+            <ng-container *ngIf="extra.mode === 'services'">
+              <div *ngFor="let gender of extra?.coachingGenderList" class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [id]="gender.id"
+                  [value]="gender.id"
+                  (change)="onCheckboxChange(gender.id, $event, 'gender_ids')"
+                  [checked]="extra['gender_ids']?.includes(gender.id)"
+                />
+                <label class="form-check-label" [for]="gender.id">
+                  {{ gender.name }}
+                </label>
+              </div>
+            </ng-container>
+          </div>
+          <div class="form-group" *ngIf="
+          extra.mode === 'services' || extra.mode === 'coaching_session'">
+            <label class="font-medium">Choose coaching types</label>
+            <select
+              *ngIf="extra.mode === 'coaching_session'"
+              class="form-control Invalid font-medium w-full" id="coachingTypes" name="coachingTypes"
+              required
+              [(ngModel)]="extra['coach_service_coaching_type_id']"
+            >
+              <option value="" class="font-medium">Select Coaching Type</option>
+              <option *ngFor="let coachingType of extra.coachingTypeList" [value]="coachingType.id" class="font-medium">
+                {{ coachingType.name }}
+              </option>
+            </select>
+            <ng-container
+              *ngIf="extra.mode === 'services'"
+            >
+              <div *ngFor="let coachingType of extra?.coachingTypeList" class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [id]="coachingType.id"
+                  [value]="coachingType.id"
+                  (change)="onCheckboxChange(coachingType.id, $event, 'coach_service_coaching_type_ids')"
+                  [checked]="extra['coach_service_coaching_type_ids']?.includes(coachingType.id)"
+                />
+                <label class="form-check-label" [for]="coachingType.id">
+                  {{ coachingType.name }}
+                </label>
+              </div>
+            </ng-container>
+          </div>
+          <div class="form-group" *ngIf="
+          extra.mode === 'coaching_session'">
+            <label class="font-medium">Choose Ability</label>
+            <select
+              class="form-control Invalid font-medium w-full" id="ability_ids" name="ability_ids"
+              required
+              [(ngModel)]="extra['ability_id']"
+            >
+              <option value="" class="font-medium">Select Ability</option>
+              <option *ngFor="let ability of extra.abilityLists" [value]="ability.id" class="font-medium">
+                {{ ability.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="
+          extra.mode === 'coaching_session_package'">
+            <label class="font-medium">Choose Package Type</label>
+            <select
+              class="form-control Invalid font-medium w-full" id="packageTypeids" name="coaching_session_package"
+              required
+              [(ngModel)]="extra['coaching_session_package_type_id']"
+            >
+              <option value="" class="font-medium">Select Package Type</option>
+              <option *ngFor="let packageType of extra.sessionPackageTypeList" [value]="packageType.id"
+                      class="font-medium">
+                {{ packageType.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="
+          extra.mode === 'services'">
+            <label class="font-medium">Choose between service special aid</label>
+            <div *ngFor="let specialAid of extra?.coachingSpecialAid" class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [id]="specialAid.id"
+                [value]="specialAid.id"
+                (change)="onCheckboxChange(specialAid.id, $event, 'coach_service_special_aid_ids')"
+                [checked]="extra['coach_service_special_aid_ids']?.includes(specialAid.id)"
+              />
+              <label class="form-check-label" [for]="specialAid.id">
+                {{ specialAid.name }}
+              </label>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 column">
+            <div class="form-group message-btn"
+                 style="margin-top: 10px; display: flex; justify-content: center; align-items: center;"
+            >
+              <button (click)="onSaveData()"
+                      [disabled]="extra.loading"
+                      class="text-center text-[#fff] transition-colors bg-[#ff7c5b] hover:bg-[#061a3a] rounded-md w-fit py-2 px-10 text-[17px] font-semibold">
+                <div
+                  *ngIf="extra.loading"
+                  class="spinner-border text-light" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <span *ngIf="!extra?.loading">Save</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" id="closeModal" class="btn btn-secondary headerModal" (click)="modal.close('Close click')">
+        Close
+      </button>
+    </div>
+  </ng-template>
+
+</div>
+
+
+<app-footer></app-footer>

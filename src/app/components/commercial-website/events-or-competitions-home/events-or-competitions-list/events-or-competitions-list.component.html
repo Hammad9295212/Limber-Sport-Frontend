@@ -1,0 +1,1410 @@
+<app-header></app-header>
+<div class="font-sans main-div flex flex-col items-center">
+  <div class="col-12 hero-section flex justify-center items-center bg-black bg-opacity-50">
+    <div class="mt-16 flex flex-col justify-center items-center text-center text-[#fff] max-w-[1200px] h-full">
+      <h1 class="font-black text-[50px] leading-10 max-sm:text-4xl">Find an event and competition to enter </h1>
+      <h2 class="font-medium text-lg max-sm:text-base">CHOOSE FROM OVER 30,000 EVENTS AND COMPETITIONS TO ENTER
+        AND MAKE NEW FRIENDS THROUGH SPORT AND PHYSICAL ACTIVITY</h2>
+    </div>
+  </div>
+  <div
+    class="grid grid-cols-12 max-md:grid-cols-9 max-sm:grid-cols-6 items-start justify-between py-10 gap-2 max-w-[1200px] text-[#0c5060] px-4 relative">
+    <div class="col-span-full grid grid-cols-12 justify-center items-center mb-6">
+      <div class="col-start-3 col-end-10 max-lg:col-span-full justify-between">
+        <div class="flex items-center justify-between px-2">
+          <h4>Showing 1 - 20 Results</h4><span class="flex items-center justify-center gap-2"><select name="sort"
+              id="sort" class="pl-2 h-10 pr-4 rounded-md border-2 border-[#0c5060] font-semibold">
+              <option>Sort by</option>
+              <option value="location">Location </option>
+              <option value="rating">Rating </option>
+            </select>
+            <button class="bg-inherit border-2 border-[#0c5060] px-3 rounded-md h-10"
+              [ngClass]="{'selected':isEventsList}" (click)="handleEventsView('List')"><i
+                class="fa-solid fa-bars"></i></button>
+            <button class="bg-inherit border-2 border-[#0c5060] px-3 rounded-md h-10"
+              [ngClass]="{'selected':isEventsCard}" (click)="handleEventsView('Card')"><i
+                class="fa-brands fa-windows"></i></button></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-2 max-lg:col-span-3 flex flex-col justify-center items-center gap-8 max-md:hidden">
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Looking for</h4><label for="looking_for" class="flex gap-2 text-sm"><input
+            type="checkbox" name="looking_for" id="looking_for-input" value="players">Players</label><label
+          for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for" id="looking_for-input"
+            value="coaches">Coaches</label><label for="looking_for" class="flex gap-2 text-sm"><input type="checkbox"
+            name="looking_for" id="looking_for-input" value="clubs">Clubs</label><label for="looking_for"
+          class="flex gap-2 text-sm"><input checked type="checkbox" name="looking_for" id="looking_for-input"
+            value="events and competitions">Events
+          and Competitions</label><label for=" looking_for" class="flex gap-2 text-sm"><input type="checkbox"
+            name="looking_for" id="looking_for-input" value="facilities">Facilities</label><label for=" looking_for"
+          class="flex gap-2 text-sm"><input type="checkbox" name="looking_for" id="looking_for-input"
+            value="special">Special Offers and Deals</label>
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060] ">Sports</h4><input type="text" placeholder="Search ..."
+          class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full"><label for="sports"
+          class="flex gap-2 text-sm"><input type="checkbox" name="sports" id="sports-input"
+            value="american-football">American Football</label><label for="sports" class="flex gap-2 text-sm"><input
+            type="checkbox" name="sports" id="sports-input" value="badminton">Badminton</label><label for="sports"
+          class="flex gap-2 text-sm"><input type="checkbox" name="sports" id="sports-input"
+            value="baseball">Baseball</label><label for="sports" class="flex gap-2 text-sm"><input type="checkbox"
+            name="sports" id="sports-input" value="basketball">Basketball</label><label for=" sports"
+          class="flex gap-2 text-sm"><input type="checkbox" name="sports" id="sports-input"
+            value="beach-volleyball">Beach
+          Volleyball</label><label for=" sports" class="flex gap-2 text-sm"><input type="checkbox" name="sports"
+            id="sports-input" value="boxing">Boxing</label><button
+          class="text-end text-[#0c5060] text-sm font-semibold absolute right-3 bottom-2">See More</button>
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060] ">Location</h4><input type="text" name="location" placeholder="Type location here"
+          class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full">
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060] ">Distance From Me</h4><input name="distance" type="range" min="0" max="100"
+          placeholder="Miles" class="w-full">
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060]">Month of Event</h4><label for="month" class="flex gap-2 text-sm"><input
+            type="checkbox" name="month" id="month-input" value="feb2024">Feb 2024</label><label for="month"
+          class="flex gap-2 text-sm"><input type="checkbox" name="month" id="month-input" value="march2024">March
+          2024</label><label for="month" class="flex gap-2 text-sm"><input type="checkbox" name="month" id="month-input"
+            value="april2024">April 2024</label><label for="month" class="flex gap-2 text-sm"><input type="checkbox"
+            name="month" id="month-input" value="may2024">May 2024</label>
+        <button class="text-end text-[#808080] text-sm font-semibold absolute right-3 bottom-2">more</button>
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060]">Type of Event</h4>
+        <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+            id="event-type-input" value="charity">Raising Money for Charity</label>
+        <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+            id="event-type-input" value="club-competition">Club Competition</label>
+        <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+            id="event-type-input" value="social-event">Social Event</label>
+        <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+            id="event-type-input" value="country-comp">Country Competition</label>
+        <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+            id="event-type-input" value="national-comp">National Competition</label>
+        <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+            id="event-type-input" value="corportate-event">Corporate Event</label>
+        <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+            id="event-type-input" value="sailing-comp">Sailing Competition</label>
+        <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+            id="event-type-input" value="open-comp">Open Competition</label>
+        <button class="text-end text-[#808080] text-sm font-semibold absolute right-3 bottom-2">more</button>
+      </div>
+
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060]">Registration Closing Date</h4>
+        <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+            id="reg-closing-date-input" value="today" />Today</label>
+        <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+            id="reg-closing-date-input" value="tomorrow" />Tomorrow</label>
+        <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+            id="reg-closing-date-input" value="next-7-days" />Within the next 7 days</label>
+        <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+            id="reg-closing-date-input" value="next-14-days" />Within the next 14 days</label>
+        <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+            id="reg-closing-date-input" value="next-month" />Within next onth</label>
+        <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+            id="reg-closing-date-input" value="next-3-months" />Within next 3 months</label>
+        <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+            id="reg-closing-date-input" value="next-6-months" />Within next 6 months</label>
+        <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+            id="reg-closing-date-input" value="next-year" />Within the next year</label>
+      </div>
+
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060]">Registration Price Range</h4>
+        <input name="price-range" type="range" min="0" max="100" placeholder="Miles" class="w-full" />
+      </div>
+
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Age Range</h4>
+        <label for="age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input" value="16to18" />16
+          - 18</label>
+        <label for="age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input" value="18to24" />18
+          - 24</label>
+        <label for="age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input" value="25to34" />25
+          - 34</label>
+        <label for="age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+            value="35 to 44" />35 - 44</label>
+        <label for=" age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+            value="45to54" />45
+          - 54</label>
+        <label for=" age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+            value="55to64" />55
+          - 64</label>
+        <label for=" age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+            value="65orOver" />65 or over</label>
+      </div>
+
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Gender</h4>
+        <label for="gender" class="flex gap-2 text-sm"><input type="checkbox" name="gender" id="gender-input"
+            value="male" />Male</label><label for="gender" class="flex gap-2 text-sm"><input type="checkbox"
+            name="gender" id="gender-input" value="female" />Female</label><label for="gender"
+          class="flex gap-2 text-sm"><input type="checkbox" name="gender" id="gender-input"
+            value="mixed" />Mixed</label><label for="gender" class="flex gap-2 text-sm"><input type="checkbox"
+            name="gender" id="gender-input" value="unspecified" />Unspecified</label>
+      </div>
+
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Open To</h4>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="public" />Public</label>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="private" />Private Event</label>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="members" />Members Only</label>
+      </div>
+
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Skill Level</h4>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="beginner" />Beginner</label>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="intermediate" />Intermediate</label>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="advanced" />Advanced</label>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="professional" />Professional</label>
+      </div>
+
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Search By Tags</h4>
+        <label for="tags" class="flex gap-2 text-sm"><input type="checkbox" name="tags" id="tags-input"
+            value="closing-soon" />Entry Deadlines Closing Soon</label><label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="featured" />Features</label>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="most-popular" />Most Popular</label>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="local-ones" />Local Ones</label>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="early-bird" />Early Bird Offer</label>
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="discount-code" />User your Discount Code</label>
+      </div>
+
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+        <h4 class="text-[#0c5060]">Event Rating</h4>
+        <label for="rating" class="flex gap-2 text-sm items-center rating"><input type="checkbox" name="rating"
+            id="rating-input" value="five" /><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label>
+        <label for="rating" class="flex gap-2 text-sm items-center rating"><input type="checkbox" name="rating"
+            id="rating-input" value="four" /><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label>
+        <label for="rating" class="flex gap-2 text-sm items-center rating"><input type="checkbox" name="rating"
+            id="rating-input" value="three" /><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+            class="fa-solid fa-star"></i></label>
+        <label for="rating" class="flex gap-2 text-sm items-center rating"><input type="checkbox" name="rating"
+            id="rating-input" value="two" /><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label>
+        <label for=" rating" class="flex gap-2 text-sm items-center rating"><input type="checkbox" name="rating"
+            id="rating-input" value="one" /><i class="fa-solid fa-star"></i></label>
+      </div>
+
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+        <h4 class="text-[#0c5060] ">Search</h4><input type="text" placeholder="Search"
+          class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md search-input w-full">
+      </div>
+    </div>
+    <ng-container *ngIf="isEventsCard">
+      <div class="col-span-7 max-lg:col-span-6 max-md:col-span-full grid grid-cols-8 justify-center items-center px-2">
+        <div class="col-span-full grid grid-cols-2 max-lg:grid-cols-1 justify-center items-center gap-4 gap-y-10">
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box">
+                <figure class="image-box"><a><img src="assets/enter-local/enter1.png" alt=""></a><span
+                    class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span class="text-[#808080] rev-span flex gap-2 items-center">
+                      <i class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-end gap-2">
+                      <span class="text-[#0c5060] flex gap-2 items-center font-medium">1024
+                        Entrants</span>
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span>
+
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">NAME OF
+                      EVENT</a>
+                    <span class="text-[#808080] flex gap-2 items-center">
+                      Type of Event
+                    </span>
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>/ Per Person
+                    </span>
+                    <span class="bg-[#f0f0f0] text-[#808080] flex gap-2 items-center px-2 py-2">
+                      Event Organiser Name
+                    </span>
+                  </span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See
+                      Details</a>
+                    <a class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box">
+                <figure class="image-box"><a><img src="assets/enter-local/enter1.png" alt=""></a><span
+                    class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span class="text-[#808080] rev-span flex gap-2 items-center">
+                      <i class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-end gap-2">
+                      <span class="text-[#0c5060] flex gap-2 items-center font-medium">1024
+                        Entrants</span>
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span>
+
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">NAME OF
+                      EVENT</a>
+                    <span class="text-[#808080] flex gap-2 items-center">
+                      Type of Event
+                    </span>
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>/ Per Person
+                    </span>
+                    <span class="bg-[#f0f0f0] text-[#808080] flex gap-2 items-center px-2 py-2">
+                      Event Organiser Name
+                    </span>
+                  </span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See
+                      Details</a>
+                    <a class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box">
+                <figure class="image-box"><a><img src="assets/enter-local/enter1.png" alt=""></a><span
+                    class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span class="text-[#808080] rev-span flex gap-2 items-center">
+                      <i class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-end gap-2">
+                      <span class="text-[#0c5060] flex gap-2 items-center font-medium">1024
+                        Entrants</span>
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span>
+
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">NAME OF
+                      EVENT</a>
+                    <span class="text-[#808080] flex gap-2 items-center">
+                      Type of Event
+                    </span>
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>/ Per Person
+                    </span>
+                    <span class="bg-[#f0f0f0] text-[#808080] flex gap-2 items-center px-2 py-2">
+                      Event Organiser Name
+                    </span>
+                  </span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See
+                      Details</a>
+                    <a class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box">
+                <figure class="image-box"><a><img src="assets/enter-local/enter1.png" alt=""></a><span
+                    class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span class="text-[#808080] rev-span flex gap-2 items-center">
+                      <i class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-end gap-2">
+                      <span class="text-[#0c5060] flex gap-2 items-center font-medium">1024
+                        Entrants</span>
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span>
+
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">NAME OF
+                      EVENT</a>
+                    <span class="text-[#808080] flex gap-2 items-center">
+                      Type of Event
+                    </span>
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>/ Per Person
+                    </span>
+                    <span class="bg-[#f0f0f0] text-[#808080] flex gap-2 items-center px-2 py-2">
+                      Event Organiser Name
+                    </span>
+                  </span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See
+                      Details</a>
+                    <a class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box">
+                <figure class="image-box"><a><img src="assets/enter-local/enter1.png" alt=""></a><span
+                    class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span class="text-[#808080] rev-span flex gap-2 items-center">
+                      <i class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-end gap-2">
+                      <span class="text-[#0c5060] flex gap-2 items-center font-medium">1024
+                        Entrants</span>
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span>
+
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">NAME OF
+                      EVENT</a>
+                    <span class="text-[#808080] flex gap-2 items-center">
+                      Type of Event
+                    </span>
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>/ Per Person
+                    </span>
+                    <span class="bg-[#f0f0f0] text-[#808080] flex gap-2 items-center px-2 py-2">
+                      Event Organiser Name
+                    </span>
+                  </span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See
+                      Details</a>
+                    <a class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box">
+                <figure class="image-box"><a><img src="assets/enter-local/enter1.png" alt=""></a><span
+                    class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span class="text-[#808080] rev-span flex gap-2 items-center">
+                      <i class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-end gap-2">
+                      <span class="text-[#0c5060] flex gap-2 items-center font-medium">1024
+                        Entrants</span>
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span>
+
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">NAME OF
+                      EVENT</a>
+                    <span class="text-[#808080] flex gap-2 items-center">
+                      Type of Event
+                    </span>
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>/ Per Person
+                    </span>
+                    <span class="bg-[#f0f0f0] text-[#808080] flex gap-2 items-center px-2 py-2">
+                      Event Organiser Name
+                    </span>
+                  </span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See
+                      Details</a>
+                    <a class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box">
+                <figure class="image-box"><a><img src="assets/enter-local/enter1.png" alt=""></a><span
+                    class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span class="text-[#808080] rev-span flex gap-2 items-center">
+                      <i class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-end gap-2">
+                      <span class="text-[#0c5060] flex gap-2 items-center font-medium">1024
+                        Entrants</span>
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span>
+
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">NAME OF
+                      EVENT</a>
+                    <span class="text-[#808080] flex gap-2 items-center">
+                      Type of Event
+                    </span>
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>/ Per Person
+                    </span>
+                    <span class="bg-[#f0f0f0] text-[#808080] flex gap-2 items-center px-2 py-2">
+                      Event Organiser Name
+                    </span>
+                  </span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See
+                      Details</a>
+                    <a class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box">
+                <figure class="image-box"><a><img src="assets/enter-local/enter1.png" alt=""></a><span
+                    class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span class="text-[#808080] rev-span flex gap-2 items-center">
+                      <i class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-end gap-2">
+                      <span class="text-[#0c5060] flex gap-2 items-center font-medium">1024
+                        Entrants</span>
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span>
+
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">NAME OF
+                      EVENT</a>
+                    <span class="text-[#808080] flex gap-2 items-center">
+                      Type of Event
+                    </span>
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>/ Per Person
+                    </span>
+                    <span class="bg-[#f0f0f0] text-[#808080] flex gap-2 items-center px-2 py-2">
+                      Event Organiser Name
+                    </span>
+                  </span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See
+                      Details</a>
+                    <a class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box">
+                <figure class="image-box"><a><img src="assets/enter-local/enter1.png" alt=""></a><span
+                    class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span class="text-[#808080] rev-span flex gap-2 items-center">
+                      <i class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-end gap-2">
+                      <span class="text-[#0c5060] flex gap-2 items-center font-medium">1024
+                        Entrants</span>
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span>
+
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">NAME OF
+                      EVENT</a>
+                    <span class="text-[#808080] flex gap-2 items-center">
+                      Type of Event
+                    </span>
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>/ Per Person
+                    </span>
+                    <span class="bg-[#f0f0f0] text-[#808080] flex gap-2 items-center px-2 py-2">
+                      Event Organiser Name
+                    </span>
+                  </span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See
+                      Details</a>
+                    <a class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box">
+                <figure class="image-box"><a><img src="assets/enter-local/enter1.png" alt=""></a><span
+                    class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024</span>
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span class="text-[#808080] rev-span flex gap-2 items-center">
+                      <i class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-end gap-2">
+                      <span class="text-[#0c5060] flex gap-2 items-center font-medium">1024
+                        Entrants</span>
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span>
+
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">NAME OF
+                      EVENT</a>
+                    <span class="text-[#808080] flex gap-2 items-center">
+                      Type of Event
+                    </span>
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>/ Per Person
+                    </span>
+                    <span class="bg-[#f0f0f0] text-[#808080] flex gap-2 items-center px-2 py-2">
+                      Event Organiser Name
+                    </span>
+                  </span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See
+                      Details</a>
+                    <a class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer">Register</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-full flex items-center justify-start gap-2 pt-4"><span
+            class="selected text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center cursor-pointer">1</span><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer">2</span><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer">3</span><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer"><i
+              class="fa-solid fa-caret-right"></i></span></div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isEventsList">
+      <div class="col-span-7 max-lg:col-span-6 max-md:col-span-full grid grid-cols-8 justify-center items-center px-2">
+        <div class="col-span-full grid grid-cols-1 justify-center items-center gap-6 gap-y-10 pt-3">
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white">
+                <figure class="image-box h-full col-span-2 max-[540px]:col-span-full">
+                  <a class="h-full block">
+                    <img src="assets/enter-local/enter1.png" alt="" class="h-full"></a>
+                  <span class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024
+                  </span>
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center"><span
+                      class="text-[#808080] rev-span flex gap-2 items-center"><i
+                        class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-center"><span
+                        class="text-[#808080] flex gap-2 items-center"><i
+                          class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+                  </div>
+                  <div class="flex flex-col"><a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">BIKE BATH
+                      2022</a>
+                    <span class="text-sm text-[#808080] pb-2 font-semibold">Type of Event</span>
+
+                    <div class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>/ Per persion
+                      </span>
+                      <span class="text-[#808080] flex gap-2 items-center bg-[#efefef] py-1 px-2">Event
+                        Organiser Name
+                      </span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-evenly gap-2"><a class="theme-btn-two">See
+                      Details</a><a class="theme-btn-two">Connect</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white">
+                <figure class="image-box h-full col-span-2 max-[540px]:col-span-full">
+                  <a class="h-full block">
+                    <img src="assets/enter-local/enter1.png" alt="" class="h-full"></a>
+                  <span class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024
+                  </span>
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center"><span
+                      class="text-[#808080] rev-span flex gap-2 items-center"><i
+                        class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-center"><span
+                        class="text-[#808080] flex gap-2 items-center"><i
+                          class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+                  </div>
+                  <div class="flex flex-col"><a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">BIKE BATH
+                      2022</a>
+                    <span class="text-sm text-[#808080] pb-2 font-semibold">Type of Event</span>
+
+                    <div class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>/ Per persion
+                      </span>
+                      <span class="text-[#808080] flex gap-2 items-center bg-[#efefef] py-1 px-2">Event
+                        Organiser Name
+                      </span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-evenly gap-2"><a class="theme-btn-two">See
+                      Details</a><a class="theme-btn-two">Connect</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white">
+                <figure class="image-box h-full col-span-2 max-[540px]:col-span-full">
+                  <a class="h-full block">
+                    <img src="assets/enter-local/enter1.png" alt="" class="h-full"></a>
+                  <span class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024
+                  </span>
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center"><span
+                      class="text-[#808080] rev-span flex gap-2 items-center"><i
+                        class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-center"><span
+                        class="text-[#808080] flex gap-2 items-center"><i
+                          class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+                  </div>
+                  <div class="flex flex-col"><a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">BIKE BATH
+                      2022</a>
+                    <span class="text-sm text-[#808080] pb-2 font-semibold">Type of Event</span>
+
+                    <div class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>/ Per persion
+                      </span>
+                      <span class="text-[#808080] flex gap-2 items-center bg-[#efefef] py-1 px-2">Event
+                        Organiser Name
+                      </span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-evenly gap-2"><a class="theme-btn-two">See
+                      Details</a><a class="theme-btn-two">Connect</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white">
+                <figure class="image-box h-full col-span-2 max-[540px]:col-span-full">
+                  <a class="h-full block">
+                    <img src="assets/enter-local/enter1.png" alt="" class="h-full"></a>
+                  <span class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024
+                  </span>
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center"><span
+                      class="text-[#808080] rev-span flex gap-2 items-center"><i
+                        class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-center"><span
+                        class="text-[#808080] flex gap-2 items-center"><i
+                          class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+                  </div>
+                  <div class="flex flex-col"><a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">BIKE BATH
+                      2022</a>
+                    <span class="text-sm text-[#808080] pb-2 font-semibold">Type of Event</span>
+
+                    <div class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>/ Per persion
+                      </span>
+                      <span class="text-[#808080] flex gap-2 items-center bg-[#efefef] py-1 px-2">Event
+                        Organiser Name
+                      </span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-evenly gap-2"><a class="theme-btn-two">See
+                      Details</a><a class="theme-btn-two">Connect</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white">
+                <figure class="image-box h-full col-span-2 max-[540px]:col-span-full">
+                  <a class="h-full block">
+                    <img src="assets/enter-local/enter1.png" alt="" class="h-full"></a>
+                  <span class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024
+                  </span>
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center"><span
+                      class="text-[#808080] rev-span flex gap-2 items-center"><i
+                        class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-center"><span
+                        class="text-[#808080] flex gap-2 items-center"><i
+                          class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+                  </div>
+                  <div class="flex flex-col"><a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">BIKE BATH
+                      2022</a>
+                    <span class="text-sm text-[#808080] pb-2 font-semibold">Type of Event</span>
+
+                    <div class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>/ Per persion
+                      </span>
+                      <span class="text-[#808080] flex gap-2 items-center bg-[#efefef] py-1 px-2">Event
+                        Organiser Name
+                      </span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-evenly gap-2"><a class="theme-btn-two">See
+                      Details</a><a class="theme-btn-two">Connect</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white">
+                <figure class="image-box h-full col-span-2 max-[540px]:col-span-full">
+                  <a class="h-full block">
+                    <img src="assets/enter-local/enter1.png" alt="" class="h-full"></a>
+                  <span class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024
+                  </span>
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center"><span
+                      class="text-[#808080] rev-span flex gap-2 items-center"><i
+                        class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-center"><span
+                        class="text-[#808080] flex gap-2 items-center"><i
+                          class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+                  </div>
+                  <div class="flex flex-col"><a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">BIKE BATH
+                      2022</a>
+                    <span class="text-sm text-[#808080] pb-2 font-semibold">Type of Event</span>
+
+                    <div class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>/ Per persion
+                      </span>
+                      <span class="text-[#808080] flex gap-2 items-center bg-[#efefef] py-1 px-2">Event
+                        Organiser Name
+                      </span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-evenly gap-2"><a class="theme-btn-two">See
+                      Details</a><a class="theme-btn-two">Connect</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white">
+                <figure class="image-box h-full col-span-2 max-[540px]:col-span-full">
+                  <a class="h-full block">
+                    <img src="assets/enter-local/enter1.png" alt="" class="h-full"></a>
+                  <span class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024
+                  </span>
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center"><span
+                      class="text-[#808080] rev-span flex gap-2 items-center"><i
+                        class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-center"><span
+                        class="text-[#808080] flex gap-2 items-center"><i
+                          class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+                  </div>
+                  <div class="flex flex-col"><a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">BIKE BATH
+                      2022</a>
+                    <span class="text-sm text-[#808080] pb-2 font-semibold">Type of Event</span>
+
+                    <div class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>/ Per persion
+                      </span>
+                      <span class="text-[#808080] flex gap-2 items-center bg-[#efefef] py-1 px-2">Event
+                        Organiser Name
+                      </span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-evenly gap-2"><a class="theme-btn-two">See
+                      Details</a><a class="theme-btn-two">Connect</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white">
+                <figure class="image-box h-full col-span-2 max-[540px]:col-span-full">
+                  <a class="h-full block">
+                    <img src="assets/enter-local/enter1.png" alt="" class="h-full"></a>
+                  <span class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024
+                  </span>
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center"><span
+                      class="text-[#808080] rev-span flex gap-2 items-center"><i
+                        class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-center"><span
+                        class="text-[#808080] flex gap-2 items-center"><i
+                          class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+                  </div>
+                  <div class="flex flex-col"><a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">BIKE BATH
+                      2022</a>
+                    <span class="text-sm text-[#808080] pb-2 font-semibold">Type of Event</span>
+
+                    <div class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>/ Per persion
+                      </span>
+                      <span class="text-[#808080] flex gap-2 items-center bg-[#efefef] py-1 px-2">Event
+                        Organiser Name
+                      </span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-evenly gap-2"><a class="theme-btn-two">See
+                      Details</a><a class="theme-btn-two">Connect</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white">
+                <figure class="image-box h-full col-span-2 max-[540px]:col-span-full">
+                  <a class="h-full block">
+                    <img src="assets/enter-local/enter1.png" alt="" class="h-full"></a>
+                  <span class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024
+                  </span>
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center"><span
+                      class="text-[#808080] rev-span flex gap-2 items-center"><i
+                        class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-center"><span
+                        class="text-[#808080] flex gap-2 items-center"><i
+                          class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+                  </div>
+                  <div class="flex flex-col"><a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">BIKE BATH
+                      2022</a>
+                    <span class="text-sm text-[#808080] pb-2 font-semibold">Type of Event</span>
+
+                    <div class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>/ Per persion
+                      </span>
+                      <span class="text-[#808080] flex gap-2 items-center bg-[#efefef] py-1 px-2">Event
+                        Organiser Name
+                      </span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-evenly gap-2"><a class="theme-btn-two">See
+                      Details</a><a class="theme-btn-two">Connect</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1" (click)="handleEventDetailsView()">
+            <div class="news-block-one wow fadeInUp animated animated animated" data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+              <div class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white">
+                <figure class="image-box h-full col-span-2 max-[540px]:col-span-full">
+                  <a class="h-full block">
+                    <img src="assets/enter-local/enter1.png" alt="" class="h-full"></a>
+                  <span class="post-date text-[#808080]"><i class="fa-regular fa-calendar-days"></i>12-12-2024
+                  </span>
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center"><span
+                      class="text-[#808080] rev-span flex gap-2 items-center"><i
+                        class="fa-solid fa-star rating"></i>8.0</span>
+                    <div class="flex flex-col justify-start items-center"><span
+                        class="text-[#808080] flex gap-2 items-center"><i
+                          class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+                  </div>
+                  <div class="flex flex-col"><a class="no-underline mt-2 text-xl font-semibold text-[#0c5060]">BIKE BATH
+                      2022</a>
+                    <span class="text-sm text-[#808080] pb-2 font-semibold">Type of Event</span>
+
+                    <div class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>/ Per persion
+                      </span>
+                      <span class="text-[#808080] flex gap-2 items-center bg-[#efefef] py-1 px-2">Event
+                        Organiser Name
+                      </span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem illum odit
+                    maiores nisi modi quia nostrum velit obcaecati dolores,
+                    earum non.</p>
+                  <div class="flex items-center justify-evenly gap-2"><a class="theme-btn-two">See
+                      Details</a><a class="theme-btn-two">Connect</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-full flex items-center justify-start gap-2 pt-4"><span
+            class="selected text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center cursor-pointer">1</span><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer">2</span><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer">3</span><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer"><i
+              class="fa-solid fa-caret-right"></i></span>
+        </div>
+      </div>
+
+
+    </ng-container>
+    <div class="col-span-3 flex flex-col bg-inherit gap-8 max-md:col-span-full px-6 justify-center items-center">
+      <div
+        class="card-shadow bg-white rounded-md py-4 px-2 flex flex-col items-start justify-center gap-4 w-full max-md:max-w-sm">
+        <h4>Featured Events</h4>
+        <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 pb-0 rounded-md relative">
+          <span
+            class="absolute top-2 left-2 text-[#808080] bg-white rounded-full pr-3 py-2 flex gap-1 items-center pl-12 text-sm">
+            <i
+              class="fa-regular fa-calendar-days selected rounded-full px-[10px] py-[6px] text-xl absolute left-0"></i>12-12-2024
+          </span>
+          <h5 class="">Event Name</h5>
+          <h5 class="text-base">Type of Event</h5>
+        </div>
+        <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 pb-0 rounded-md relative">
+          <span
+            class="absolute top-2 left-2 text-[#808080] bg-white rounded-full pr-3 py-2 flex gap-1 items-center pl-12 text-sm">
+            <i
+              class="fa-regular fa-calendar-days selected rounded-full px-[10px] py-[6px] text-xl absolute left-0"></i>12-12-2024
+          </span>
+          <h5 class="">Event Name</h5>
+          <h5 class="text-base">Type of Event</h5>
+        </div>
+        <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 pb-0 rounded-md relative">
+          <span
+            class="absolute top-2 left-2 text-[#808080] bg-white rounded-full pr-3 py-2 flex gap-1 items-center pl-12 text-sm">
+            <i
+              class="fa-regular fa-calendar-days selected rounded-full px-[10px] py-[6px] text-xl absolute left-0"></i>12-12-2024
+          </span>
+          <h5 class="">Event Name</h5>
+          <h5 class="text-base">Type of Event</h5>
+        </div>
+      </div>
+      <div
+        class="card-shadow bg-white rounded-md py-4 px-2 flex flex-col items-start justify-center gap-4 w-full max-md:max-w-sm">
+        <h4>Featured Coaches</h4>
+        <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md">
+          <h5 class="">Coach Name</h5>
+          <h5 class="">Sport</h5>
+          <div class="flex justify-between items-center text-sm"><span class="flex gap-2 items-center rev-span"><i
+                class="fa-solid fa-star rating"></i>8.0</span><span class="flex gap-2 items-center"><i
+                class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+        </div>
+        <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md">
+          <h5 class="">Coach Name</h5>
+          <h5 class="">Sport</h5>
+          <div class="flex justify-between items-center text-sm"><span class="flex gap-2 items-center rev-span"><i
+                class="fa-solid fa-star rating"></i>8.0</span><span class="flex gap-2 items-center"><i
+                class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+        </div>
+        <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md">
+          <h5 class="">Coach Name</h5>
+          <h5 class="">Sport</h5>
+          <div class="flex justify-between items-center text-sm"><span class="flex gap-2 items-center rev-span"><i
+                class="fa-solid fa-star rating"></i>8.0</span><span class="flex gap-2 items-center"><i
+                class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+        </div>
+      </div>
+      <div
+        class="card-shadow bg-white rounded-md py-4 px-2 flex flex-col items-start justify-center gap-4 w-full max-md:max-w-sm">
+        <h4>Featured Clubs</h4>
+        <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md">
+          <h5 class="">Hove Basketball Club</h5>
+          <div class="flex justify-between items-center text-sm"><span class="flex gap-2 items-center rev-span"><i
+                class="fa-solid fa-star rating"></i>8.0</span><span class="flex gap-2 items-center"><i
+                class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+        </div>
+        <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md">
+          <h5 class="">Hove Basketball Club</h5>
+          <div class="flex justify-between items-center text-sm"><span class="flex gap-2 items-center rev-span"><i
+                class="fa-solid fa-star rating"></i>8.0</span><span class="flex gap-2 items-center"><i
+                class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+        </div>
+        <div style="background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');"
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md">
+          <h5 class="">Hove Basketball Club</h5>
+          <div class="flex justify-between items-center text-sm"><span class="flex gap-2 items-center rev-span"><i
+                class="fa-solid fa-star rating"></i>8.0</span><span class="flex gap-2 items-center"><i
+                class="fa-solid fa-location-dot"></i>Birmingham</span></div>
+        </div>
+      </div>
+    </div>
+    <div id="sidebar absolute top-2 w-72 md:hidden bg-white">
+      <div
+        class="absolute z-50 left-0 top-24 rounded-r-full selected text-white md:hidden bg-transparent py-2 px-3 text-xl sidebar-btn">
+        <input class="invisible appearance-none" type="checkbox" id="toggle-sidebar" name="toggle-sidebar" /><label
+          for="toggle-sidebar"><i class="fa-solid fa-caret-right cursor-pointer inline-block" id="menu-icon"></i><i
+            class="fa-solid fa-caret-left hidden cursor-pointer" id="close-icon"></i></label>
+      </div>
+      <div id="sidebar-filters"
+        class="flex card-shadow flex-col justify-center md:hidden items-center gap-4 transition-all duration-500 ease-in-out p-4 absolute z-50 left-0 top-40 bg-white">
+        <div
+          class="flex flex-col items-start justify-center px-2 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Looking for</h4><label for="looking_for" class="flex gap-2 text-sm"><input
+              type="checkbox" name="looking_for" id="looking_for-input" value="players">Players</label><label
+            for="looking_for" class="flex gap-2 text-sm"><input type="checkbox" name="looking_for"
+              id="looking_for-input" value="coaches">Coaches</label><label for="looking_for"
+            class="flex gap-2 text-sm"><input type="checkbox" name="looking_for" id="looking_for-input"
+              value="clubs">Clubs</label><label for="looking_for" class="flex gap-2 text-sm"><input checked
+              type="checkbox" name="looking_for" id="looking_for-input" value="events and competitions">Events
+            and Competitions</label><label for=" looking_for" class="flex gap-2 text-sm"><input type="checkbox"
+              name="looking_for" id="looking_for-input" value="facilities">Facilities</label><label for=" looking_for"
+            class="flex gap-2 text-sm"><input type="checkbox" name="looking_for" id="looking_for-input"
+              value="special">Special Offers and Deals</label>
+        </div>
+        <div
+          class="flex flex-col items-start px-2 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060] ">Sports</h4><input type="text" placeholder="Search ..."
+            class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full"><label for="sports"
+            class="flex gap-2 text-sm"><input type="checkbox" name="sports" id="sports-input"
+              value="american-football">American Football</label><label for="sports" class="flex gap-2 text-sm"><input
+              type="checkbox" name="sports" id="sports-input" value="badminton">Badminton</label><label for="sports"
+            class="flex gap-2 text-sm"><input type="checkbox" name="sports" id="sports-input"
+              value="baseball">Baseball</label><label for="sports" class="flex gap-2 text-sm"><input type="checkbox"
+              name="sports" id="sports-input" value="basketball">Basketball</label><label for=" sports"
+            class="flex gap-2 text-sm"><input type="checkbox" name="sports" id="sports-input"
+              value="beach-volleyball">Beach
+            Volleyball</label><label for=" sports" class="flex gap-2 text-sm"><input type="checkbox" name="sports"
+              id="sports-input" value="boxing">Boxing</label><button
+            class="text-end text-[#0c5060] text-sm font-semibold absolute right-3 bottom-2">See
+            More</button>
+        </div>
+        <div
+          class="flex flex-col items-start px-2 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060] ">Location</h4><input type="text" name="location" placeholder="Type location here"
+            class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full">
+        </div>
+        <div
+          class="flex flex-col items-start px-2 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060] ">Distance From Me</h4><input name="distance" type="range" min="0" max="100"
+            placeholder="Miles" class="w-full">
+        </div>
+        <div
+          class="flex flex-col items-start px-2 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060]">Month of Event</h4><label for="month" class="flex gap-2 text-sm"><input
+              type="checkbox" name="month" id="month-input" value="feb2024">Feb 2024</label><label for="month"
+            class="flex gap-2 text-sm"><input type="checkbox" name="month" id="month-input" value="march2024">March
+            2024</label><label for="month" class="flex gap-2 text-sm"><input type="checkbox" name="month"
+              id="month-input" value="april2024">April 2024</label><label for="month" class="flex gap-2 text-sm"><input
+              type="checkbox" name="month" id="month-input" value="may2024">May 2024</label>
+          <button class="text-end text-[#808080] text-sm font-semibold absolute right-3 bottom-2">more</button>
+        </div>
+        <div
+          class="flex flex-col items-start px-2 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060]">Type of Event</h4>
+          <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+              id="event-type-input" value="charity">Raising Money for Charity</label>
+          <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+              id="event-type-input" value="club-competition">Club Competition</label>
+          <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+              id="event-type-input" value="social-event">Social Event</label>
+          <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+              id="event-type-input" value="country-comp">Country Competition</label>
+          <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+              id="event-type-input" value="national-comp">National Competition</label>
+          <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+              id="event-type-input" value="corportate-event">Corporate Event</label>
+          <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+              id="event-type-input" value="sailing-comp">Sailing Competition</label>
+          <label for="event-type" class="flex gap-2 text-sm"><input type="checkbox" name="event-type"
+              id="event-type-input" value="open-comp">Open Competition</label>
+          <button class="text-end text-[#808080] text-sm font-semibold absolute right-3 bottom-2">more</button>
+        </div>
+
+        <div
+          class="flex flex-col items-start px-2 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060]">Registration Closing Date</h4>
+          <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+              id="reg-closing-date-input" value="today" />Today</label>
+          <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+              id="reg-closing-date-input" value="tomorrow" />Tomorrow</label>
+          <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+              id="reg-closing-date-input" value="next-7-days" />Within the next 7 days</label>
+          <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+              id="reg-closing-date-input" value="next-14-days" />Within the next 14 days</label>
+          <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+              id="reg-closing-date-input" value="next-month" />Within next onth</label>
+          <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+              id="reg-closing-date-input" value="next-3-months" />Within next 3 months</label>
+          <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+              id="reg-closing-date-input" value="next-6-months" />Within next 6 months</label>
+          <label for="reg-closing-date" class="flex gap-2 text-sm"><input type="checkbox" name="reg-closing-date"
+              id="reg-closing-date-input" value="next-year" />Within the next year</label>
+        </div>
+
+        <div
+          class="flex flex-col items-start px-2 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060]">Registration Price Range</h4>
+          <input name="price-range" type="range" min="0" max="100" placeholder="Miles" class="w-full" />
+        </div>
+
+        <div
+          class="flex flex-col items-start justify-center px-2 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Age Range</h4>
+          <label for="age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+              value="16to18" />16 - 18</label>
+          <label for="age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+              value="18to24" />18 - 24</label>
+          <label for="age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+              value="25to34" />25 - 34</label>
+          <label for="age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+              value="35 to 44" />35 - 44</label>
+          <label for=" age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+              value="45to54" />45 - 54</label>
+          <label for=" age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+              value="55to64" />55 - 64</label>
+          <label for=" age" class="flex gap-2 text-sm"><input type="checkbox" name="age" id="age-input"
+              value="65orOver" />65 or over</label>
+        </div>
+
+        <div
+          class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Gender</h4>
+          <label for="gender" class="flex gap-2 text-sm"><input type="checkbox" name="gender" id="gender-input"
+              value="male" />Male</label><label for="gender" class="flex gap-2 text-sm"><input type="checkbox"
+              name="gender" id="gender-input" value="female" />Female</label><label for="gender"
+            class="flex gap-2 text-sm"><input type="checkbox" name="gender" id="gender-input"
+              value="mixed" />Mixed</label><label for="gender" class="flex gap-2 text-sm"><input type="checkbox"
+              name="gender" id="gender-input" value="unspecified" />Unspecified</label>
+        </div>
+
+        <div
+          class="flex flex-col items-start justify-center px-2 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Open To</h4>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="public" />Public</label>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="private" />Private Event</label>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="members" />Members Only</label>
+        </div>
+
+        <div
+          class="flex flex-col items-start justify-center px-2 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Skill Level</h4>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="beginner" />Beginner</label>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="intermediate" />Intermediate</label>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="advanced" />Advanced</label>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="professional" />Professional</label>
+        </div>
+
+        <div
+          class="flex flex-col items-start justify-center px-2 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Search By Tags</h4>
+          <label for="tags" class="flex gap-2 text-sm"><input type="checkbox" name="tags" id="tags-input"
+              value="closing-soon" />Entry Deadlines Closing Soon</label><label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="featured" />Features</label>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="most-popular" />Most Popular</label>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="local-ones" />Local Ones</label>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="early-bird" />Early Bird Offer</label>
+          <label for="tags" class="flex gap-2 text-sm">
+            <input type="checkbox" name="tags" id="tags-input" value="discount-code" />User your Discount Code</label>
+        </div>
+
+        <div
+          class="flex flex-col items-start justify-center px-2 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full">
+          <h4 class="text-[#0c5060]">Event Rating</h4>
+          <label for="rating" class="flex gap-2 text-sm items-center rating"><input type="checkbox" name="rating"
+              id="rating-input" value="five" /><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label>
+          <label for="rating" class="flex gap-2 text-sm items-center rating"><input type="checkbox" name="rating"
+              id="rating-input" value="four" /><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label>
+          <label for="rating" class="flex gap-2 text-sm items-center rating"><input type="checkbox" name="rating"
+              id="rating-input" value="three" /><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i></label>
+          <label for="rating" class="flex gap-2 text-sm items-center rating"><input type="checkbox" name="rating"
+              id="rating-input" value="two" /><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></label>
+          <label for=" rating" class="flex gap-2 text-sm items-center rating"><input type="checkbox" name="rating"
+              id="rating-input" value="one" /><i class="fa-solid fa-star"></i></label>
+        </div>
+
+        <div
+          class="flex flex-col items-start px-2 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative">
+          <h4 class="text-[#0c5060]">Search</h4>
+          <input type="text" placeholder="Search"
+            class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md search-input w-full" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

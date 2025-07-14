@@ -1,0 +1,2927 @@
+<div class="flex w-full bg-[#f7f7f7] font-sans">
+  <div class="flex items-start justify-start w-full pb-4">
+    <div class="h-screen w-20 fixed z-10">
+      <div class="fixed h-screen w-20 gradient-bg left-0 top-0 flex flex-col items-start px-3 justify-start pt-8 gap-2"
+           id="sidebar">
+        <div id="logo" class="pb-4">
+          <img src="../../../assets/logo/logo.png" alt="" id="logo-img" />
+        </div>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Dashboard</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item" [routerLink]="('/club-profile')">
+          <i class="fa-solid fa-house text-lg"></i>
+          <p class="m-0" id="text">Club Page</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item" [routerLink]="('/club-coaches')">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Coaches</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item" [routerLink]="('/club-events')">
+          <i class="fa-solid fa-calendar-days text-lg"></i>
+          <p class="m-0" id="text">Events</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Facilities Rental</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-user text-lg"></i>
+          <p class="m-0" id="text">Club Member</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-people-group text-lg"></i>
+          <p class="m-0" id="text">Teams</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-message text-lg"></i>
+          <p class="m-0" id="text">Messages</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Training Class</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Promotions</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Gallery</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-chart-simple text-lg"></i>
+          <p class="m-0" id="text">Statistics</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white pt-6" id="item">
+          <i class="fa-solid fa-gear text-lg"></i>
+          <p class="m-0" id="text">Settings</p>
+        </button>
+      </div>
+    </div>
+
+    <div class="w-full grid grid-cols-12 px-8 pt-4 gap-6 pl-28 relative">
+      <div class="col-span-full flex items-center justify-between text-start max-sm:flex-col">
+        <h2 class="text-pink-500 w-fit max-sm:w-full">Events</h2>
+        <div class="flex gap-2 items-center w-fit max-sm:w-full relative">
+          <div class="bg-white rounded-lg text-[#7794fd] px-2 whitespace-nowrap">
+            <input class="bg-inherit border-none rounded-lg px-2 py-2 w-40 max-sm:w-11/12"
+                   placeholder="Search" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <button *ngIf="!isDropdownOpen" class="rounded-full font-semibold grad-btn w-9 h-9"
+                  (click)="handleDropdown('open')">
+            +
+          </button>
+          <button *ngIf="isDropdownOpen" class="rounded-full font-semibold bg-[#f95eb3] text-white w-9 h-9"
+                  (click)="handleDropdown('close')">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <div *ngIf="isDropdownOpen"
+               class="absolute bg-white text-[#808080] flex flex-col px-4 py-3 gap-2 items-start top-10 right-0 w-fit z-[999999] shadow-class rounded-md">
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-user"></i>New Member
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-calendar-plus"></i>New Event
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-regular fa-paper-plane"></i>Invite Member
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-circle-play"></i>Training Class
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-message"></i>New Message
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-building"></i>New Facility
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors"
+                    (click)="toggleAddAlbumPopup()">
+              <i class="fa-solid fa-clover"></i>New Lead
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-briefcase"></i>New Promotion
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors"
+                    (click)="toggleAddNewsAndMedPopup()">
+              <i class="fa-solid fa-image"></i>News/Blog Post
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-people-group"></i>New Team
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-user"></i>New Coach
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-span-12 flex items-center justify-start">
+        <button class="tab-controller font-semibold" (click)="handleTabsChange(1)"
+                [ngClass]="{ selected: isUpcomingEvents }">
+          Upcoming Events
+        </button>
+        <button class="tab-controller font-semibold" (click)="handleTabsChange(2)"
+                [ngClass]="{ selected: isPastEvents }">
+          Past Events
+        </button>
+        <button class="tab-controller font-semibold" (click)="handleTabsChange(3)"
+                [ngClass]="{ selected: isCancelledEvents }">
+          Cancelled Events
+        </button>
+        <button class="tab-controller font-semibold" (click)="handleTabsChange(4)"
+                [ngClass]="{ selected: isDraftEvents }">
+          Draft Events
+        </button>
+      </div>
+
+      <ng-container *ngIf="isUpcomingEvents">
+        <div class="col-span-12 flex flex-col items-center justify-start w-full">
+          Upcoming Events Tab
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="isPastEvents">
+        <div class="w-full col-span-12 flex flex-col items-center justify-center gap-4 -mt-10">
+          <div class="self-end flex gap-2 items-center text-[#0c5060]">
+            <i class="fa-solid fa-list transition-colors cursor-pointer"
+               [ngClass]="{ 'text-[#Ec4899]': isPastEventsList }"
+               (click)="handlePastEventsView('list')"></i>
+            <i class="fa-brands fa-windows transition-colors cursor-pointer"
+               [ngClass]="{ 'text-[#Ec4899]': isPastEventsCard }"
+               (click)="handlePastEventsView('cards')"></i>
+          </div>
+
+          <ng-container *ngIf="isPastEventsList">
+            <div class="w-full flex flex-col bg-white gap-3 px-3 pt-3 pb-2 items-start rounded-lg">
+              <div class="w-full flex items-center gap-3 justify-between">
+                <div class="flex items-center gap-3">
+                  <h4 class="text-[#0c5060] m-0">Past Events</h4>
+                  <select name="date-filter"
+                          class="text-[#5a98f4] border-none px-2 py-2 focus:outline-none">
+                    <option value="aug-to-oct-2020">August - October 2020</option>
+                  </select>
+                </div>
+                <button class="flex items-center text-[#Ec4899] font-semibold gap-2">
+                  <i class="fa-solid fa-print"></i>
+                  Export/Print
+                </button>
+              </div>
+
+              <div class="table-responsive w-full">
+                <table class="w-full mng-coach-table">
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Interested</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        352
+                                                    </p>
+                                                </span>
+                        <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Registered</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        598
+                                                    </p>
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Interested</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        352
+                                                    </p>
+                                                </span>
+                        <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Registered</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        598
+                                                    </p>
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Interested</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        352
+                                                    </p>
+                                                </span>
+                        <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Registered</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        598
+                                                    </p>
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Interested</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        352
+                                                    </p>
+                                                </span>
+                        <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Registered</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        598
+                                                    </p>
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Interested</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        352
+                                                    </p>
+                                                </span>
+                        <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Registered</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        598
+                                                    </p>
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Interested</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        352
+                                                    </p>
+                                                </span>
+                        <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Registered</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        598
+                                                    </p>
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Interested</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        352
+                                                    </p>
+                                                </span>
+                        <span class="flex flex-col gap-1 items-center">
+                                                    <p class="text-[#57a8f3] m-0 text-sm">Registered</p>
+                                                    <p class="text-[#0c5060] m-0 ">
+                                                        598
+                                                    </p>
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+          </ng-container>
+          <ng-container *ngIf="isPastEventsCard">
+            <div class="col-span-12 w-full grid grid-cols-2 gap-4 items-start max-md:grid-cols-1">
+
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="isCancelledEvents">
+        <div class="w-full col-span-12 flex flex-col items-center justify-center gap-4 -mt-10">
+          <div class="self-end flex gap-2 items-center text-[#0c5060]">
+            <i class="fa-solid fa-list transition-colors cursor-pointer"
+               [ngClass]="{ 'text-[#Ec4899]': isCancelledEventsList }"
+               (click)="handleCancelledEventsView('list')"></i>
+            <i class="fa-brands fa-windows transition-colors cursor-pointer"
+               [ngClass]="{ 'text-[#Ec4899]': isCancelledEventsCard }"
+               (click)="handleCancelledEventsView('cards')"></i>
+          </div>
+
+          <ng-container *ngIf="isCancelledEventsList">
+            <div class="w-full flex flex-col bg-white gap-3 px-3 pt-3 pb-2 items-start rounded-lg">
+              <div class="w-full flex items-center gap-3 justify-between">
+                <div class="flex items-center gap-3">
+                  <h4 class="text-[#0c5060] m-0">Cancelled Events</h4>
+                  <select name="date-filter"
+                          class="text-[#5a98f4] border-none px-2 py-2 focus:outline-none">
+                    <option value="aug-to-oct-2020">August - October 2020</option>
+                  </select>
+                </div>
+                <button class="flex items-center text-[#Ec4899] font-semibold gap-2">
+                  <i class="fa-solid fa-print"></i>
+                  Export/Print
+                </button>
+              </div>
+
+              <div class="table-responsive w-full">
+                <table class="w-full mng-coach-table">
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span
+                                                  class="flex items-center text-lg text-[#Ec4899] font-semibold gap-2 underline">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span
+                                                  class="flex items-center text-lg text-[#Ec4899] font-semibold gap-2 underline">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span
+                                                  class="flex items-center text-lg text-[#Ec4899] font-semibold gap-2 underline">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span
+                                                  class="flex items-center text-lg text-[#Ec4899] font-semibold gap-2 underline">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span
+                                                  class="flex items-center text-lg text-[#Ec4899] font-semibold gap-2 underline">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-24">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                    Tennis Event at ABC
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex items-center gap-4 m-0 ">
+                                                <span
+                                                  class="flex items-center text-lg text-[#Ec4899] font-semibold gap-2 underline">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+                  </tr>
+
+                </table>
+              </div>
+            </div>
+
+          </ng-container>
+          <ng-container *ngIf="isCancelledEventsCard">
+            <div class="w-full flex flex-col bg-white gap-2 px-3 pt-3 pb-2 items-start rounded-lg">
+              <div class="w-full flex items-center gap-3 justify-between">
+                <div class="flex items-center gap-3">
+                  <h4 class="text-[#0c5060] m-0">Cancelled Events</h4>
+                  <select name="date-filter"
+                          class="text-[#5a98f4] border-none px-2 py-2 focus:outline-none">
+                    <option value="aug-to-oct-2020">August - October 2020</option>
+                  </select>
+                </div>
+                <button class="flex items-center text-[#Ec4899] font-semibold gap-2">
+                  <i class="fa-solid fa-print"></i>
+                  Export/Print
+                </button>
+              </div>
+
+              <div class="table-responsive w-full">
+                <table class="w-full mng-coach-table">
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-40">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span
+                          class="absolute left-0 bottom-0 pink-bg-1-Opa p-2 text-white font-semibold w-full text-center">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-40">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span
+                          class="absolute left-0 bottom-0 pink-bg-1-Opa p-2 text-white font-semibold w-full text-center">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-40">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span
+                          class="absolute left-0 bottom-0 pink-bg-1-Opa p-2 text-white font-semibold w-full text-center">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-40">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span
+                          class="absolute left-0 bottom-0 pink-bg-1-Opa p-2 text-white font-semibold w-full text-center">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-40">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span
+                          class="absolute left-0 bottom-0 pink-bg-1-Opa p-2 text-white font-semibold w-full text-center">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-40">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span
+                          class="absolute left-0 bottom-0 pink-bg-1-Opa p-2 text-white font-semibold w-full text-center">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-2 items-center relative w-56 h-40">
+                        <img src="../../../assets/one-destination/destination2.png"
+                             class="w-full h-full" alt="" />
+                        <span
+                          class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                    16 Aug
+                                                </span>
+                        <span
+                          class="absolute left-0 bottom-0 pink-bg-1-Opa p-2 text-white font-semibold w-full text-center">
+                                                    Cancelled
+                                                </span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="isDraftEvents">
+        <div class="w-full col-span-12 flex flex-col items-center justify-center gap-4 -mt-10">
+          <div class="self-end flex gap-2 items-center text-[#0c5060]">
+            <i class="fa-solid fa-list transition-colors cursor-pointer"
+               [ngClass]="{ 'text-[#Ec4899]': isDraftEventsList }"
+               (click)="handleDraftsEventsView('list')"></i>
+            <i class="fa-brands fa-windows transition-colors cursor-pointer"
+               [ngClass]="{ 'text-[#Ec4899]': isDraftEventsCard }"
+               (click)="handleDraftsEventsView('cards')"></i>
+          </div>
+
+          <ng-container *ngIf="isDraftEventsList">
+            <div class="w-full flex flex-col bg-white gap-3 px-3 pt-3 pb-2 items-start rounded-lg">
+              <div class="w-full flex items-center gap-3 justify-start">
+                <input type="checkbox">
+                <h4 class="text-[#0c5060] m-0">Draft Events</h4>
+                <select name="date-filter"
+                        class="text-[#5a98f4] border-none px-2 py-2 focus:outline-none">
+                  <option value="aug-to-oct-2020">August - October 2020</option>
+                </select>
+              </div>
+
+              <div class="table-responsive w-full">
+                <table class="w-full mng-coach-table">
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-24">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                          <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                        Tennis Event at ABC
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-24">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                          <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                        Tennis Event at ABC
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-24">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                          <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                        Tennis Event at ABC
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-24">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                          <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                        Tennis Event at ABC
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-24">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                          <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                        Tennis Event at ABC
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-24">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                          <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                        Tennis Event at ABC
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-24">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                          <span class="absolute left-0 bottom-0 p-2 text-white font-semibold">
+                                                        Tennis Event at ABC
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-baseball"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports Type
+                                                    <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-clock"></i>
+                        <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                    11:00 AM - 18:00 PM
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Event Type
+                                                    <p class="text-[#0c5060] m-0">- Public</p>
+                                                </span>
+                      </div>
+                      <p class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <span class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill Level
+                                                    <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                </span>
+                      </p>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                </table>
+              </div>
+            </div>
+
+          </ng-container>
+
+          <ng-container *ngIf="isDraftEventsCard">
+            <div class="w-full flex flex-col bg-white gap-2 px-3 pt-3 pb-2 items-start rounded-lg">
+              <div class="w-full flex items-center gap-3 justify-start">
+                <input type="checkbox">
+                <h4 class="text-[#0c5060] m-0">Draft Events</h4>
+                <select name="date-filter"
+                        class="text-[#5a98f4] border-none px-2 py-2 focus:outline-none">
+                  <option value="aug-to-oct-2020">August - October 2020</option>
+                </select>
+
+              </div>
+
+              <div class="table-responsive w-full">
+                <table class="w-full mng-coach-table">
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-40">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end relative">
+                        <i class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"
+                           (click)="toggleDraftItemDropdown()"></i>
+                        <div *ngIf="isDraftOptionsOpen"
+                             class="absolute right-0 top-6 z-50 w-36 bg-white rounded-md shadow-lg flex flex-col items-start py-1 text-sm">
+                          <button
+                            class="font-medium px-4 py-2 text-[#0c5060] no-underline hover:text-[#EC3899] transition-colors">
+                            Publish Event
+                          </button>
+                          <button
+                            class="font-medium px-4 py-2 text-[#0c5060] no-underline hover:text-[#EC3899] transition-colors">
+                            Edit
+                          </button>
+                          <button
+                            class="font-medium px-4 py-2 text-[#0c5060] no-underline hover:text-[#EC3899] transition-colors">
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-40">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-40">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-40">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-40">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="border-b">
+
+                    <td>
+                      <div class="flex gap-3 items-start">
+                        <input type="checkbox">
+                        <div class="flex gap-2 items-center relative w-56 h-40">
+                          <img src="../../../assets/one-destination/destination2.png"
+                               class="w-full h-full" alt="" />
+                          <span
+                            class="absolute top-0 right-0 p-2 popup-div text-white font-semibold">
+                                                        16 Aug
+                                                    </span>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex flex-col items-start gap-2 w-full px-3">
+                        <p class="text-[#Ec4899] m-0"> Tennis Event at ABC</p>
+                        <p class="w-full text-[#0c5060] m-0 text-sm">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Esse debitis numquam asperiores dignissimos ullam nesciunt
+                          consequatur eligendi magni culpa omnis expedita repellendus
+                          reiciendis dolorum, nihil natus officia aliquid laborum iste.
+                        </p>
+                        <div class="w-full flex items-center gap-2 justify-between m-0">
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-baseball"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Sports
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Tennis</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-clock"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                11:00 AM - 18:00 PM
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-calendar"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Event
+                                                                Type
+                                                                <p class="text-[#0c5060] m-0">- Public</p>
+                                                            </span>
+                            </div>
+                            <div
+                              class="text-sm text-[#0c5060] m-0 pt-1 flex items-center gap-2">
+                              <i class="fa-regular fa-circle-dot"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Skill
+                                                                Level
+                                                                <p class="text-[#0c5060] m-0">- Intermediate</p>
+                                                            </span>
+                            </div>
+                          </div>
+
+                          <div class="flex flex-col gap-1 items-start">
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-tag"></i>
+                              <span
+                                class="text-[#5a98f4] m-0 flex gap-1 items-center">Price
+                                                                <p class="text-[#0c5060] m-0">- FREE!</p>
+                                                            </span>
+                            </div>
+                            <div class="text-sm text-[#0c5060] m-0 flex items-center gap-2">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <span class="text-[#0c5060] m-0 flex gap-1 items-center">
+                                                                Tennis Courts #2,3,4
+                                                            </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="flex w-full items-center justify-end">
+                        <i
+                          class="fa-solid fa-ellipsis-vertical cursor-pointer text-3xl grad-txt"></i>
+                      </div>
+                    </td>
+                  </tr>
+
+                </table>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+
+      <div class="fixed w-full h-full popup-div flex items-center justify-center top-0 left-0 bottom-0 right-0 z-50"
+           *ngIf="isAddNewsAndMedPopupOpen">
+        <div class="w-[700px] max-md:w-11/12 flex flex-col shadow-class">
+          <div class="grad-bg w-full flex justify-between items-center pl-4 pr-2 py-3 text-white">
+            <h4 class="font-semibold">Add News / Blog Posts</h4>
+            <i class="fa-solid fa-xmark text-2xl cursor-pointer" (click)="toggleAddNewsAndMedPopup()"></i>
+          </div>
+
+          <div class="flex flex-col items-end gap-3 px-4 py-3 bg-white w-full text-sm">
+            <label class="flex items-center gap-2 w-full justify-between">Article
+              <input type="text" placeholder="Add Name"
+                     class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-11/12 border" />
+            </label>
+
+            <label class="flex items-center gap-2 w-full justify-between">Author
+              <input type="text" placeholder="Add Name"
+                     class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-11/12 border" />
+            </label>
+
+            <span class="text-[#57a8f3] w-11/12 text-xs flex items-center justify-between gap-2">
+                            <p class="m-0">www. wresdsdsdsd.com/dasdasdadadadasdadada</p>
+                            <p class="m-0 cursor-pointer">Copy</p>
+                        </span>
+
+            <textarea name="" id="" placeholder="Add Description"
+                      class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-11/12 border" rows="4"></textarea>
+
+            <div
+              class="w-11/12 border-dash bg-[#f7f7f7] flex items-center justify-center gap-4 h-20 relative">
+              <!-- <input type="file" name="" class=" absolute z-50 top-1/2 left-1/2 w-full h-full"> -->
+              <i class="fa-solid fa-cloud-arrow-up text-3xl pb-3"></i>
+              <p class="text-sm">or</p>
+              <p class="text-[#57a8f3] underline">Choose file</p>
+            </div>
+
+            <div class="w-full flex gap-2 items-center max-md:flex-col max-md:items-start max-md:gap-4">
+              <label class="flex items-center gap-2 w-full justify-between">Tags
+                <input type="text" placeholder="Add Tags"
+                       class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[267px] border max-md:w-11/12" />
+              </label>
+              <label class="flex items-center gap-2 w-full justify-between">Filter
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[267px] border max-md:w-11/12">
+                  <option value="">Select Category</option>
+                  <option value="option">Option 1</option>
+                  <option value="option">Option 2</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="w-full flex gap-2 items-center max-md:flex-col max-md:items-start max-md:gap-4">
+              <label class="flex items-center gap-2 w-full justify-between">Status
+                <input type="text" placeholder="Add Status"
+                       class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[267px] border max-md:w-11/12" />
+              </label>
+              <label class="flex items-center gap-2 w-full justify-between">Visible
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[267px] border max-md:w-11/12">
+                  <option value="">Select Visibilty</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="w-full flex gap-2 items-center max-md:flex-col max-md:items-start max-md:gap-4">
+              <label class="flex items-center gap-2 justify-between w-full">Starting
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">Jan</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">31</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">2020</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+              </label>
+
+              <label class="flex items-center gap-2 justify-between w-full">Ending
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">Jan</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">31</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">2020</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="w-full flex items-center justify-end gap-4 pt-4">
+              <button class="text-[#EC3899] font-semibold">Save Draft</button>
+              <button
+                class="text-[#57a8f3] border-2 font-semibold rounded-md border-[#57a8f3] bg-white px-4 py-2">
+                PREVIEW
+              </button>
+              <button
+                class="px-4 py-2 bg-[#EC3899] border-2 border-[#EC3899] text-white font-semibold rounded-md">
+                PUBLISH
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixed w-full h-full popup-div flex items-center justify-center top-0 left-0 bottom-0 right-0 z-50"
+           *ngIf="isAddAlbum">
+        <div class="w-[700px] max-md:w-11/12 flex flex-col shadow-class">
+          <div class="grad-bg w-full flex justify-between items-center pl-4 pr-2 py-3 text-white">
+            <h4 class="font-semibold">Add Album</h4>
+            <i class="fa-solid fa-xmark text-2xl cursor-pointer" (click)="toggleAddAlbumPopup()"></i>
+          </div>
+
+          <div class="flex flex-col items-end gap-3 px-4 py-3 bg-white w-full text-sm">
+            <label class="flex items-center gap-2 w-full justify-between">Name <input type="text"
+                                                                                      placeholder="Add Name" class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-11/12 border">
+            </label>
+
+            <span class="text-[#57a8f3] w-11/12 text-xs flex items-center justify-between gap-2">
+                            <p class="m-0"> www. wresdsdsdsd.com/dasdasdadadadasdadada </p>
+                            <p class="m-0 cursor-pointer">Copy</p>
+                        </span>
+
+            <div
+              class="w-11/12 border-dash bg-[#f7f7f7] flex items-center justify-center gap-4 h-20 relative">
+              <!-- <input type="file" name="" class=" absolute z-50 top-1/2 left-1/2 w-full h-full"> -->
+              <i class="fa-solid fa-cloud-arrow-up text-3xl pb-3"></i>
+              <p class="text-sm">or</p>
+              <p class="text-[#57a8f3] underline">Choose file</p>
+            </div>
+
+            <div class="w-11/12 grid grid-cols-4 gap-3">
+                            <span class="col-span-1 w-full">
+                                <img src="../../../assets/WEBSITE - ABOUT US PAGE IMAGES/section-02-img-01.png" alt=""
+                                     class="w-full h-28">
+                            </span>
+              <span class="col-span-1 w-full">
+                                <img src="../../../assets/WEBSITE - ABOUT US PAGE IMAGES/section-02-img-01.png" alt=""
+                                     class="w-full h-28">
+                            </span>
+              <span class="col-span-1 w-full">
+                                <img src="../../../assets/WEBSITE - ABOUT US PAGE IMAGES/section-02-img-01.png" alt=""
+                                     class="w-full h-28">
+                            </span>
+              <span class="col-span-1 w-full">
+                                <img src="../../../assets/WEBSITE - ABOUT US PAGE IMAGES/section-02-img-01.png" alt=""
+                                     class="w-full h-28">
+                            </span>
+            </div>
+
+            <div class="w-full flex gap-2 items-center max-md:flex-col max-md:items-start max-md:gap-4">
+              <label class="flex items-center gap-2 w-full justify-between">Tags <input type="text"
+                                                                                        placeholder="Add Tags"
+                                                                                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[267px] border max-md:w-11/12">
+              </label>
+              <label class="flex items-center gap-2 w-full justify-between">Filter
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[267px] border max-md:w-11/12">
+                  <option value="">Select Category</option>
+                  <option value="option">Option 1</option>
+                  <option value="option">Option 2</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="w-full flex gap-2 items-center max-md:flex-col max-md:items-start max-md:gap-4">
+              <label class="flex items-center gap-2 w-full justify-between">Status <input type="text"
+                                                                                          placeholder="Add Status"
+                                                                                          class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[267px] border max-md:w-11/12">
+              </label>
+              <label class="flex items-center gap-2 w-full justify-between">Visible
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[267px] border max-md:w-11/12">
+                  <option value="">Select Visibilty</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="w-full flex gap-2 items-center max-md:flex-col max-md:items-start max-md:gap-4">
+              <label class="flex items-center gap-2 justify-between w-full">Starting
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">Jan</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">31</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">2020</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+              </label>
+
+              <label class="flex items-center gap-2 justify-between w-full">Ending
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">Jan</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">31</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+                <select type="text"
+                        class="px-2 py-1 bg-[#f7f7f7] rounded-sm w-[80px] border max-md:w-11/12">
+                  <option value="">2020</option>
+                  <option value="option">Public</option>
+                  <option value="option">Private</option>
+                </select>
+              </label>
+
+            </div>
+
+            <div class="w-full flex items-center justify-end gap-4 pt-4">
+              <button class="text-[#EC3899] font-semibold">Save Draft</button>
+              <button
+                class="text-[#57a8f3] border-2 font-semibold rounded-md border-[#57a8f3] bg-white px-4 py-2">PREVIEW</button>
+              <button
+                class="px-4 py-2 bg-[#EC3899] border-2 border-[#EC3899] text-white font-semibold rounded-md">PUBLISH</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

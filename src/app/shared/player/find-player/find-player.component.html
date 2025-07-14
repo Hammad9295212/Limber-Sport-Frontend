@@ -1,0 +1,145 @@
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1200;">
+  <ngb-toast
+    *ngFor="let toast of _toastService.toasts"
+    [autohide]="true"
+    [delay]="toast.delay || 5000"
+    (hidden)="_toastService.remove(toast)"
+    class="{{ toast?.classname }}"
+  >
+    <ng-template [ngIf]="isTemplate(toast)" [ngIfElse]="text">
+      <ng-template [ngTemplateOutlet]="toast.textOrTpl"></ng-template>
+    </ng-template>
+
+    <ng-template #text>{{ toast.textOrTpl }}</ng-template>
+  </ngb-toast>
+</div>
+<div class="h-10 mt-5 bg-[#f5f6f6]">
+  <form class="search-container grid grid-cols-12 p-2 gap-2" [formGroup]="searchForm"
+        [ngStyle]="{'background': selectRole ? 'white' : '#0c5060', 'padding': selectRole ? '14px' : '' }"
+  >
+    <div class="max-md:col-span-full text-center"
+         [class.col-span-2]="selectRole"
+         [class.col-span-3]="!selectRole"
+    >
+      <div class="search-select" *ngIf="selectRole === 1"
+      >
+        <label class="font-semibold text-[#0c5060] sm:pl-8 max-sm:pl-4"
+               [ngStyle]="{'color': selectRole ? 'black' : 'white' }"
+               [class.playerText]="selectRole"
+               style="height: 39px;margin-top: 7px;padding-top: 5px;"
+        >Players</label>
+      </div>
+      <ng-container *ngIf="!selectRole">
+        <span class="search-span"
+              [ngStyle]="{'color': selectRole ? 'black' : 'white' }"
+        >Find a player, club, event and more</span>
+        <div class="search-select w-full">
+          <select name="role" class="select w-full text-center"
+                  formControlName="role"
+
+          >
+            <option value="">Select one</option>
+            <option *ngFor="let data of rolesData" value={{data.id}}>{{data.name}}</option>
+          </select>
+        </div>
+      </ng-container>
+
+    </div>
+    <div class=" max-md:col-span-full text-center"
+         [class.col-span-2]="selectRole"
+         [class.col-span-3]="!selectRole"
+    >
+      <div class="list search-select w-full relative"
+      >
+        <span class="search-span"
+              *ngIf="!selectRole"
+              [ngStyle]="{'color': selectRole ? 'black' : 'white' }"
+        >Select your sport</span>
+        <select name="sport" class="w-full text-center" formControlName="sport"
+                [class.playerText]="selectRole"
+        >
+          <option value="" data-display="">{{ selectRole ? 'Sport?' : 'Select a sport' }}</option>
+          <option *ngFor="let data of playData" value={{data.id}}>{{data.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class=" max-md:col-span-full text-center"
+         [class.col-span-2]="selectRole"
+         [class.col-span-3]="!selectRole"
+         *ngIf="selectRole"
+    >
+      <div class="list search-select w-full relative"
+      >
+        <span class="search-span"
+              *ngIf="!selectRole"
+              [ngStyle]="{'color': selectRole ? 'black' : 'white' }"
+        >Select your ability</span>
+        <select name="sport" class="w-full text-center" formControlName="sport"
+                [class.playerText]="selectRole"
+        >
+          <option value="" data-display="">Ability</option>
+          <option *ngFor="let data of abilityData" value={{data.id}}>{{data.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="max-md:col-span-full text-center relative"
+         [class.col-span-2]="selectRole"
+         [class.col-span-3]="!selectRole"
+    >
+      <span class="search-span w-full"
+            *ngIf="!selectRole"
+            [ngStyle]="{'color': selectRole ? 'black' : 'white' }"
+
+      >
+        {{ selectRole ? 'Location?' : 'Choose your location' }}
+      </span>
+
+      <input #searchInput id="pac-input" type="text" [placeholder]="selectRole ? 'Location?' : 'Enter a location'" class="w-full text-center input-field"
+             [class.playerText]="selectRole"
+      />
+
+
+    </div>
+
+    <div class="max-md:col-span-full text-center"
+         [ngStyle]="{'border': selectRole ? '1px solid lightgrey !important' : '' }"
+         [class.col-span-2]="selectRole"
+         [class.col-span-3]="!selectRole"
+    >
+      <span class="search-span"
+            *ngIf="!selectRole"
+            style="color: white"
+      >Choose your distance</span>
+      <div class="search-select w-full">
+        <select name="distance" class="w-full text-center" formControlName="distance"
+                [class.playerText]="selectRole"
+        >
+          <option value="" data-display="">Distance From</option>
+          <option value="5">5 Miles</option>
+          <option value="10">10 Miles</option>
+          <option value="25">25 Miles</option>
+          <option value="25">50 Miles</option>
+          <option value="75">75 Miles</option>
+          <option value="100">100 Miles</option>
+          <option value="00">Anywhere</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-span-2 max-md:col-span-full text-center"
+         *ngIf="selectRole"
+         style="margin-top: 19px;"
+    >
+      <button id="searchme" type="submit" class="search-btn" (click)="handleFindNow()">
+        Find
+      </button>
+    </div>
+
+    <div class="col-span-full message-btn mt-4"
+         *ngIf="!selectRole"
+    >
+      <button id="searchme" type="submit" class="search-btn" (click)="handleFindNow()">
+        <i class="fa-solid fa-magnifying-glass pr-2"></i>Find Now
+      </button>
+    </div>
+  </form>
+</div>

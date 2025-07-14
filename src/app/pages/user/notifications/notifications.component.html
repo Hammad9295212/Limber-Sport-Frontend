@@ -1,0 +1,147 @@
+<div class="container-fluid" *ngIf="currentUser">
+  <app-header2 [notification_toast]="false"></app-header2>
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1200;">
+    <ngb-toast
+      *ngFor="let toast of toastService.toasts"
+      [autohide]="true"
+      [delay]="toast.delay || 5000"
+      (hidden)="toastService.remove(toast)"
+      [ngClass]="toast?.classname"
+    >
+      <ng-template [ngIf]="isTemplate(toast)" [ngIfElse]="text">
+        <ng-template [ngTemplateOutlet]="toast.textOrTpl"></ng-template>
+      </ng-template>
+
+      <ng-template #text>{{ toast.textOrTpl }}</ng-template>
+    </ngb-toast>
+  </div>
+  <div class="mt-5" style="margin-top: 100px !important;">
+    <div class="container my-4">
+      <h4 class="text-primary mb-4"
+          style="color: #0c5060 !important;"
+      >My Notifications ({{ extra?.notificationList?.length || 0 }})</h4>
+      <div
+        class="card shadow-sm rounded-lg mb-3"
+        *ngFor="let notification of extra?.notificationList"
+      >
+        <div class="card-body d-flex flex-column flex-md-row align-items-start align-items-md-center">
+          <!-- Icon / Image Container -->
+          <div class="icon-container d-flex align-items-center justify-content-center me-md-3 mb-2 mb-md-0">
+            <div
+              class="avatar bg-light rounded-circle overflow-hidden"
+              *ngIf="notification?.data && notification?.data[0]?.sender_image"
+            >
+              <img
+                [src]="notification?.data[0]?.sender_image"
+                alt="User Avatar"
+                class="img-fluid"
+              />
+            </div>
+            <i
+              class="fas fa-user text-primary icon"
+              *ngIf="!notification?.data || !notification?.data[0]?.sender_image"
+            ></i>
+          </div>
+          <!-- Notification Content -->
+          <div class="flex-grow-1 me-md-3">
+            <h6 class="mb-1 fw-bold">{{ notification?.data[0]?.title }}</h6>
+            <p class="mb-0 text-muted">{{ notification?.data[0]?.body }}</p>
+          </div>
+          <!-- Time Ago -->
+          <div class="text-muted small ms-md-3 mb-2 mb-md-0">
+            {{ timeAgo(notification?.created_at) }}
+          </div>
+          <!-- Action Buttons -->
+          <div
+            class="d-flex align-items-center justify-content-end ms-md-3"
+            *ngIf="notification?.data && notification?.data[0]?.connection_request_id"
+          >
+            <button
+              class="btn btn-success btn-sm mx-1"
+              (click)="onAcceptRejectFriendRequest(notification?.data[0]?.connection_request_id, 'accept')"
+            >
+              Accept
+            </button>
+            <button
+              class="btn btn-danger btn-sm mx-1"
+              (click)="onAcceptRejectFriendRequest(notification?.data[0]?.connection_request_id, 'rejected')"
+            >
+              Reject
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="container-fluid" *ngIf="currentUser">
+  <app-header2
+    [notification_toast]="false"
+  ></app-header2>
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1200;">
+    <ngb-toast
+      *ngFor="let toast of toastService.toasts"
+      [autohide]="true"
+      [delay]="toast.delay || 5000"
+      (hidden)="toastService.remove(toast)"
+      class="{{ toast?.classname }}"
+    >
+      <ng-template [ngIf]="isTemplate(toast)" [ngIfElse]="text">
+        <ng-template [ngTemplateOutlet]="toast.textOrTpl"></ng-template>
+      </ng-template>
+
+      <ng-template #text>{{ toast.textOrTpl }}</ng-template>
+    </ngb-toast>
+  </div>
+  <div style="margin-top: 120px !important;">
+    <div class="container my-4"
+
+    >
+      <h4 class="text-primary mb-4">My Notifications ({{ extra?.notificationList?.length || 0 }})</h4>
+      <div class="card shadow-sm rounded-lg"
+           *ngFor="let notification of extra?.notificationList"
+      >
+        <div class="card-body d-flex align-items-center">
+          <div class="icon bg-light rounded-circle d-flex align-items-center justify-content-center mr-3">
+            <div class="avatar bg-light rounded-circle d-flex align-items-center justify-content-center mr-3 overflow-hidden"
+                 *ngIf="notification && notification?.data && notification?.data[0] && notification?.data[0]?.sender_image"
+            >
+              <img [src]="notification?.data[0]?.sender_image" alt="User Avatar" class="img-fluid" />
+            </div>
+            <i class="fas fa-user text-primary"
+               *ngIf="!notification?.data || !notification?.data[0] || !notification?.data[0]?.sender_image"
+            ></i>
+          </div>
+          <div class="flex-grow-1" *ngIf="notification?.data &&  notification?.data[0]">
+            <h6 class="mb-1 font-weight-bold">{{ notification?.data[0]?.title }}</h6>
+            <p class="mb-0 text-muted">{{ notification?.data[0]?.body }}</p>
+            &lt;!&ndash;  <div class="ml-3">
+                <button class="btn btn-success btn-sm mx-1">
+                  Like
+                </button>
+                <button class="btn btn-warning btn-sm mx-1" >
+                  Delete
+                </button>
+              </div>&ndash;&gt;
+          </div>
+          <div class="text-muted small" *ngIf="notification && notification?.created_at">{{ timeAgo(notification?.created_at) }}</div>
+          <div class="ml-3" *ngIf="notification && notification?.data && notification?.data[0] && notification?.data[0]?.connection_request_id">
+            <button class="btn btn-success btn-sm mx-1" (click)="onAcceptRejectFriendRequest(notification?.data[0]?.connection_request_id, 'accept')">
+              Accept
+            </button>
+            <button class="btn btn-danger btn-sm mx-1" (click)="onAcceptRejectFriendRequest(notification?.data[0]?.connection_request_id, 'rejected')">
+              Reject
+            </button>
+           &lt;!&ndash; <button class="btn btn-warning btn-sm mx-1" (click)="onAcceptRejectFriendRequest(notification?.data[0]?.connection_request_id, 'delete')">
+              Delete
+            </button>&ndash;&gt;
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+-->

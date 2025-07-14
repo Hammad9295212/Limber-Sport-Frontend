@@ -1,0 +1,2528 @@
+<app-header></app-header>
+<div class="font-sans main-div flex flex-col items-center">
+  <div
+    class="col-12 hero-section flex justify-center items-center bg-black bg-opacity-50"
+  >
+    <div
+      class="mt-16 flex flex-col justify-center items-center text-center text-[#fff] max-w-[1200px] h-full"
+    >
+      <h1 class="font-black text-[50px] leading-10 max-sm:text-4xl">
+        Find a Local Sports Facility for your Game
+      </h1>
+      <h2 class="font-medium text-lg max-sm:text-base">
+        BOOK SPORTS PITCHES, COURTS AND FACILITIES AND PLAY
+      </h2>
+    </div>
+  </div>
+  <div
+    class="grid grid-cols-12 max-md:grid-cols-9 max-sm:grid-cols-6 items-start justify-between py-10 gap-2 max-w-[1200px] text-[#0c5060] px-4 relative"
+  >
+    <div
+      class="col-span-full grid grid-cols-12 justify-center items-center mb-6"
+    >
+      <h4 class="text-start col-span-2 max-lg:col-span-3 max-md:hidden pt-16">
+        Search Filters
+      </h4>
+      <div
+        class="col-span-7 max-md:col-span-full max-lg:col-span-full justify-between gap-4"
+      >
+        <h4 class="text-center pb-8">Facility Search Results</h4>
+        <div class="flex items-center justify-between px-2">
+          <h4>Showing 1 - 20 Results</h4>
+          <span class="flex items-center justify-center gap-2"
+            ><select
+              name="sort"
+              id="sort"
+              class="pl-2 h-10 pr-4 rounded-md border-2 border-[#0c5060] font-semibold"
+            >
+              <option>Sort by</option>
+              <option value="location">Location</option>
+              <option value="rating">Rating</option>
+            </select>
+            <button
+              class="bg-inherit border-2 border-[#0c5060] px-3 rounded-md h-10"
+              [ngClass]="{ selected: isFacilitiesList === 'List' }"
+              (click)="handleFacilitiesView('List')"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <button
+              class="bg-inherit border-2 border-[#0c5060] px-3 rounded-md h-10"
+              [ngClass]="{ selected: isFacilitiesList === 'Card' }"
+              (click)="handleFacilitiesView('Card')"
+            >
+              <i class="fa-brands fa-windows"></i></button
+          ></span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-span-2 max-lg:col-span-3 flex flex-col justify-center items-center gap-8 max-md:hidden"
+    >
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full"
+      >
+        <h4 class="text-[#0c5060]">Looking for</h4>
+        <label for="looking_for" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="looking_for"
+            id="looking_for-input"
+            value="players"
+          />Players</label
+        ><label for="looking_for" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="looking_for"
+            id="looking_for-input"
+            value="coaches"
+          />Coaches</label
+        ><label for="looking_for" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="looking_for"
+            id="looking_for-input"
+            value="clubs"
+          />Clubs</label
+        ><label for="looking_for" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="looking_for"
+            id="looking_for-input"
+            value="events and competitions"
+          />Events and Competitions</label
+        ><label for=" looking_for" class="flex gap-2 text-sm"
+          ><input
+            checked
+            type="checkbox"
+            name="looking_for"
+            id="looking_for-input"
+            value="facilities"
+          />Facilities</label
+        ><label for=" looking_for" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="looking_for"
+            id="looking_for-input"
+            value="special"
+          />Special Offers and Deals</label
+        >
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+      >
+        <h4 class="text-[#0c5060]">Sport</h4>
+        <input
+          type="text"
+          placeholder="Search ..."
+          class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full"
+        /><label for="sports" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="sports"
+            id="sports-input"
+            value="american-football"
+          />American Football</label
+        ><label for="sports" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="sports"
+            id="sports-input"
+            value="badminton"
+          />Badminton</label
+        ><label for="sports" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="sports"
+            id="sports-input"
+            value="baseball"
+          />Baseball</label
+        ><label for="sports" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="sports"
+            id="sports-input"
+            value="basketball"
+          />Basketball</label
+        ><label for=" sports" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="sports"
+            id="sports-input"
+            value="beach-volleyball"
+          />Beach Volleyball</label
+        ><label for=" sports" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="sports"
+            id="sports-input"
+            value="boxing"
+          />Boxing</label
+        ><button
+          class="text-end text-[#0c5060] text-sm font-semibold absolute right-3 bottom-2"
+        >
+          See More
+        </button>
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+      >
+        <h4 class="text-[#0c5060]">Facility Type</h4>
+        <label for="facility-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facility-type"
+            id="facility-type-input"
+            value="indoor"
+          />Indoor Sports Facilities</label
+        >
+        <div class="flex flex-col items-start gap-2 pl-4">
+          <label for="facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="basketball"
+            />Basketball Courts</label
+          >
+          <label for="facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="volleyball"
+            />Volleyball Courts</label
+          >
+          <label for="facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="badminton"
+            />Badminton Courts</label
+          >
+          <label for="facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="football"
+            />Indoor Football Pitch</label
+          >
+        </div>
+        <label for="facility-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facility-type"
+            id="facility-type-input"
+            value="outdoor"
+          />Outdoor Sports Facilities</label
+        ><label for="facility-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facility-type"
+            id="facility-type-input"
+            value="aquatic"
+          />Aquatic Sports Facilities</label
+        ><label for="facility-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facility-type"
+            id="facility-type-input"
+            value="raquet"
+          />Raquet Sports Facilities</label
+        ><label for=" facility-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facility-type"
+            id="facility-type-input"
+            value="specialized"
+          />Specialized Sport</label
+        ><label for=" facility-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facility-type"
+            id="facility-type-input"
+            value="recreation"
+          />Recreation Sports Facilities</label
+        >
+        <label for=" facility-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facility-type"
+            id="facility-type-input"
+            value="other"
+          />Other Facilities</label
+        >
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+      >
+        <h4 class="text-[#0c5060]">Location</h4>
+        <input
+          type="text"
+          name="location"
+          placeholder="Type location here"
+          class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full"
+        />
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+      >
+        <h4 class="text-[#0c5060]">Distance From Me</h4>
+        <input
+          name="distance"
+          type="range"
+          min="0"
+          max="100"
+          placeholder="Miles"
+          class="w-full"
+        />
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+      >
+        <h4 class="text-[#0c5060]">Open To</h4>
+        <label for="openTo" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="openTo"
+            id="openTo-input"
+            value="members"
+          />Members Only</label
+        ><label for="openTo" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="openTo"
+            id="openTo-input"
+            value="public"
+          />Public</label
+        ><label for="openTo" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="openTo"
+            id="openTo-input"
+            value="invitation"
+          />Invitation by Guest</label
+        >
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+      >
+        <h4 class="text-[#0c5060]">Playing Surface</h4>
+        <label for="surface-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="surface-type"
+            id="surface-type-input"
+            value="indoor"
+          />Indoor</label
+        >
+        <label for="surface-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="surface-type"
+            id="surface-type-input"
+            value="outdoor"
+          />Outdoor</label
+        >
+        <label for="surface-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="surface-type"
+            id="surface-type-input"
+            value="aquatic"
+          />Aquatic</label
+        >
+        <label for="surface-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="surface-type"
+            id="surface-type-input"
+            value="specialized"
+          />Specialized Sufaces</label
+        >
+        <label for="surface-type" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="surface-type"
+            id="surface-type-input"
+            value="recreational"
+          />Recreational Surfaces</label
+        >
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+      >
+        <h4 class="text-[#0c5060]">Facilities</h4>
+        <label for="facilities" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facilities"
+            id="facilities-input"
+            value="toilets"
+          />Toilets</label
+        >
+        <label for="facilities" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facilities"
+            id="facilities-input"
+            value="changing-rooms"
+          />Changing Rooms</label
+        >
+        <label for="facilities" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facilities"
+            id="facilities-input"
+            value="floodlights"
+          />Floodlights</label
+        >
+        <label for="facilities" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facilities"
+            id="facilities-input"
+            value="clubhouse"
+          />Clubhouse</label
+        >
+        <label for="facilities" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facilities"
+            id="facilities-input"
+            value="restaurant"
+          />Restaurant</label
+        >
+        <label for="facilities" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facilities"
+            id="facilities-input"
+            value="bar"
+          />Bar</label
+        >
+        <label for="facilities" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facilities"
+            id="facilities-input"
+            value="conference-rooms"
+          />Conference Rooms</label
+        >
+        <label for="facilities" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="facilities"
+            id="facilities-input"
+            value="accomodation"
+          />Accomodation</label
+        >
+      </div>
+      <div
+        class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+      >
+        <h4 class="text-[#0c5060]">Facility Price Range</h4>
+        <input
+          name="price-range"
+          type="range"
+          min="0"
+          max="100"
+          placeholder="Miles"
+          class="w-full"
+        />
+      </div>
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full"
+      >
+        <h4 class="text-[#0c5060]">Event Rating</h4>
+        <label for="rating" class="flex gap-2 text-sm items-center rating"
+          ><input
+            type="checkbox"
+            name="rating"
+            id="rating-input"
+            value="five" /><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+        ></label>
+        <label for="rating" class="flex gap-2 text-sm items-center rating"
+          ><input
+            type="checkbox"
+            name="rating"
+            id="rating-input"
+            value="four" /><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i
+        ></label>
+        <label for="rating" class="flex gap-2 text-sm items-center rating"
+          ><input
+            type="checkbox"
+            name="rating"
+            id="rating-input"
+            value="three" /><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+        ></label>
+        <label for="rating" class="flex gap-2 text-sm items-center rating"
+          ><input
+            type="checkbox"
+            name="rating"
+            id="rating-input"
+            value="two" /><i class="fa-solid fa-star"></i
+          ><i class="fa-solid fa-star"></i
+        ></label>
+        <label for=" rating" class="flex gap-2 text-sm items-center rating"
+          ><input
+            type="checkbox"
+            name="rating"
+            id="rating-input"
+            value="one" /><i class="fa-solid fa-star"></i
+        ></label>
+      </div>
+      <div
+        class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full"
+      >
+        <h4 class="text-[#0c5060]">Facility Tags</h4>
+        <label for="tags" class="flex gap-2 text-sm"
+          ><input
+            type="checkbox"
+            name="tags"
+            id="tags-input"
+            value="tag-1"
+          />Tag 1</label
+        ><label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="tag-2" />Tag
+          2</label
+        >
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="tag-3" />Tag
+          3</label
+        >
+        <label for="tags" class="flex gap-2 text-sm">
+          <input type="checkbox" name="tags" id="tags-input" value="tag-4" />Tag
+          4</label
+        >
+      </div>
+    </div>
+    <ng-container *ngIf="isFacilitiesList === 'Card'">
+      <div
+        class="col-span-7 max-lg:col-span-6 max-md:col-span-full grid grid-cols-8 justify-center items-center px-2"
+      >
+        <div
+          class="col-span-full grid grid-cols-2 max-lg:grid-cols-1 justify-center items-center gap-4 gap-y-10"
+        >
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div class="inner-box">
+                <figure class="image-box">
+                  <a><img src="assets/enter-local/enter1.png" alt="" /></a
+                  ><span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                    >
+                      <i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-end gap-0">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span
+                      ><span class="text-[#808080] flex gap-2 items-center">
+                        12 miles away
+                      </span>
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>
+                      / Per Person
+                    </span>
+                  </span>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See Details</a>
+                    <a
+                      class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer"
+                      >Book</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div class="inner-box">
+                <figure class="image-box">
+                  <a><img src="assets/enter-local/enter1.png" alt="" /></a
+                  ><span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                    >
+                      <i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-end gap-0">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span
+                      ><span class="text-[#808080] flex gap-2 items-center">
+                        12 miles away
+                      </span>
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>
+                      / Per Person
+                    </span>
+                  </span>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See Details</a>
+                    <a
+                      class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer"
+                      >Book</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div class="inner-box">
+                <figure class="image-box">
+                  <a><img src="assets/enter-local/enter1.png" alt="" /></a
+                  ><span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                    >
+                      <i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-end gap-0">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span
+                      ><span class="text-[#808080] flex gap-2 items-center">
+                        12 miles away
+                      </span>
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>
+                      / Per Person
+                    </span>
+                  </span>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See Details</a>
+                    <a
+                      class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer"
+                      >Book</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div class="inner-box">
+                <figure class="image-box">
+                  <a><img src="assets/enter-local/enter1.png" alt="" /></a
+                  ><span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                    >
+                      <i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-end gap-0">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span
+                      ><span class="text-[#808080] flex gap-2 items-center">
+                        12 miles away
+                      </span>
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>
+                      / Per Person
+                    </span>
+                  </span>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See Details</a>
+                    <a
+                      class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer"
+                      >Book</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div class="inner-box">
+                <figure class="image-box">
+                  <a><img src="assets/enter-local/enter1.png" alt="" /></a
+                  ><span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                    >
+                      <i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-end gap-0">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span
+                      ><span class="text-[#808080] flex gap-2 items-center">
+                        12 miles away
+                      </span>
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>
+                      / Per Person
+                    </span>
+                  </span>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See Details</a>
+                    <a
+                      class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer"
+                      >Book</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div class="inner-box">
+                <figure class="image-box">
+                  <a><img src="assets/enter-local/enter1.png" alt="" /></a
+                  ><span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                    >
+                      <i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-end gap-0">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span
+                      ><span class="text-[#808080] flex gap-2 items-center">
+                        12 miles away
+                      </span>
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>
+                      / Per Person
+                    </span>
+                  </span>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See Details</a>
+                    <a
+                      class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer"
+                      >Book</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div class="inner-box">
+                <figure class="image-box">
+                  <a><img src="assets/enter-local/enter1.png" alt="" /></a
+                  ><span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                    >
+                      <i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-end gap-0">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span
+                      ><span class="text-[#808080] flex gap-2 items-center">
+                        12 miles away
+                      </span>
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>
+                      / Per Person
+                    </span>
+                  </span>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See Details</a>
+                    <a
+                      class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer"
+                      >Book</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div class="inner-box">
+                <figure class="image-box">
+                  <a><img src="assets/enter-local/enter1.png" alt="" /></a
+                  ><span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                    >
+                      <i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-end gap-0">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span
+                      ><span class="text-[#808080] flex gap-2 items-center">
+                        12 miles away
+                      </span>
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>
+                      / Per Person
+                    </span>
+                  </span>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See Details</a>
+                    <a
+                      class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer"
+                      >Book</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div class="inner-box">
+                <figure class="image-box">
+                  <a><img src="assets/enter-local/enter1.png" alt="" /></a
+                  ><span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                    >
+                      <i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-end gap-0">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span
+                      ><span class="text-[#808080] flex gap-2 items-center">
+                        12 miles away
+                      </span>
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>
+                      / Per Person
+                    </span>
+                  </span>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See Details</a>
+                    <a
+                      class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer"
+                      >Book</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div class="inner-box">
+                <figure class="image-box">
+                  <a><img src="assets/enter-local/enter1.png" alt="" /></a
+                  ><span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content">
+                  <div class="flex justify-between items-end">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                    >
+                      <i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-end gap-0">
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <i class="fa-solid fa-location-dot"></i>Birmingham</span
+                      ><span class="text-[#808080] flex gap-2 items-center">
+                        12 miles away
+                      </span>
+                    </div>
+                  </div>
+                  <span class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+                    <span class="text-[#808080] flex gap-2 items-center pt-2">
+                      <h5 class="text-[#f056c9] font-semibold pt-1">$ 75.00</h5>
+                      / Per Person
+                    </span>
+                  </span>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <a class="theme-btn-two cursor-pointer">See Details</a>
+                    <a
+                      class="selected px-3 py-[12px] rounded-md no-underline cursor-pointer"
+                      >Book</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-full flex items-center justify-start gap-2 pt-4">
+          <span
+            class="selected text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center cursor-pointer"
+            >1</span
+          ><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer"
+            >2</span
+          ><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer"
+            >3</span
+          ><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer"
+            ><i class="fa-solid fa-caret-right"></i
+          ></span>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isFacilitiesList === 'List'"
+      ><div
+        class="col-span-7 max-lg:col-span-6 max-md:col-span-full grid grid-cols-8 justify-center items-center px-2"
+      >
+        <div
+          class="col-span-full grid grid-cols-1 justify-center items-center gap-6 gap-y-10 pt-3"
+        >
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div
+                class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white"
+              >
+                <figure
+                  class="image-box h-full col-span-2 max-[540px]:col-span-full"
+                >
+                  <a class="h-full block">
+                    <img
+                      src="assets/enter-local/enter1.png"
+                      alt=""
+                      class="h-full"
+                  /></a>
+                  <span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                      ><i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-center">
+                      <span class="text-[#808080] flex gap-2 items-center"
+                        ><i class="fa-solid fa-location-dot"></i
+                        >Birmingham</span
+                      >
+                      <span class="text-[#808080] flex gap-2 items-center"
+                      >12 miles away</span
+                    >
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+
+                    <div
+                      class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start"
+                    >
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>
+                        / Per person
+                      </span>
+
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-evenly gap-2">
+                    <button class="theme-btn-two">See Details</button
+                    ><button class="theme-btn-two selected">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div
+                class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white"
+              >
+                <figure
+                  class="image-box h-full col-span-2 max-[540px]:col-span-full"
+                >
+                  <a class="h-full block">
+                    <img
+                      src="assets/enter-local/enter1.png"
+                      alt=""
+                      class="h-full"
+                  /></a>
+                  <span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                      ><i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-center">
+                      <span class="text-[#808080] flex gap-2 items-center"
+                        ><i class="fa-solid fa-location-dot"></i
+                        >Birmingham</span
+                      >
+                      <span class="text-[#808080] flex gap-2 items-center"
+                      >12 miles away</span
+                    >
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+
+                    <div
+                      class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start"
+                    >
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>
+                        / Per person
+                      </span>
+
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-evenly gap-2">
+                    <button class="theme-btn-two">See Details</button
+                    ><button class="theme-btn-two selected">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div
+                class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white"
+              >
+                <figure
+                  class="image-box h-full col-span-2 max-[540px]:col-span-full"
+                >
+                  <a class="h-full block">
+                    <img
+                      src="assets/enter-local/enter1.png"
+                      alt=""
+                      class="h-full"
+                  /></a>
+                  <span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                      ><i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-center">
+                      <span class="text-[#808080] flex gap-2 items-center"
+                        ><i class="fa-solid fa-location-dot"></i
+                        >Birmingham</span
+                      >
+                      <span class="text-[#808080] flex gap-2 items-center"
+                      >12 miles away</span
+                    >
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+
+                    <div
+                      class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start"
+                    >
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>
+                        / Per person
+                      </span>
+
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-evenly gap-2">
+                    <button class="theme-btn-two">See Details</button
+                    ><button class="theme-btn-two selected">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div
+                class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white"
+              >
+                <figure
+                  class="image-box h-full col-span-2 max-[540px]:col-span-full"
+                >
+                  <a class="h-full block">
+                    <img
+                      src="assets/enter-local/enter1.png"
+                      alt=""
+                      class="h-full"
+                  /></a>
+                  <span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                      ><i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-center">
+                      <span class="text-[#808080] flex gap-2 items-center"
+                        ><i class="fa-solid fa-location-dot"></i
+                        >Birmingham</span
+                      >
+                      <span class="text-[#808080] flex gap-2 items-center"
+                      >12 miles away</span
+                    >
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+
+                    <div
+                      class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start"
+                    >
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>
+                        / Per person
+                      </span>
+
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-evenly gap-2">
+                    <button class="theme-btn-two">See Details</button
+                    ><button class="theme-btn-two selected">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div
+                class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white"
+              >
+                <figure
+                  class="image-box h-full col-span-2 max-[540px]:col-span-full"
+                >
+                  <a class="h-full block">
+                    <img
+                      src="assets/enter-local/enter1.png"
+                      alt=""
+                      class="h-full"
+                  /></a>
+                  <span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                      ><i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-center">
+                      <span class="text-[#808080] flex gap-2 items-center"
+                        ><i class="fa-solid fa-location-dot"></i
+                        >Birmingham</span
+                      >
+                      <span class="text-[#808080] flex gap-2 items-center"
+                      >12 miles away</span
+                    >
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+
+                    <div
+                      class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start"
+                    >
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>
+                        / Per person
+                      </span>
+
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-evenly gap-2">
+                    <button class="theme-btn-two">See Details</button
+                    ><button class="theme-btn-two selected">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div
+                class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white"
+              >
+                <figure
+                  class="image-box h-full col-span-2 max-[540px]:col-span-full"
+                >
+                  <a class="h-full block">
+                    <img
+                      src="assets/enter-local/enter1.png"
+                      alt=""
+                      class="h-full"
+                  /></a>
+                  <span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                      ><i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-center">
+                      <span class="text-[#808080] flex gap-2 items-center"
+                        ><i class="fa-solid fa-location-dot"></i
+                        >Birmingham</span
+                      >
+                      <span class="text-[#808080] flex gap-2 items-center"
+                      >12 miles away</span
+                    >
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+
+                    <div
+                      class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start"
+                    >
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>
+                        / Per person
+                      </span>
+
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-evenly gap-2">
+                    <button class="theme-btn-two">See Details</button
+                    ><button class="theme-btn-two selected">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div
+                class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white"
+              >
+                <figure
+                  class="image-box h-full col-span-2 max-[540px]:col-span-full"
+                >
+                  <a class="h-full block">
+                    <img
+                      src="assets/enter-local/enter1.png"
+                      alt=""
+                      class="h-full"
+                  /></a>
+                  <span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                      ><i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-center">
+                      <span class="text-[#808080] flex gap-2 items-center"
+                        ><i class="fa-solid fa-location-dot"></i
+                        >Birmingham</span
+                      >
+                      <span class="text-[#808080] flex gap-2 items-center"
+                      >12 miles away</span
+                    >
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+
+                    <div
+                      class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start"
+                    >
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>
+                        / Per person
+                      </span>
+
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-evenly gap-2">
+                    <button class="theme-btn-two">See Details</button
+                    ><button class="theme-btn-two selected">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div
+                class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white"
+              >
+                <figure
+                  class="image-box h-full col-span-2 max-[540px]:col-span-full"
+                >
+                  <a class="h-full block">
+                    <img
+                      src="assets/enter-local/enter1.png"
+                      alt=""
+                      class="h-full"
+                  /></a>
+                  <span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                      ><i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-center">
+                      <span class="text-[#808080] flex gap-2 items-center"
+                        ><i class="fa-solid fa-location-dot"></i
+                        >Birmingham</span
+                      >
+                      <span class="text-[#808080] flex gap-2 items-center"
+                      >12 miles away</span
+                    >
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+
+                    <div
+                      class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start"
+                    >
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>
+                        / Per person
+                      </span>
+
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-evenly gap-2">
+                    <button class="theme-btn-two">See Details</button
+                    ><button class="theme-btn-two selected">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div
+                class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white"
+              >
+                <figure
+                  class="image-box h-full col-span-2 max-[540px]:col-span-full"
+                >
+                  <a class="h-full block">
+                    <img
+                      src="assets/enter-local/enter1.png"
+                      alt=""
+                      class="h-full"
+                  /></a>
+                  <span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                      ><i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-center">
+                      <span class="text-[#808080] flex gap-2 items-center"
+                        ><i class="fa-solid fa-location-dot"></i
+                        >Birmingham</span
+                      >
+                      <span class="text-[#808080] flex gap-2 items-center"
+                      >12 miles away</span
+                    >
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+
+                    <div
+                      class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start"
+                    >
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>
+                        / Per person
+                      </span>
+
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-evenly gap-2">
+                    <button class="theme-btn-two">See Details</button
+                    ><button class="theme-btn-two selected">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="news-block-one wow fadeInUp animated animated animated"
+              data-wow-delay="00ms"
+              data-wow-duration="1500ms"
+              style="
+                visibility: visible;
+                animation-duration: 1500ms;
+                animation-delay: 0ms;
+                animation-name: fadeInUp;
+              "
+            >
+              <div
+                class="inner-box grid grid-cols-5 max-[540px]:grid-cols-1 bg-white"
+              >
+                <figure
+                  class="image-box h-full col-span-2 max-[540px]:col-span-full"
+                >
+                  <a class="h-full block">
+                    <img
+                      src="assets/enter-local/enter1.png"
+                      alt=""
+                      class="h-full"
+                  /></a>
+                  <span class="post-date text-[#808080]"
+                    ><i class="fa-solid fa-futbol"></i>Basketball</span
+                  >
+                </figure>
+                <div class="lower-content col-span-3 max-[540px]:col-span-full">
+                  <div class="flex justify-between items-center">
+                    <span
+                      class="text-[#808080] rev-span flex gap-2 items-center"
+                      ><i class="fa-solid fa-star rating"></i>8.0</span
+                    >
+                    <div class="flex flex-col justify-start items-center">
+                      <span class="text-[#808080] flex gap-2 items-center"
+                        ><i class="fa-solid fa-location-dot"></i
+                        >Birmingham</span
+                      >
+                      <span class="text-[#808080] flex gap-2 items-center"
+                      >12 miles away</span
+                    >
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <a
+                      class="no-underline mt-2 text-xl font-semibold text-[#0c5060]"
+                      >Facility Name</a
+                    >
+
+                    <div
+                      class="w-full flex justify-between items-center max-lg:flex-col gap-2 max-lg:items-start"
+                    >
+                      <span class="text-[#808080] flex gap-2 items-center">
+                        <h5 class="text-[#f056c9] font-semibold">$ 75.00</h5>
+                        / Per person
+                      </span>
+
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorem illum odit maiores nisi modi quia nostrum velit
+                    obcaecati dolores, earum non.
+                  </p>
+                  <div class="flex items-center justify-evenly gap-2">
+                    <button class="theme-btn-two">See Details</button
+                    ><button class="theme-btn-two selected">Book</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-full flex items-center justify-start gap-2 pt-4">
+          <span
+            class="selected text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center cursor-pointer"
+            >1</span
+          ><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer"
+            >2</span
+          ><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer"
+            >3</span
+          ><span
+            class="text-[#0c5060] rounded-full h-10 w-10 text-center flex items-center justify-center bg-white card-shadow cursor-pointer"
+            ><i class="fa-solid fa-caret-right"></i
+          ></span>
+        </div></div
+    ></ng-container>
+    <div
+      class="col-span-3 flex flex-col bg-inherit gap-8 max-md:col-span-full px-6 justify-center items-center max-md:pt-10"
+    >
+      <div
+        class="card-shadow bg-white rounded-md py-4 px-2 flex flex-col items-start justify-center gap-4 w-full max-md:max-w-sm"
+      >
+        <h4>Featured Facilities</h4>
+        <div
+          style="
+            background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');
+          "
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md relative"
+        >
+          <span class="flex gap-2 items-center absolute top-1 right-2 text-sm"
+            ><i class="fa-solid fa-location-dot"></i>Birmingham, UK</span
+          >
+          <h5 class="">Facility Name</h5>
+          <div class="flex justify-between items-center text-sm">
+            <span class="flex gap-2 items-center">Facility Type</span>
+          </div>
+        </div>
+        <div
+          style="
+            background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');
+          "
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md relative"
+        >
+          <span class="flex gap-2 items-center absolute top-1 right-2 text-sm"
+            ><i class="fa-solid fa-location-dot"></i>Birmingham, UK</span
+          >
+          <h5 class="">Facility Name</h5>
+          <div class="flex justify-between items-center text-sm">
+            <span class="flex gap-2 items-center">Facility Type</span>
+          </div>
+        </div>
+        <div
+          style="
+            background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');
+          "
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md relative"
+        >
+          <span class="flex gap-2 items-center absolute top-1 right-2 text-sm"
+            ><i class="fa-solid fa-location-dot"></i>Birmingham, UK</span
+          >
+          <h5 class="">Facility Name</h5>
+          <div class="flex justify-between items-center text-sm">
+            <span class="flex gap-2 items-center">Facility Type</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="card-shadow bg-white rounded-md py-4 px-2 flex flex-col items-start justify-center gap-4 w-full max-md:max-w-sm"
+      >
+        <h4>Featured Coaches</h4>
+        <div
+          style="
+            background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');
+          "
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md"
+        >
+          <h5 class="leading-3">Coach Name</h5>
+          <span class="text-sm">Sport Name</span>
+          <div class="flex justify-between items-center text-sm">
+            <span class="flex gap-2 items-center rev-span"
+              ><i class="fa-solid fa-star rating"></i>8.0</span
+            ><span class="flex gap-2 items-center"
+              ><i class="fa-solid fa-location-dot"></i>Birmingham</span
+            >
+          </div>
+        </div>
+        <div
+          style="
+            background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');
+          "
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md"
+        >
+          <h5 class="leading-3">Coach Name</h5>
+          <span class="text-sm">Sport Name</span>
+          <div class="flex justify-between items-center text-sm">
+            <span class="flex gap-2 items-center rev-span"
+              ><i class="fa-solid fa-star rating"></i>8.0</span
+            ><span class="flex gap-2 items-center"
+              ><i class="fa-solid fa-location-dot"></i>Birmingham</span
+            >
+          </div>
+        </div>
+        <div
+          style="
+            background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');
+          "
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 rounded-md"
+        >
+          <h5 class="leading-3">Coach Name</h5>
+          <span class="text-sm">Sport Name</span>
+          <div class="flex justify-between items-center text-sm">
+            <span class="flex gap-2 items-center rev-span"
+              ><i class="fa-solid fa-star rating"></i>8.0</span
+            ><span class="flex gap-2 items-center"
+              ><i class="fa-solid fa-location-dot"></i>Birmingham</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="card-shadow bg-white rounded-md py-4 px-2 flex flex-col items-start justify-center gap-4 w-full max-md:max-w-sm"
+      >
+        <h4>Featured Events</h4>
+        <div
+          style="
+            background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');
+          "
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 pb-0 rounded-md relative"
+        >
+          <span
+            class="absolute top-2 left-2 text-[#808080] bg-white rounded-full pr-3 py-2 flex gap-1 items-center pl-12 text-sm"
+          >
+            <i
+              class="fa-regular fa-calendar-days selected rounded-full px-[10px] py-[6px] text-xl absolute left-0"
+            ></i
+            >12-12-2024
+          </span>
+        </div>
+        <div
+          style="
+            background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');
+          "
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 pb-0 rounded-md relative"
+        >
+          <span
+            class="absolute top-2 left-2 text-[#808080] bg-white rounded-full pr-3 py-2 flex gap-1 items-center pl-12 text-sm"
+          >
+            <i
+              class="fa-regular fa-calendar-days selected rounded-full px-[10px] py-[6px] text-xl absolute left-0"
+            ></i
+            >12-12-2024
+          </span>
+        </div>
+        <div
+          style="
+            background-image: url('../../../../../assets/WEBSITE\ FOOTER\ IMAGES/img-02.png');
+          "
+          class="w-full flex flex-col justify-end bg-center bg-no-repeat bg-cover text-white aspect-square p-2 pb-0 rounded-md relative"
+        >
+          <span
+            class="absolute top-2 left-2 text-[#808080] bg-white rounded-full pr-3 py-2 flex gap-1 items-center pl-12 text-sm"
+          >
+            <i
+              class="fa-regular fa-calendar-days selected rounded-full px-[10px] py-[6px] text-xl absolute left-0"
+            ></i
+            >12-12-2024
+          </span>
+        </div>
+      </div>
+    </div>
+    <div id="sidebar absolute top-2 w-72 md:hidden bg-white">
+      <div
+        class="absolute z-50 left-0 top-24 rounded-r-full selected text-white md:hidden bg-transparent py-2 px-3 text-xl sidebar-btn"
+      >
+        <input
+          class="invisible appearance-none"
+          type="checkbox"
+          id="toggle-sidebar"
+          name="toggle-sidebar"
+        /><label for="toggle-sidebar"
+          ><i
+            class="fa-solid fa-caret-right cursor-pointer inline-block"
+            id="menu-icon"
+          ></i
+          ><i
+            class="fa-solid fa-caret-left hidden cursor-pointer"
+            id="close-icon"
+          ></i
+        ></label>
+      </div>
+      <div
+        id="sidebar-filters"
+        class="flex card-shadow flex-col justify-center md:hidden items-center gap-4 transition-all duration-500 ease-in-out p-4 absolute z-50 left-0 top-40 bg-white"
+      >
+        <h4 class="text-start">Search Filters</h4>
+        <div
+          class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full"
+        >
+          <h4 class="text-[#0c5060]">Looking for</h4>
+          <label for="looking_for" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="looking_for"
+              id="looking_for-input"
+              value="players"
+            />Players</label
+          ><label for="looking_for" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="looking_for"
+              id="looking_for-input"
+              value="coaches"
+            />Coaches</label
+          ><label for="looking_for" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="looking_for"
+              id="looking_for-input"
+              value="clubs"
+            />Clubs</label
+          ><label for="looking_for" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="looking_for"
+              id="looking_for-input"
+              value="events and competitions"
+            />Events and Competitions</label
+          ><label for=" looking_for" class="flex gap-2 text-sm"
+            ><input
+              checked
+              type="checkbox"
+              name="looking_for"
+              id="looking_for-input"
+              value="facilities"
+            />Facilities</label
+          ><label for=" looking_for" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="looking_for"
+              id="looking_for-input"
+              value="special"
+            />Special Offers and Deals</label
+          >
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+        >
+          <h4 class="text-[#0c5060]">Sport</h4>
+          <input
+            type="text"
+            placeholder="Search ..."
+            class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full"
+          /><label for="sports" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="sports"
+              id="sports-input"
+              value="american-football"
+            />American Football</label
+          ><label for="sports" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="sports"
+              id="sports-input"
+              value="badminton"
+            />Badminton</label
+          ><label for="sports" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="sports"
+              id="sports-input"
+              value="baseball"
+            />Baseball</label
+          ><label for="sports" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="sports"
+              id="sports-input"
+              value="basketball"
+            />Basketball</label
+          ><label for=" sports" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="sports"
+              id="sports-input"
+              value="beach-volleyball"
+            />Beach Volleyball</label
+          ><label for=" sports" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="sports"
+              id="sports-input"
+              value="boxing"
+            />Boxing</label
+          ><button
+            class="text-end text-[#0c5060] text-sm font-semibold absolute right-3 bottom-2"
+          >
+            See More
+          </button>
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+        >
+          <h4 class="text-[#0c5060]">Facility Type</h4>
+          <label for="facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="indoor"
+            />Indoor Sports Facilities</label
+          >
+          <div class="flex flex-col items-start gap-2 pl-4">
+            <label for="facility-type" class="flex gap-2 text-sm"
+              ><input
+                type="checkbox"
+                name="facility-type"
+                id="facility-type-input"
+                value="basketball"
+              />Basketball Courts</label
+            >
+            <label for="facility-type" class="flex gap-2 text-sm"
+              ><input
+                type="checkbox"
+                name="facility-type"
+                id="facility-type-input"
+                value="volleyball"
+              />Volleyball Courts</label
+            >
+            <label for="facility-type" class="flex gap-2 text-sm"
+              ><input
+                type="checkbox"
+                name="facility-type"
+                id="facility-type-input"
+                value="badminton"
+              />Badminton Courts</label
+            >
+            <label for="facility-type" class="flex gap-2 text-sm"
+              ><input
+                type="checkbox"
+                name="facility-type"
+                id="facility-type-input"
+                value="football"
+              />Indoor Football Pitch</label
+            >
+          </div>
+          <label for="facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="outdoor"
+            />Outdoor Sports Facilities</label
+          ><label for="facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="aquatic"
+            />Aquatic Sports Facilities</label
+          ><label for="facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="raquet"
+            />Raquet Sports Facilities</label
+          ><label for=" facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="specialized"
+            />Specialized Sport</label
+          ><label for=" facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="recreation"
+            />Recreation Sports Facilities</label
+          >
+          <label for=" facility-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facility-type"
+              id="facility-type-input"
+              value="other"
+            />Other Facilities</label
+          >
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+        >
+          <h4 class="text-[#0c5060]">Location</h4>
+          <input
+            type="text"
+            name="location"
+            placeholder="Type location here"
+            class="text-[#0c5060] text-sm border border-[black] px-3 py-2 rounded-md w-full"
+          />
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+        >
+          <h4 class="text-[#0c5060]">Distance From Me</h4>
+          <input
+            name="distance"
+            type="range"
+            min="0"
+            max="100"
+            placeholder="Miles"
+            class="w-full"
+          />
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+        >
+          <h4 class="text-[#0c5060]">Open To</h4>
+          <label for="openTo" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="openTo"
+              id="openTo-input"
+              value="members"
+            />Members Only</label
+          ><label for="openTo" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="openTo"
+              id="openTo-input"
+              value="public"
+            />Public</label
+          ><label for="openTo" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="openTo"
+              id="openTo-input"
+              value="invitation"
+            />Invitation by Guest</label
+          >
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+        >
+          <h4 class="text-[#0c5060]">Playing Surface</h4>
+          <label for="surface-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="surface-type"
+              id="surface-type-input"
+              value="indoor"
+            />Indoor</label
+          >
+          <label for="surface-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="surface-type"
+              id="surface-type-input"
+              value="outdoor"
+            />Outdoor</label
+          >
+          <label for="surface-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="surface-type"
+              id="surface-type-input"
+              value="aquatic"
+            />Aquatic</label
+          >
+          <label for="surface-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="surface-type"
+              id="surface-type-input"
+              value="specialized"
+            />Specialized Sufaces</label
+          >
+          <label for="surface-type" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="surface-type"
+              id="surface-type-input"
+              value="recreational"
+            />Recreational Surfaces</label
+          >
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+        >
+          <h4 class="text-[#0c5060]">Facilities</h4>
+          <label for="facilities" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facilities"
+              id="facilities-input"
+              value="toilets"
+            />Toilets</label
+          >
+          <label for="facilities" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facilities"
+              id="facilities-input"
+              value="changing-rooms"
+            />Changing Rooms</label
+          >
+          <label for="facilities" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facilities"
+              id="facilities-input"
+              value="floodlights"
+            />Floodlights</label
+          >
+          <label for="facilities" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facilities"
+              id="facilities-input"
+              value="clubhouse"
+            />Clubhouse</label
+          >
+          <label for="facilities" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facilities"
+              id="facilities-input"
+              value="restaurant"
+            />Restaurant</label
+          >
+          <label for="facilities" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facilities"
+              id="facilities-input"
+              value="bar"
+            />Bar</label
+          >
+          <label for="facilities" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facilities"
+              id="facilities-input"
+              value="conference-rooms"
+            />Conference Rooms</label
+          >
+          <label for="facilities" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="facilities"
+              id="facilities-input"
+              value="accomodation"
+            />Accomodation</label
+          >
+        </div>
+        <div
+          class="flex flex-col items-start px-4 py-6 pb-8 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full relative"
+        >
+          <h4 class="text-[#0c5060]">Facility Price Range</h4>
+          <input
+            name="price-range"
+            type="range"
+            min="0"
+            max="100"
+            placeholder="Miles"
+            class="w-full"
+          />
+        </div>
+        <div
+          class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full"
+        >
+          <h4 class="text-[#0c5060]">Event Rating</h4>
+          <label for="rating" class="flex gap-2 text-sm items-center rating"
+            ><input
+              type="checkbox"
+              name="rating"
+              id="rating-input"
+              value="five" /><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ></label>
+          <label for="rating" class="flex gap-2 text-sm items-center rating"
+            ><input
+              type="checkbox"
+              name="rating"
+              id="rating-input"
+              value="four" /><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i
+          ></label>
+          <label for="rating" class="flex gap-2 text-sm items-center rating"
+            ><input
+              type="checkbox"
+              name="rating"
+              id="rating-input"
+              value="three" /><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+          ></label>
+          <label for="rating" class="flex gap-2 text-sm items-center rating"
+            ><input
+              type="checkbox"
+              name="rating"
+              id="rating-input"
+              value="two" /><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i
+          ></label>
+          <label for=" rating" class="flex gap-2 text-sm items-center rating"
+            ><input
+              type="checkbox"
+              name="rating"
+              id="rating-input"
+              value="one" /><i class="fa-solid fa-star"></i
+          ></label>
+        </div>
+        <div
+          class="flex flex-col items-start justify-center px-4 py-6 bg-white card-shadow gap-2 rounded-md text-[#808080] w-full"
+        >
+          <h4 class="text-[#0c5060]">Facility Tags</h4>
+          <label for="tags" class="flex gap-2 text-sm"
+            ><input
+              type="checkbox"
+              name="tags"
+              id="tags-input"
+              value="tag-1"
+            />Tag 1</label
+          ><label for="tags" class="flex gap-2 text-sm">
+            <input
+              type="checkbox"
+              name="tags"
+              id="tags-input"
+              value="tag-2"
+            />Tag 2</label
+          >
+          <label for="tags" class="flex gap-2 text-sm">
+            <input
+              type="checkbox"
+              name="tags"
+              id="tags-input"
+              value="tag-3"
+            />Tag 3</label
+          >
+          <label for="tags" class="flex gap-2 text-sm">
+            <input
+              type="checkbox"
+              name="tags"
+              id="tags-input"
+              value="tag-4"
+            />Tag 4</label
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

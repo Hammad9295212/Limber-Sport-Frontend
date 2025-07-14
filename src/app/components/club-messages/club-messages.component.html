@@ -1,0 +1,243 @@
+<div class="flex w-full bg-[#f7f7f7] font-sans">
+  <div class="flex items-start justify-start w-full pb-4">
+    <div class="h-screen w-20 fixed z-10">
+      <div class="fixed h-screen w-20 gradient-bg left-0 top-0 flex flex-col items-start px-3 justify-start pt-8 gap-2"
+        id="sidebar">
+        <div id="logo" class="pb-4">
+          <img src="../../../assets/logo/logo.png" alt="" id="logo-img" />
+        </div>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Dashboard</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item" [routerLink]="('/club-profile')">
+          <i class="fa-solid fa-house text-lg"></i>
+          <p class="m-0" id="text">Club Page</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item" [routerLink]="('/club-coaches')">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Coaches</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item" [routerLink]="('/club-events')">
+          <i class="fa-solid fa-calendar-days text-lg"></i>
+          <p class="m-0" id="text">Events</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Facilities Rental</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-user text-lg"></i>
+          <p class="m-0" id="text">Club Member</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-people-group text-lg"></i>
+          <p class="m-0" id="text">Teams</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-message text-lg"></i>
+          <p class="m-0" id="text">Messages</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Training Class</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Promotions</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-brands fa-windows text-lg"></i>
+          <p class="m-0" id="text">Gallery</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white" id="item">
+          <i class="fa-solid fa-chart-simple text-lg"></i>
+          <p class="m-0" id="text">Statistics</p>
+        </button>
+
+        <button class="flex items-center gap-2 text-white pt-6" id="item">
+          <i class="fa-solid fa-gear text-lg"></i>
+          <p class="m-0" id="text">Settings</p>
+        </button>
+      </div>
+    </div>
+
+    <div class="w-full grid grid-cols-12 px-8 pt-4 gap-6 pl-28 relative">
+      <div class="col-span-full flex items-center justify-between text-start max-sm:flex-col">
+        <h2 class="text-pink-500 w-fit max-sm:w-full font-semibold">Messages</h2>
+        <div class="flex gap-2 items-center w-fit max-sm:w-full relative">
+          <div class="bg-white rounded-lg text-[#7794fd] px-2 whitespace-nowrap">
+            <input class="bg-inherit border-none rounded-lg px-2 py-2 w-40 max-sm:w-11/12" placeholder="Search" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <button *ngIf="!isDropdownOpen" class="rounded-full font-semibold grad-btn w-9 h-9"
+            (click)="handleDropdown('open')">
+            +
+          </button>
+          <button *ngIf="isDropdownOpen" class="rounded-full font-semibold bg-[#f95eb3] text-white w-9 h-9"
+            (click)="handleDropdown('close')">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <div *ngIf="isDropdownOpen"
+            class="absolute bg-white text-[#808080] flex flex-col px-4 py-3 gap-2 items-start top-10 right-0 w-fit z-[999999] shadow-class rounded-md">
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-user"></i>New Member
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-calendar-plus"></i>New Event
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-regular fa-paper-plane"></i>Invite Member
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-circle-play"></i>Training Class
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-message"></i>New Message
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-building"></i>New Facility
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-clover"></i>New Lead
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-briefcase"></i>New Promotion
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-image"></i>News/Blog Post
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-people-group"></i>New Team
+            </button>
+            <button class="flex gap-3 items-center hover:text-[#f95eb3] transition-colors">
+              <i class="fa-solid fa-user"></i>New Coach
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-span-full w-full grid grid-cols-3 rounded-md overflow-hidden">
+        <div class="col-span-1 w-full grid grid-cols-1 bg-white max-sm:col-span-full" *ngIf="isContactsOpen">
+          <div
+            class="col-span-full w-full flex items-start justify-around p-3 gap-2 cursor-pointer hover:bg-[#f4f3f3] h-fit"
+            (click)="handleChangeDialogBox('message')">
+            <span class="flex items-center justify-cente">
+              <span class="grad-btn rounded-full flex items-center justify-center w-14 h-14 text-xl">
+                <i class="fa-solid fa-user"></i>
+              </span>
+            </span>
+            <span class="text-[#0c5060]">
+              <h5 class="font-semibold">Sybil Chen</h5>
+              <p class="text-sm m-0">What is going on with you ?</p>
+            </span>
+            <span class="text-[#808080]">1h ago</span>
+          </div>
+
+        </div>
+
+        <div class="col-span-2 w-full grid grid-cols-1 bg-white border-l max-sm:col-span-full"
+          *ngIf="isMessageOpen">
+          <div class="col-span-full w-full flex flex-col items-start justify-around gap-2">
+            <div class="w-full flex items-center justify-between py-2 bg-[#f4f3f3] px-3">
+              <div class="flex items-center gap-2">
+                <span class="text-[#808080] sm:hidden">
+                  <i class="fa-solid fa-arrow-left cursor-pointer" (click)="handleChangeDialogBox('contacts')"></i>
+                </span>
+                <span class="grad-btn rounded-full flex items-center justify-center w-10 h-10 text-xl">
+                  <i class="fa-solid fa-user"></i>
+                </span>
+                <span class="text-[#0c5060]">
+                  <p class="font-semibold text-lg m-0">Sybil Chen</p>
+                  <p class="text-sm m-0 text-[#808080] flex items-center gap-2"><i
+                      class="fa-solid fa-circle text-xs text-green-500"></i>Online</p>
+                </span>
+              </div>
+              <div class="flex items-center relative text-3xl">
+                <i class="fa-solid fa-ellipsis-vertical cursor-pointer grad-txt" (click)="toggleItemOptions()"></i>
+                <div *ngIf="isOptionsOpen"
+                  class="absolute right-0 top-10 z-50 w-40 bg-white text-[#0c5060] rounded-md shadow-lg flex flex-col items-start py-1 text-sm">
+                  <button class="font-medium px-4 py-2 no-underline hover:text-[#EC3899] transition-colors">
+                    Archive Message
+                  </button>
+                  <button class="font-medium px-4 py-2 no-underline hover:text-[#EC3899] transition-colors">
+                    Delete Message
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full flex flex-col px-4 py-6 gap-4">
+              <div class="flex items-start gap-2 w-8/12 max-md:w-10/12 text-white">
+                <span class="bg-[#808080] rounded-full flex items-center justify-center w-10 h-10 px-3 text-xl">
+                  <i class="fa-solid fa-user"></i>
+                </span>
+                <span class="bg-[#808080] p-3 rounded-md">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus ratione fugiat qui iste quis veniam
+                  deleniti dolorum accusantium et, officia nostrum tenetur aut magni
+                </span>
+              </div>
+
+              <div class="flex self-end items-start gap-2 w-8/12 max-md:w-10/12 text-white">
+                <span class="bg-[#fa5994] p-3 rounded-md">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus ratione fugiat qui iste quis veniam
+                  deleniti dolorum accusantium et, officia nostrum tenetur aut magni
+                </span>
+                <span class="bg-[#fa5994] rounded-full flex items-center justify-center w-10 h-10 px-3 text-xl">
+                  <i class="fa-solid fa-user"></i>
+                </span>
+              </div>
+
+              <div class="flex items-center justify-center w-full text-[#0c5060]">
+                Today, 9:30 AM
+              </div>
+
+              <div class="flex items-start gap-2 w-8/12 max-md:w-10/12 text-white">
+                <span class="bg-[#808080] rounded-full flex items-center justify-center w-10 h-10 px-3 text-xl">
+                  <i class="fa-solid fa-user"></i>
+                </span>
+                <span class="bg-[#808080] p-3 rounded-md">
+                  Lorem ipsum dolor
+                </span>
+              </div>
+            </div>
+
+            <div class="w-full flex items-center justify-between py-3 bg-[#f4f3f3] px-3 gap-2">
+              <span class="flex items-center bg-white rounded-md overflow-hidden w-full">
+                <input type="text" placeholder="New Message"
+                  class="text-[#0c5060] px-4 w-full rounded-md bg-white py-2">
+                <button class="bg-[#fa5994] px-3 text-white py-2">
+                  <i class="fa-solid fa-arrow-up "></i>
+                </button>
+              </span>
+              <span class="flex items-center justify-center text-[#808080] text-2xl">
+                <i class="fa-solid fa-face-grin cursor-pointer"></i>
+              </span>
+              <span class="flex items-center justify-center text-[#808080] text-2xl">
+                <i class="fa-solid fa-image cursor-pointer"></i>
+              </span>
+              <span class="flex items-center justify-center text-[#808080] text-2xl">
+                <i class="fa-solid fa-paperclip cursor-pointer"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

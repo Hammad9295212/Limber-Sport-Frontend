@@ -1,0 +1,64 @@
+<!--
+<ngb-carousel [interval]="15000" [pauseOnHover]="pauseOnHover"
+              [pauseOnFocus]="pauseOnFocus" [showNavigationIndicators]="showNavigationIndicators"
+              [wrap]="wrap" (slide)="onSlide($event)">
+  <ng-template ngbSlide *ngFor="let item of backupdata">
+    <div class="grid grid-cols-12 w-full gap-4"
+
+    >
+      <div
+        class="testimonial-block-one col-span-4 max-md:col-span-6 pb-20 max-sm:col-span-full">
+        <h3>titlooooo</h3>
+        <p>description00000000</p>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
+-->
+
+
+<ngb-carousel #carousel [interval]="15000" [pauseOnHover]="pauseOnHover"
+              [pauseOnFocus]="pauseOnFocus" [showNavigationIndicators]="showNavigationIndicators"
+              [wrap]="wrap" (slide)="onSlide($event)">
+
+  <ng-template ngbSlide *ngFor="let item of backupdata">
+    <div class="grid grid-cols-12 w-full gap-4">
+      <div
+        *ngFor="let review of item?.nestedData"
+        class="testimonial-block-one col-span-4 max-md:col-span-6 pb-20 max-sm:col-span-full">
+        <div class="inner-box">
+          <div class="w-full flex items-center gap-2 justify-center rating text-lg mb-6">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </div>
+          <div class="text">
+            <div class="icon" style="background-image: url(assets/review/quote-1.png);">
+            </div>
+            <p class="quote">
+              {{ review?.quote ? (review?.quote?.length > 250 ? (review?.quote?.substr(0, 250) + '...') : review?.quote) : '' }}
+            </p>
+          </div>
+
+          <!-- <div class="text">
+             <div class="icon" style="background-image: url(assets/review/quote-1.png);">
+             </div>
+             <p>
+               {{ review?.quote ? (review?.quote?.length > 250 ? (review?.quote?.substr(0, 250) + '...') : review?.quote) : '' }}
+             </p>
+           </div>-->
+          <div class="author-box">
+            <h4 class="text-[#0c5060] truncate">{{ review?.author }}</h4>
+            <span class="designation text-[#808080] truncate">{{ review?.company }}</span>
+            <span class="designation text-[#808080] truncate">{{ review?.designation }}</span>
+            <figure class="thumb-box"><img src="{{ review?.image }}" alt="">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+</ngb-carousel>
